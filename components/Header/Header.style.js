@@ -3,21 +3,28 @@ import styled from 'styled-components';
 export const Header = styled.div`
   position: sticky;
   width: 100vw;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   top: 0;
   z-index: 99;
   background-color: #FAFAFA;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   
-  .LogoMiolo{
+  >.LogoMiolo{
+    grid-area: logo;
     width: 45px;
     height: auto;
+
     @media screen{
       @media(min-width: 1024px){
-        width: 55px;
-
+        display: none;
       }
+    }
+  }
+
+  @media screen{
+    @media (min-width: 1024px){
+
     }
   }
 `
@@ -72,13 +79,19 @@ export const HeaderMenuContainer = styled.div`
   padding: 20px;
   transform: translateX(${({isOpen}) => isOpen ? 0 : '-320px'});
   transition: .6s ease;
+  display: grid;
+  grid-template-areas: ${`
+    "logo headerNav search"
+  `};
+  grid-template-columns: auto auto auto;
+  grid-gap: 10px 20px;
 
     @media screen{
       @media (min-width: 1024px){
         position: initial;
         background-color: initial;
-        width: initial;
-        max-width: initial;
+        /* width: initial;
+        max-width: initial; */
         height: initial;
         padding: initial;
         transform: initial;
@@ -86,8 +99,7 @@ export const HeaderMenuContainer = styled.div`
         /* display: grid; */
         align-items: center;
         grid-template-areas: ${`
-          "welcome search address"
-          "nav nav nav"
+          "hamburguer logo search"
         `};
         grid-template-columns: auto 1fr auto;
         grid-gap: 10px 20px;
@@ -95,5 +107,5 @@ export const HeaderMenuContainer = styled.div`
     }
 `
 export const Search = styled.img`
-
+  grid-area: search;
 `

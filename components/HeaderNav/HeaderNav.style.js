@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const HeaderNav = styled.ul`
+  grid-area: headerNav;
   width: 80%;
   list-style: none;
   justify-content: space-around;
