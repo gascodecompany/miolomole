@@ -197,6 +197,7 @@ export const SearchField = styled.div`
   input {
     background-color: ${({ theme: { color: { white }}}) => white };
     border-radius: 50px;
+    /* width: auto; */
     max-width: 35px;
     transition: .3s ease;
     font-size: 12px;
