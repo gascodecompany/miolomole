@@ -15,11 +15,15 @@ export const HeaderNav = styled.ul`
   }
 `
 export const NavItem = styled.li`
-  font-family: 'Montserrat';
-  font-weight: 600;
-  font-size: 16px;
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: 15px;
 
   text-align: center;
 
   color: #474747;
+
+  @media (min-width: 1024px){
+
+  }
 `

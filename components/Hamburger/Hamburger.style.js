@@ -21,8 +21,8 @@ export const StyledHamburgerBread = styled.div`
   display: flex;
   align-items: center;
   position: relative;
-  width: 30px;
-  height: 30px;
+  width: ${({isOpen}) => isOpen ? '20px' : '30px'};
+  height: ${({isOpen}) => isOpen ? '20px' : '30px'};
 `
 
 export const StyledHamburgerMeat = styled.div`
@@ -38,7 +38,7 @@ export const StyledHamburgerMeat = styled.div`
     display: block;
     width: 100%;
     height: 2px;
-    background-color: ${({isOpen}) => isOpen ? 'transparent' : 'black'};
+    background-color: ${({isOpen}) => isOpen ? 'black' : 'black'};
     border-radius: 2px;
     transition: transform .5s ease;
   }
