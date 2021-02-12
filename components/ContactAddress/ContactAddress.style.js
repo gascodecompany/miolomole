@@ -16,7 +16,7 @@ export const ContactAddressListItem = styled.li`
     display: flex;
     align-items: center;
     
-    &:after {
+    /* &:after {
       content: '';
       position: absolute;
       bottom: -8px;
@@ -34,7 +34,7 @@ export const ContactAddressListItem = styled.li`
         max-width: 100%;
         transition: .3s ease;
       }
-    }
+    } */
   }
 
   @media (min-width: 1024px){

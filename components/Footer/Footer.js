@@ -2,6 +2,7 @@ import Logo from '../../images/js/Logo-miolo';
 import ContactAddress from '../ContactAddress';
 import ContactSocial from '../ContactSocial';
 import Copyright from '../Copyright';
+import FooterNav from '../FooterNav';
 import * as S from './Footer.style';
 
 export default function Footer(){
@@ -12,11 +13,14 @@ export default function Footer(){
       <S.FooterNav>
         <S.FooterNavList>
           <S.FooterNavItem name="logo"><Logo/></S.FooterNavItem>
-          <ContactAddress/>
+          <FooterNav/>
           <ContactSocial/>
         </S.FooterNavList>
       </S.FooterNav>
-      <Copyright/>
+      <S.FooterBottom>
+        <Copyright/>
+        <ContactAddress/>
+      </S.FooterBottom>
     </S.Footer>
     </>
   )

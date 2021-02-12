@@ -14,7 +14,7 @@ export const ContactSocialList = styled.ul`
   display: flex;
 `
 export const ContactSocialListItem = styled.li`
-  margin-right: 30px;
+  margin-left: 30px;
   display: flex;
   align-items: center;
 
