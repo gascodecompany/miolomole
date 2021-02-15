@@ -2,7 +2,7 @@ export const mioloMoleAppTheme = {
   color: {
     brand: '#7DBBB8',
     brandSmoth: '#8AC2BF',
-    brandWhite: '#f9f9f9',
+    brandWhite: '#FAFAFA',
     brandLight: '#758685',
     brandLighter: '#E4E4E4',
     brandDark: '#28A8A2',

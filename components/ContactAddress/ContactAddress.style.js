@@ -55,12 +55,13 @@ export const ContactAddressListItem = styled.li`
 `
 
 export const Label = styled.span`
-  font-size: ${({ theme: { fontSize: { fontSizeXXS }}}) => fontSizeXXS};
-  font-weight: ${({ theme: { fontWeight: { fontWeightMedium }}}) => fontWeightMedium};
-  text-transform: capitalize;
-  color: ${({ theme: { color: { blackMedium }}}) => blackMedium };
-  letter-spacing: -0.3px;
-  line-height: 18px;
-  position: relative;
-  width: max-content;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 19px;
+  display: flex;
+  align-items: flex-end;
+  color: ${({ theme: { color: { blackDark }}}) => blackDark };
+
 `

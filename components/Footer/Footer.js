@@ -3,6 +3,7 @@ import ContactAddress from '../ContactAddress';
 import ContactSocial from '../ContactSocial';
 import Copyright from '../Copyright';
 import FooterNav from '../FooterNav';
+import Container from '../Container'
 import * as S from './Footer.style';
 
 export default function Footer(){
@@ -10,17 +11,22 @@ export default function Footer(){
   return(
     <>
     <S.Footer>
-      <S.FooterNav>
-        <S.FooterNavList>
-          <S.FooterNavItem name="logo"><Logo/></S.FooterNavItem>
-          <FooterNav/>
-          <ContactSocial/>
-        </S.FooterNavList>
-      </S.FooterNav>
-      <S.FooterBottom>
-        <Copyright/>
-        <ContactAddress/>
-      </S.FooterBottom>
+      <Container>
+
+        <S.FooterNav>
+          <S.FooterNavList>
+            <S.FooterNavItem name="logo"><Logo/></S.FooterNavItem>
+            <FooterNav/>
+            <ContactSocial/>
+          </S.FooterNavList>
+        </S.FooterNav>
+
+        <S.FooterBottom>
+          <Copyright/>
+          <ContactAddress/>
+        </S.FooterBottom>
+        
+      </Container>
     </S.Footer>
     </>
   )

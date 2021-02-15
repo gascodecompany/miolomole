@@ -12,20 +12,25 @@ export const ContactSocial = styled.li`
 
 export const ContactSocialList = styled.ul`
   display: flex;
+  padding-inline-start: 0;
+  justify-content: center;
+  justify-content: space-between;
+  width: 180px;
+  margin: 0 auto;
+
 `
 export const ContactSocialListItem = styled.li`
-  margin-left: 30px;
   display: flex;
   align-items: center;
-
+  
   path {
-    fill: ${({ theme: { color: { brand }}}) => brand };
+    fill: ${({ theme: { color: { blackLight }}}) => blackLight };
     transition: .3s ease;
   }
 
   &:hover{
     path{
-      fill: ${({ theme: { color: { blackLight }}}) => blackLight };
+      fill: ${({ theme: { color: { brand }}}) => brand };
     }
   }
 `

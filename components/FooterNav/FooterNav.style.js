@@ -6,7 +6,8 @@ export const FooterNav = styled.ul`
   list-style: none;
   justify-content: space-around;
   display: none;
-  
+  color: #474747;
+
   @media screen{
     @media (min-width: 1024px){
       display: flex;
@@ -23,8 +24,6 @@ export const NavItem = styled.li`
   /* identical to box height, or 100% */
 
   text-align: center;
-
-  color: #474747;
 
   @media (min-width: 1024px){
 

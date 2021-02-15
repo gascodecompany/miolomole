@@ -6,7 +6,13 @@ export const HeaderNav = styled.ul`
   list-style: none;
   justify-content: space-around;
   display: none;
-  
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: 15px;
+
+  text-align: center;
+
+  color: #474747;
   @media screen{
     @media (min-width: 1024px){
       display: flex;
