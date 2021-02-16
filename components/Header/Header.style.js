@@ -4,8 +4,7 @@ import styled from 'styled-components';
 
 export const Header = styled.div`
   position: sticky;
-  background: white;
-  /* border-bottom: 1px solid ${({ theme: { color: { grayLighter }}}) => grayLighter }; */
+  background-color: ${({ theme: { color: { brandWhite }}}) => brandWhite };
   width: 100vw;
   display: flex;
   justify-content: space-between;
@@ -99,7 +98,7 @@ export const HeaderMenuContainer = styled.section`
     left: 15px;
     width: 43px;
     right: 0;
-    /* grid-area: logo-miolo; */
+    grid-area: logo-miolo;
     > svg {
       /* margin-bottom: 20px; */
     }
@@ -139,13 +138,13 @@ export const HeaderMenuContainer = styled.section`
       padding: initial;
       transform: initial;
       transition: initial;
-      display: grid;
+      /* display: grid;
       align-items: center;
       grid-template-areas: ${`
         "logo-miolo headerNav search"
       `};
       grid-template-columns: auto 80vw 30px;
-      grid-gap: 10px 20px;
+      grid-gap: 10px 20px; */
 
       >.logo-miolo {
         display: none;

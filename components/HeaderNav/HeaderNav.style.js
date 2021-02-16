@@ -9,6 +9,7 @@ export const HeaderNav = styled.ul`
   font-family: Montserrat;
   font-weight: 500;
   font-size: 15px;
+  cursor: pointer;
 
   text-align: center;
 
@@ -16,6 +17,7 @@ export const HeaderNav = styled.ul`
   @media screen{
     @media (min-width: 1024px){
       display: flex;
+      max-width: 1030px;
 
     }
   }
