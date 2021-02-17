@@ -8,7 +8,6 @@ export const FooterNav = styled.ul`
   display: none;
   color: #474747;
   font-family: Roboto;
-  cursor: pointer;
 
   /* font-style: normal; */
   font-weight: 400;
@@ -33,6 +32,7 @@ export const NavItem = styled.li`
   line-height: 16px;
   /* identical to box height, or 100% */
   text-align: center;
+  cursor: pointer;
 
   @media (min-width: 1024px){
     font-family: Roboto;

@@ -9,7 +9,6 @@ export const HeaderNav = styled.ul`
   font-family: Montserrat;
   font-weight: 500;
   font-size: 15px;
-  cursor: pointer;
 
   text-align: center;
 
@@ -28,6 +27,7 @@ export const NavItem = styled.li`
   font-size: 15px;
 
   text-align: center;
+  cursor: pointer;
 
   color: #474747;
 
