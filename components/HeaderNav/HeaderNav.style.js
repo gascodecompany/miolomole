@@ -22,6 +22,11 @@ export const HeaderNav = styled.ul`
   }
   li{
     cursor: pointer;
+    
+    :hover{
+      font-weight: 600;
+      color: #00A79D;
+    }
   }
 `
 export const NavItem = styled.li`
