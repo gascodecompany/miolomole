@@ -33,6 +33,7 @@ export const HomeJumbotronContainer = styled.div`
 export const HomeJumbotron = styled.div`
   background-image: url(${({ img }) => img });
   height: 400px;
+  background-size: cover;
   background-repeat: no-repeat;
   border-bottom: 3px solid #898F9B;
 
