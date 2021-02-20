@@ -1,5 +1,5 @@
 export const HomeLatestArticlesFieldsState = ({
-  email: { value: 'seu e-mail' },
+  email: { value: '' },
 })
 
 export const HomeLatestArticlesFunction = ({fields, setFields}) => ({

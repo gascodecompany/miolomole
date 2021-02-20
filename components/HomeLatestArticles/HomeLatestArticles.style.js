@@ -50,6 +50,12 @@ export const LastestRegister = styled.div`
     font-size: 16px;
     color: #FFFCF8;
 
+    &::placeholder {
+    font-family: Montserrat;
+    font-weight: 500;
+    font-size: 16px;
+    color: #FFFCF8;
+    }
   }
   >button{
     width: 140px;

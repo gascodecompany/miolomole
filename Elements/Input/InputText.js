@@ -2,7 +2,7 @@ import React from 'react';
 import { inputChange } from '../../helpers/fieldFunctions';
 import * as S from './Input.style';
 
-export default function InputText({ onChange, setFields, ...props }) {
+export default function InputText({ placeholder, onChange, setFields, ...props }) {
   return (
     <S.InputText
       {...props}
@@ -11,6 +11,8 @@ export default function InputText({ onChange, setFields, ...props }) {
         : inputChange({ target, setFields })
       )}
       maskChar=""
+      placeholder={placeholder}
+
     />
   );
 }
