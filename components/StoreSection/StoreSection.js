@@ -5,8 +5,6 @@ import lojaTwoBg from '../../images/lojaImgTwo.jpg'
 import partnerOneLogo from '../../images/partnerOneLogo.png' 
 import parser from 'html-react-parser'
 
-export default function StoreSection(){
-
 const partnersItems = [
   {
     name: 'Parceiro1',
@@ -22,6 +20,8 @@ const partnersItems = [
   }
 ]
 
+export default function StoreSection(){
+  
  return(
     <S.StoreSectionContainer>
       <Container>

@@ -42,4 +42,9 @@ export const NavItem = styled.li`
   @media (min-width: 1024px){
 
   }
+
+  :hover{
+    font-weight: 600;
+    color: #00A79D;
+  }
 `

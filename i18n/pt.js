@@ -7,7 +7,7 @@ export default {
   ADDRESS: {
     ICON: 'Address',
     LABEL: 'Rua Vergueiro, nº 3307. Conjunto 3 - Vila Mariana',
-    HREF: 'https://bit.ly/3bSmWOb',
+    HREF: 'https://goo.gl/maps/acsgVEdezBXKSkQR6',
   },
   COPYRIGHT: 'Copyright © 2021 Editora Miolo Mole. Todos os direitos reservados',
 }

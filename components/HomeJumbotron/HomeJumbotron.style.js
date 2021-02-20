@@ -1,9 +1,64 @@
 import styled from 'styled-components';
-import homeJumbotron from '../../images/icons/bg-home.jpg'
 
 export const HomeJumbotronContainer = styled.div`
-  background-image: url(${homeJumbotron});
   width: 100vw;
+  .slick-dots{
+    ul{
+      margin: 0px;
+      list-style-type: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      li{
+        width: 170px;
+        bottom: 15px;
+        padding-bottom: 30px;
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        letter-spacing: 2.4px;
+        color: #FFFFFF;
+        display: flex;
+
+        &.slick-active{
+          border-bottom: 3px solid #FECA30;
+        }  
+      }
+    }
+  }
+  
+`
+export const HomeJumbotron = styled.div`
+  background-image: url(${({ img }) => img });
   height: 400px;
   background-repeat: no-repeat;
+  border-bottom: 3px solid #898F9B;
+
+  .container{
+    display: flex;
+    align-items: flex-start;
+  }
+ 
+`
+export const Description = styled.div`
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 2.4px;
+
+  color: #FFFFFF;
+`
+export const HomeJumboTitle = styled.div`
+  font-family: Arvo;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+  color: #FFFFFF;
+  margin-left: 30px;
+
+`
+export const HomeJumbotronNav = styled.div`
+
 `
