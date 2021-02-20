@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import homeApresentationImg from '../../images/homeApresentationImg.jpg'
 
 export const HomeApresentation = styled.div`
+  
   .container{
     flex-direction: row;
   }
@@ -32,7 +33,8 @@ line-height: 55px;
 display: flex;
 align-items: flex-end;
 letter-spacing: 2.4px;
-
+width: 90%;
+margin-bottom: 30px;
 color: #000000;
 `
 export const HomeApresentationText = styled.div`
@@ -41,4 +43,6 @@ font-weight: 500;
 font-size: 18px;
 line-height: 28px;
 color: #000000;
+width: 90%;
+
 `

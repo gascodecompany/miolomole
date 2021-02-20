@@ -2,30 +2,34 @@ import styled from 'styled-components';
 
 export const HeaderNav = styled.ul`
   grid-area: headerNav;
-  width: 80%;
+  width: 60%;
   list-style: none;
   justify-content: space-around;
   display: none;
   font-family: Montserrat;
   font-weight: 500;
   font-size: 15px;
-
   text-align: center;
 
   color: #474747;
   @media screen{
     @media (min-width: 1024px){
       display: flex;
+      margin: auto;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
       max-width: 1030px;
 
     }
   }
   li{
+    letter-spacing: 0.13px;
     cursor: pointer;
-    
     :hover{
       font-weight: 600;
       color: #00A79D;
+      letter-spacing: 0;
+
     }
   }
 `
@@ -38,13 +42,15 @@ export const NavItem = styled.li`
   cursor: pointer;
 
   color: #474747;
+  letter-spacing: 0.13px;
 
   @media (min-width: 1024px){
 
   }
-
-  :hover{
-    font-weight: 600;
-    color: #00A79D;
+    cursor: pointer;
+    :hover{
+      font-weight: 600;
+      color: #00A79D;
+      letter-spacing: 0;
   }
 `

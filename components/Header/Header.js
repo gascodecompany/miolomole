@@ -20,8 +20,8 @@ export default function Header(){
 
   return(
     <S.Header>
-      <LogoMiolo/>
       <Container>
+      <LogoMiolo/>
         <Hamburger isOpen={menuIsOpen} toggle={setMenuIsOpen} />
         <S.HeaderMenu isOpen={menuIsOpen} onClick={() => setMenuIsOpen(!menuIsOpen)}>
           <S.HeaderMenuContainer isOpen={menuIsOpen} onClick={(e) => e.stopPropagation()}>
