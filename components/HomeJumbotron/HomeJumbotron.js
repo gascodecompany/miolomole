@@ -29,6 +29,8 @@ const settings = {
   speed: 500,
   arrows: false,
   slidesToShow: 1,
+  autoplay: true,
+  autoplaySpeed: '30',
   appendDots: dots => (
     <div
       style={{
