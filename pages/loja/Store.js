@@ -1,9 +1,10 @@
+import StoreJumbotron from "../../components/StoreJumbotron";
 
 export default function Store(){
 
  return(
-    <div>
-      Store
-    </div>
+    <>
+      <StoreJumbotron/>
+    </>
   )
 }
