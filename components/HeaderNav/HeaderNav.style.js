@@ -20,6 +20,9 @@ export const HeaderNav = styled.ul`
 
     }
   }
+  li{
+    cursor: pointer;
+  }
 `
 export const NavItem = styled.li`
   font-family: Montserrat;

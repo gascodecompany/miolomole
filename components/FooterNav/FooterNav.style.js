@@ -23,6 +23,9 @@ export const FooterNav = styled.ul`
 
     }
   }
+  li{
+    cursor: pointer;
+  }
 `
 export const NavItem = styled.li`
   font-family: Roboto;
