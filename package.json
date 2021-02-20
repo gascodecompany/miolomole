@@ -8,11 +8,20 @@
     "start": "next start"
   },
   "dependencies": {
+    "html-react-parser": "^1.2.4",
     "i18next": "^19.8.7",
     "next": "10.0.6",
+    "next-images": "^1.7.0",
+    "polished": "^4.1.0",
+    "rc-slider": "^9.7.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-i18next": "^9.0.10",
+    "react-inlinesvg": "^2.2.2",
+    "react-input-mask": "^2.0.4",
+    "react-select": "^4.1.0",
+    "react-sortable-hoc": "^1.11.0",
+    "react-switch": "^6.0.0",
     "styled-components": "^5.2.1"
   }
 }
