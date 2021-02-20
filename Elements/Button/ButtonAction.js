@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import Spinner from '../../Components/Spinner';
+import Spinner from '../../components/Spinner';
 import { StyledButtonAction } from './Button.style';
 
 export const ButtonAction = forwardRef((props, ref) => {
