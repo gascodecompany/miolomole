@@ -65,4 +65,51 @@ export const ContactAdress = styled.div`
 export const ContactForm = styled.div`
   display: flex;
   flex-direction: column;
+  width: 45%;
+  align-items: flex-end;
+
+  textarea{
+    margin-bottom: 20px;
+    background: #F6F6F6;
+    border: 1px solid #DEDEDE;
+    margin-top: 0px;
+    font-family: Open Sans;
+    font-weight: 500;
+    font-size: 14px;
+  }
+  >input{
+    margin-bottom: 20px;
+    border-bottom: none;
+    font-family: Montserrat;
+    font-weight: 500;
+    padding: 15px 20px;
+    font-size: 16px;
+    color: #212121;
+    background: #F6F6F6;
+    border: 1px solid #DEDEDE;
+    box-sizing: border-box;
+    border-radius: 5px;
+
+    &::placeholder {
+      font-family: Open Sans;
+      font-weight: 500;
+      font-size: 14px;
+      /* color: #FFFCF8; */
+    }
+  }
+  
+  button{
+    padding: 17px;
+    text-transform: capitalize;
+    font-family: Montserrat;
+    font-weight: bold;
+    font-size: 16px;
+    letter-spacing: 2.4px;
+    color: #FFFFFF;
+    width: 150px;
+    background: #FFCB05;
+    border-radius: 100px;
+    border: none;
+    color: white;
+  }
 `
