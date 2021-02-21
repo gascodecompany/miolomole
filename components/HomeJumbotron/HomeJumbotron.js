@@ -35,7 +35,6 @@ const settings = {
     <div
       style={{
         backgroundColor: "transparent",
-        borderRadius: "10px",
         padding: "10px"
       }}
     >

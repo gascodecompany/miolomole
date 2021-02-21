@@ -110,9 +110,9 @@ export const HeaderMenuContainer = styled.section`
     height: fit-content;
     display: block;
     top: 40px;
-    /* display: none; */
+    display: none;
     >input{
-      max-width: 100%;
+      max-width: 0%;
       background: ${({ theme: { color: { grayLight }}}) => grayLight};
       
       &:focus {
@@ -157,6 +157,8 @@ export const HeaderMenuContainer = styled.section`
         position: absolute;
         top: 20px;
         right: 20px;
+        justify-content: flex-end;
+
 
         >input {
           background-color: ${({ theme: { color: { whiteLight }}}) => whiteLight };
@@ -166,7 +168,7 @@ export const HeaderMenuContainer = styled.section`
           border: none;
           outline: none;
           padding: 8px 30px 8px 16px;
-          max-width: unset;
+          /* max-width: unset; */
         }
       }
 
@@ -196,19 +198,20 @@ export const SearchField = styled.div`
   position: relative;
   height: fit-content;
   input {
-    background-color: ${({ theme: { color: { white }}}) => white };
+    background-color: transparent;
     border-radius: 50px;
     /* width: auto; */
     max-width: 35px;
     transition: .3s ease;
-    font-size: 12px;
+    font-size: 14px;
     border: none;
     outline: none;
     padding: 8px 30px 8px 16px;
 
+
     &:focus {
       max-width: 30vw;
-      background-color: ${({ theme: { color: { whiteLight }}}) => whiteLight };
+      background-color: ${({ theme: { color: { brandLighter }}}) => brandLighter };
     }
   }
 
