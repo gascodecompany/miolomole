@@ -129,7 +129,7 @@ export const HeaderMenuContainer = styled.section`
     width: auto;
     /* height: auto; */
   }
-
+  
   @media screen{
     @media (min-width: 1024px){
       position: initial;
@@ -192,6 +192,7 @@ export const HeaderMenuContainer = styled.section`
       }
     }
   }
+  
 `
 export const SearchField = styled.div`
   grid-area: search;

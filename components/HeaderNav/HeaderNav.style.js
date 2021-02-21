@@ -5,15 +5,21 @@ export const HeaderNav = styled.ul`
   width: 60%;
   list-style: none;
   justify-content: space-around;
-  display: none;
+  /* display: none; */
   font-family: Montserrat;
   font-weight: 500;
   font-size: 15px;
   text-align: center;
-
+  margin: 0 auto;
+  width: 100%;
+  padding: 0;
+  top: 60px;
+  position: relative;
   color: #474747;
   @media screen{
     @media (min-width: 1024px){
+      position: unset;
+      width: 60%;
       display: flex;
       margin: auto;
       margin-block-start: 1em;
@@ -37,7 +43,7 @@ export const NavItem = styled.li`
   font-family: Montserrat;
   font-weight: 500;
   font-size: 15px;
-
+  margin-bottom: 10px;
   text-align: center;
   cursor: pointer;
 
@@ -45,6 +51,7 @@ export const NavItem = styled.li`
   letter-spacing: 0.13px;
 
   @media (min-width: 1024px){
+    margin-bottom: 0;
 
   }
     cursor: pointer;

@@ -6,4 +6,7 @@ export const StoreJumbotronContainer = styled.div`
   width: 100vw;
   height: 400px;
   background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
 `

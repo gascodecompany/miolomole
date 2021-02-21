@@ -36,6 +36,8 @@ export const HomeJumbotron = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   border-bottom: 3px solid #898F9B;
+  background-position: center;
+
 
   .container{
     display: flex;
