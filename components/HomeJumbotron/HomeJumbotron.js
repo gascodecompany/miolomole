@@ -1,5 +1,6 @@
 import * as S from './HomeJumbotron.style';
 import homeJumbotron from '../../images/icons/bg-home.jpg';
+import homeJumbotron2 from '../../images/jumbotronQuem.jpg';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
@@ -18,7 +19,7 @@ const itemsJumbotron = [
     label: 'Coroa 2',
     description: 'Aqui ficaria outra animações, ilustrações e lançamentos dos livros',
     title: 'Ipson Lorem Ipsum Lorem Ipsum',
-    jumbotron: homeJumbotron,
+    jumbotron: homeJumbotron2,
   }
 ]
 
@@ -27,6 +28,7 @@ const settings = {
   dots: true,
   infinite: true,
   speed: 500,
+  fade: true,
   arrows: false,
   slidesToShow: 1,
   autoplay: true,
