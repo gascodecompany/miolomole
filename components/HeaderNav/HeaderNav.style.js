@@ -28,9 +28,15 @@ export const HeaderNav = styled.ul`
 
     }
   }
-  li{
+  >li{
     letter-spacing: 0.13px;
     cursor: pointer;
+    margin-bottom: 10px;
+
+    @media (min-width: 1024px){
+      margin-bottom: 0;
+    }
+
     :hover{
       font-weight: 600;
       color: #00A79D;
@@ -43,12 +49,12 @@ export const NavItem = styled.li`
   font-family: Montserrat;
   font-weight: 500;
   font-size: 15px;
-  margin-bottom: 10px;
   text-align: center;
   cursor: pointer;
-
+  
   color: #474747;
   letter-spacing: 0.13px;
+  margin-bottom: 10px;
 
   @media (min-width: 1024px){
     margin-bottom: 0;

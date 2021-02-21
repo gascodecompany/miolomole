@@ -50,7 +50,8 @@ export const Description = styled.div`
   font-weight: 500;
   font-size: 12px;
   letter-spacing: 2.4px;
-
+  line-height: 2;
+  margin-bottom: 30px;
   color: #FFFFFF;
 `
 export const HomeJumboTitle = styled.div`

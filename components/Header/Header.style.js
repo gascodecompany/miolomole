@@ -12,7 +12,7 @@ export const Header = styled.div`
   top: 0;
   z-index: 99;
 
-  .logo-miolo {
+  >.logo-miolo {
     /* display: flex;
     align-items: center; */
     position: absolute;
@@ -55,7 +55,7 @@ export const Header = styled.div`
   }
 `
 export const HeaderMenu = styled.section`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
