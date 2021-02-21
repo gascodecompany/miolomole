@@ -22,7 +22,7 @@ export default function ContactSection(){
             <S.Logo img={logoContato}/>
             <S.ContactAdressWrapper>
               <S.ContactTitle>Endereço</S.ContactTitle>
-              <S.ContactAdress>Rua Vergueiro, nº 3307. Conjunto 3 - Vila Mariana<br></br>São Paulo, São Paulo, 04101-300</S.ContactAdress>
+              <S.ContactAdress>Rua Vergueiro, nº 3307. Conjunto 3 - Vila Mariana<br></br>São Paulo - SP - 04101-300</S.ContactAdress>
             </S.ContactAdressWrapper>
           </S.TagContact>
         </S.ContactInfoWrapper>
