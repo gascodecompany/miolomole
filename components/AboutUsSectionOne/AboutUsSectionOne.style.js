@@ -17,6 +17,7 @@ export const SectionOneImages = styled.div`
   border-radius: 8px;
   display: block;
   margin-right: 30px;
+  
   ::after{
     content: '';
     position: absolute;
@@ -26,7 +27,6 @@ export const SectionOneImages = styled.div`
     border-radius: 8px;
     top: -80px;
     left: -42px;
-
   }
 `
 

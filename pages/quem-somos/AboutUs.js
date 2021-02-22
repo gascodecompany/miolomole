@@ -2,6 +2,7 @@ import AboutUsJumbotron from "../../components/AboutUsJumbotron";
 import AboutUsOurHistory from "../../components/AboutUsOurHistory";
 import AboutUsQuote from "../../components/AboutUsQuote";
 import AboutUsSectionOne from "../../components/AboutUsSectionOne";
+import AboutUsSlider from "../../components/AboutUsSlider";
 
 export default function AboutUs(){
 
@@ -11,6 +12,7 @@ export default function AboutUs(){
       <AboutUsOurHistory/>
       <AboutUsQuote/>
       <AboutUsSectionOne/>
+      <AboutUsSlider/>
     </div>
   )
 }
