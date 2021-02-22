@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const AboutUsOurHistory = styled.div`
-  margin-bottom: 130px;
+    margin-bottom: 90px;
 
   .container{
     align-items: end;
@@ -11,9 +11,10 @@ export const AboutUsOurHistory = styled.div`
         padding: 0;
       }
     }
+
     .grayBox{
       width: 325px;
-      height: 515px;
+      height: 475px;
       background: #D8D8D8;
       position: absolute;
       right: -160px;
@@ -29,15 +30,14 @@ export const OurHistoryWrapper = styled.div`
   padding: 50px;
   margin-top: -180px;
   position: relative;
+
   ::before{
     content: '';
     position: absolute;
     width: 40%;
     height: 100%;
     top: 0px;
-
   }
-
 
 `
 
