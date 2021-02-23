@@ -1,3 +1,4 @@
+import AboutUsImagination from "../../components/AboutUsImagination/AboutUsImagination";
 import AboutUsJumbotron from "../../components/AboutUsJumbotron";
 import AboutUsOurHistory from "../../components/AboutUsOurHistory";
 import AboutUsQuote from "../../components/AboutUsQuote";
@@ -13,6 +14,7 @@ export default function AboutUs(){
       <AboutUsQuote/>
       <AboutUsSectionOne/>
       <AboutUsSlider/>
+      <AboutUsImagination/>
     </div>
   )
 }

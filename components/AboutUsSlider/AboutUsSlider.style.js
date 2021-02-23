@@ -62,10 +62,11 @@ export const AboutUsSlider = styled.div`
   }
 
   .slick-dots{
-    bottom: -4px;
+    bottom: -10px;
     z-index: 3;
-    width: auto;
-    left: 40vw;
+    width: 49%;
+    left: 24vw;
+
     @media screen{
       @media (min-width: 1024px){
         bottom: 51px;
@@ -100,15 +101,13 @@ export const AboutUsSlider = styled.div`
     border-bottom: 3px solid #7DBBB8;
     border-left: 3px solid #7DBBB8;
     transform: rotate(45deg);
-    left: 90px;
     bottom: -6px;
     top: unset;
+    left: 20px;
 
     @media screen{
       @media (min-width: 360px){
-        /* left: 72px;
-        top: unset;
-        bottom: -16px; */
+        left: 90px;
       }
       @media(min-width: 375px){
         /* left: 79px; */
@@ -146,19 +145,16 @@ export const AboutUsSlider = styled.div`
     border-bottom: 3px solid #7DBBB8;
     border-right: 3px solid #7DBBB8;
     transform: rotate(-45deg);
-    left: 100px;
     bottom: -6px;
     top: unset;
+    left: 40px;
 
     @media screen{
       @media (min-width: 360px){
-        /* left: 84px;
-        top: unset;
-        bottom: -16px; */
+        left: 100px;
       }
       @media (min-width: 375px){
-        /* left: 95px; */
-        /* top: 410px; */
+
       }
       @media (min-width: 425px){
         left: 140px;
@@ -223,7 +219,7 @@ export const SliderTitle = styled.div`
   font-family: Amatic SC;
   font-style: normal;
   font-weight: bold;
-  font-size: 55px;
+  font-size: 50px;
   line-height: 69px;
   margin-left: 20px;
 
@@ -235,7 +231,7 @@ export const SliderTitle = styled.div`
 export const SliderDescription = styled.div`
   font-family: 'Open Sans';
   font-weight: 600;
-  font-size: 24px;
+  font-size: 22px;
   line-height: 1.4;
   display: flex;
   align-items: center;
@@ -275,11 +271,18 @@ export const SliderCard = styled.div`
 export const CardTitle = styled.div`
   font-family: Montserrat;
   font-weight: 500;
-  font-size: 20px;
   line-height: 35px;
   color: #00A79D;
-  margin-left: 50px;
   margin-bottom: 5px;
+  font-size: 16px;
+  margin-left: 64px;
+  @media screen{
+    @media (min-width: 1024px){
+      font-size: 20px;
+      margin-left: 50px;
+
+    }
+  }
 
 `
 export const SliderCardContainer = styled.div`
@@ -323,10 +326,15 @@ export const CardInfo = styled.div`
 
 export const CardDescription = styled.div`
   font-family: Montserrat;
-  font-size: 14px;
-  line-height: 20px;
   color: #071825;
-
+  font-size: 12px;
+  line-height: 19px;
+  @media screen{
+    @media (min-width: 1024px){
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
 `
 
 export const CarrousselButtons = styled.div`
