@@ -1,6 +1,6 @@
 export const mioloMoleAppTheme = {
   color: {
-    brand: '#7DBBB8',
+    brand: '#00A79D',
     brandSmoth: '#8AC2BF',
     brandWhite: '#FAFAFA',
     brandLight: '#758685',
@@ -17,7 +17,7 @@ export const mioloMoleAppTheme = {
     black: '#121212',
     transparentBlack: '#00000088',
     blackDark: '#1F1F1F',
-    blackMedium: '#424242',
+    blackMedium: '#4A4A4A',
     blackLight: '#7C7C7C',
     blackLighter: '#757575',
     blackLigthly: '#C4C4C4',
@@ -32,9 +32,9 @@ export const mioloMoleAppTheme = {
     errorDark: '#990000',
     errorMedium: '#CC0000',
     warning: '#D77B0A',
-    grayLight: '#C7C7C7',
-    grayLighter: '#BEC8D7',
-    gray: '#F3F3F3',
+    grayLight: '#F8F8F8',
+    grayLighter: '#D8D8D8',
+    gray: '#F7F8F9',
   },
   screen: {
     screenXS: '425px',

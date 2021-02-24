@@ -10,8 +10,42 @@ export default {
     HREF: 'https://goo.gl/maps/acsgVEdezBXKSkQR6',
   },
   COPYRIGHT: 'Copyright © 2021 Editora Miolo Mole. Todos os direitos reservados',
+  BLOG_ARTICLES: [
+    {
+      ID: 1,
+      IMAGE: 'https://via.placeholder.com/485x273',
+      TITLE: 'Lorem Ipsum Lorem Ipsum',
+      TEXT: 'Teste Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum.',
+      CREATED_AT: '01 de agosto de 2021',
+      VIEWS: '343',
+    },
+    {
+      ID: 2,
+      IMAGE: 'https://via.placeholder.com/485x273',
+      TITLE: 'Black',
+      TEXT: 'Teste Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum.',
+      CREATED_AT: '23 de dezembro de 2021',
+      VIEWS: '877',
+      COLOR: '#000000',
+    },
+    {
+      ID: 3,
+      IMAGE: 'https://via.placeholder.com/485x273',
+      TITLE: 'Lorem Ipsum Lorem Ip',
+      TEXT: 'Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum.',
+      CREATED_AT: '01 de janeiro de 2021',
+      VIEWS: '343',
+    },
+    {
+      ID: 4,
+      IMAGE: 'https://via.placeholder.com/485x273',
+      TITLE: 'Lorem Ipsum Lorem Ip',
+      TEXT: 'Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum.',
+      CREATED_AT: '23 de julho de 2021',
+      VIEWS: '877',
+    },
+  ],
   ABOUT_US:{
-
     SLIDER:{
       CARDS: [
         {

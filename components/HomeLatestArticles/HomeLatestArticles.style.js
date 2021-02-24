@@ -6,7 +6,7 @@ export const HomeLatestArticles = styled.div`
 
   .container{
     align-items: center;
-
+    margin-top: 140px;
   }
 `
 
