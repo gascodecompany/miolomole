@@ -17,24 +17,23 @@ export default function Header(){
     onChange: ({ target: { value} }) => setSearch(value),
   }
 
-
   return(
     <S.Header>
       <Container>
-      <LogoMiolo/>
-        <Hamburger isOpen={menuIsOpen} toggle={setMenuIsOpen} />
-        <S.HeaderMenu isOpen={menuIsOpen} onClick={() => setMenuIsOpen(!menuIsOpen)}>
-          <S.HeaderMenuContainer isOpen={menuIsOpen} onClick={(e) => e.stopPropagation()}>
-            <Hamburger isOpen={menuIsOpen} toggle={setMenuIsOpen} />
-            <LogoMiolo/>
-            <HeaderNav isOpen={menuIsOpen} toggle={setMenuIsOpen} />
-            <S.SearchField className="searchField">
-              <Input { ...inputSearchObj } />
-              <SearchIcon />
-            </S.SearchField> 
-          </S.HeaderMenuContainer>
-        </S.HeaderMenu>
-        <S.SearchField>
+      <Hamburger isOpen={menuIsOpen} toggle={setMenuIsOpen} />
+      <LogoMiolo />
+      <S.HeaderMenu isOpen={menuIsOpen} onClick={() => setMenuIsOpen(!menuIsOpen)}>
+        <S.HeaderMenuContainer isOpen={menuIsOpen} onClick={(e) => e.stopPropagation()}>
+          <Hamburger isOpen={menuIsOpen} toggle={setMenuIsOpen} />
+          <LogoMiolo/>
+          <HeaderNav isOpen={menuIsOpen} toggle={setMenuIsOpen} />
+          <S.SearchField className="searchField">
+            <Input { ...inputSearchObj } />
+            <SearchIcon />
+          </S.SearchField> 
+        </S.HeaderMenuContainer>
+      </S.HeaderMenu>
+      <S.SearchField>
           <Input { ...inputSearchObj } />
           <SearchIcon />
         </S.SearchField>

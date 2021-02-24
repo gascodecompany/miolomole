@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 
 export const Header = styled.div`
-  position: sticky;
+  position: fixed;
   background-color: ${({ theme: { color: { brandWhite }}}) => brandWhite };
   width: 100vw;
   display: flex;
@@ -11,10 +11,8 @@ export const Header = styled.div`
   align-items: center;
   top: 0;
   z-index: 99;
-
+  
   >.logo-miolo {
-    /* display: flex;
-    align-items: center; */
     position: absolute;
     z-index: 1;
     top: 10px;
@@ -35,7 +33,6 @@ export const Header = styled.div`
     flex-direction: row;
     justify-content: space-between;
     padding: 8px 16px;
-    /* margin-right: 10px; */
 
   }
   @media screen{
@@ -101,9 +98,6 @@ export const HeaderMenuContainer = styled.section`
     width: 43px;
     right: 0;
     grid-area: logo-miolo;
-    > svg {
-      /* margin-bottom: 20px; */
-    }
   }
 
   .searchField {
@@ -127,7 +121,6 @@ export const HeaderMenuContainer = styled.section`
     top: 15px;
     right: 15px;
     width: auto;
-    /* height: auto; */
   }
   
   @media screen{
@@ -140,13 +133,6 @@ export const HeaderMenuContainer = styled.section`
       padding: initial;
       transform: initial;
       transition: initial;
-      /* display: grid;
-      align-items: center;
-      grid-template-areas: ${`
-        "logo-miolo headerNav search"
-      `};
-      grid-template-columns: auto 80vw 30px;
-      grid-gap: 10px 20px; */
 
       >.logo-miolo {
         display: none;
@@ -158,7 +144,6 @@ export const HeaderMenuContainer = styled.section`
         top: 20px;
         right: 20px;
         justify-content: flex-end;
-
 
         >input {
           background-color: ${({ theme: { color: { whiteLight }}}) => whiteLight };
@@ -209,7 +194,6 @@ export const SearchField = styled.div`
     outline: none;
     padding: 8px 30px 8px 16px;
 
-
     &:focus {
       max-width: 30vw;
       background-color: ${({ theme: { color: { brandLighter }}}) => brandLighter };
@@ -230,31 +214,3 @@ export const SearchField = styled.div`
     }
   }
 `
-// export const HeaderWelcome = styled.p`
-//   grid-area: welcome;
-//   color: ${({ theme: { color: { whiteDark }}}) => whiteDark };
-//   font-size: ${({ theme: { fontSize: { fontSizeXXS }}}) => fontSizeXXS };
-//   font-weight: ${({ theme: { fontWeight: { fontWeightRegular }}}) => fontWeightRegular };
-//   line-height: 16px;
-//   margin-bottom: 20px;
-
-//   @media screen{
-//     @media (min-width: 1024px){
-//       margin: 0;
-//     }
-//   }
-// `
-
-
-
-
-
-
-// export const HeaderContainer = styled.header`
-//   position: relative;
-//   display: flex;
-//   justify-content: space-between;
-//   padding: 8px 16px;
-//   width: 100%;
-//   max-width: 1024px;
-// `
