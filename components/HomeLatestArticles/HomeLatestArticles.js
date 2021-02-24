@@ -19,6 +19,7 @@ export default function HomeLatestArticles(){
           <Input {...email} setFields={setFields}/>
           <Button label='Cadastrar'/>
         </S.LastestRegister>
+        <S.DotsBackGround/>
         <S.LastestArticlesImage/>
       </S.HomeLatestArticlesCard>
     </Container>
