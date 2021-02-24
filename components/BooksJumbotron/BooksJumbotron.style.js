@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const HomeJumbotronContainer = styled.div`
+export const BooksJumbotronContainer = styled.div`
   width: 100vw;
   .slick-dots{
     ul{
@@ -10,7 +10,6 @@ export const HomeJumbotronContainer = styled.div`
       align-items: center;
       justify-content: center;
       padding-inline-start: 0px;
-
 
       li{
         width: 170px;
@@ -32,7 +31,7 @@ export const HomeJumbotronContainer = styled.div`
   }
   
 `
-export const HomeJumbotron = styled.div`
+export const BooksJumbotron = styled.div`
   background-image: url(${({ img }) => img });
   height: 400px;
   background-size: cover;
@@ -56,7 +55,7 @@ export const Description = styled.div`
   margin-bottom: 30px;
   color: #FFFFFF;
 `
-export const HomeJumboTitle = styled.div`
+export const BooksJumboTitle = styled.div`
   font-family: Arvo;
   font-style: normal;
   font-weight: bold;
@@ -65,6 +64,6 @@ export const HomeJumboTitle = styled.div`
   margin-left: 30px;
 
 `
-export const HomeJumbotronNav = styled.div`
+export const BooksJumbotronNav = styled.div`
 
 `

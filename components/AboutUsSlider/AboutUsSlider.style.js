@@ -69,9 +69,10 @@ export const AboutUsSlider = styled.div`
 
     @media screen{
       @media (min-width: 1024px){
-        bottom: 51px;
-        width: unset;
-        left: -310px;
+        top: 229px;
+        left: -318px;
+        width: 40%;
+
       }
     }
 
