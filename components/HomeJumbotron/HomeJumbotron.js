@@ -60,7 +60,7 @@ export default function HomeJumbotron(){
     <S.HomeJumbotronContainer>
       <Slider {...settings}>
         {itemsJumbotron.map((item) => (
-          <S.HomeJumbotron img={item.jumbotron}>
+          <S.HomeJumbotron img={item.jumbotron} key={item.jumbotron + "Jumbotron"}>
             <Container>
               <S.Description>{item.description}</S.Description>
               <S.HomeJumboTitle>{item.title}</S.HomeJumboTitle>
