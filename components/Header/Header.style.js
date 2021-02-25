@@ -98,13 +98,13 @@ export const HeaderMenuContainer = styled.section`
     grid-area: logo-miolo;
   }
 
-  .searchField {
+  >.searchField {
     height: fit-content;
     display: block;
-    top: 40px;
-    display: none;
+    top: -130px;
+    /* display: none; */
     >input{
-      max-width: 0%;
+      max-width: 100%;
       background: ${({ theme: { color: { grayLight }}}) => grayLight};
       
       &:focus {
@@ -136,7 +136,7 @@ export const HeaderMenuContainer = styled.section`
         display: none;
       }
 
-      .searchField {
+      >.searchField {
         display: flex;
         position: absolute;
         top: 20px;

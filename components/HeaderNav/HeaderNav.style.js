@@ -2,10 +2,8 @@ import styled from 'styled-components';
 
 export const HeaderNav = styled.ul`
   grid-area: headerNav;
-  width: 60%;
   list-style: none;
   justify-content: space-around;
-  /* display: none; */
   font-family: Montserrat;
   font-weight: 500;
   font-size: 15px;
@@ -13,7 +11,7 @@ export const HeaderNav = styled.ul`
   margin: 0 auto;
   width: 100%;
   padding: 0;
-  top: 60px;
+  top: 90px;
   position: relative;
   color: #474747;
   @media screen{
