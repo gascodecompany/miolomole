@@ -81,9 +81,9 @@ export const FooterItemLabel = styled.div`
   }
 
   @media (min-width: 768px){
-    font-size: 12px;
+    font-size: 11px;
     svg{
-      margin-right: 10px
+      margin-right: 8px
     }
   }
 `
