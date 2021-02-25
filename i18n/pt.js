@@ -1,3 +1,7 @@
+import blog1 from '../images/blog1.png'
+import blog2 from '../images/blog2.png'
+import blog3 from '../images/blog3.png'
+import blog4 from '../images/blog4.png'
 export default {
   SOCIAL_ITEMS: [
     { name: "YouTube", icon: 'YouTube', link: 'https://www.youtube.com/' },
@@ -13,7 +17,7 @@ export default {
   BLOG_ARTICLES: [
     {
       ID: 1,
-      IMAGE: 'https://via.placeholder.com/485x273',
+      IMAGE: blog1,
       TITLE: 'Lorem Ipsum Lorem Ipsum',
       TEXT: 'Teste Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum.',
       CREATED_AT: '01 de agosto de 2021',
@@ -21,7 +25,7 @@ export default {
     },
     {
       ID: 2,
-      IMAGE: 'https://via.placeholder.com/485x273',
+      IMAGE: blog2,
       TITLE: 'Black',
       TEXT: 'Teste Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum.',
       CREATED_AT: '23 de dezembro de 2021',
@@ -30,7 +34,7 @@ export default {
     },
     {
       ID: 3,
-      IMAGE: 'https://via.placeholder.com/485x273',
+      IMAGE: blog3,
       TITLE: 'Lorem Ipsum Lorem Ip',
       TEXT: 'Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum.',
       CREATED_AT: '01 de janeiro de 2021',
@@ -38,7 +42,7 @@ export default {
     },
     {
       ID: 4,
-      IMAGE: 'https://via.placeholder.com/485x273',
+      IMAGE: blog4,
       TITLE: 'Lorem Ipsum Lorem Ip',
       TEXT: 'Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum.',
       CREATED_AT: '23 de julho de 2021',
