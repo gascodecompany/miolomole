@@ -24,7 +24,7 @@ export default function LatestArticles({ items }){
       },
     ],
   };
-
+console.log(slider)
   return(
     <S.LatestArticles>
       <Container>

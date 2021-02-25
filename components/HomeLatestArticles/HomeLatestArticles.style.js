@@ -4,7 +4,7 @@ import dots from '../../images/dots.png'
 
 
 export const HomeLatestArticles = styled.div`
-
+  overflow-x: hidden;
   .container{
     align-items: center;
     margin-top: 140px;
