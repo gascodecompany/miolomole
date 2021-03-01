@@ -20,6 +20,8 @@ export const Books = [
     cover: coverGarotoAvatar,
     cover3d: 'http://placekitten.com/300/470',
     image: 'http://placekitten.com/260/140',
+    synopsis: 'livro conta a história de um jovem que adora jogar videogame. A narrativa a aborda os aspectos ruins de passar muito tempo em frente a uma tela de computador, sem se alimentar direito, sem conversar com sua família e sem ver seus amigos. No fim, ele faz uma grande descoberta que pode mudar o seu jeito de viver a vida.'
+
   },
   {
     _id: '2',
@@ -36,6 +38,7 @@ export const Books = [
     cover: coverTigres,
     cover3d: 'http://placekitten.com/300/470',
     image: 'http://placekitten.com/260/140',
+    synopsis: 'Este livro traz duas histórias paralelas, que, em tempos cronológicos diferentes, se fundem formando uma única narrativa. Gardo Bakaka vive com sua mãe em uma fazenda junto de outros pretos escravizados. Ele relembra como tudo aconteceu desde a sua vida no continente africano, até aquele momento. Já nos tempos atuais, temos a história de dois jovens que vivem em uma comunidade na cidade do Rio de Janeiro e passam por situações, infelizmente, muito semelhantes.'
   },
   {
     _id: '3',
@@ -52,6 +55,8 @@ export const Books = [
     cover: coverMenino,
     cover3d: 'http://placekitten.com/300/470',
     image: 'http://placekitten.com/260/140',
+    synopsis: 'O ilustrador e quadrinista Caeto lança aqui o seu olhar sobre o conto “O homem da cabeça de papelão” escrito pelo carioca João do Rio. Publicado pela primeira vez no início da década de 1920, este conto permanece atual e instigante. Seu protagonista, Antenor, não é uma pessoa comum e, na tentativa de ser igual aos outros, acaba trocando sua cabeça por uma caixa de papelão. O que dizem sobre ele? – é doido, mas é bom.'
+
   },
   {
     _id: '4',
@@ -68,6 +73,8 @@ export const Books = [
     cover: coverDemonho,
     cover3d: 'http://placekitten.com/300/470',
     image: 'http://placekitten.com/260/140',
+    synopsis: 'ilustrador e quadrinista Caeto lança aqui o seu olhar sobre o conto “O homem da cabeça de papelão” escrito pelo carioca João do Rio. Publicado pela primeira vez no início da década de 1920, este conto permanece atual e instigante. Seu protagonista, Antenor, não é uma pessoa comum e, na tentativa de ser igual aos outros, acaba trocando sua cabeça por uma caixa de papelão. O que dizem sobre ele? – é doido, mas é bom.'
+
   },
   {
     _id: '5',
@@ -84,6 +91,8 @@ export const Books = [
     cover: coverMan,
     cover3d: 'http://placekitten.com/300/470',
     image: 'http://placekitten.com/260/140',
+    synopsis: 'ilustrador e quadrinista Caeto lança aqui o seu olhar sobre o conto “O homem da cabeça de papelão” escrito pelo carioca João do Rio. Publicado pela primeira vez no início da década de 1920, este conto permanece atual e instigante. Seu protagonista, Antenor, não é uma pessoa comum e, na tentativa de ser igual aos outros, acaba trocando sua cabeça por uma caixa de papelão. O que dizem sobre ele? – é doido, mas é bom.'
+
   },
   {
     _id: 'X',
@@ -100,6 +109,8 @@ export const Books = [
     cover: coverMenino,
     cover3d: 'http://placekitten.com/300/470',
     image: 'http://placekitten.com/260/140',
+    synopsis: 'O ilustrador e quadrinista Caeto lança aqui o seu olhar sobre o conto “O homem da cabeça de papelão” escrito pelo carioca João do Rio. Publicado pela primeira vez no início da década de 1920, este conto permanece atual e instigante. Seu protagonista, Antenor, não é uma pessoa comum e, na tentativa de ser igual aos outros, acaba trocando sua cabeça por uma caixa de papelão. O que dizem sobre ele? – é doido, mas é bom.'
+
   },
   {
     _id: 'X',
@@ -116,6 +127,8 @@ export const Books = [
     cover: coverDemonho,
     cover3d: 'http://placekitten.com/300/470',
     image: 'http://placekitten.com/260/140',
+    synopsis: 'ilustrador e quadrinista Caeto lança aqui o seu olhar sobre o conto “O homem da cabeça de papelão” escrito pelo carioca João do Rio. Publicado pela primeira vez no início da década de 1920, este conto permanece atual e instigante. Seu protagonista, Antenor, não é uma pessoa comum e, na tentativa de ser igual aos outros, acaba trocando sua cabeça por uma caixa de papelão. O que dizem sobre ele? – é doido, mas é bom.'
+
   },
   {
     _id: 'X',
@@ -131,6 +144,9 @@ export const Books = [
     price: 'R$ 29,90',
     cover: coverMan,
     cover3d: 'http://placekitten.com/300/470',
-    image: 'http://placekitten.com/260/140',
+    image: 'http://placekitten.com/260/140',    
+    synopsis: 'ilustrador e quadrinista Caeto lança aqui o seu olhar sobre o conto “O homem da cabeça de papelão” escrito pelo carioca João do Rio. Publicado pela primeira vez no início da década de 1920, este conto permanece atual e instigante. Seu protagonista, Antenor, não é uma pessoa comum e, na tentativa de ser igual aos outros, acaba trocando sua cabeça por uma caixa de papelão. O que dizem sobre ele? – é doido, mas é bom.'
+
+
   },
 ]

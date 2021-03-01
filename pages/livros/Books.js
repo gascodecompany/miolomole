@@ -3,6 +3,7 @@ import OurProductsList from "../../components/OurProductsList";
 import LatestArticles from "../../components/LatestArticles";
 import HomeLatestArticles from "../../components/HomeLatestArticles";
 import pt from "../../i18n/pt";
+import BookComponent from "../../components/BookComponent";
 
 export default function Books(){
   const t = pt;
@@ -13,6 +14,7 @@ export default function Books(){
       <OurProductsList/>
       <LatestArticles items={t.BLOG_ARTICLES}/>
       <HomeLatestArticles />
+      {/* <BookComponent/> */}
     </div>
   )
 }
