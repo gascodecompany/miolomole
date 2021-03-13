@@ -2,6 +2,9 @@ import blog1 from '../images/blog1.png'
 import blog2 from '../images/blog2.png'
 import blog3 from '../images/blog3.png'
 import blog4 from '../images/blog4.png'
+import postJumbotron1 from '../images/postJumbotron1.png'
+
+
 export default {
   SOCIAL_ITEMS: [
     { name: "YouTube", icon: 'YouTube', link: 'https://www.youtube.com/' },
@@ -18,16 +21,18 @@ export default {
     {
       ID: 1,
       IMAGE: blog1,
+      JUMBOTRON: postJumbotron1,
       TITLE: 'Lorem Ipsum Lorem Ipsum',
-      TEXT: 'Teste Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum.',
+      SHORT_DESCRIPTION: 'Teste Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum.',
       CREATED_AT: '01 de agosto de 2021',
       VIEWS: '343',
     },
     {
       ID: 2,
       IMAGE: blog2,
+      JUMBOTRON: postJumbotron1,
       TITLE: 'Black',
-      TEXT: 'Teste Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum.',
+      SHORT_DESCRIPTION: 'Teste Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum.',
       CREATED_AT: '23 de dezembro de 2021',
       VIEWS: '877',
       COLOR: '#000000',
@@ -35,16 +40,18 @@ export default {
     {
       ID: 3,
       IMAGE: blog3,
+      JUMBOTRON: postJumbotron1,
       TITLE: 'Lorem Ipsum Lorem Ip',
-      TEXT: 'Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum.',
+      SHORT_DESCRIPTION: 'Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum.',
       CREATED_AT: '01 de janeiro de 2021',
       VIEWS: '343',
     },
     {
       ID: 4,
       IMAGE: blog4,
+      JUMBOTRON: postJumbotron1,
       TITLE: 'Lorem Ipsum Lorem Ip',
-      TEXT: 'Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum.',
+      SHORT_DESCRIPTION: 'Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum.',
       CREATED_AT: '23 de julho de 2021',
       VIEWS: '877',
     },

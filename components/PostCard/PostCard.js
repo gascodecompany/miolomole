@@ -9,9 +9,9 @@ export default function PostCard({ item }){
   return(
     <S.PostCard key={item.ID} >
       <S.PostCardImage key={item.IMAGE} src={item.IMAGE} />
-      <S.PostCardInfo color={item.COLOR} onClick={() => router.push(`/seu-novo-lar/${item.ID}`)}>
+      <S.PostCardInfo color={item.COLOR} onClick={() => router.push(`/blog/${item.ID}`)}>
         <S.PostCardTitle>{item.TITLE}</S.PostCardTitle>
-        <S.PostCardText>{item.TEXT}</S.PostCardText>
+        <S.PostCardText>{item.SHORT_DESCRIPTION}</S.PostCardText>
         <S.Footer>
           <S.FooterItemLabel><Clock />{item.CREATED_AT}</S.FooterItemLabel>
           <S.FooterItemLabel><View />{item.VIEWS}</S.FooterItemLabel>

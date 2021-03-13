@@ -9,9 +9,9 @@ export default function LatestArticle({ item }){
   return(
     <S.LatestArticle key={item.ID} >
       <S.LatestArticleImage key={item.IMAGE} src={item.IMAGE} />
-      <S.LatestArticleInfo color={item.COLOR} onClick={() => router.push(`/seu-novo-lar/${item.ID}`)}>
+      <S.LatestArticleInfo color={item.COLOR} onClick={() => router.push(`/blog/${item.ID}`)}>
         <S.LatestArticleTitle>{item.TITLE}</S.LatestArticleTitle>
-        <S.LatestArticleText>{item.TEXT}</S.LatestArticleText>
+        <S.LatestArticleText>{item.SHORT_DESCRIPTION}</S.LatestArticleText>
         <S.Footer>
           <S.FooterItemLabel><Clock />{item.CREATED_AT}</S.FooterItemLabel>
           <S.FooterItemLabel><View />{item.VIEWS}</S.FooterItemLabel>
