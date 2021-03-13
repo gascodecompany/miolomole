@@ -95,7 +95,7 @@ export const Books = [
 
   },
   {
-    _id: 'X',
+    _id: '6',
     title: 'ô, Seu Menino',
     authors: 'Lu Vitti;',
     ilustration: 'Guilherme Pires',
@@ -113,7 +113,7 @@ export const Books = [
 
   },
   {
-    _id: 'X',
+    _id: '7',
     title: 'Demonho',
     authors: 'João do Rio',
     ilustration: 'Caeto',
@@ -131,7 +131,7 @@ export const Books = [
 
   },
   {
-    _id: 'X',
+    _id: '8',
     title: 'O Homem da Cabeça de Papelão',
     authors: 'João do Rio',
     ilustration: 'Caeto',
