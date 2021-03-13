@@ -198,7 +198,7 @@ export const StyledInputSelect = styled(SortableSelect)`
     `
     : css`
       padding-top: 18px;
-      border-bottom: 1px solid #151B64;
+      border-bottom: 2px solid #BFC0C5;
 
       .inputSelect__control{
         border: none !important;
@@ -214,6 +214,7 @@ export const StyledInputSelect = styled(SortableSelect)`
       }
 
       .inputSelect__dropdown-indicator{
+        
         svg{
           display: none;
         }
