@@ -7,9 +7,9 @@ export default function PostCard({ item }){
   const router = useRouter()
 
   return(
-    <S.PostCard key={item.ID} >
+    <S.PostCard key={item.ID} onClick={() => router.push(`/blog/${item.ID}`)}>
       <S.PostCardImage key={item.IMAGE} src={item.IMAGE} />
-      <S.PostCardInfo color={item.COLOR} onClick={() => router.push(`/blog/${item.ID}`)}>
+      <S.PostCardInfo color={item.COLOR}>
         <S.PostCardTitle>{item.TITLE}</S.PostCardTitle>
         <S.PostCardText>{item.SHORT_DESCRIPTION}</S.PostCardText>
         <S.Footer>

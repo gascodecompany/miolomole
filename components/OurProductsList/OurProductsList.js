@@ -12,7 +12,7 @@ export default function OurProductsList(){
         <S.OurProductsText>Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum </S.OurProductsText>
         <S.ProductCards>
           {Books.map((book) => (
-            <S.ProductCard>
+            <S.ProductCard >
               <S.ProductCardImage img={book.cover}/>
               <S.ProductCardTitle>{book.title}</S.ProductCardTitle>
               <S.ProductCardPrice>{book.price}</S.ProductCardPrice>
