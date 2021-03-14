@@ -13,8 +13,8 @@ export default function AboutUs(){
       <AboutUsOurHistory/>
       <AboutUsQuote/>
       <AboutUsSectionOne/>
-      <AboutUsSlider/>
       <AboutUsImagination/>
+      <AboutUsSlider/>
     </div>
   )
 }
