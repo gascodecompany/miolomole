@@ -1,8 +1,9 @@
 import { useRouter } from 'next/router'
 import * as S from './BookComponent.style'
 import { Books } from '../../Constants/Books'
-import BookInfo from '../BookInfo/BookInfo'
 import BookSinopse from '../../components/BookSinopse';
+import BookRelated from '../BookRelated';
+import BookSection from '../BookSection';
 
 export default function BookComponent(){
   const router = useRouter()
@@ -11,13 +12,9 @@ export default function BookComponent(){
 
 return(
     <S.BookComponent>
-      <S.BookSection>
-        <S.BookGalery>
-          <S.BookCover img={book?.cover}/>
-        </S.BookGalery>
-        <BookInfo book={book}/>
-      </S.BookSection>
+      <BookSection book={book}/>
       <BookSinopse book={book}/>
+      <BookRelated/>
     </S.BookComponent>
   )
 }

@@ -32,7 +32,14 @@ export const ProductCards = styled.div`
 export const ProductCard = styled.div`
   text-align: center;
   margin-bottom: 50px;
+  width: 250px;
+
   cursor: pointer;
+  @media screen{
+    @media (min-width: 1024px){
+      width: 250px;
+    }
+  }
 `
 
 export const ProductCardImage = styled.div`

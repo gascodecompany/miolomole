@@ -12,9 +12,9 @@ export default function BookSinopse({book}){
           <S.SinopseText>{book?.synopsis}</S.SinopseText>
           <S.SinopseVideo>
             <ReactPlayer
-              url={book.video}
-              width='40%'
-              height='40%'
+              url={book?.video}
+              width='100%'
+              height='100%'
             />
           </S.SinopseVideo>
         </S.SinopseInfo>

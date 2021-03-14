@@ -3,9 +3,18 @@ import blog2 from '../images/blog2.png'
 import blog3 from '../images/blog3.png'
 import blog4 from '../images/blog4.png'
 import postJumbotron1 from '../images/postJumbotron1.png'
-
+import banner1 from '../images/banners/banner_1.png'
+import banner2 from '../images/banners/banner_2.png'
+import banner3 from '../images/banners/banner_3.png'
+import banner4 from '../images/banners/banner_4.png'
 
 export default {
+  BANNERS: [
+    banner1,
+    banner2,
+    banner3,
+    banner4,
+  ],
   SOCIAL_ITEMS: [
     { name: "YouTube", icon: 'YouTube', link: 'https://www.youtube.com/' },
     { name: "Facebook", icon: 'Facebook', link: 'https://www.facebook.com/' },

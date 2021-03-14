@@ -2,6 +2,8 @@ import HomeApresentation from "../components/HomeApresentation";
 import HomeJumbotron from "../components/HomeJumbotron";
 import HomeLatestArticles from "../components/HomeLatestArticles";
 import LatestArticles from "../components/LatestArticles";
+import AboutUsSlider from "../components/AboutUsSlider";
+import HomeBanners from "../components/HomeBanners";
 import pt from "../i18n/pt";
 
 export default function Home() {
@@ -10,7 +12,9 @@ export default function Home() {
     <>
       <HomeJumbotron/>
       <HomeApresentation/>
+      <HomeBanners/>
       <LatestArticles items={t.BLOG_ARTICLES}/>
+      <AboutUsSlider/>
       <HomeLatestArticles/>
     </>
   )

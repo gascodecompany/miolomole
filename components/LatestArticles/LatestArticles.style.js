@@ -5,7 +5,7 @@ export const LatestArticles = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${({ theme: { color: { grayLight }}}) => grayLight };
+  background-color: ${({ theme: { color: { white }}}) => white };
   margin-bottom: 20px;
 
   @media (min-width: 768px){

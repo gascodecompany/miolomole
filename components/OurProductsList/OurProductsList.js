@@ -4,7 +4,7 @@ import { Books } from '../../Constants/Books'
 import Container from '../Container'
 
 
-export default function OurProductsList({id}){
+export default function OurProductsList(){
     const router = useRouter();
     
  return(
@@ -14,10 +14,10 @@ export default function OurProductsList({id}){
         <S.OurProductsText>Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum </S.OurProductsText>
         <S.ProductCards>
           {Books.map((book) => (
-            <S.ProductCard onClick={() => router.push(`/livros/${id}`)}>
+            <S.ProductCard onClick={() => router.push(`/livros/${book._id}`)}>
               <S.ProductCardImage img={book.cover}/>
               <S.ProductCardTitle>{book.title}</S.ProductCardTitle>
-              <S.ProductCardPrice>{book.price}</S.ProductCardPrice>
+              {/* <S.ProductCardPrice>{book.price}</S.ProductCardPrice> */}
             </S.ProductCard>
           ))}
         </S.ProductCards>
