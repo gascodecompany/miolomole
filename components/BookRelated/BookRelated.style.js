@@ -45,7 +45,7 @@ export const BookRelatedCover = styled.div`
 export const BookRelatedItemTitle = styled.div`
   font-family: Montserrat;
   font-weight: 600;
-  font-size: 16px;
+  font-size: ${({ theme: { fontSize: { fontSizeXS }}}) => fontSizeXS };
   line-height: 1.5;
   color: #071825;
   margin: 20px;

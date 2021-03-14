@@ -9,7 +9,7 @@ export const AboutUsImagination = styled.div`
 export const ImagitationTitle = styled.div`
   font-family: Amatic SC;
   font-weight: bold;
-  font-size: 48px;
+  font-size: ${({ theme: { fontSize: { fontSizeUL }}}) => fontSizeUL };
   align-items: center;
   color: #F6D300;
   margin-bottom: 40px;
@@ -39,7 +39,7 @@ export const ImaginationTextOne = styled.div`
   width: 100%;
   font-family: Montserrat;
   font-weight: 500;
-  font-size: 17px;
+  font-size: ${({ theme: { fontSize: { fontSizeSM }}}) => fontSizeSM };
   line-height: 30px;
   color: #071825;
   margin-right: 30px;
@@ -58,7 +58,7 @@ export const ImaginationTextTwo = styled.div`
   width: 100%;
   font-family: Montserrat;
   font-weight: 500;
-  font-size: 17px;
+  font-size: ${({ theme: { fontSize: { fontSizeSM }}}) => fontSizeSM };
   line-height: 30px;
   color: #071825;
 `

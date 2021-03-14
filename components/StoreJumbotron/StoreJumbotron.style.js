@@ -28,10 +28,10 @@ export const JumbotronWraper = styled.div`
     background-color: transparent;
   }
   .inputSelect__placeholder{
-    color: white;
+    color: ${({ theme: { color: { white }}}) => white };
     font-family: Lato;
     font-weight: 500;
-    font-size: 18px;
+    font-size: ${({ theme: { fontSize: { fontSizeSM }}}) => fontSizeSM };
     line-height: 1.4;
     color: #FFFFFF;
   }
@@ -40,7 +40,7 @@ export const JumbotronWraper = styled.div`
     border: none;
     font-family: 'Open Sans';
     font-weight: bold;
-    font-size: 18px;
+    font-size: ${({ theme: { fontSize: { fontSizeSM }}}) => fontSizeSM };
     line-height: 1.3;
     color: #FFFFFF;
   }
@@ -75,7 +75,7 @@ export const StoreJumbotronSubTitle = styled.div`
   width: 90%;
   @media screen{
     @media (min-width: 1024px){
-      font-size: 20px;
+      font-size: ${({ theme: { fontSize: { fontSizeSMM }}}) => fontSizeSMM };
       width: 480px;
     }
   }

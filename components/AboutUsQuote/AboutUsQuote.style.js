@@ -14,7 +14,7 @@ export const QuoteText = styled.div`
   font-family: Montserrat;
   font-style: italic;
   font-weight: 500;
-  font-size: 20px;
+  font-size: ${({ theme: { fontSize: { fontSizeSMM }}}) => fontSizeSMM };
   line-height: 28px;
   color: #00A79D;
   margin-bottom: 10px;
@@ -22,7 +22,7 @@ export const QuoteText = styled.div`
 export const Credit = styled.div`
   font-family: Montserrat;
   font-weight: 500;
-  font-size: 16px;
+  font-size: ${({ theme: { fontSize: { fontSizeXS }}}) => fontSizeXS };
   line-height: 20px;
   color: #071825;
   text-align: end;

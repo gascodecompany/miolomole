@@ -275,11 +275,11 @@ export const CardTitle = styled.div`
   line-height: 35px;
   color: #00A79D;
   margin-bottom: 5px;
-  font-size: 16px;
+  font-size: ${({ theme: { fontSize: { fontSizeXS }}}) => fontSizeXS };
   margin-left: 64px;
   @media screen{
     @media (min-width: 1024px){
-      font-size: 20px;
+      font-size: ${({ theme: { fontSize: { fontSizeSMM }}}) => fontSizeSMM };
       margin-left: 50px;
 
     }
@@ -332,7 +332,7 @@ export const CardDescription = styled.div`
   line-height: 19px;
   @media screen{
     @media (min-width: 1024px){
-      font-size: 14px;
+      font-size: ${({ theme: { fontSize: { fontSizeXXS }}}) => fontSizeXXS };
       line-height: 20px;
     }
   }

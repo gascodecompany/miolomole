@@ -40,7 +40,7 @@ color: #000000;
 export const HomeApresentationText = styled.div`
 font-family: Montserrat;
 font-weight: 500;
-font-size: 18px;
+font-size: ${({ theme: { fontSize: { fontSizeSM }}}) => fontSizeSM };
 line-height: 28px;
 color: #000000;
 width: 90%;

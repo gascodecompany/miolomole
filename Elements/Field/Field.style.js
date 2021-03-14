@@ -123,7 +123,7 @@ export const FieldRadio = styled.label`
       position: absolute;
       left: 11px;
       top: 9px;
-      color: white;
+      color: ${({ theme: { color: { white }}}) => white };
       font-family: 'system-ui';
 
     }

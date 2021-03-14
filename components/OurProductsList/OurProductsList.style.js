@@ -17,7 +17,7 @@ export const OurProductsTitle = styled.div`
 export const OurProductsText = styled.div`
   font-family: Montserrat;
   font-weight: 500;
-  font-size: 20px;
+  font-size: ${({ theme: { fontSize: { fontSizeSMM }}}) => fontSizeSMM };
   line-height: 30px;
   text-align: center;
   color: #000000;
@@ -54,7 +54,7 @@ export const ProductCardImage = styled.div`
 export const ProductCardTitle = styled.div`
   font-family: Montserrat;
   font-weight: 600;
-  font-size: 16px;
+  font-size: ${({ theme: { fontSize: { fontSizeXS }}}) => fontSizeXS };
   line-height: 26px;
   color: #000000;
   margin-bottom: 5px;

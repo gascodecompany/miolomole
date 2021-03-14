@@ -54,7 +54,7 @@ export const OurHistoryTitle = styled.div`
 export const OurHistoryText = styled.div`
   font-family: Montserrat;
   font-weight: 500;
-  font-size: 17px;
+  font-size: ${({ theme: { fontSize: { fontSizeSM }}}) => fontSizeSM };
   line-height: 30px;
   color: #FFFFFF;
   width: 80%;

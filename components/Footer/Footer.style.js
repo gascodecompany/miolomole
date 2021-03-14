@@ -43,7 +43,7 @@ export const FooterNavItem = styled.li`
   font-family: 'Roboto';
   font-style: normal;
   font-weight: bold;
-  font-size: 16px;
+  font-size: ${({ theme: { fontSize: { fontSizeXS }}}) => fontSizeXS };
   line-height: 16px;
   /* background-color: ${({ theme: { color: { blackDark }}}) => blackDark }; */
 

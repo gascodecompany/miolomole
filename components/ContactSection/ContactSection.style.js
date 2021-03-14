@@ -138,7 +138,7 @@ export const ContactForm = styled.div`
     text-transform: capitalize;
     font-family: Montserrat;
     font-weight: bold;
-    font-size: 16px;
+    font-size: ${({ theme: { fontSize: { fontSizeXS }}}) => fontSizeXS };
     letter-spacing: 2.4px;
     color: #FFFFFF;
     width: 150px;

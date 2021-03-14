@@ -8,7 +8,7 @@ export const StoreSectionContainer = styled.div`
 
 export const StorePartners = styled.div`
   width: 100%;
-  background-color: white;
+  background-color: ${({ theme: { color: { white }}}) => white };
   margin-top: -150px;
   margin-top: -20px;
   padding: 50px;
@@ -26,7 +26,7 @@ export const StorePartners = styled.div`
 export const PartnerCard = styled.div`
   width: 280px;
   height: 280px;
-  background-color: white;
+  background-color: ${({ theme: { color: { white }}}) => white };
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -67,7 +67,7 @@ export const PartnerText = styled.p`
   font-family: Montserrat;
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
+  font-size: ${({ theme: { fontSize: { fontSizeXS }}}) => fontSizeXS };
   line-height: 1.3;
   /* or 180% */
 

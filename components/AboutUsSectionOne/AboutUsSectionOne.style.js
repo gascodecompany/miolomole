@@ -34,7 +34,7 @@ export const ScetionOneText = styled.div`
   font-family: Montserrat;
   width: 44%;
   font-weight: 500;
-  font-size: 18px;
+  font-size: ${({ theme: { fontSize: { fontSizeSM }}}) => fontSizeSM };
   line-height: 30px;
   color: #071825;
 
