@@ -17,7 +17,6 @@ return(
         </S.BookGalery>
         <BookInfo book={book}/>
       </S.BookSection>
-
       <BookSinopse book={book}/>
     </S.BookComponent>
   )
