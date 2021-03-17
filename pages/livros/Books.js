@@ -6,6 +6,7 @@ import HomeLatestArticles from "../../components/HomeLatestArticles";
 import pt from "../../i18n/pt";
 import BookComponent from "../../components/BookComponent";
 import { Books } from '../../Constants/Books'
+import AboutUsSlider from '../../components/AboutUsSlider';
 
 export default function BooksList(){
   const router = useRouter();
@@ -17,6 +18,7 @@ export default function BooksList(){
       <BooksJumbotron/>
       <OurProductsList items={Books} id={id} />
       <LatestArticles items={t.BLOG_ARTICLES}/>
+      <AboutUsSlider/>
       <HomeLatestArticles id={id} />
       {/* <BookComponent/> */}
     </div>
