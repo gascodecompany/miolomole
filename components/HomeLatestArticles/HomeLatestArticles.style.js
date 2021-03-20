@@ -26,6 +26,13 @@ export const DotsBackGround = styled.div`
   right: 0px;
   top: 5px;
   overflow: hidden;
+  display: none;
+  @media screen{
+    @media (min-width: 600px){
+      display: unset;
+
+    }
+  }
 `
 
 export const LastestArticlesImage = styled.div`
