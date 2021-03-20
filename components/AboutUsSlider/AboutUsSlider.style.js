@@ -196,6 +196,12 @@ export const SliderInfo = styled.div`
       width: 393px;
       background: #F6F6FA;
       align-items: baseline;
+      padding-left: 20px;
+
+    }
+    @media (min-width: 1290px){
+      padding-left: 0px;
+
     }
   }
 
