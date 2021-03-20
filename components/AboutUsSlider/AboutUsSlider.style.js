@@ -336,19 +336,12 @@ export const CardDescription = styled.div`
   margin-top: 35px;
   height: 98px;
   width: 240px;
-  overflow: hidden;
   color: #071825;
-
-  &::after{
-    content: "";
-    text-align: right;
-    position: absolute;
-    bottom: 0px;
-    right: 0;
-    width: 100%;
-    height: 20px;
-    background: linear-gradient(to right,rgba(255,255,255,0),#FFFFFF 50%);
-  }
+  display: -webkit-box;
+  -webkit-line-clamp: 8;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
   
   @media screen{
     @media (min-width: 1024px){
