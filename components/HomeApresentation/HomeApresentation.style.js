@@ -3,18 +3,35 @@ import homeApresentationImg from '../../images/homeApresentationImg.jpg'
 
 export const HomeApresentation = styled.div`
   
-  .container{
-    flex-direction: row;
+  .container{  
+    flex-direction: column;
+    @media screen{
+      @media (min-width: 600px){
+
+        flex-direction: row;
+      }
+    }
   }
 `
 
 export const HomeApresentationImage = styled.div`
   background-image: url(${homeApresentationImg});
-  width: 420px;
-  height: 400px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  width: 80vw;
+  height: 90vw;
+
+  @media screen{
+    @media (min-width: 600px){
+      width: 300px;
+      height: 280px;
+    }
+    @media (min-width: 1024px){
+      width: 420px;
+      height: 400px;
+    }
+  }
 
 `
 

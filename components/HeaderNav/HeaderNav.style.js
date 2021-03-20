@@ -30,6 +30,7 @@ export const HeaderNav = styled.ul`
     letter-spacing: 0.13px;
     cursor: pointer;
     margin-bottom: 10px;
+    transition: all 0.3s;
 
     @media (min-width: 1024px){
       margin-bottom: 0;
@@ -49,7 +50,8 @@ export const NavItem = styled.li`
   font-size: 15px;
   text-align: center;
   cursor: pointer;
-  
+  transition: all 0.3s;
+
   color: #474747;
   letter-spacing: 0.13px;
   margin-bottom: 10px;

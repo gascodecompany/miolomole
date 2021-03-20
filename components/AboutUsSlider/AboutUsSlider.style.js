@@ -196,6 +196,12 @@ export const SliderInfo = styled.div`
       width: 393px;
       background: #F6F6FA;
       align-items: baseline;
+      padding-left: 20px;
+
+    }
+    @media (min-width: 1290px){
+      padding-left: 0px;
+
     }
   }
 
@@ -379,6 +385,7 @@ export const CarrousselLeftArrow = styled.div`
   transform: rotate(45deg);
   border-bottom: 3px solid ${({ theme: { color: { brand }}}) => brand };
   border-left: 3px solid ${({ theme: { color: { brand }}}) => brand };
+  transition: all 0.5s;
 
   :hover{
     width: 18px;
@@ -394,6 +401,7 @@ export const CarrousselRightArrow = styled.div`
   border-top: 3px solid ${({ theme: { color: { brand }}}) => brand };
   border-right: 3px solid ${({ theme: { color: { brand }}}) => brand };
   margin-right: 20px;
+  transition: all 0.5s;
 
   :hover{
     width: 18px;
