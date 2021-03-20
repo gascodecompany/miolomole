@@ -7,7 +7,13 @@ export const HomeLatestArticles = styled.div`
   overflow-x: hidden;
   .container{
     align-items: center;
-    margin-top: 140px;
+    margin-top: 0px;
+    @media screen{
+      @media (min-width: 600px){
+        margin-top: 140px;
+
+      }
+    }
   }
 `
 
@@ -29,28 +35,62 @@ export const LastestArticlesImage = styled.div`
   position: absolute;
   right: -208px;
   top: -150px;
+  display: none;
+  @media screen{
+    @media (min-width: 600px){
+      display: unset;
+    }
+  }
 `
 
 export const HomeLatestArticlesCard = styled.div`
-  width: 80%;
   height: 200px;
   background: #FCBC14;
   border-radius: 50px;
   position: relative;
-  padding: 20px 50px;
+  width: 100%;
+  padding: 20px 30px;
+  @media screen{
+    @media (min-width: 600px){
+      width: 80%;
+      padding: 20px 50px;
+    }
+  }
+
   >h1{
     font-family: Montserrat;
     font-style: normal;
     font-weight: 600;
-    font-size: 30px;
     color: #FFFFFF;
-    margin-bottom: 34px
+    font-size: 19px;
+    margin-bottom: 27px;
+    @media screen{
+      @media (min-width: 600px){
+        font-size: 24px;
+        margin-bottom: 18px;
+        width: 90%;
+
+        
+      }
+      @media (min-width: 1024px){
+        font-size: 30px;
+        margin-bottom: 34px;
+        width: 100%;
+
+      }
+    }
   }
 `
 export const LastestRegister = styled.div`
-  width: 70%;
+  width: 100%;
   align-items: center;
   display: flex;
+  @media screen{
+    @media (min-width: 600px){
+      width: 70%;
+
+    }
+  }
   >input{
     border-bottom: none;
     background: rgba(255, 255, 255, 0.28);
@@ -71,7 +111,6 @@ export const LastestRegister = styled.div`
   }
   
   >button{
-    width: 140px;
     height: 50px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
@@ -85,6 +124,14 @@ export const LastestRegister = styled.div`
     padding: 12px 30px;
     color: #2D2E2E;
     text-transform: unset;
+    width: 100px;
+    @media screen{
+      @media (min-width: 900px){
+        width: 140px;
+
+      }
+    }
+
     :hover{
       transition: .2s ease-in-out;
       background-color: #E5F0FF;
