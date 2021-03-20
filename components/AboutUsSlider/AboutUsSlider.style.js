@@ -385,6 +385,7 @@ export const CarrousselLeftArrow = styled.div`
   transform: rotate(45deg);
   border-bottom: 3px solid ${({ theme: { color: { brand }}}) => brand };
   border-left: 3px solid ${({ theme: { color: { brand }}}) => brand };
+  transition: all 0.5s;
 
   :hover{
     width: 18px;
@@ -400,6 +401,7 @@ export const CarrousselRightArrow = styled.div`
   border-top: 3px solid ${({ theme: { color: { brand }}}) => brand };
   border-right: 3px solid ${({ theme: { color: { brand }}}) => brand };
   margin-right: 20px;
+  transition: all 0.5s;
 
   :hover{
     width: 18px;

@@ -15,7 +15,8 @@ export const ContactAddressListItem = styled.li`
     position: relative;
     display: flex;
     align-items: center;
-    
+    transition: all 0.3s;
+
     /* &:after {
       content: '';
       position: absolute;

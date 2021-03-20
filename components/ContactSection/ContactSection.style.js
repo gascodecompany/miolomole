@@ -146,5 +146,11 @@ export const ContactForm = styled.div`
     border-radius: 100px;
     border: none;
     color: white;
+    box-shadow: 3px 3px 2px rgb(115 137 169 / 20%);
+    transition: background 0.3s; 
+
+    :hover{
+      background: #00A79D;
+    }
   }
 `

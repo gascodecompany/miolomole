@@ -125,6 +125,8 @@ export const LastestRegister = styled.div`
     color: #2D2E2E;
     text-transform: unset;
     width: 100px;
+    transition: .3s background-color ease-in-out;
+
     @media screen{
       @media (min-width: 900px){
         width: 140px;
@@ -133,7 +135,6 @@ export const LastestRegister = styled.div`
     }
 
     :hover{
-      transition: .2s ease-in-out;
       background-color: #E5F0FF;
     }
   }

@@ -5,6 +5,7 @@ export const StyledHamburger = styled.div`
   position: relative;
   width: 30px;
   cursor: pointer;
+  transition: all 0.3s;
 
   &:hover{
     transform: scale(1.1);
