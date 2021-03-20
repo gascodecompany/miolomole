@@ -13,7 +13,7 @@ export const AboutUsSlider = styled.div`
 
   @media screen{
     @media (min-width: 1024px){
-      height: 300px;
+      height: 378px;
       overflow: hidden;
 
       &::before{
@@ -41,6 +41,12 @@ export const AboutUsSlider = styled.div`
       }
     }
   }
+  .slick-slide.slick-active.slick-current div, .slick-slide.slick-active div{
+    outline: none;
+    border: none;
+    box-shadow: none;
+  }
+  
   .slick-track{
     left: 0px;
 
@@ -68,11 +74,11 @@ export const AboutUsSlider = styled.div`
     left: 24vw;
 
     @media screen{
+      @media (min-width: 768px){bottom: 0px;}
       @media (min-width: 1024px){
         top: 229px;
         left: -318px;
         width: 40%;
-
       }
     }
 
@@ -82,14 +88,14 @@ export const AboutUsSlider = styled.div`
       border-radius: 5px;
       background-color: #B8B8B8;
       button{
-        margin-top: -8px !important;
+        margin-top: -10px;
         &::before{
           display: none;
         }
       }
       &.slick-active{
         width: 24px;
-        background-color: #7DBBB8;
+        background-color: ${({ theme: { color: { brand }}}) => brand };
       }
     }
   }
@@ -98,9 +104,9 @@ export const AboutUsSlider = styled.div`
     width: 15px;
     height: 15px;
     z-index: 10; 
-    color: #7DBBB8;
-    border-bottom: 3px solid #7DBBB8;
-    border-left: 3px solid #7DBBB8;
+    color: ${({ theme: { color: { brand }}}) => brand };
+    border-bottom: 3px solid ${({ theme: { color: { brand }}}) => brand };
+    border-left: 3px solid ${({ theme: { color: { brand }}}) => brand };
     transform: rotate(45deg);
     bottom: -6px;
     top: unset;
@@ -108,15 +114,8 @@ export const AboutUsSlider = styled.div`
 
     @media screen{
       @media (min-width: 360px){
-        left: 90px;
-      }
-      @media(min-width: 375px){
-        /* left: 79px; */
-        /* top: 410PX; */
-
       }
       @media (min-width: 425px){
-        left: 130px;
         /* top: 448px; */
       }
       @media (min-width: 600px){
@@ -124,7 +123,6 @@ export const AboutUsSlider = styled.div`
         /* top: 406px; */
       }
       @media (min-width: 768px){
-        left: 270px;
         /* top: 421px; */
       }
       @media (min-width: 1024px){
@@ -142,33 +140,15 @@ export const AboutUsSlider = styled.div`
     z-index: 10; 
     width: 15px;
     height: 15px;
-    color: #7DBBB8;
-    border-bottom: 3px solid #7DBBB8;
-    border-right: 3px solid #7DBBB8;
+    color: ${({ theme: { color: { brand }}}) => brand };
+    border-bottom: 3px solid ${({ theme: { color: { brand }}}) => brand };
+    border-right: 3px solid ${({ theme: { color: { brand }}}) => brand };
     transform: rotate(-45deg);
     bottom: -6px;
     top: unset;
     left: 40px;
 
     @media screen{
-      @media (min-width: 360px){
-        left: 100px;
-      }
-      @media (min-width: 375px){
-
-      }
-      @media (min-width: 425px){
-        left: 140px;
-        /* top: 448px; */
-      }
-      @media (min-width: 600px){
-        /* right: 314px; */
-        /* top: 406px; */
-      }
-      @media (min-width: 768px){
-        left: 280px;
-        /* top: 421px; */
-      }
       @media (min-width: 1024px){
         left: -337px;
         top: 235px;
@@ -188,6 +168,7 @@ export const AboutUsSliderContainer = styled.div`
   flex-direction: column;
   max-width: unset;
   width: 100vw;
+  max-width: 1024px;
 
   @media screen{
     @media (min-width: 1024px){
@@ -196,12 +177,15 @@ export const AboutUsSliderContainer = styled.div`
       margin: auto;
       flex-direction: row;
     }
+    @media (min-width: 1030px){
+      max-width: 1250px;
+    }
   }
   
 `
 export const SliderInfo = styled.div`
   display: flex;
-  align-items: baseline;
+  align-items: center;
   flex-direction: column;
   height: 100%;
   width: auto;
@@ -211,6 +195,7 @@ export const SliderInfo = styled.div`
       flex-direction: column;
       width: 393px;
       background: #F6F6FA;
+      align-items: baseline;
     }
   }
 
@@ -219,26 +204,35 @@ export const SliderInfo = styled.div`
 export const SliderTitle = styled.div`
   font-family: Amatic SC;
   font-style: normal;
-  font-weight: bold;
-  font-size: 50px;
+  font-weight: 400;
+  font-size: 40px;
   line-height: 69px;
-  margin-left: 20px;
-
   color: #00A79D;
-
   opacity: 0.9;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  @media (min-width: 1024px){
+    text-align: unset;
+    font-size: 50px;
+    margin-bottom: 30px;
+  }
+
 `
 
 export const SliderDescription = styled.div`
-  font-family: 'Open Sans';
-  font-weight: 600;
-  font-size: 22px;
+  font-family: Montserrat;
+  font-size: 14px;
+  width: 270px;
   line-height: 1.4;
   display: flex;
-  align-items: center;
   color: #000000;
-  margin-left: 20px;
-  margin-bottom: 40px;
+  text-align: center;
+  @media (min-width: 1024px){
+    font-size: 18px;
+    text-align: unset;
+    width: 380px;
+  }
 `
 
 export const SliderCards = styled.div`
@@ -257,7 +251,7 @@ export const SliderCards = styled.div`
 export const SliderCard = styled.div`
   /* width: 170px; */
   height: 100%;
-  border-radius: 10px;
+  border-radius: 8px;
   position: relative;
   /* padding: 0 200px; */
   @media screen{
@@ -280,24 +274,33 @@ export const CardTitle = styled.div`
   @media screen{
     @media (min-width: 1024px){
       font-size: ${({ theme: { fontSize: { fontSizeSMM }}}) => fontSizeSMM };
-      margin-left: 50px;
-
+      margin-left: 100px;
     }
   }
 
 `
 export const SliderCardContainer = styled.div`
   background-color: #FFFFFF;
-  height: auto;
+  height: 220px;
   margin-top: 40px;
   margin-bottom: 40px;
   /* width: 90vw; */
-  padding: 10px;
+  padding: 14px 20px;
+  border-radius: 11px;
+  &:focus{
+    outline: none;
+    border: none;
+  }
 
-  @media (min-width: 1024px){
-    height: 208px;
-    margin-top: unset;
-    width: 371px;
+  @media screen{
+    @media (min-width: 1024px){
+      height: 261px;
+      margin-top: unset;
+      width: 380px;
+    }
+    @media (min-width: 1025px){
+      width: 475px;
+    }
   }
 `
 export const CardName = styled.div`
@@ -327,13 +330,27 @@ export const CardInfo = styled.div`
 
 export const CardDescription = styled.div`
   font-family: Montserrat;
-  color: #071825;
-  font-size: 12px;
+  font-size: ${({ theme: { fontSize: { fontSizeXXS }}}) => fontSizeXXS };
   line-height: 19px;
+  position: relative;
+  margin-top: 35px;
+  height: 98px;
+  width: 240px;
+  color: #071825;
+  display: -webkit-box;
+  -webkit-line-clamp: 8;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  
   @media screen{
     @media (min-width: 1024px){
       font-size: ${({ theme: { fontSize: { fontSizeXXS }}}) => fontSizeXXS };
-      line-height: 20px;
+      height: 150px;
+      width: 350px;
+    }
+    @media (min-width: 1205px){
+      width: 400px;
     }
   }
 `
@@ -422,5 +439,12 @@ export const CardPicture = styled.div`
   background-size: contain;
   top: 20px;
   left: 6px;
+  margin-left: 8px;
 
+  @media (min-width: 1025px){
+    top: 30px;
+    width: 75px;
+    height: 75px;
+    margin-left: 35px;
+  }
 `
