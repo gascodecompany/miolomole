@@ -12,7 +12,7 @@ export default function Home() {
     <>
       <HomeJumbotron/>
       <HomeApresentation/>
-      {/* <HomeBanners/> */}
+      <HomeBanners/>
       <LatestArticles items={t.BLOG_ARTICLES}/>
       <AboutUsSlider/>
       <HomeLatestArticles/>
