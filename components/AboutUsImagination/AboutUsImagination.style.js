@@ -20,6 +20,7 @@ export const ImagitationTitle = styled(forwardRef(({ value, edit, ...props }, re
 
 export const ImaginationWrapper = styled.div`
   display: grid;
+  grid-template-columns: 1fr;
   grid-template-areas: 
     'textOne'
     'imgOne'
@@ -29,6 +30,7 @@ export const ImaginationWrapper = styled.div`
   grid-row-gap: 50px;
   @media screen{
     @media (min-width: 1024px){
+      grid-template-columns: 1fr 1fr;
       grid-template-areas: 
         'textOne imgOne'
         'imgTwo textTwo';
