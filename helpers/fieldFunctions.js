@@ -2,7 +2,6 @@
 export const inputChange = ({ target, setFields }) => {
   const { name, value } = target;
   setFields((oldFields) => {
-    // console.log(oldFields)
     oldFields[name].value = value;
     return ({ ...oldFields });
   });

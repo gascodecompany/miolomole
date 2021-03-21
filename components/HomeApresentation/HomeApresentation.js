@@ -4,22 +4,15 @@ import Editable from '../Editable'
 import * as S from './HomeApresentation.style'
 import parser from 'html-react-parser';
 
-export default function HomeApresentation(){
-  const [texts, setTexts] = useState({ title: '', call: '' });
-
-  useEffect(() => {
-    fetch('http://localhost:3000/api/textos')
-      .then((res) => res.json())
-      .then((res) => { setTexts(res) });
-  }, [])
+export default function HomeApresentation({texts}) {
 
   return(
     <S.HomeApresentation>
       <Container>
         <S.HomeApresentationImage/>
         <S.HomeInfo>
-          <Editable value={texts.title}><S.HomeApresentationTitle /></Editable>
-          <Editable value={texts.call}><S.HomeApresentationText/></Editable>
+          <Editable value={texts.homeApresentationTitle}><S.HomeApresentationTitle /></Editable>
+          {/* <Editable value={texts.call}><S.HomeApresentationText/></Editable> */}
         </S.HomeInfo>
       </Container>
     </S.HomeApresentation>
