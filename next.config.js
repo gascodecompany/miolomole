@@ -5,5 +5,6 @@ module.exports = withImages({
  target: "serverless",
  env: {
   mongodburl: "mongodb+srv://mioloMole:mioloMole@miolomole.wn27q.mongodb.net/mioloMole?retryWrites=true&w=majority",
+  url: "http://localhost:3000"
 }
 });

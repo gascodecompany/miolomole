@@ -3,14 +3,19 @@ import { mioloMoleAppTheme } from '../styles/global';
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import '../styles/globals.css'
-import Login from '../components/Login';
+import LoginButton from '../components/LoginButton';
+import { useState } from 'react';
+import LoginModal from '../components/LoginModal/LoginModal';
 
 function MyApp({ Component, pageProps }) {
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const modalProps = { isLoginModalOpen, setIsLoginModalOpen }
 
   return (
     <ThemeProvider theme={mioloMoleAppTheme}>
       <Header/>
-      <Login />
+      <LoginButton {...modalProps} />
+      <LoginModal {...modalProps} />
       <Component {...pageProps} />
       <Footer/>
     </ThemeProvider>
