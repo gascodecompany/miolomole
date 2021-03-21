@@ -11,8 +11,8 @@ export default function HomeApresentation({texts}) {
       <Container>
         <S.HomeApresentationImage/>
         <S.HomeInfo>
-          <Editable textKey="homeApresentationTitle" text={texts.homeApresentationTitle}><S.HomeApresentationTitle /></Editable>
-          <Editable textKey="homeApresentationCall" text={texts.homeApresentationCall}><S.HomeApresentationText/></Editable>
+          <Editable page="home" textKey="homeApresentationTitle"><S.HomeApresentationTitle>{texts.homeApresentationTitle}</S.HomeApresentationTitle></Editable>
+          <Editable page="home" textKey="homeApresentationCall"><S.HomeApresentationText>{texts.homeApresentationCall}</S.HomeApresentationText></Editable>
         </S.HomeInfo>
       </Container>
     </S.HomeApresentation>

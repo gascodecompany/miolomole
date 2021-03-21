@@ -42,7 +42,7 @@ export const HomeInfo = styled.div`
   flex-direction: column;
   max-width: 600px;
 `
-export const HomeApresentationTitle = styled( forwardRef(({ value, edit, ...props }, ref) => edit ? <TextareaAutosize ref={ref} {...props} value={value} /> : <h2 {...props}>{value}</h2>))`
+export const HomeApresentationTitle = styled.h2`
   font-family: Amatic SC;
   font-style: normal;
   font-weight: 700;
@@ -61,7 +61,7 @@ export const HomeApresentationTitle = styled( forwardRef(({ value, edit, ...prop
   white-space: break-spaces;
   resize: none;
 `
-export const HomeApresentationText = styled(forwardRef(({ value, edit, ...props }, ref) => edit ? <TextareaAutosize ref={ref} {...props} value={value} /> : <p {...props}>{value}</p>))`
+export const HomeApresentationText = styled.p`
   font-family: Montserrat;
   font-weight: 500;
   font-size: ${({ theme: { fontSize: { fontSizeSM }}}) => fontSizeSM };

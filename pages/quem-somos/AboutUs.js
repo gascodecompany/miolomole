@@ -5,12 +5,12 @@ import AboutUsQuote from "../../components/AboutUsQuote";
 import AboutUsSectionOne from "../../components/AboutUsSectionOne";
 import AboutUsSlider from "../../components/AboutUsSlider";
 
-export default function AboutUs(){
+export default function AboutUs({ texts }){
 
  return(
     <div>
       <AboutUsJumbotron/>
-      <AboutUsOurHistory/>
+      <AboutUsOurHistory texts={texts}/>
       <AboutUsQuote/>
       <AboutUsSectionOne/>
       <AboutUsImagination/>

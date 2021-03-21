@@ -1,8 +1,11 @@
+import { forwardRef } from 'react';
 import styled from 'styled-components';
+import TextareaAutosize from 'react-textarea-autosize';
 
 export const Editable = styled.div`
   position: relative;
-
+  z-index: 1;
+  
   >div {
     display: none;
   }
@@ -13,6 +16,8 @@ export const Editable = styled.div`
     }
   }
 `
+
+export const EditableInput = styled(forwardRef((props, ref) => <TextareaAutosize {...props} ref={ref} />))`${({styles}) => {console.log(styles); return styles} }`
 
 export const EditableButtons = styled.div`
   position: absolute;
