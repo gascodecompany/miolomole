@@ -7,8 +7,7 @@ const handler = async (req, res) => {
       const texts = await Text.find({ page: req.query.page });
       return res.status(200).send(texts);
     } catch (error) { return res.status(500).send(error.message) }
-  } 
-  else if (req.method === 'POST') {
+  } else if (req.method === 'POST') {
     const { textKey, text, page, editedBy } = req.body;
     if (textKey && text && page) {
         try {
@@ -17,8 +16,19 @@ const handler = async (req, res) => {
           return res.status(200).send(textCreated);
         } catch (error) { return res.status(500).send(error.message) }
       } else { res.status(422).send('data_incomplete'); }
-  } 
-  else { res.status(422).send('req_method_not_supported');}
+  } else if (req.method === 'PATCH') {
+    const { textKey, text, editedBy } = req.body;
+    if (textKey && text) {
+        try {
+          var oldText = Text.findOne({ textKey });
+          if (oldText) {
+            oldText.text = text;
+            var oldTextUpdated = await oldText.save();
+            return res.status(200).send(oldTextUpdated);
+          }
+        } catch (error) { return res.status(500).send(error.message) }
+      } else { res.status(422).send('data_incomplete'); }
+  } else { res.status(422).send('req_method_not_supported');}
 };
 
 export default connectDB(handler);

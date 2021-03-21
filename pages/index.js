@@ -5,6 +5,8 @@ import LatestArticles from "../components/LatestArticles";
 import AboutUsSlider from "../components/AboutUsSlider";
 import HomeBanners from "../components/HomeBanners";
 import pt from "../i18n/pt";
+import mongoose from 'mongoose';
+import Text from '../models/text'
 
 export default function Home({ texts }) {
   const t = pt
@@ -21,13 +23,8 @@ export default function Home({ texts }) {
 }
 
 export async function getStaticProps() {
-  const textsArray = await fetch('http://localhost:3000/api/textos?page=home')
-    .then((res) => res.json())
-    .catch((res) => console.log(res));
+  await mongoose.connect(process.env.mongodburl, { useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true, useNewUrlParser: true });
+  const textsArray = await Text.find({ page: 'home' });
   const texts = textsArray.reduce((object, text) => Object.assign(object, {[text.textKey]: text.text}), {});
-  if (!texts) { return { notFound: true }}
-  return { 
-    props: { texts }, 
-    // revalidate: 1 
-  }
+  return { props: { texts }, revalidate: 1 }
 }
