@@ -19,8 +19,6 @@ export default function Editable ({ children, textKey, page }) {
     return setEdit(false)
   }
 
-  console.log(children.type.componentStyle.rules)
-
   const inputProps = { value: text, ref, edit, onChange, onBlur, styles: children.type.componentStyle.rules }
 
   return (
