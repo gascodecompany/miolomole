@@ -2,8 +2,8 @@ import connectDB from '../../../middleware/mongodb';
 import Text from '../../../models/text';
 
 const handler = async (req, res) => {
+  console.log('chegou aqui');
   try {
-
     if (req.method === 'GET') {
       try {
         const texts = await Text.find({ page: req.query.page });
@@ -19,12 +19,16 @@ const handler = async (req, res) => {
           } catch (error) { return res.status(500).send(error.message) }
         } else { res.status(422).send('data_incomplete'); }
     } else if (req.method === 'PUT') {
+      console.log('chegou aqui2');
       const { textKey, text, editedBy } = req.body;
       if (textKey && text) {
+        console.log('chegou aqui3');
           try {
-            var oldText = Text.findOne({ textKey: textKey });
+            var oldText = await Text.findOne({ textKey: textKey });
+            console.log('chegou aqui4');
             if (oldText) {
               oldText.text = text;
+              oldText.editedBy = editedBy;
               var oldTextUpdated = await oldText.save();
               return res.status(200).send(oldTextUpdated);
             }
