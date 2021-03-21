@@ -12,7 +12,7 @@ export const QuoteWrapper = styled.div`
   width: 65%;
   text-align: justify;
 `
-export const QuoteText = styled(forwardRef(({ value, edit, ...props }, ref) => edit ? <TextareaAutosize ref={ref} {...props} value={value} /> : <p {...props}>{value}</p>))`
+export const QuoteText = styled.p`
   font-family: Montserrat;
   font-style: italic;
   font-weight: 500;
@@ -22,7 +22,7 @@ export const QuoteText = styled(forwardRef(({ value, edit, ...props }, ref) => e
   margin-bottom: 10px;
   width: 100%;
 `
-export const Credit = styled(forwardRef(({ value, edit, ...props }, ref) => edit ? <TextareaAutosize ref={ref} {...props} value={value} /> : <p {...props}>{value}</p>))`
+export const Credit = styled.p`
   font-family: Montserrat;
   font-weight: 500;
   font-size: ${({ theme: { fontSize: { fontSizeXS }}}) => fontSizeXS };

@@ -2,14 +2,14 @@ import Container from '../Container'
 import Editable from '../Editable'
 import * as S from './AboutUsQuote.style'
 
-export default function AboutUsQuote(){
+export default function AboutUsQuote({ texts }){
 
  return(
     <S.AboutUsQuote>
       <Container>
         <S.QuoteWrapper>
-          <Editable text='”E se as histórias para crianças passassem a ser leitura obrigatória para os adultos? Seriam eles capazes de aprender realmente o que há tanto tempo têm andado a ensinar?”'><S.QuoteText/></Editable>
-          <Editable text='José Saramago, escritor português, 1922-2010'><S.Credit/></Editable>
+          <Editable page="aboutUs" textKey='aboutUsQuoteText'><S.QuoteText>{texts.aboutUsQuoteText}</S.QuoteText></Editable>
+          <Editable page="aboutUs" textKey='aboutUsQuoteAuthor'><S.Credit>{texts.aboutUsQuoteAuthor}</S.Credit></Editable>
         </S.QuoteWrapper>
       </Container>
     </S.AboutUsQuote>

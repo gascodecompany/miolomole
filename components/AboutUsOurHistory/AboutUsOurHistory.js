@@ -9,8 +9,8 @@ export default function AboutUsOurHistory({ texts }){
     <S.AboutUsOurHistory>
       <Container>
       <S.OurHistoryWrapper>
-        <Editable page="aboutUs" textKey="aboutUsOurHistoryTitle" text={texts.aboutUsOurHistoryTitle}><S.OurHistoryTitle/></Editable>
-        <Editable page="aboutUs" textKey="aboutUsOurHistoryText" text={`${texts.aboutUsOurHistoryText}`}><S.OurHistoryText/></Editable>
+        <Editable page="aboutUs" textKey="aboutUsOurHistoryTitle"><S.OurHistoryTitle>{texts.aboutUsOurHistoryTitle}</S.OurHistoryTitle></Editable>
+        <Editable page="aboutUs" textKey="aboutUsOurHistoryText"><S.OurHistoryText>{texts.aboutUsOurHistoryText}</S.OurHistoryText></Editable>
         <span className='grayBox'></span>
       </S.OurHistoryWrapper>
       </Container>

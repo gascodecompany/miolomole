@@ -10,10 +10,10 @@ export default function AboutUs({ texts }){
  return(
     <div>
       <AboutUsJumbotron/>
-      <AboutUsOurHistory texts={texts}/>
-      <AboutUsQuote/>
-      <AboutUsSectionOne/>
-      <AboutUsImagination/>
+      <AboutUsOurHistory texts={texts} />
+      <AboutUsQuote texts={texts} />
+      <AboutUsSectionOne texts={texts} />
+      <AboutUsImagination texts={texts} />
       <AboutUsSlider/>
     </div>
   )
