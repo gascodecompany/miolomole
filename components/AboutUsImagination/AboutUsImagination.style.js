@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import TextareaAutosize from 'react-textarea-autosize';
+import { forwardRef } from 'react'
 
 export const AboutUsImagination = styled.div`
   .container{
@@ -6,18 +8,19 @@ export const AboutUsImagination = styled.div`
   }
 `;
 
-export const ImagitationTitle = styled.div`
+export const ImagitationTitle = styled(forwardRef(({ value, edit, ...props }, ref) => edit ? <TextareaAutosize ref={ref} {...props} value={value} /> : <h2 {...props}>{value}</h2>))`
   font-family: Amatic SC;
   font-weight: bold;
   font-size: ${({ theme: { fontSize: { fontSizeUL }}}) => fontSizeUL };
   align-items: center;
   color: #F6D300;
   margin-bottom: 40px;
-
+  width: 100%;
 `
 
 export const ImaginationWrapper = styled.div`
   display: grid;
+  grid-template-columns: 1fr;
   grid-template-areas: 
     'textOne'
     'imgOne'
@@ -27,6 +30,7 @@ export const ImaginationWrapper = styled.div`
   grid-row-gap: 50px;
   @media screen{
     @media (min-width: 1024px){
+      grid-template-columns: 1fr 1fr;
       grid-template-areas: 
         'textOne imgOne'
         'imgTwo textTwo';
@@ -34,7 +38,7 @@ export const ImaginationWrapper = styled.div`
   }
 `
 
-export const ImaginationTextOne = styled.div`
+export const ImaginationTextOne = styled(forwardRef(({ value, edit, ...props }, ref) => edit ? <TextareaAutosize ref={ref} {...props} value={value} /> : <p {...props}>{value}</p>))`
   grid-area: 'textOne';
   width: 100%;
   font-family: Montserrat;
@@ -53,7 +57,7 @@ export const ImaginationImgOne = styled.div`
   border-radius: 8px;  
 `
 
-export const ImaginationTextTwo = styled.div`
+export const ImaginationTextTwo = styled(forwardRef(({ value, edit, ...props }, ref) => edit ? <TextareaAutosize ref={ref} {...props} value={value} /> : <p {...props}>{value}</p>))`
   grid-area: 'textTwo';
   width: 100%;
   font-family: Montserrat;

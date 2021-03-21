@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import TextareaAutosize from 'react-textarea-autosize';
+import { forwardRef } from 'react'
 
 export const AboutUsOurHistory = styled.div`
     margin-bottom: 90px;
@@ -41,7 +43,7 @@ export const OurHistoryWrapper = styled.div`
 
 `
 
-export const OurHistoryTitle = styled.div`
+export const OurHistoryTitle = styled(forwardRef(({ value, edit, ...props }, ref) => edit ? <TextareaAutosize ref={ref} {...props} value={value} /> : <h2 {...props}>{value}</h2>))`
   font-family: Amatic SC;
   font-weight: bold;
   font-size: 75px;
@@ -51,7 +53,7 @@ export const OurHistoryTitle = styled.div`
   margin-bottom: 20px;
 `
 
-export const OurHistoryText = styled.div`
+export const OurHistoryText = styled(forwardRef(({ value, edit, ...props }, ref) => edit ? <TextareaAutosize ref={ref} {...props} value={value} /> : <p {...props}>{value}</p>))`
   font-family: Montserrat;
   font-weight: 500;
   font-size: ${({ theme: { fontSize: { fontSizeSM }}}) => fontSizeSM };

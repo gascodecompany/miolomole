@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import TextareaAutosize from 'react-textarea-autosize';
+import { forwardRef } from 'react'
 
 export const AboutUsQuote = styled.div`
   .container{
@@ -10,7 +12,7 @@ export const QuoteWrapper = styled.div`
   width: 65%;
   text-align: justify;
 `
-export const QuoteText = styled.div`
+export const QuoteText = styled(forwardRef(({ value, edit, ...props }, ref) => edit ? <TextareaAutosize ref={ref} {...props} value={value} /> : <p {...props}>{value}</p>))`
   font-family: Montserrat;
   font-style: italic;
   font-weight: 500;
@@ -18,12 +20,14 @@ export const QuoteText = styled.div`
   line-height: 28px;
   color: #00A79D;
   margin-bottom: 10px;
+  width: 100%;
 `
-export const Credit = styled.div`
+export const Credit = styled(forwardRef(({ value, edit, ...props }, ref) => edit ? <TextareaAutosize ref={ref} {...props} value={value} /> : <p {...props}>{value}</p>))`
   font-family: Montserrat;
   font-weight: 500;
   font-size: ${({ theme: { fontSize: { fontSizeXS }}}) => fontSizeXS };
   line-height: 20px;
   color: #071825;
   text-align: end;
+  width: 100%;
 `

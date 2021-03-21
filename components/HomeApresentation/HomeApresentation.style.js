@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import homeApresentationImg from '../../images/homeApresentationImg.jpg'
 import TextareaAutosize from 'react-textarea-autosize';
+import { forwardRef } from 'react'
 
 export const HomeApresentation = styled.div`
   
@@ -41,7 +42,7 @@ export const HomeInfo = styled.div`
   flex-direction: column;
   max-width: 600px;
 `
-export const HomeApresentationTitle = styled(({ value, edit, ...props }) => edit ? <TextareaAutosize {...props} value={value} /> : <h2 {...props}>{value}</h2>)`
+export const HomeApresentationTitle = styled( forwardRef(({ value, edit, ...props }, ref) => edit ? <TextareaAutosize ref={ref} {...props} value={value} /> : <h2 {...props}>{value}</h2>))`
   font-family: Amatic SC;
   font-style: normal;
   font-weight: 700;
@@ -60,7 +61,7 @@ export const HomeApresentationTitle = styled(({ value, edit, ...props }) => edit
   white-space: break-spaces;
   resize: none;
 `
-export const HomeApresentationText = styled(({ value, edit, ...props }) => edit ? <TextareaAutosize {...props} value={value} /> : <p {...props}>{value}</p>)`
+export const HomeApresentationText = styled(forwardRef(({ value, edit, ...props }, ref) => edit ? <TextareaAutosize ref={ref} {...props} value={value} /> : <p {...props}>{value}</p>))`
   font-family: Montserrat;
   font-weight: 500;
   font-size: ${({ theme: { fontSize: { fontSizeSM }}}) => fontSizeSM };
