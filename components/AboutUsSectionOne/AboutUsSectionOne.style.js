@@ -1,18 +1,25 @@
 import styled from 'styled-components';
+import TextareaAutosize from 'react-textarea-autosize';
+import { forwardRef } from 'react'
 
 export const AboutUsSectionOne = styled.div`
   overflow-y: hidden;
   .container{
     padding-top: 100px;
-    flex-direction: row;
-    justify-content: center;
+    /* flex-direction: row;
+    justify-content: center; */
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-gap: 20px;
   }
 `;
 
 export const SectionOneImages = styled.div`
   position: relative;
-  width: 503px;
-  height: 364px;
+  /* min-width: 503px; */
+  min-height: 364px;
+  height: 100%;
+  width: 100%;
   background: #C4C4C4;
   border-radius: 8px;
   display: block;
@@ -30,12 +37,11 @@ export const SectionOneImages = styled.div`
   }
 `
 
-export const ScetionOneText = styled.div`
+export const SectionOneText = styled(forwardRef(({ value, edit, ...props }, ref) => edit ? <TextareaAutosize ref={ref} {...props} value={value} /> : <p {...props}>{value}</p>))`
   font-family: Montserrat;
-  width: 44%;
   font-weight: 500;
   font-size: ${({ theme: { fontSize: { fontSizeSM }}}) => fontSizeSM };
   line-height: 30px;
   color: #071825;
-
+  width: 100%;
 `
