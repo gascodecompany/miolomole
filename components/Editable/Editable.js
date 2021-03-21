@@ -23,7 +23,10 @@ export default function Editable ({ children, text, textKey }) {
         onBlur: async () => {
           if (!confirm('Salvar alteração?')) { 
             setEditableValue(text) 
-          } else { await fetch("localhost:3000/api/textos", { method: "PATCH", body: { textKey, text: editableValue, editetBy: 'browser' } }) }
+          } else { 
+            await fetch("localhost:3000/api/textos", { method: "PUT", body: { textKey, text: editableValue, editetBy: 'browser' } })
+              .catch((res) => console.log(res)) 
+          }
           return setEdit(false)
         }
       }) }
