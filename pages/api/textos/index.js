@@ -14,7 +14,6 @@ const handler = async (req, res) => {
         try {
           var newText = new Text({ textKey, text, page, editedBy });
           var textCreated = await newText.save();
-          console.log(newText);
           return res.status(200).send(textCreated);
         } catch (error) { return res.status(500).send(error.message) }
       } else { res.status(422).send('data_incomplete'); }
