@@ -12,7 +12,7 @@ export default function HomeApresentation({texts}) {
         <S.HomeApresentationImage/>
         <S.HomeInfo>
           <Editable textKey="homeApresentationTitle" text={texts.homeApresentationTitle}><S.HomeApresentationTitle /></Editable>
-          {/* <Editable value={texts.call}><S.HomeApresentationText/></Editable> */}
+          <Editable value={texts.homeApresentationCall}><S.HomeApresentationText/></Editable>
         </S.HomeInfo>
       </Container>
     </S.HomeApresentation>
