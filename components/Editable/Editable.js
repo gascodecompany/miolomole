@@ -17,7 +17,7 @@ export default function Editable ({ children, page, texts, textKey, isLoggedIn }
     }
   }
   const saveText = async () => {
-    await axios.post("http://localhost:3000/api/textos", { textKey, page, text: newText, editedBy: 'browser' }).catch((err) => console.log(err))
+    await axios.put("http://localhost:3000/api/textos", { textKey, page, text: newText, editedBy: 'browser' }).catch((err) => console.log(err))
     setText(newText)
     setEdit(false)
   }

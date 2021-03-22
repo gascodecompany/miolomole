@@ -37,7 +37,7 @@ export default function EditableImage ({ children, page, texts, textKey, isLogge
   }, []);
   
   const saveImage = async () => {
-    await axios.post("http://localhost:3000/api/textos", { textKey, page, text: newLink, editedBy: 'browser' }).catch((err) => console.log(err));
+    await axios.put("http://localhost:3000/api/textos", { textKey, page, text: newLink, editedBy: 'browser' }).catch((err) => console.log(err));
     setLink(newLink);
     setEdit(false);
   }
