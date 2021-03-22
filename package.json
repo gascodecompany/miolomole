@@ -8,7 +8,11 @@
     "start": "next start"
   },
   "dependencies": {
+    "add": "^2.0.6",
+    "aws-sdk": "^2.868.0",
     "axios": "^0.21.1",
+    "cripto": "^1.0.1",
+    "evaporate": "^2.1.4",
     "html-react-parser": "^1.2.4",
     "i18next": "^19.8.7",
     "mongoose": "^5.12.0",
@@ -19,6 +23,7 @@
     "react": "17.0.1",
     "react-currency-format": "^1.0.0",
     "react-dom": "17.0.1",
+    "react-dropzone": "^11.3.1",
     "react-i18next": "^9.0.10",
     "react-inlinesvg": "^2.2.2",
     "react-input-mask": "^2.0.4",
@@ -30,6 +35,8 @@
     "react-textarea-autosize": "^8.3.2",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.2.1",
-    "swr": "^0.5.4"
+    "swr": "^0.5.4",
+    "uuidv4": "^6.2.6",
+    "yarn": "^1.22.10"
   }
 }

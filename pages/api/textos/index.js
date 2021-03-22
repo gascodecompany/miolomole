@@ -17,7 +17,7 @@ const textos = async (req, res) => {
             return res.status(200).send(textCreated);
           } catch (error) { return res.status(500).send(error.message) }
         } else { res.status(422).send('data_incomplete'); }
-    } else if (req.method === 'PUT') {
+    } else if (req.method === 'POST') {
       const { textKey, text, editedBy, page } = req.body;
       if (textKey && text) {
           try {
