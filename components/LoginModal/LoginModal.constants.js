@@ -4,19 +4,26 @@ export const loginModalFieldsState = () => ({
 })
 
 
-export const loginModalFieldsFunction = ({fields}) => ({
+export const loginModalFieldsFunction = ({ fields, onSubmit, loading, formDisabledState }) => ({
   userName: {
     ...fields.userName,
     name: 'userName',
     label: 'Nome de usuário',
-    placeHolder: 'Nome de usuário...',
   },
   password: {
     ...fields.password,
     name: 'password',
     label: 'Senha',
-    placeHolder: 'Senha...',
     type: 'password'
+  },
+  submitButton: {
+    name: 'submitButton',
+    type: 'submit',
+    label: 'Entrar',
+    variation: 'primary',
+    loading: loading,
+    disbled: formDisabledState,
+    onClick: (e) => onSubmit(e)
   }
 })
 
@@ -25,7 +32,7 @@ export const gridTemplate = (theme) => {
     grid-template: ${`
       "userName userName userName" 
       "password password password"
-      ". loginButton ."
+      ". submitButton ."
     `}
   `
 }

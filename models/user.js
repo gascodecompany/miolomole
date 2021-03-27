@@ -4,6 +4,7 @@ var Schema = mongoose.Schema;
 var user = new Schema({
   userName: { type: String, unique: true, required: true },
   password: { type: String, required: true },
+  token: { type: String, required: true },
 }, {timestamps: true});
 
 mongoose.models = {};

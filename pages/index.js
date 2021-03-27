@@ -8,12 +8,13 @@ import pt from "../i18n/pt";
 import mongoose from 'mongoose';
 import Text from '../models/text'
 
-export default function Home({ texts }) {
-  const t = pt
+export default function Home({ texts, ...props }) {
+  const t = pt;
+
   return (
     <>
       <HomeJumbotron/>
-      <HomeApresentation texts={texts}/>
+      <HomeApresentation texts={texts} {...props}/>
       <HomeBanners/>
       <LatestArticles items={t.BLOG_ARTICLES}/>
       <AboutUsSlider/>

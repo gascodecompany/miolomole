@@ -5,8 +5,6 @@ export const LoginModalContainer = styled.div`
   height: 100%;
   width: 100vw;
   z-index: 99;
-  background-color: ${({ theme: { color: { transparentBlack }}}) => transparentBlack };
-  transition: .6s ${({isOpen}) => isOpen ? 0 : '.6s'} ease;
 
   display: flex;
   align-items: center;
@@ -29,13 +27,14 @@ export const LoginModalBody = styled.div`
     grid-area: form;  
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 100%;
     label {
       align-self: center;
       justify-self: center;
     }
     input {
-      width: 200px;
+      width: 100%;
       margin-bottom: 40px;
       border-bottom: 1px solid ${({ theme: { color: { brand }}}) => brand };
     }
@@ -44,12 +43,9 @@ export const LoginModalBody = styled.div`
   transition: .6s ease;
 
   @media (min-width: 768px){
-    height: 450px;
-    width: 600px;
-    border-radius: 10px;
     section{
       input{
-        width: 400px;
+        width: 500px;
       }
     }
   }
@@ -58,16 +54,17 @@ export const LoginModalBody = styled.div`
 
 export const FormWrapper = styled.div`
   height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-
 `
 
 export const FormTitleWrapper = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
 `
 
@@ -101,5 +98,5 @@ export const LoginButton = styled.div`
 `
 
 export const Response = styled.div`
-  
+  height: 16px;
 `

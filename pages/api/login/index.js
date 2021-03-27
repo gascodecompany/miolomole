@@ -1,17 +1,26 @@
 import connectDB from '../../../middleware/mongodb';
 import User from '../../../models/User';
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import axios from 'axios';
 
 const login = async (req, res) => {
   try {
-    if (req.method === 'POST') {
-      try {
-        const user = await User.findOne({ userName: req.body.userName});
-        if(!user) return res.status(404).send('user_not_found')
-        if(bcrypt.compareSync(req.body.password, user.password)) { return res.status(200).send('successful_login') }
-        else return res.status(401).send('invalid_data');
-      } catch (error) { return res.status(500).send(error.message) }
-    } else { res.status(422).send('req_method_not_supported');}
+    if (req.method !== 'POST') { return res.status(422).send('Método não suportado') };
+    
+    const { userName, password } = req.body;
+    if (!userName && !password) { return res.status(422).send('Dados Incompletos') };
+
+    const user = await User.findOne({ userName });
+    if(!user) { return res.status(404).send('Usuário inválido') }
+
+    if(!bcrypt.compareSync(password, user.password)) { return res.status(401).send('Usuário ou senha inválidos') } 
+      
+    const token = jwt.sign({ _id: user._id }, process.env.secret_key)
+    user.token = token
+    user.save()
+    return res.status(200).json({ user })
+
   } catch (err) { console.log(err)}
 };
 

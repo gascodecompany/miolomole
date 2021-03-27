@@ -2,7 +2,7 @@ import { useState, useEffect, cloneElement, useRef } from 'react';
 import * as S from './Editable.styles';
 import axios from 'axios';
 
-export default function Editable ({ children, textKey, page }) {
+export default function Editable ({ children, textKey, page, isLogedIn }) {
   const [edit, setEdit] = useState(false);
   const [text, setText] = useState(children.props.children);
   const ref = useRef();
@@ -19,12 +19,13 @@ export default function Editable ({ children, textKey, page }) {
     return setEdit(false)
   }
 
+  console.log("isLogedIn: ", isLogedIn)
+  
   const inputProps = { value: text, ref, edit, onChange, onBlur, styles: children.type.componentStyle.rules }
-
   return (
     <S.Editable>
       <S.EditableButtons>
-        <S.EditButton onClick={() => {setEdit(!edit)}}>{ edit ? 'S' : 'E' }</S.EditButton>
+        { isLogedIn && <S.EditButton onClick={() => {setEdit(!edit)}}>{ edit ? 'S' : 'E' }</S.EditButton>}
         { edit && <S.CancelButton onClick={() => { setText(text); setEdit(false)}}>C</S.CancelButton> }
       </S.EditableButtons>
       { cloneElement(edit ? <S.EditableInput {...children.props} {...inputProps}/> : children, { children: text })}

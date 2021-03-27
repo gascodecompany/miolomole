@@ -6,7 +6,9 @@ export default function Form(props) {
 
   return (
     <StyledForm gridTemplate={gridTemplate}>
-      { Object.values(fields).map((field) => <Field key={field.name} {...field} setFields={setFields} />)}
+      <form>
+        { Object.values(fields).map((field) => <Field key={field.name} {...field} setFields={setFields} />)}
+      </form>
     </StyledForm>
   )
 }

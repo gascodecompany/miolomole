@@ -3,7 +3,7 @@ import * as S from './AboutUsOurHistory.style'
 import Container from '../Container'
 import Editable from '../Editable'
 
-export default function AboutUsOurHistory({ texts }){
+export default function AboutUsOurHistory({ texts, ...props }){
   
  return(
     <S.AboutUsOurHistory>
