@@ -8,13 +8,12 @@ import pt from "../i18n/pt";
 import mongoose from 'mongoose';
 import Text from '../models/text'
 
-export default function Home({ texts, ...props }) {
-  const t = pt;
-
+export default function Home(props) {
+  const t = pt
   return (
     <>
       <HomeJumbotron/>
-      <HomeApresentation texts={texts} {...props}/>
+      <HomeApresentation {...props}/>
       <HomeBanners/>
       <LatestArticles items={t.BLOG_ARTICLES}/>
       <AboutUsSlider/>
@@ -24,8 +23,9 @@ export default function Home({ texts, ...props }) {
 }
 
 export async function getStaticProps() {
-  await mongoose.connect(process.env.mongodburl, { useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true, useNewUrlParser: true });
-  const textsArray = await Text.find({ page: 'home' });
+  await mongoose.connect(process.env.MONGO_DB_URL, { useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true, useNewUrlParser: true });
+  const page = 'home'
+  const textsArray = await Text.find({ page });
   const texts = textsArray.reduce((object, text) => Object.assign(object, {[text.textKey]: text.text}), {});
-  return { props: { texts }, revalidate: 1 }
+  return { props: { texts, page }, revalidate: 1 }
 }

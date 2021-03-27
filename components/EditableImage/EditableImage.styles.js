@@ -22,6 +22,7 @@ export const EditableInput = styled(forwardRef((props, ref) => <TextareaAutosize
 export const EditableButtons = styled.div`
   position: absolute;
   right: 0;
+  z-index: 99;
 `
 export const EditButton = styled.button`
 `
