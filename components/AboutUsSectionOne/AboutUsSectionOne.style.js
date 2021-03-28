@@ -27,8 +27,14 @@ export const SectionOneImages = styled.div`
   border-radius: 8px;
   display: block;
   margin-right: 30px;
-  
   position: relative;
+
+  div:last-child{
+    >div{
+      left: 95px;
+      top: -515px;
+    }
+  }
 
 `
 
