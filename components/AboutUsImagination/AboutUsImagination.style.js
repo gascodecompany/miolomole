@@ -49,12 +49,14 @@ export const ImaginationTextOne = styled.p`
   margin-right: 30px;
 `
 
-export const ImaginationImgOne = styled.div`
+export const ImaginationImgOne = styled.img`
   grid-area: 'imgOne';
   width: 100%;
   height: 364px;
   background: #C4C4C4;
-  border-radius: 8px;  
+  border-radius: 8px; 
+  object-fit: cover;
+ 
 `
 
 export const ImaginationTextTwo = styled.p`
@@ -67,10 +69,12 @@ export const ImaginationTextTwo = styled.p`
   color: #071825;
 `
 
-export const ImaginationImgTwo = styled.div`
+export const ImaginationImgTwo = styled.img`
   grid-area: 'imgTwo';
   width: 100%;
   height: 364px;
   background: #C4C4C4;
   border-radius: 8px;  
+  object-fit: cover;
+
 `

@@ -21,9 +21,6 @@ export const AboutUsSectionOne = styled.div`
 `;
 
 export const SectionOneImages = styled.div`
-  position: relative;
-  /* min-width: 503px; */
-  min-height: 364px;
   height: 100%;
   width: 100%;
   background: #C4C4C4;
@@ -31,16 +28,8 @@ export const SectionOneImages = styled.div`
   display: block;
   margin-right: 30px;
   
-  ::after{
-    content: '';
-    position: absolute;
-    width: 170px;
-    height: 184px;
-    background: #531E1E;
-    border-radius: 8px;
-    top: -80px;
-    left: -42px;
-  }
+  position: relative;
+
 `
 
 export const SectionOneText = styled.p`
@@ -50,4 +39,29 @@ export const SectionOneText = styled.p`
   line-height: 30px;
   color: #071825;
   width: 100%;
+`
+export const SectionOneImageOne = styled.img`
+  /* min-width: 503px; */
+  min-height: 364px;
+  height: 100%;
+  width: 100%;
+  background: #C4C4C4;
+  border-radius: 8px;
+  display: block;
+  margin-right: 30px;
+`
+export const SectionOneImageTwo = styled.img`
+  position: absolute;
+  width: 170px;
+  height: 184px;
+  background: #531E1E;
+  border-radius: 8px;
+  top: -520px;
+  left: -42px;
+  display: none;
+  @media screen{
+    @media (min-width: 1024px){
+      display: block;
+    }
+  }
 `
