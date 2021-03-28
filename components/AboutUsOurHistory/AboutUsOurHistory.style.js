@@ -33,13 +33,6 @@ export const OurHistoryWrapper = styled.div`
   margin-top: -180px;
   position: relative;
 
-  ::before{
-    content: '';
-    position: absolute;
-    width: 40%;
-    height: 100%;
-    top: 0px;
-  }
 
 `
 
@@ -61,4 +54,11 @@ export const OurHistoryText = styled.p`
   color: #FFFFFF;
   width: 80%;
 
+`
+export const AboutUsOurHistoryImage = styled.img`
+  max-width: 325px;
+  max-height: 475px;
+  position: absolute;
+  right: -160px;
+  bottom: -90px;
 `

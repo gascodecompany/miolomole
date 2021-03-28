@@ -25,8 +25,8 @@ export default function LogoutButton({setCurrentUser, setIsLogedIn}){
       >
         <Lottie
           options={defaultOptions}
-          height={100}
-          width={100}
+          height={70}
+          width={70}
           isPaused={paused}
          />
       </S.LogoutWrapper>
