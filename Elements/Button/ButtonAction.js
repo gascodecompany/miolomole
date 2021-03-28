@@ -15,7 +15,7 @@ export const ButtonAction = forwardRef((props, ref) => {
             ? <Spinner color="#fff" />
             : <>
               {props.icon && <props.icon/>}
-              {label && label}
+              {label && <p className="unselectable">{label}</p>}
               {props.iconRight && <props.iconRight/>}
             </>
           }

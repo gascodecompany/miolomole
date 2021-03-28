@@ -37,7 +37,7 @@ export const SectionOneImages = styled.div`
   }
 `
 
-export const SectionOneText = styled(forwardRef(({ value, edit, ...props }, ref) => edit ? <TextareaAutosize ref={ref} {...props} value={value} /> : <p {...props}>{value}</p>))`
+export const SectionOneText = styled.p`
   font-family: Montserrat;
   font-weight: 500;
   font-size: ${({ theme: { fontSize: { fontSizeSM }}}) => fontSizeSM };

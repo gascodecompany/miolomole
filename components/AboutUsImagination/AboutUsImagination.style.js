@@ -8,7 +8,7 @@ export const AboutUsImagination = styled.div`
   }
 `;
 
-export const ImagitationTitle = styled(forwardRef(({ value, edit, ...props }, ref) => edit ? <TextareaAutosize ref={ref} {...props} value={value} /> : <h2 {...props}>{value}</h2>))`
+export const ImagitationTitle = styled.h2`
   font-family: Amatic SC;
   font-weight: bold;
   font-size: ${({ theme: { fontSize: { fontSizeUL }}}) => fontSizeUL };
@@ -38,7 +38,7 @@ export const ImaginationWrapper = styled.div`
   }
 `
 
-export const ImaginationTextOne = styled(forwardRef(({ value, edit, ...props }, ref) => edit ? <TextareaAutosize ref={ref} {...props} value={value} /> : <p {...props}>{value}</p>))`
+export const ImaginationTextOne = styled.p`
   grid-area: 'textOne';
   width: 100%;
   font-family: Montserrat;
@@ -57,7 +57,7 @@ export const ImaginationImgOne = styled.div`
   border-radius: 8px;  
 `
 
-export const ImaginationTextTwo = styled(forwardRef(({ value, edit, ...props }, ref) => edit ? <TextareaAutosize ref={ref} {...props} value={value} /> : <p {...props}>{value}</p>))`
+export const ImaginationTextTwo = styled.p`
   grid-area: 'textTwo';
   width: 100%;
   font-family: Montserrat;

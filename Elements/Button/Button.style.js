@@ -4,7 +4,18 @@ import { lighten, darken } from 'polished';
 
 const primary = css`
   background: ${({ theme: { color: { brandDark }}}) => brandDark };
-  color: ${({ theme: { color: { white }}}) => white };
+  padding: 17px;
+  width: 200px;
+  height: 50px;
+  border: none;
+  border-radius: 100px;
+  
+  p {
+    color: ${({ theme: { color: { white }}}) => white };
+    font-size: ${({ theme: { fontSize: { fontSizeXXS }}}) => fontSizeXXS };
+    font-family: Montserrat;
+    letter-spacing: 2.4px;
+  }
 
   svg {
     path {
@@ -19,7 +30,6 @@ const primary = css`
   &:active, &:focus {
     background: ${({theme: {color: { brandDark }}}) => darken('.1', brandDark) };
   }
-  
 `
 
 const inverse = css`
@@ -159,10 +169,8 @@ const button = css`
   grid-area: ${({name}) => name};
   text-transform: uppercase;
   text-align: center;
-  font-weight: ${({theme: {fontWeight: {fontWeightBold}}}) => fontWeightBold};
   padding: 12px 12px;
   border-radius: 8px;
-  font-size: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -171,6 +179,11 @@ const button = css`
   cursor: pointer;
   white-space: nowrap;
   
+  p {
+    font-weight: ${({theme: {fontWeight: {fontWeightBold}}}) => fontWeightBold};
+    font-size: 12px;
+  }
+
   svg {
     margin: -10px 0;
     height: 20px;

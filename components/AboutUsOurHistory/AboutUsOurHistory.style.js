@@ -43,7 +43,7 @@ export const OurHistoryWrapper = styled.div`
 
 `
 
-export const OurHistoryTitle = styled(forwardRef(({ value, edit, ...props }, ref) => edit ? <TextareaAutosize ref={ref} {...props} value={value} /> : <h2 {...props}>{value}</h2>))`
+export const OurHistoryTitle = styled.h2`
   font-family: Amatic SC;
   font-weight: bold;
   font-size: 75px;
@@ -53,7 +53,7 @@ export const OurHistoryTitle = styled(forwardRef(({ value, edit, ...props }, ref
   margin-bottom: 20px;
 `
 
-export const OurHistoryText = styled(forwardRef(({ value, edit, ...props }, ref) => edit ? <TextareaAutosize ref={ref} {...props} value={value} /> : <p {...props}>{value}</p>))`
+export const OurHistoryText = styled.p`
   font-family: Montserrat;
   font-weight: 500;
   font-size: ${({ theme: { fontSize: { fontSizeSM }}}) => fontSizeSM };

@@ -5,8 +5,10 @@ export default function Form(props) {
   const { fields, setFields, gridTemplate } = props;
 
   return (
-    <StyledForm gridTemplate={gridTemplate} joinUsWay={fields.typeForm?.value?.value}>
-      { Object.values(fields).map((field) => <Field key={field.name} {...field} setFields={setFields} />)}
+    <StyledForm gridTemplate={gridTemplate}>
+      <form>
+        { Object.values(fields).map((field) => <Field key={field.name} {...field} setFields={setFields} />)}
+      </form>
     </StyledForm>
   )
 }
