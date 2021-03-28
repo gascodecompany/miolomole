@@ -5,9 +5,9 @@ import TextareaAutosize from 'react-textarea-autosize';
 export const Editable = styled.div`
   position: relative;
   z-index: 1;
-  
+    
   >div {
-    display: none;
+    display: none; 
   }
 
   &:hover {

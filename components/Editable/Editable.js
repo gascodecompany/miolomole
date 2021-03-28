@@ -14,18 +14,18 @@ export default function Editable ({ children, page, texts, textKey, isLoggedIn }
   useEffect(() => edit && ref.current.focus(), [edit])
 
   const onChange = ({ target }) => setNewText(target.value)
-  const onBlur = (e) => {
-    if(!(e.relatedTarget?.id === `${textKey}EditButton` || e.relatedTarget?.id === `${textKey}CancelButton`)) {
-      if (!confirm('Salvar alteração?')) { setNewText(text); setEdit(false) } else { saveText() }
-    }
-  }
+  // const onBlur = (e) => {
+  //   if(!(e.relatedTarget?.id === `${textKey}EditButton` || e.relatedTarget?.id === `${textKey}CancelButton`)) {
+  //     if (!confirm('Salvar alteração?')) { setNewText(text); setEdit(false) } else { saveText() }
+  //   }
+  // }
   const saveText = async () => {
     await axios.put("http://localhost:3000/api/textos", { textKey, page, text: newText, editedBy: 'browser' }).catch((err) => console.log(err))
     setText(newText)
     setEdit(false)
   }
 
-  const inputProps = { value: newText, ref, edit, onChange, onBlur, styles: children.type.componentStyle.rules }
+  const inputProps = { value: newText, ref, edit, onChange, styles: children.type.componentStyle.rules }
 
   return (
     <S.Editable>
