@@ -24,6 +24,7 @@ export const OurHistoryWrapper = styled.div`
   margin-top: -180px;
   position: relative;
   width: 100%;
+  z-index: 10;
 
   @media screen{
     @media (min-width: 1024px){

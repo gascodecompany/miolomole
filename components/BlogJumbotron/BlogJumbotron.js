@@ -10,7 +10,6 @@ export default function BlogJumbotron(props){
       <EditableImage {...props} textKey="blogJumbotronImage"><S.BlogJumbotronImage /></EditableImage>
       <Container>
         <Editable {...props} textKey="blogJumbotronTitle"><S.BlogJumbotronTitle/></Editable>
-        {/* <S.BlogJumbotronTitle>LER É COMO SAIR DE CASA, A GENTE SEMPRE VOLTA DIFERENTE!</S.BlogJumbotronTitle> */}
       </Container>
     </S.BlogJumbotronContainer>
   )
