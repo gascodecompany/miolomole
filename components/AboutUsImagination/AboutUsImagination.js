@@ -2,17 +2,17 @@ import Container from '../Container'
 import Editable from '../Editable'
 import * as S from './AboutUsImagination.style'
 
-export default function AboutUsImagination({ texts }){
+export default function AboutUsImagination(props){
 
  return(
     <S.AboutUsImagination>
       <Container>
-        <Editable page="aboutUs" textKey="aboutUsImaginationTitle"><S.ImagitationTitle>{texts.aboutUsImagitationTitle}</S.ImagitationTitle></Editable>
+        <Editable {...props} textKey="aboutUsImaginationTitle"><S.ImagitationTitle /></Editable>
         <S.ImaginationWrapper>
-          <Editable page="aboutUs" textKey="aboutUsImaginationTextOne"><S.ImaginationTextOne>{texts.aboutUsImaginationTextOne}</S.ImaginationTextOne></Editable>
+          <Editable {...props} textKey="aboutUsImaginationTextOne"><S.ImaginationTextOne /></Editable>
           <S.ImaginationImgOne/>
           <S.ImaginationImgTwo/>
-          <Editable page="aboutUs" textKey="aboutUsImaginationTextTwo"><S.ImaginationTextTwo>{texts.aboutUsImaginationTextTwo}</S.ImaginationTextTwo></Editable>
+          <Editable {...props} textKey="aboutUsImaginationTextTwo"><S.ImaginationTextTwo /></Editable>
         </S.ImaginationWrapper>
       </Container>
     </S.AboutUsImagination>

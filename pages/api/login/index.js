@@ -16,7 +16,7 @@ const login = async (req, res) => {
 
     if(!bcrypt.compareSync(password, user.password)) { return res.status(401).send('Usuário ou senha inválidos') } 
       
-    const token = jwt.sign({ _id: user._id }, process.env.secret_key)
+    const token = jwt.sign({ _id: user._id }, process.env.SECRET_KEY)
     user.token = token
     user.save()
     return res.status(200).json({ user })

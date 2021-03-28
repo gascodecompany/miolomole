@@ -30,7 +30,7 @@ export default function LoginModal({ setCurrentUser, setIsLogedIn }){
     const fieldsArray = Object.entries(fields)
     const { userName, password } = fieldsArray.reduce((obj, item) => ({...obj, [item[0]]: item[1].value }), {})
     if ( userName && password ){
-      axios.post(`${process.env.url}/api/login`, { userName, password })
+      axios.post(`${process.env.URL}/api/login`, { userName, password })
         .then((res) => {
           if(res?.status == 200){
             const user = res.data.user

@@ -6,8 +6,8 @@ const getCurrentUser = async (req, res) => {
     if (req.method === 'GET') {
       console.log(req.query)
       const { token } = req.query
-      if(jwt.verify(token, process.env.secret_key)){
-        const { _id } = jwt.decode(token, process.env.secret_key)
+      if(jwt.verify(token, process.env.SECRET_KEY)){
+        const { _id } = jwt.decode(token, process.env.SECRET_KEY)
         const user = await User.findById(_id)
         res.status(200).json(user)
       } else res.status(401).send("err")
