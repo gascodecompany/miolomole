@@ -15,7 +15,7 @@ export const Editable = styled.div`
 
   &:hover {
     >div {
-      display: block;
+      display: flex;
     }
   }
 `
@@ -25,15 +25,17 @@ export const EditableInput = styled(forwardRef((props, ref) => <TextareaAutosize
 export const EditableButtons = styled.div`
   position: absolute;
   right: 0;
+  display: flex;
+  align-items: center;
 `
 export const EditButton = styled.button`
-  background-image: url(${EditIcon});
-  background-size: cover;
-  background-color: none;
-  width: 20px;  
-  height: 20px;
-  border: none; 
-  margin: 10px 5px;
+  background-color: transparent;
+  border: none;
+
+  svg{
+    width: 20px;  
+    height: 20px;
+  }
 `
 export const CancelButton = styled.button`
   background-image: url(${CancelIcon});
@@ -42,5 +44,20 @@ export const CancelButton = styled.button`
   width: 20px;  
   height: 20px;
   border: none; 
-  margin: 10px 5px;
+  margin: 5px 5px 5px 0;
+
+`
+export const SavedIcon = styled.div`
+  background-image: url(${SaveIcon});
+  background-size: cover;
+  background-color: none;
+  width: 20px;  
+  height: 20px;
+  border: none; 
+  margin: 5px;
+
+  svg{
+    width: 20px;  
+    height: 20px;
+  }
 `
