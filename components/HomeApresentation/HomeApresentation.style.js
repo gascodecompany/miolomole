@@ -17,6 +17,8 @@ export const HomeApresentation = styled.div`
 `
 
 export const HomeApresentationImage = styled.img`
+  padding: 20px;
+  
   ${(({edit}) => edit && css`
     opacity: .4;
   `)}
@@ -48,10 +50,13 @@ export const HomeInfo = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 600px;
+  word-break: break-all;
+
 `
 export const HomeApresentationTitle = styled.h2`
   font-family: Amatic SC;
   font-style: normal;
+  word-break: break-all;
   font-weight: 700;
   font-size: 40px;
   line-height: 55px;

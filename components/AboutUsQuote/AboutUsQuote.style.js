@@ -6,11 +6,30 @@ export const AboutUsQuote = styled.div`
   .container{
     align-items: unset;
   }
+
 `;
 
 export const QuoteWrapper = styled.div`
-  width: 65%;
+  width: 100%;
   text-align: justify;
+  margin: auto;
+
+  @media screen{
+    @media (min-width: 1204px){
+      width: 65%;
+
+    }
+  }
+  >div{
+    >div{
+      right: -5px;
+      @media screen{
+        @media (min-width: 1024px){
+          right: -35px;
+        }
+      }
+    }
+  }
 `
 export const QuoteText = styled.p`
   font-family: Montserrat;
@@ -19,6 +38,7 @@ export const QuoteText = styled.p`
   font-size: ${({ theme: { fontSize: { fontSizeSMM }}}) => fontSizeSMM };
   line-height: 28px;
   color: #00A79D;
+  margin: 0;
   margin-bottom: 10px;
   width: 100%;
 `

@@ -1,28 +1,42 @@
 import styled from 'styled-components';
 
 export const OurProductsList = styled.div`
+
   .container{
 
   }
 `;
-
-export const OurProductsTitle = styled.div`
+export const OurProductsApresentation = styled.div`
+  width: 100%;
+  text-align: center;
+` 
+export const OurProductsTitle = styled.h1`
   font-family: Amatic SC;
   font-weight: bold;
   font-size: 40px;
+  text-align: center;
   line-height: 50px;
   color: #000000;
+  margin: 0;
   margin-bottom: 30px;
+  width: 100%;
+  white-space: break-spaces;
+
 `
-export const OurProductsText = styled.div`
+export const OurProductsText = styled.p`
   font-family: Montserrat;
   font-weight: 500;
   font-size: ${({ theme: { fontSize: { fontSizeSMM }}}) => fontSizeSMM };
   line-height: 30px;
   text-align: center;
   color: #000000;
+  width: 100%;
+  white-space: break-spaces;
+  border: none;
+  margin: 0;
+  padding: 0;
+  resize: none;
   margin-bottom: 30px;
-
 `
 export const ProductCards = styled.div`
   display: flex;
