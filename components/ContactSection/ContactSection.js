@@ -6,8 +6,9 @@ import { ContactSectionFieldsState, ContactSectionFunction, gridTemplate } from 
 import Input from '../../Elements/Input'
 import Button from '../../Elements/Button'
 import logoContato from '../../images/logo-contato.png'
+import Editable from '../Editable'
 
-export default function ContactSection(){
+export default function ContactSection(props){
   const [ fields, setFields ] = useState(ContactSectionFieldsState);
   const contactSectionFields = ContactSectionFunction({ fields, setFields });
   const { name, email, message } = contactSectionFields;
@@ -17,12 +18,12 @@ export default function ContactSection(){
       <Container>
         <S.ContactInfoWrapper>
           <S.TitleContact>Contato</S.TitleContact>
-          <S.TextContact>Lorem Ipsum Lorem  Lorem Ipsum Lorem  Lorem Ipsum Lorem  Lorem Ipsum Lorem  Lorem Ipsum Lorem  Lorem Ipsum Lorem  Lorem Ipsum Lorem  Lorem Ipsum Lorem  Lorem Ipsum Lorem  Lorem Ipsum Lorem orem Ipsum Lorem  Lorem Ipsum Lorem  Lorem Ipsum Lorem  Lorem Ipsum Lorem.</S.TextContact>
+          <Editable {...props} textKey="textContact"><S.TextContact/></Editable>
           <S.TagContact>
             <S.Logo img={logoContato}/>
             <S.ContactAdressWrapper>
               <S.ContactTitle>Endereço</S.ContactTitle>
-              <S.ContactAdress>Rua Vergueiro, nº 3307. Conjunto 3 - Vila Mariana<br></br>São Paulo - SP - 04101-300</S.ContactAdress>
+              <Editable {...props} textKey="contactAdress"><S.ContactAdress/></Editable>
             </S.ContactAdressWrapper>
           </S.TagContact>
         </S.ContactInfoWrapper>

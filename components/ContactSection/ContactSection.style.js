@@ -17,6 +17,7 @@ export const ContactInfoWrapper = styled.div`
   flex-direction: column;
   width: 100%;
   margin: 0 auto;
+
   @media screen{
     @media (min-width: 1024px){
       width: 45%;
@@ -33,12 +34,13 @@ export const TitleContact = styled.div`
   margin-bottom: 20px;
 `
 
-export const TextContact = styled.div`
+export const TextContact = styled.p`
   font-family: 'Open Sans';
   font-size: 14px;
   line-height: 2;
   color: #212121;
   margin-bottom: 20px;
+  width: 100%;
 `
 
 export const TagContact = styled.div`
@@ -77,11 +79,12 @@ export const ContactTitle = styled.div`
   }
 
 `
-export const ContactAdress = styled.div`
+export const ContactAdress = styled.p`
   font-family: 'Open Sans';
   line-height: 1.6;
   color: #212121;
   font-size: 13px;
+  width: 100%;
 
   @media screen{
     @media (min-width: 1024px){
