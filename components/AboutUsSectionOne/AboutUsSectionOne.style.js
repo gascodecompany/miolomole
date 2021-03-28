@@ -9,8 +9,14 @@ export const AboutUsSectionOne = styled.div`
     /* flex-direction: row;
     justify-content: center; */
     display: grid;
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 100%;
     grid-gap: 20px;
+    @media screen{
+      @media (min-width: 768px){
+
+        grid-template-columns: 40% 60%;
+      }
+    }
   }
 `;
 

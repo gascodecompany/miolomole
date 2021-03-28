@@ -9,8 +9,15 @@ export const AboutUsQuote = styled.div`
 `;
 
 export const QuoteWrapper = styled.div`
-  width: 65%;
+  width: 100%;
   text-align: justify;
+
+  @media screen{
+    @media (min-width: 1204px){
+      width: 65%;
+
+    }
+  }
 `
 export const QuoteText = styled.p`
   font-family: Montserrat;

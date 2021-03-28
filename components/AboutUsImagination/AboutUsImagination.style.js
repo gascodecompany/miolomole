@@ -29,7 +29,7 @@ export const ImaginationWrapper = styled.div`
   grid-column-gap: 30px;
   grid-row-gap: 50px;
   @media screen{
-    @media (min-width: 1024px){
+    @media (min-width: 768px){
       grid-template-columns: 1fr 1fr;
       grid-template-areas: 
         'textOne imgOne'
