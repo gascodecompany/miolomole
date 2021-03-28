@@ -22,9 +22,28 @@ export const EditableInput = styled(forwardRef((props, ref) => <TextareaAutosize
 export const EditableButtons = styled.div`
   position: absolute;
   right: 0;
-  z-index: 99;
+  display: flex;
+  align-items: center;
+  z-index: 10;
 `
 export const EditButton = styled.button`
+  background-color: transparent;
+  border: none;
+
+  svg{
+    width: 20px;  
+    height: 20px;
+  }
 `
 export const CancelButton = styled.button`
+  /* width: 20px;  
+  height: 20px; */
+  background-color: transparent;
+  border: none; 
+  margin: 5px 5px 5px 0;
+  svg{
+    width: 20px;  
+    height: 20px;
+  }
+
 `

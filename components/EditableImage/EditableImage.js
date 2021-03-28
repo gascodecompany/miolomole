@@ -5,6 +5,9 @@ import {useDropzone} from 'react-dropzone';
 import Evaporate from 'evaporate';
 import { v4 as uuidv4 } from 'uuid';
 import AWS from "aws-sdk";
+import EditIcon from '../../images/js/EditIcon'
+import CheckedIcon from '../../images/js/Checked'
+import CancelIcon from '../../images/js/CancelIcon'
 
 export default function EditableImage ({ children, page, texts, textKey, isLoggedIn }) {
   const [edit, setEdit] = useState(false);
@@ -49,8 +52,8 @@ export default function EditableImage ({ children, page, texts, textKey, isLogge
     <S.Editable>
       { !isLoggedIn && (
         <S.EditableButtons>
-          <S.EditButton id={`${textKey}EditButton`} onClick={() => edit ? saveImage() : setEdit(true)}>{ edit ? 'S' : 'E' }</S.EditButton>
-          { edit && <S.CancelButton id={`${textKey}CancelButton`} onClick={() => { setNewLink(link); setEdit(false)}}>C</S.CancelButton> }
+          <S.EditButton id={`${textKey}EditButton`} onClick={() => edit ? saveImage() : setEdit(true)}>{ edit ? <CheckedIcon/> : <EditIcon/> }</S.EditButton>
+          { edit && <S.CancelButton id={`${textKey}CancelButton`} onClick={() => { setNewLink(link); setEdit(false)}}><CancelIcon/></S.CancelButton> }
         </S.EditableButtons>
       )}
       <span {...getRootProps()}>

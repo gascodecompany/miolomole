@@ -2,6 +2,8 @@ import { useState, useEffect, cloneElement, useRef } from 'react';
 import * as S from './Editable.styles';
 import axios from 'axios';
 import EditIcon from '../../images/js/EditIcon'
+import CheckedIcon from '../../images/js/Checked'
+import CancelIcon from '../../images/js/CancelIcon'
 
 export default function Editable ({ children, page, texts, textKey, isLoggedIn }) {
   const [edit, setEdit] = useState(false);
@@ -29,8 +31,8 @@ export default function Editable ({ children, page, texts, textKey, isLoggedIn }
     <S.Editable>
       { !isLoggedIn && (
         <S.EditableButtons>
-          <S.EditButton id={`${textKey}EditButton`} onClick={() => edit ? saveText() : setEdit(true)}>{ edit ? <S.SavedIcon/> : <EditIcon/> }</S.EditButton>
-          { edit && <S.CancelButton id={`${textKey}CancelButton`} onClick={() => { setNewText(text); setEdit(false)}}></S.CancelButton> }
+          <S.EditButton id={`${textKey}EditButton`} onClick={() => edit ? saveText() : setEdit(true)}>{ edit ? <CheckedIcon/> : <EditIcon/> }</S.EditButton>
+          { edit && <S.CancelButton id={`${textKey}CancelButton`} onClick={() => { setNewText(text); setEdit(false)}}><CancelIcon/></S.CancelButton> }
         </S.EditableButtons>
       )}
       { edit ? <S.EditableInput {...children.props} {...inputProps}/> : cloneElement(children, Object.assign({}, {...children.props, children: newText})) }
