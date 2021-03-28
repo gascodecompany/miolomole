@@ -60,7 +60,7 @@ export const Logo = styled.div`
   margin-right: 20px;
 `
 export const ContactAdressWrapper = styled.div`
-
+  width: 100%;
 `
 export const ContactTitle = styled.div`
   font-family: Roboto;
@@ -137,11 +137,11 @@ export const ContactForm = styled.div`
   }
   
   button{
-    padding: 17px;
+    padding: 5px;
     text-transform: capitalize;
     font-family: Montserrat;
     font-weight: bold;
-    font-size: ${({ theme: { fontSize: { fontSizeXS }}}) => fontSizeXS };
+    font-size: ${({ theme: { fontSize: { fontSizeS }}}) => fontSizeS };
     letter-spacing: 2.4px;
     color: #FFFFFF;
     width: 150px;
