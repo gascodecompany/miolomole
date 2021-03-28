@@ -32,6 +32,25 @@ export const OurHistoryWrapper = styled.div`
       width: 84%;
     }
   }
+  div{
+    div{
+      left: -40px;
+    }
+  }
+  div:last-child{
+    div{
+      left: unset;
+      right: 0;
+      top: 5px;
+
+      @media screen{
+        @media (min-width: 1024px){
+          right: -150px;
+          top: -220px;
+        }
+      }
+    }
+  }
 `
 
 export const OurHistoryTitle = styled.h2`
@@ -39,6 +58,7 @@ export const OurHistoryTitle = styled.h2`
   font-weight: bold;
   letter-spacing: 2.4px;
   color: #00A79D;
+  margin: 0;
   margin-bottom: 20px;
   font-size: 35px;
   width: 100%;
@@ -58,6 +78,7 @@ export const OurHistoryText = styled.p`
   width: 100%;
   font-size: 14px;
   line-height: 26px;
+  margin: 0;
 
   @media screen{
     @media (min-width: 1024px){
