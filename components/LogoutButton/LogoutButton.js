@@ -1,4 +1,3 @@
-import EditLockIcon from '../../images/js/EditLockIcon';
 import Lottie from 'react-lottie';
 import * as S from './LogoutButton.style';
 import animationData from '../../lotties/log-out.json';
@@ -18,15 +17,15 @@ export default function LogoutButton({ isLoggedIn, setCurrentUser, handleLogout 
   if(isLoggedIn){
     return (
       <S.LogoutContainer>
-        <S.LogoutWrapper 
+        <S.LogoutWrapper
           onClick={ () => { setCurrentUser(''); handleLogout() } } 
           onMouseEnter={() => setPaused(false)}
           onMouseLeave={() => setPaused(true)}
         >
           <Lottie
             options={defaultOptions}
-            height={100}
-            width={100}
+            height={70}
+            width={70}
             isPaused={paused}
            />
         </S.LogoutWrapper>

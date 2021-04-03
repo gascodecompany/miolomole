@@ -9,7 +9,7 @@ export default function AboutUs(props){
   
   return(
     <div>
-      <AboutUsJumbotron/>
+      <AboutUsJumbotron {...props}/>
       <AboutUsOurHistory {...props} />
       <AboutUsQuote {...props} />
       <AboutUsSectionOne {...props} />

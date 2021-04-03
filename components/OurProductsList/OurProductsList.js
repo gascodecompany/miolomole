@@ -2,16 +2,18 @@ import { useRouter } from 'next/router'
 import * as S from './OurProductsList.style'
 import { Books } from '../../Constants/Books'
 import Container from '../Container'
+import Editable from '../Editable'
 
-
-export default function OurProductsList(){
+export default function OurProductsList(props){
     const router = useRouter();
-    
+    console.log(props)
  return(
     <S.OurProductsList>
       <Container>
-        <S.OurProductsTitle>Nossos Produtos</S.OurProductsTitle>
-        <S.OurProductsText>Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum </S.OurProductsText>
+        <S.OurProductsApresentation>
+          <Editable {...props} textKey="ourProductsTitle"><S.OurProductsTitle/></Editable>
+          <Editable {...props} textKey="ourProductsText"><S.OurProductsText/></Editable>
+        </S.OurProductsApresentation>
         <S.ProductCards>
           {Books.map((book) => (
             <S.ProductCard onClick={() => router.push(`/livros/${book._id}`)}>
