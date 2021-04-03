@@ -4,15 +4,15 @@ import User from '../../../models/user'
 const getCurrentUser = async (req, res) => {
   try {
     if (req.method === 'GET') {
-      console.log(req.query)
-      const { token } = req.query
-      if(jwt.verify(token, process.env.SECRET_KEY)){
-        const { _id } = jwt.decode(token, process.env.SECRET_KEY)
-        const user = await User.findById(_id)
-        res.status(200).json(user)
+      const { token: reqToken } = req.query
+      if(jwt.verify(reqToken, process.env.SECRET_KEY)){
+        const { _id } = jwt.decode(reqToken, process.env.SECRET_KEY)
+        const { userName, token } = await User.findById(_id)
+        if ( reqToken !== token ){ res.status(401).send("invalid token") }
+        res.status(200).json({ _id, userName, token })  
       } else res.status(401).send("err")
-    } else { res.status(422).send('req_method_not_supported');}
-  } catch (err) { console.log(err) }
+    } else { res.status(422).send('req_method_not_supported') }
+  } catch (err) { res.status(400).send(); console.log(err) }
 }
 
 export default getCurrentUser

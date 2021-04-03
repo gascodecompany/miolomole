@@ -1,6 +1,7 @@
 import { useState, useEffect, cloneElement, useRef } from 'react';
 import * as S from './Editable.styles';
 import axios from 'axios';
+import { appWrapper } from '../../pages/appProvider';
 
 export default function Editable ({ children, page, texts, textKey, isLoggedIn }) {
   const [edit, setEdit] = useState(false);
@@ -26,7 +27,7 @@ export default function Editable ({ children, page, texts, textKey, isLoggedIn }
 
   return (
     <S.Editable>
-      { !isLoggedIn && (
+      { isLoggedIn && (
         <S.EditableButtons>
           <S.EditButton id={`${textKey}EditButton`} onClick={() => edit ? saveText() : setEdit(true)}>{ edit ? 'S' : 'E' }</S.EditButton>
           { edit && <S.CancelButton id={`${textKey}CancelButton`} onClick={() => { setNewText(text); setEdit(false)}}>C</S.CancelButton> }

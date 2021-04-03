@@ -14,7 +14,7 @@ export default function Home(props) {
     <>
       <HomeJumbotron/>
       <HomeApresentation {...props}/>
-      <HomeBanners/>
+      <HomeBanners />
       <LatestArticles items={t.BLOG_ARTICLES}/>
       <AboutUsSlider/>
       <HomeLatestArticles/>

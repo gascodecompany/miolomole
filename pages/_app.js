@@ -1,20 +1,19 @@
 import { ThemeProvider } from 'styled-components';
 import { mioloMoleAppTheme } from '../styles/global';
+import { appWrapper } from './appProvider';
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import '../styles/globals.css'
 import LogoutButton from '../components/LogoutButton';
-import { appWrapper } from './appProvider';
+import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
   const { userProps } = appWrapper();
-  const { isLogedIn } = userProps;
 
   return (
     <ThemeProvider theme={mioloMoleAppTheme}>
       <Header/>
-      { isLogedIn && <LogoutButton {...userProps} /> }
-      <Component {...pageProps} {...userProps}/>
+      <LogoutButton {...userProps} />
+      <Component {...pageProps} {...userProps} />
       <Footer/>
     </ThemeProvider>
   )

@@ -47,7 +47,7 @@ export default function EditableImage ({ children, page, texts, textKey, isLogge
   
   return (
     <S.Editable>
-      { !isLoggedIn && (
+      { isLoggedIn && (
         <S.EditableButtons>
           <S.EditButton id={`${textKey}EditButton`} onClick={() => edit ? saveImage() : setEdit(true)}>{ edit ? 'S' : 'E' }</S.EditButton>
           { edit && <S.CancelButton id={`${textKey}CancelButton`} onClick={() => { setNewLink(link); setEdit(false)}}>C</S.CancelButton> }
