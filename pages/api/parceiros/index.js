@@ -12,7 +12,6 @@ const textos = async (req, res) => {
     
     if (req.method === 'GET') {
       const { _id } = req.body;
-      console.log("api", req)
       if(!_id) {
         try { const partners = await Partner.find(); return res.status(200).json(partners); } 
         catch (error) { return res.status(500).send(error.message) }
@@ -44,6 +43,22 @@ const textos = async (req, res) => {
         await Partner.findByIdAndRemove(_id);
         return res.status(200).send('Cadastro de parceiro excluído com sucesso!');
       } catch (error) { return res.status(500).send(error.message) }
+    }
+
+    if (req.method === 'PUT') {
+      const { _id, name, logo, description, city, books } = req.body;
+      console.log(req)
+      var oldPartner = await Partner.findOne({ _id });
+      if(!_id) { return res.status(400).send("Parâmetros inválidos") }
+      if (oldPartner) {
+        oldPartner.name = name;
+        oldPartner.logo = logo;
+        oldPartner.description = description;
+        oldPartner.city = city;
+        oldPartner.books = books;
+        var oldPartnerUpdated = await oldPartner.save();
+        return res.status(200).send(oldPartnerUpdated);
+      }
     }
 
   } catch (err) { console.log(err)}

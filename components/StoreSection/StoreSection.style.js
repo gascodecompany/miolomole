@@ -43,29 +43,30 @@ export const PartnerCard = styled.div`
   }
 `
 export const AddPartnerButton = styled.div`
+  top: 0px;
+  right: 0px;
+  background-color: white;
+  width: 200px;
   cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-bottom: 30px;
   span {
     font-size: 36px;
     line-height: 56px;
     font-weight: 500;
-    &:hover {
-      transform: scale(1.2) rotate(90deg) translate(2px, -5px );
-      transition: .5s cubic-bezier(.22,.68,0,1.71);
-    }
   }
-  margin-bottom: 40px;
+  &:hover {
+    color: ${({ theme: { color: { blue }}}) => blue };
+    transition: .5s cubic-bezier(.22,.68,0,1.71);
+  }
+
   @media (min-width: 1024px){
     position: absolute;
-    top: 20px;
-    right: 40px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100px;
+    top: -40px;
   }
 `
 

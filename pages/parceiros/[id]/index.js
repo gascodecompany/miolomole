@@ -10,7 +10,7 @@ export default function PartnerPageEdit(props){
     return (
       <>
         {/* <AddPartnerJumbotron {...props} /> */}
-        <PartnerForm {...props} partne={partner} />
+        <PartnerForm {...props} partner={partner} />
       </>
     )
   } else { return <PageJustForAdmin /> }
@@ -19,7 +19,6 @@ export default function PartnerPageEdit(props){
 export async function getStaticPaths(){
   const res = await axios.get(`${process.env.API_URL}parceiros`)
   const partners = res.data;
-  console.log(res.data)
   const paths = partners.map((partner) => ({
     params: { id: partner._id }
   }))

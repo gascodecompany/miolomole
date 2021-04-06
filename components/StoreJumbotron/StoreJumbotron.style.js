@@ -4,10 +4,9 @@ import StoreJumbotron from '../../images/jumbotronLoja.jpg'
 export const StoreJumbotronContainer = styled.div`
   background-image: url(${StoreJumbotron});
   width: 100vw;
-  max-height: 714px;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 80vh;
+  height: 100vh;
   background-position: right;
   @media screen{
     @media (min-width: 1024px){

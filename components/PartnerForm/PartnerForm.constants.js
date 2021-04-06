@@ -35,7 +35,6 @@ export const PartnerFormFieldsFunction = ({ fields, onSubmit, partner }) => ({
     name: 'city',
     label: 'Cidade',
     type: 'selectMulti',
-    isSearchable: true,
     loadEmpty: true,
     isMulti: true,
     options: [
@@ -61,7 +60,7 @@ export const PartnerFormFieldsFunction = ({ fields, onSubmit, partner }) => ({
       { label: "Rio Grande do Norte", value: "RN" },
       { label: "Rondônia", value: "RO" },
       { label: "Roraima", value: "RR" },
-      { label: "Rio Grande do Sul (*)", value: "RS" },
+      { label: "Rio Grande do Sul", value: "RS" },
       { label: "Santa Catarina", value: "SC" },
       { label: "Sergipe", value: "SE" },
       { label: "São Paulo", value: "SP" },

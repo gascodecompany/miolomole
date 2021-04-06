@@ -13,6 +13,7 @@ export default function PartnerForm(props){
     city: { value: partner?.city },
     books: { value: partner?.books },
   }
+
   const [fields, setFields] = useState(!!partner ? oldFields : PartnerFormFieldsState);
   const [message, setMessage] = useState();
 
@@ -22,28 +23,32 @@ export default function PartnerForm(props){
 
   const onSubmit = async () => {
     setMessage('')
-    axios.post(`${process.env.API_URL}parceiros`, { ...fieldsValue })
-      .then((res) => { 
-        if(res.status === 200) { 
-          setMessage('Parceiro criado com sucesso!');
-          setFields((oldFields) => {
-            const newFields = {...oldFields};
-            newFields.name.value = '';
-            newFields.logo.value = '';
-            newFields.description.value = '';
-            newFields.city.value = '';
-            newFields.books.value = '';
-            return newFields
-          })
-        }
-      })
-      .catch((err) => setMessage(err.response.data))
+    if(!partner){
+      axios.post(`${process.env.API_URL}parceiros`, { ...fieldsValue })
+        .then((res) => { 
+          if(res.status === 200) {
+            setMessage('Cadastrado realizado com sucesso!');
+            setFields((oldFields) => {
+              const newFields = {...oldFields};
+              newFields.name.value = '';
+              newFields.logo.value = '';
+              newFields.description.value = '';
+              newFields.city.value = '';
+              newFields.books.value = '';
+              return newFields
+            })
+          }
+        })
+        .catch((err) => setMessage(err.response.data))
+    } else {
+      axios.put(`${process.env.API_URL}parceiros`, Object.assign({ _id: partner._id } ,{ ...fieldsValue }))
+        .then((res) => { if(res.status === 200) { setMessage('Cadastro atualizado com sucesso!') } })
+        .catch((err) => setMessage(err.response.data))
+    }
   }
 
   const PartnerFormfields = PartnerFormFieldsFunction({ fields, setFields, onSubmit, partner });
 
-  console.log(PartnerFormfields)
-  
   const formProps = {
     gridTemplate,
     fields: PartnerFormfields,
