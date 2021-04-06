@@ -7,6 +7,7 @@ export const StoreSectionContainer = styled.div`
 
 
 export const StorePartners = styled.div`
+  position: relative;
   width: 100%;
   background-color: ${({ theme: { color: { white }}}) => white };
   margin-top: -150px;
@@ -32,12 +33,39 @@ export const PartnerCard = styled.div`
   align-items: center;
   justify-content: space-evenly;
   margin-bottom: 30px;
+  position: relative;
 
   @media screen{
     @media (min-width: 1300px){
       width: 320px;
       height: 320px;
     }
+  }
+`
+export const AddPartnerButton = styled.div`
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  span {
+    font-size: 36px;
+    line-height: 56px;
+    font-weight: 500;
+    &:hover {
+      transform: scale(1.2) rotate(90deg) translate(2px, -5px );
+      transition: .5s cubic-bezier(.22,.68,0,1.71);
+    }
+  }
+  margin-bottom: 40px;
+  @media (min-width: 1024px){
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100px;
   }
 `
 
@@ -75,5 +103,58 @@ export const PartnerText = styled.p`
   letter-spacing: -0.4px;
 
   color: #000000;
+`
 
+export const DeleteButton = styled.div`
+  cursor: pointer;
+`
+
+export const Buttons = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  &:focus, svg:focus {
+    outline: none;
+  }
+
+  svg{
+    cursor: pointer;
+    width: 30px;  
+    height: 30px;
+    border-radius: 50%;
+  }
+
+  svg.edit{
+    transform: rotate(-45deg);
+  }
+
+  svg.delete:hover{
+    transform: scale(1.2) rotate(15deg);
+    transition: .2s cubic-bezier(.22,.68,0,1.71);
+    
+    path.tampa{
+      transform: translate(-20px, -10px) rotate(-15deg);
+      transition: .2s cubic-bezier(.22,.68,0,1.71);
+    }
+
+    path:nth-child(2){
+      fill: #F15249;
+      transition: .2s cubic-bezier(.22,.68,0,1.71);
+    }
+  }
+
+  svg.edit:hover{
+    transform: scale(1.2) rotate(-90deg);
+    transition: .2s cubic-bezier(.22,.68,0,1.71);
+    path:nth-child(2){
+      fill: #7584f2;
+      transition: .2s cubic-bezier(.22,.68,0,1.71);
+    }
+  }
+`
+
+export const EditButton = styled.div`
+  cursor: pointer;
+  transform: rotate(45deg); 
 `

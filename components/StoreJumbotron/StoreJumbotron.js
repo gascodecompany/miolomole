@@ -17,8 +17,8 @@ const storeJumbotronObj = { fields: storeJumbotronFields, setFields, gridTemplat
     <S.StoreJumbotronContainer>
       <Container>
         <S.JumbotronWraper>
-        <Editable {...props} textKey="storeJumbotronTitle"><S.StoreJumbotronTitle /></Editable>
-          <S.StoreJumbotronSubTitle>Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum orem ipsum orem ipsum orem ipsum </S.StoreJumbotronSubTitle>
+          <Editable {...props} textKey="storeJumbotronTitle"><S.StoreJumbotronTitle /></Editable>
+          <Editable {...props} textKey="storeJumbotronSubTitle"><S.StoreJumbotronSubTitle /></Editable>
           <Form {...storeJumbotronObj}/>
         </S.JumbotronWraper>
       </Container>

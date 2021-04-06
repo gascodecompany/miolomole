@@ -18,7 +18,7 @@ export function appWrapper() {
     let token;
     if (typeof window !== "undefined") { token = localStorage.getItem('token') };
     if (token){
-      axios.get(`${process.env.URL}/api/get-current-user`, { params: { token } })
+      axios.get(`${process.env.API_URL}get-current-user`, { params: { token } })
         .then((res) => setCurrentUser(res))
         .catch(() => handleLogout());
     } else { handleLogout() };

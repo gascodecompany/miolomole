@@ -6,7 +6,6 @@ export const StoreJumbotronFieldsState = ({
 })
 
 export const StoreJumbotronFieldsFunction = ({fields, setFields}) => ({
-
   selectBook: {
     ...fields.selectBook,
     name: 'selectBook',

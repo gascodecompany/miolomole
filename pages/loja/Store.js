@@ -3,7 +3,7 @@ import StoreSection from "../../components/StoreSection";
 
 export default function Store(props){
 
- return(
+  return(
     <>
       <StoreJumbotron {...props} />
       <StoreSection {...props} />

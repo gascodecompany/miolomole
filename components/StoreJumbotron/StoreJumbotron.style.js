@@ -17,7 +17,6 @@ export const StoreJumbotronContainer = styled.div`
   }
   .container{
     align-items: flex-start;
-
   }
 `
 export const JumbotronWraper = styled.div`
@@ -38,6 +37,8 @@ export const JumbotronWraper = styled.div`
   .primary{
     width: 150px;
     border: none;
+    border-radius: 12px;
+    text-transform: inherit;
     font-family: 'Open Sans';
     font-weight: bold;
     font-size: ${({ theme: { fontSize: { fontSizeSM }}}) => fontSizeSM };
@@ -45,7 +46,7 @@ export const JumbotronWraper = styled.div`
     color: #FFFFFF;
   }
 `
-export const StoreJumbotronTitle = styled.div`
+export const StoreJumbotronTitle = styled.h1`
   font-family: Amatic SC;
   font-style: normal;
   font-weight: 500;
@@ -64,7 +65,7 @@ export const StoreJumbotronTitle = styled.div`
     }
   }
 `
-export const StoreJumbotronSubTitle = styled.div`
+export const StoreJumbotronSubTitle = styled.h4`
   font-family: Montserrat;
   font-style: normal;
   font-weight: 400;

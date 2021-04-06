@@ -2,7 +2,6 @@ import connectDB from '../../../middleware/mongodb';
 import User from '../../../models/user';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import axios from 'axios';
 
 const login = async (req, res) => {
   try {
@@ -15,7 +14,7 @@ const login = async (req, res) => {
     if(!user) { return res.status(404).send('Usuário inválido') }
 
     if(!bcrypt.compareSync(password, user.password)) { return res.status(401).send('Usuário ou senha inválidos') } 
-      
+    
     const token = jwt.sign({ _id: user._id }, process.env.SECRET_KEY)
     user.token = token
     user.save()

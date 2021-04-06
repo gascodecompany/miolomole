@@ -5,9 +5,9 @@ import {useDropzone} from 'react-dropzone';
 import Evaporate from 'evaporate';
 import { v4 as uuidv4 } from 'uuid';
 import AWS from "aws-sdk";
-import EditIcon from '../../images/js/EditIcon'
-import CheckedIcon from '../../images/js/Checked'
-import CancelIcon from '../../images/js/CancelIcon'
+import EditIcon from '../../images/js/EditIcon';
+import CheckedIcon from '../../images/js/Checked';
+import CancelIcon from '../../images/js/CancelIcon';
 
 export default function EditableImage ({ children, page, texts, textKey, isLoggedIn }) {
   const [edit, setEdit] = useState(false);
@@ -45,7 +45,7 @@ export default function EditableImage ({ children, page, texts, textKey, isLogge
     setEdit(false);
   }
   
-  const { getRootProps, getInputProps, isDragActive, inputRef } = useDropzone({onDrop, disabled: !edit });
+  const { getRootProps, getInputProps, isDragActive, inputRef } = useDropzone({ onDrop, disabled: !edit });
   const inputProps = { src: newLink, edit, isDragActive, styles: children.type.componentStyle.rules }
   
   return (
