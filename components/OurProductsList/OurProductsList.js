@@ -6,7 +6,6 @@ import Editable from '../Editable'
 
 export default function OurProductsList(props){
     const router = useRouter();
-    console.log(props)
  return(
     <S.OurProductsList>
       <Container>
@@ -16,7 +15,7 @@ export default function OurProductsList(props){
         </S.OurProductsApresentation>
         <S.ProductCards>
           {Books.map((book) => (
-            <S.ProductCard onClick={() => router.push(`/livros/${book._id}`)}>
+            <S.ProductCard key={book._id} onClick={() => router.push(`/livros/${book._id}`)}>
               <S.ProductCardImage img={book.cover}/>
               <S.ProductCardTitle>{book.title}</S.ProductCardTitle>
               {/* <S.ProductCardPrice>{book.price}</S.ProductCardPrice> */}

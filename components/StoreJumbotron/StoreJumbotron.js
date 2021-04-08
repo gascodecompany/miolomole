@@ -7,9 +7,9 @@ import Form from '../../Elements/Form';
 import Editable from '../Editable';
 
 export default function StoreJumbotron(props){
-const [ fields, setFields ] = useState(StoreJumbotronFieldsState);
-const storeJumbotronFields = StoreJumbotronFieldsFunction({ fields, setFields });
-const storeJumbotronObj = { fields: storeJumbotronFields, setFields, gridTemplate}
+  const [ fields, setFields ] = useState(StoreJumbotronFieldsState);
+  const storeJumbotronFields = StoreJumbotronFieldsFunction({ fields, setFields });
+  const storeJumbotronObj = { fields: storeJumbotronFields, setFields, gridTemplate}
 
  // <Editable {...props} textKey="aboutUsImaginationTitle"><S.ImagitationTitle /></Editable>
  

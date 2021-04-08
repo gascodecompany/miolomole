@@ -20,7 +20,9 @@ const login = async (req, res) => {
     user.save()
     return res.status(200).json({ user })
 
-  } catch (err) { console.log(err)}
+  } catch (err) { 
+    return res.status(400).json()
+  }
 };
 
 export default connectDB(login);

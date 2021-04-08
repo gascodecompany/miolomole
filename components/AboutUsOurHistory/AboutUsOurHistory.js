@@ -5,7 +5,6 @@ import Editable from '../Editable'
 import EditableImage from '../EditableImage'
 
 export default function AboutUsOurHistory(props){
-  console.log(props)
  return(
     <S.AboutUsOurHistory>
       <Container>

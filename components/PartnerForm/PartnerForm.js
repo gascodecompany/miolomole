@@ -3,9 +3,11 @@ import * as S from './PartnerForm.styles';
 import Form from '../../Elements/Form';
 import { PartnerFormFieldsState, PartnerFormFieldsFunction, gridTemplate } from './PartnerForm.constants.js';
 import axios from 'axios';
+import { useRouter } from 'next/router';
 
 export default function PartnerForm(props){
   const { partner } = props;
+  const router = useRouter();
   const oldFields = {
     name: { value: partner?.name },
     logo: { value: partner?.logo },
@@ -42,8 +44,8 @@ export default function PartnerForm(props){
         .catch((err) => setMessage(err.response.data))
     } else {
       axios.put(`${process.env.API_URL}parceiros`, Object.assign({ _id: partner._id } ,{ ...fieldsValue }))
-        .then((res) => { if(res.status === 200) { setMessage('Cadastro atualizado com sucesso!') } })
-        .catch((err) => setMessage(err.response.data))
+        .then((res) => { if(res.status === 200) { setMessage('Cadastro atualizado com sucesso!'); router.goBack('') } })
+        .catch((err) => setMessage(err?.response?.data))
     }
   }
 

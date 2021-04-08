@@ -16,7 +16,7 @@ const textos = async (req, res) => {
             var textCreated = await newText.save();
             return res.status(200).send(textCreated);
           } catch (error) { return res.status(500).send(error.message) }
-        } else { res.status(422).send('data_incomplete'); }
+        } else { return res.status(422).send('data_incomplete'); }
     } else if (req.method === 'PUT') {
       const { textKey, text, editedBy, page } = req.body;
       if (textKey && text) {
@@ -33,9 +33,11 @@ const textos = async (req, res) => {
               return res.status(200).send(textCreated);
             }
           } catch (error) { return res.status(500).send(error.message) }
-        } else { res.status(422).send('data_incomplete'); }
-    } else { res.status(422).send('req_method_not_supported');}
-  } catch (err) { console.log(err)}
+        } else { return res.status(422).send('data_incomplete'); }
+    } else { return res.status(422).send('req_method_not_supported');}
+  } catch (err) { 
+    res.status(500).json({ statusCode: 500, message: err.message })
+  }
 };
 
 export default connectDB(textos);

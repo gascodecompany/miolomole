@@ -14,9 +14,11 @@ const singAuth = async (req, res) => {
         const service = hmac(region, process.env.AWS_SERVICE);
         const signing = hmac(service, "aws4_request");
         res.send(hexhmac(signing, to_sign));
-        } else { res.status(422).send('data_incomplete'); }
-    } else { res.status(422).send('req_method_not_supported');}
-  } catch (err) { console.log(err)}
+        } else { return res.status(422).send('data_incomplete'); }
+    } else { return res.status(422).send('req_method_not_supported');}
+  } catch (err) { 
+    res.status(500).json({ statusCode: 500, message: err.message })
+  }
 };
 
 export default singAuth;

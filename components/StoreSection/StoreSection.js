@@ -8,6 +8,7 @@ import axios from 'axios';
 
 export default function StoreSection(props){
   const { partners, isLoggedIn } = props;
+  const partnersArray = JSON.parse(partners)
   const router = useRouter();
 
   const handleDeletePartner = async (item) => {
@@ -26,8 +27,8 @@ export default function StoreSection(props){
       <Container>
         <S.StorePartners>
           { isLoggedIn && <S.AddPartnerButton onClick={() => router.push('/parceiros')}>Cadastrar<span>+</span></S.AddPartnerButton> }
-          { Object.values(partners).map((item) => (
-            <S.PartnerCard>
+          { Object.values(partnersArray).map((item) => (
+            <S.PartnerCard key={item._id}>
               <S.PartnerLogo img={item.logo}/>
               <S.PartnerText>
                 { parser(item.description) }
