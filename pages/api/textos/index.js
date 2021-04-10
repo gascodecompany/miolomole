@@ -28,27 +28,20 @@ const textos = async (req, res) => {
           }
         } catch (err) { return res.status(500).send(err.message) }
       } catch (err) { return res.status(500).send(err.message) }
-    default:
-      res.setHeader('Allow', ['GET', 'PUT'])
-      res.status(405).end(`Method ${method} Not Allowed`)
-  }
-  
-  try {
-    
-    if (req.method === 'POST') {
+    case 'POST': 
       const { textKey, text, page, editedBy } = req.body;
       if (textKey && text && page) {
-          try {
-            var newText = new Text({ textKey, text, page, editedBy });
-            var textCreated = await newText.save();
-            return res.status(200).send(textCreated);
-          } catch (error) { return res.status(500).send(error.message) }
-        } else { return res.status(422).send('data_incomplete'); }
-    } 
-    
-  } catch (err) { 
-    res.status(500).json({ statusCode: 500, message: err.message })
+        try {
+          var newText = new Text({ textKey, text, page, editedBy });
+          var textCreated = await newText.save();
+          return res.status(200).send(textCreated);
+        } catch (error) { return res.status(500).send(error.message) }
+      } else { return res.status(422).send('data_incomplete'); }
+    default:
+      // res.setHeader('Allow', ['GET', 'PUT'])
+      return res.status(405).end(`Method ${method} Not Allowed`)
   }
+  
 };
 
 export default connectDB(textos);

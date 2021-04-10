@@ -34,7 +34,7 @@ export default function Editable ({ children, page, texts, textKey, isLoggedIn }
   const inputProps = { value: newText, ref, edit, onChange, onBlur, styles: children.type.componentStyle.rules }
 
   return (
-    <S.Editable>
+    <S.Editable isLoggedIn={isLoggedIn}>
       { isLoggedIn && (
         <S.EditableButtons>
           <S.EditButton onClick={() => edit ? saveText() : setEdit(true)}>{ edit ? <Button id={`${textKey}ConfirmButton`} type="confirm" /> : <Button id={`${textKey}EditButton`} type="edit" /> }</S.EditButton>

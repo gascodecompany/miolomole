@@ -54,8 +54,6 @@ export default function LoginModal({ setCurrentUser, setIsLoggedIn, handleLogout
 
   const loginModalFields = loginModalFieldsFunction({ fields, setFields, loading, onSubmit, formDisabledState })
 
-  console.log(loginModalFields)
-
   useEffect(() => {
     setMessage('')
   }, [])
