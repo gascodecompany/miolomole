@@ -14,15 +14,15 @@ export function appWrapper() {
 
   useEffect(() => setLastRoute(lastRoute + 1), [router.asPath])
   
-  useEffect(() => {
-    let token;
-    if (typeof window !== "undefined") { token = localStorage.getItem('token') };
-    if (token){
-      axios.get(`${process.env.API_URL}get-current-user`, { params: { token } })
-        .then((res) => setCurrentUser(res))
-        .catch(() => handleLogout());
-    } else { handleLogout() };
-  }, []);
+  // useEffect(() => {
+  //   let token;
+  //   if (typeof window !== "undefined") { token = localStorage.getItem('token') };
+  //   if (token){
+  //     axios.get(`${process.env.API_URL}get-current-user`, { params: { token } })
+  //       .then((res) => { console.log(res) })
+  //       .catch(() => handleLogout());
+  //   } else { handleLogout() };
+  // }, []);
   
   const modalProps = { isLoginModalOpen, setIsLoginModalOpen };
   const routeProps = { lastRoute };

@@ -43,8 +43,8 @@ export default function LoginModal({ setCurrentUser, setIsLoggedIn, handleLogout
           }
         })
         .catch((err) => {
-          console.log(err)
-          const responseError = err?.response?.data;
+          console.log(err.response)
+          const responseError = err?.response?.data?.message;
           setMessage(responseError);
         })
         .finally(() => setLoading(false));
