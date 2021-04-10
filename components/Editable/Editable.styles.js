@@ -11,9 +11,10 @@ export const Editable = styled.div`
   }
 
   &:hover {
-    >div {
-      display: flex;
-    }
+    background-color: ${({ theme: { color: { brandVeryLighter }}}) => brandVeryLighter };
+    background-size: 120%;
+    border-radius: 10px;
+    > div { display: flex }
   }
 `
 
@@ -31,10 +32,11 @@ export const EditableInput = styled(forwardRef((props, ref) => <TextareaAutosize
 export const EditableButtons = styled.div`
   position: absolute;
   right: 0;
+  bottom: 0px;
   display: flex;
   align-items: center;
 `
-export const EditButton = styled.button`
+export const EditButton = styled.div`
   background-color: transparent;
   border: none;
 
@@ -42,21 +44,7 @@ export const EditButton = styled.button`
     outline: none;
   }
 
-  svg{
-    cursor: pointer;
-    width: 20px;  
-    height: 20px;
+  & > div {
+    margin: 5px 5px 5px 0;
   }
-`
-export const CancelButton = styled.button`
-  /* width: 20px;  
-  height: 20px; */
-  background-color: transparent;
-  border: none; 
-  margin: 5px 5px 5px 0;
-  svg{
-    width: 20px;  
-    height: 20px;
-  }
-
 `

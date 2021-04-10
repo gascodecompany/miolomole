@@ -184,15 +184,6 @@ const button = css`
     font-size: 12px;
   }
 
-  svg {
-    margin: -10px 0;
-    height: 20px;
-    
-    path {
-      stroke: ${({ theme: { color: { black }}}) => black };
-    }
-  }
-
   &:focus {
     outline: none;
   }
@@ -238,6 +229,56 @@ const button = css`
     ${bigIcon}
   }
 `
+
+const customButton = css`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  &:focus, svg:focus { outline: none }
+
+  svg{
+    cursor: pointer;
+    width: 30px;  
+    height: 30px;
+    border-radius: 50%;
+  }
+`
+
+export const deleteButton = styled.div`
+  ${customButton}
+  svg.delete:hover{
+    transform: scale(1.2) rotate(15deg);
+    transition: .2s cubic-bezier(.22,.68,0,1.71);
+    
+    path.tampa{
+      transform: translate(-20px, -10px) rotate(-15deg);
+      transition: .2s cubic-bezier(.22,.68,0,1.71);
+    }
+
+    path:nth-child(2){
+      fill: #F15249;
+      transition: .2s cubic-bezier(.22,.68,0,1.71);
+    }
+  }
+`
+
+export const EditButton = styled.div`
+  ${customButton}
+  svg.edit:hover{
+    transform: scale(1.2) rotate(-45deg);
+    transition: .2s cubic-bezier(.22,.68,0,1.71);
+    path:nth-child(2){
+      fill: #7584f2;
+      transition: .2s cubic-bezier(.22,.68,0,1.71);
+    }
+  }
+`
+
+export const ConfirmButton = styled.div`${customButton}`
+export const CancelButton = styled.div`${customButton}`
+export const DeleteButton = styled.div`${customButton}`
+
 export const StyledButtonAction = styled.button`
   ${button}
 `

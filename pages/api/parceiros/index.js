@@ -56,7 +56,7 @@ const partnerHandler = async (req, res) => {
       case 'DELETE': deleteHandler()
       default:
         res.setHeader('Allow', ['GET', 'PUT', 'POST', 'DELETE'])
-        res.status(405).end(`Method ${method} Not Allowed`)
+        return res.status(405).end(`Method ${method} Not Allowed`)
     }
   } catch (err) {
     return res.status(500).json()

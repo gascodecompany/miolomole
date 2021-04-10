@@ -127,7 +127,7 @@ export const Buttons = styled.div`
   }
 
   svg.edit{
-    transform: rotate(-45deg);
+    /* transform: rotate(-45deg); */
   }
 
   svg.delete:hover{
@@ -146,7 +146,7 @@ export const Buttons = styled.div`
   }
 
   svg.edit:hover{
-    transform: scale(1.2) rotate(-90deg);
+    transform: scale(1.2) rotate(-45deg);
     transition: .2s cubic-bezier(.22,.68,0,1.71);
     path:nth-child(2){
       fill: #7584f2;
@@ -157,5 +157,4 @@ export const Buttons = styled.div`
 
 export const EditButton = styled.div`
   cursor: pointer;
-  transform: rotate(45deg); 
 `

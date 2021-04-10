@@ -1,9 +1,10 @@
 import { useState, useEffect, cloneElement, useRef } from 'react';
 import * as S from './Editable.styles';
 import axios from 'axios';
-import EditIcon from '../../images/js/EditIcon'
-import CheckedIcon from '../../images/js/Checked'
-import CancelIcon from '../../images/js/CancelIcon'
+import Button from '../../Elements/Button';
+import EditIcon from '../../images/js/EditIcon';
+import ConfirmIcon from '../../images/js/ConfirmIcon';
+import CancelIcon from '../../images/js/CancelIcon';
 
 export default function Editable ({ children, page, texts, textKey, isLoggedIn }) {
   const [edit, setEdit] = useState(false);
@@ -15,12 +16,17 @@ export default function Editable ({ children, page, texts, textKey, isLoggedIn }
 
   const onChange = ({ target }) => setNewText(target.value)
   const onBlur = (e) => {
-    if(!(e.relatedTarget?.id === `${textKey}EditButton` || e.relatedTarget?.id === `${textKey}CancelButton`)) {
+    console.log(e.relatedTarget)
+    if(
+      e.relatedTarget?.id !== `${textKey}EditButton` || 
+      e.relatedTarget?.id !== `${textKey}ConfirmButton` ||
+      e.relatedTarget?.id !== `${textKey}CancelButton`
+    ) {
       if (!confirm('Salvar alteração?')) { setNewText(text); setEdit(false) } else { saveText() }
     }
   }
   const saveText = async () => {
-    await axios.put("http://localhost:3000/api/textos", { textKey, page, text: newText, editedBy: 'browser' }).catch((err) => console.log(err))
+    await axios.put(`${process.env.API_URL}textos`, { textKey, page, text: newText, editedBy: 'browser' }).catch((err) => console.log(err))
     setText(newText)
     setEdit(false)
   }
@@ -31,8 +37,8 @@ export default function Editable ({ children, page, texts, textKey, isLoggedIn }
     <S.Editable>
       { isLoggedIn && (
         <S.EditableButtons>
-          <S.EditButton id={`${textKey}EditButton`} onClick={() => edit ? saveText() : setEdit(true)}>{ edit ? <CheckedIcon/> : <EditIcon/> }</S.EditButton>
-          { edit && <S.CancelButton id={`${textKey}CancelButton`} onClick={() => { setNewText(text); setEdit(false)}}><CancelIcon/></S.CancelButton> }
+          <S.EditButton onClick={() => edit ? saveText() : setEdit(true)}>{ edit ? <Button id={`${textKey}ConfirmButton`} type="confirm" /> : <Button id={`${textKey}EditButton`} type="edit" /> }</S.EditButton>
+          { edit && <Button id={`${textKey}CancelButton`} onClick={() => { setNewText(text); setEdit(false)}} type="cancel" /> }
         </S.EditableButtons>
       )}
       { edit ? <S.EditableInput {...children.props} {...inputProps}/> : cloneElement(children, Object.assign({}, {...children.props, children: newText})) }

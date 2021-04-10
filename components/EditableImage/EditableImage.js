@@ -6,7 +6,7 @@ import Evaporate from 'evaporate';
 import { v4 as uuidv4 } from 'uuid';
 import AWS from "aws-sdk";
 import EditIcon from '../../images/js/EditIcon';
-import CheckedIcon from '../../images/js/Checked';
+import ConfirmIcon from '../../images/js/ConfirmIcon';
 import CancelIcon from '../../images/js/CancelIcon';
 
 export default function EditableImage ({ children, page, texts, textKey, isLoggedIn }) {
@@ -52,7 +52,7 @@ export default function EditableImage ({ children, page, texts, textKey, isLogge
     <S.Editable>
       { isLoggedIn && (
         <S.EditableButtons>
-          <S.EditButton id={`${textKey}EditButton`} onClick={() => edit ? saveImage() : setEdit(true)}>{ edit ? <CheckedIcon/> : <EditIcon/> }</S.EditButton>
+          <S.EditButton id={`${textKey}EditButton`} onClick={() => edit ? saveImage() : setEdit(true)}>{ edit ? <ConfirmIcon/> : <EditIcon/> }</S.EditButton>
           { edit && <S.CancelButton id={`${textKey}CancelButton`} onClick={() => { setNewLink(link); setEdit(false)}}><CancelIcon/></S.CancelButton> }
         </S.EditableButtons>
       )}
