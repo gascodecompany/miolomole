@@ -9,14 +9,14 @@ const partnerHandler = async (req, res) => {
   const { _id } = body;
   const args = body ? { ...body } : {};
 
-  const putHandler = () => {
+  const putHandler = async () => {
     if(!_id) { return res.status(400).send('Parâmetros inválidos') }
     const updatedModel = await updateModel(args, Partner)
     await updatedModel.save()
     return await res.status(200).json(updatedModel)
   }
 
-  const getHandler = () => {
+  const getHandler = async () => {
     try{
       if(!_id) {
         try { const partners = await Partner.find(); return res.status(200).json(partners); } 
@@ -29,7 +29,7 @@ const partnerHandler = async (req, res) => {
     } catch (err) { return res.status(500).end(error.message) }
   }
 
-  const postHandler = () => {
+  const postHandler = async () => {
     // if (!name && !logo && !description && !city && !books) {
     //   return res.status(422).send('Dados Incompletos')
     // };
@@ -41,7 +41,7 @@ const partnerHandler = async (req, res) => {
     } catch (error) { return res.status(500).end(error.message) }
   }
 
-  const deleteHandler = () => {
+  const deleteHandler = async () => {
     try {
       await removeModel(_id, Partner)
       return res.status(200).send('Cadastro excluído com sucesso!');
