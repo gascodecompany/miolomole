@@ -1,10 +1,9 @@
-import EditLockIcon from '../../images/js/EditLockIcon';
 import Lottie from 'react-lottie';
 import * as S from './LogoutButton.style';
 import animationData from '../../lotties/log-out.json';
-import { useState } from 'react/cjs/react.development';
+import { useState } from 'react';
 
-export default function LogoutButton({setCurrentUser, setIsLogedIn}){
+export default function LogoutButton({ isLoggedIn, setCurrentUser, handleLogout }){
   const [paused, setPaused] = useState(true)
 
   const defaultOptions = {
@@ -15,21 +14,22 @@ export default function LogoutButton({setCurrentUser, setIsLogedIn}){
       preserveAspectRatio: 'xMidYMid slice'
     }
   };
-
-  return (
-    <S.LogoutContainer>
-      <S.LogoutWrapper 
-        onClick={() => {setCurrentUser(''); setIsLogedIn(false)}} 
-        onMouseEnter={() => setPaused(false)}
-        onMouseLeave={() => setPaused(true)}
-      >
-        <Lottie
-          options={defaultOptions}
-          height={70}
-          width={70}
-          isPaused={paused}
-         />
-      </S.LogoutWrapper>
-    </S.LogoutContainer>
-  )
+  if(isLoggedIn){
+    return (
+      <S.LogoutContainer>
+        <S.LogoutWrapper
+          onClick={ () => { setCurrentUser(''); handleLogout() } } 
+          onMouseEnter={() => setPaused(false)}
+          onMouseLeave={() => setPaused(true)}
+        >
+          <Lottie
+            options={defaultOptions}
+            height={70}
+            width={70}
+            isPaused={paused}
+           />
+        </S.LogoutWrapper>
+      </S.LogoutContainer>
+    )
+  } else return <></>
 }

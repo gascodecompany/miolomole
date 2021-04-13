@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import Spinner from '../../components/Spinner';
-import { StyledButtonAction } from './Button.style';
+import { StyledButtonAction } from './Button.styles';
 
 export const ButtonAction = forwardRef((props, ref) => {
   const { children, icon, iconRight, loading, disabled, label, ...restProps } = props;

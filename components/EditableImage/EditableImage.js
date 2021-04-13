@@ -1,13 +1,13 @@
-import { useState, useEffect, cloneElement, useRef, useCallback } from 'react';
+import { useState, cloneElement, useCallback } from 'react';
 import * as S from './EditableImage.styles';
 import axios from 'axios';
 import {useDropzone} from 'react-dropzone';
 import Evaporate from 'evaporate';
 import { v4 as uuidv4 } from 'uuid';
 import AWS from "aws-sdk";
-import EditIcon from '../../images/js/EditIcon'
-import CheckedIcon from '../../images/js/Checked'
-import CancelIcon from '../../images/js/CancelIcon'
+import EditIcon from '../../images/js/EditIcon';
+import ConfirmIcon from '../../images/js/ConfirmIcon';
+import CancelIcon from '../../images/js/CancelIcon';
 
 export default function EditableImage ({ children, page, texts, textKey, isLoggedIn }) {
   const [edit, setEdit] = useState(false);
@@ -45,14 +45,14 @@ export default function EditableImage ({ children, page, texts, textKey, isLogge
     setEdit(false);
   }
   
-  const { getRootProps, getInputProps, isDragActive, inputRef } = useDropzone({onDrop, disabled: !edit });
+  const { getRootProps, getInputProps, isDragActive, inputRef } = useDropzone({ onDrop, disabled: !edit });
   const inputProps = { src: newLink, edit, isDragActive, styles: children.type.componentStyle.rules }
   
   return (
     <S.Editable>
-      { !isLoggedIn && (
+      { isLoggedIn && (
         <S.EditableButtons>
-          <S.EditButton id={`${textKey}EditButton`} onClick={() => edit ? saveImage() : setEdit(true)}>{ edit ? <CheckedIcon/> : <EditIcon/> }</S.EditButton>
+          <S.EditButton id={`${textKey}EditButton`} onClick={() => edit ? saveImage() : setEdit(true)}>{ edit ? <ConfirmIcon/> : <EditIcon/> }</S.EditButton>
           { edit && <S.CancelButton id={`${textKey}CancelButton`} onClick={() => { setNewLink(link); setEdit(false)}}><CancelIcon/></S.CancelButton> }
         </S.EditableButtons>
       )}

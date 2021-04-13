@@ -1,4 +1,4 @@
-export default function Checked(){
+export default function ConfirmIcon(){
   return(
     <svg width="508" height="508" viewBox="0 0 508 508" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g clip-path="url(#clip0)">
