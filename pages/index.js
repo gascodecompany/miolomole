@@ -7,6 +7,7 @@ import HomeBanners from "../components/HomeBanners";
 import pt from "../i18n/pt";
 import mongoose from 'mongoose';
 import Text from '../models/text'
+import Banner from '../components/Banner'
 
 export default function Home(props) {
   const t = pt
@@ -14,7 +15,11 @@ export default function Home(props) {
     <>
       <HomeJumbotron/>
       <HomeApresentation {...props}/>
-      <HomeBanners />
+      {/* <HomeBanners /> */}
+      <Banner {...props} index={1}/>
+      <Banner {...props} index={2}/>
+      <Banner {...props} index={3}/>
+      <Banner {...props} index={4}/>
       <LatestArticles items={t.BLOG_ARTICLES}/>
       <AboutUsSlider/>
       <HomeLatestArticles/>
