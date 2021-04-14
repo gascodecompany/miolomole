@@ -2,16 +2,16 @@ import { useEffect, useState } from 'react'
 import * as S from './AboutUsOurHistory.style'
 import Container from '../Container'
 import Editable from '../Editable'
+import EditableImage from '../EditableImage'
 
-export default function AboutUsOurHistory({ texts }){
-  
+export default function AboutUsOurHistory(props){
  return(
     <S.AboutUsOurHistory>
       <Container>
       <S.OurHistoryWrapper>
-        <Editable page="aboutUs" textKey="aboutUsOurHistoryTitle" text={texts?.aboutUsOurHistoryTitle}><S.OurHistoryTitle/></Editable>
-        <Editable page="aboutUs" textKey="aboutUsOurHistoryText" text={`${texts?.aboutUsOurHistoryText}`}><S.OurHistoryText/></Editable>
-        <span className='grayBox'></span>
+        <Editable {...props} textKey="aboutUsOurHistoryTitle"><S.OurHistoryTitle /></Editable>
+        <Editable {...props} textKey="aboutUsOurHistoryText"><S.OurHistoryText /></Editable>
+        <EditableImage {...props} textKey="aboutUsOurHistoryImage"><S.AboutUsOurHistoryImage /></EditableImage>
       </S.OurHistoryWrapper>
       </Container>
     </S.AboutUsOurHistory>

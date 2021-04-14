@@ -26,6 +26,7 @@ export const HomeJumbotronContainer = styled.div`
 
         &.slick-active{
           border-bottom: 3px solid #FECA30;
+          font-weight: 500;
         }  
       }
     }

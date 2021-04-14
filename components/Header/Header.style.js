@@ -10,7 +10,7 @@ export const Header = styled.div`
   top: 0;
   z-index: 99;
   
-  >.logo-miolo {
+  >a {
     position: absolute;
     z-index: 1;
     top: 10px;
@@ -35,7 +35,7 @@ export const Header = styled.div`
   }
   @media screen{
     @media (min-width: 1024px){
-      >logo-miolo {
+      >a {
         position: initial;
 
         >svg {
@@ -89,7 +89,7 @@ export const HeaderMenuContainer = styled.section`
   transform: translateX(${({isOpen}) => isOpen ? 0 : '-280px'});
   transition: .6s ease;
 
-  >.logo-miolo {
+  >a {
     position: absolute;
     top: 10px;
     left: 15px;
@@ -132,7 +132,7 @@ export const HeaderMenuContainer = styled.section`
       transform: initial;
       transition: initial;
 
-      >.logo-miolo {
+      >a {
         display: none;
       }
 

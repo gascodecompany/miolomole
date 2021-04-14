@@ -13,6 +13,7 @@ export default function Input(props) {
 
   const fieldTypes = {
     "select": <InputSelect {...props} />,
+    "selectMulti": <InputSelect {...props} />,
     "switch": <InputSwitch {...props} />,
     "radio":  <InputRadio {...props} />,
     "date":  <InputDate {...props} />,

@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const StyledForm = styled.section`
-  display: grid;
-  ${({gridTemplate, joinUsWay}) => gridTemplate({joinUsWay})};
+  form{
+    display: grid;
+    ${({gridTemplate, joinUsWay}) => gridTemplate({joinUsWay})};
+  }
 `;

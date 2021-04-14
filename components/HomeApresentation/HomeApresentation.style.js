@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import homeApresentationImg from '../../images/homeApresentationImg.jpg'
 import TextareaAutosize from 'react-textarea-autosize';
 import { forwardRef } from 'react'
@@ -16,8 +16,17 @@ export const HomeApresentation = styled.div`
   }
 `
 
-export const HomeApresentationImage = styled.div`
-  background-image: url(${homeApresentationImg});
+export const HomeApresentationImage = styled.img`
+  padding: 20px;
+  
+  ${(({edit}) => edit && css`
+    opacity: .4;
+  `)}
+
+  ${(({isDragActive}) => isDragActive && css`
+    opacity: .2;
+  `)}
+  /* background-image: url(${homeApresentationImg});
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -33,7 +42,7 @@ export const HomeApresentationImage = styled.div`
       width: 420px;
       height: 400px;
     }
-  }
+  } */
 `
 
 export const HomeInfo = styled.div`
@@ -41,10 +50,13 @@ export const HomeInfo = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 600px;
+  word-break: break-all;
+
 `
 export const HomeApresentationTitle = styled.h2`
   font-family: Amatic SC;
   font-style: normal;
+  word-break: break-all;
   font-weight: 700;
   font-size: 40px;
   line-height: 55px;

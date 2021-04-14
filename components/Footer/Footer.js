@@ -1,4 +1,4 @@
-import Logo from '../../images/js/Logo-miolo';
+import Logo from '../Logo';
 import ContactAddress from '../ContactAddress';
 import ContactSocial from '../ContactSocial';
 import Copyright from '../Copyright';
@@ -12,7 +12,6 @@ export default function Footer(){
     <>
     <S.Footer>
       <Container>
-
         <S.FooterNav>
           <S.FooterNavList>
             <S.FooterNavItem name="logo"><Logo/></S.FooterNavItem>

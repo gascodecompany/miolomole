@@ -8,7 +8,7 @@ export const AboutUsImagination = styled.div`
   }
 `;
 
-export const ImagitationTitle = styled(forwardRef(({ value, edit, ...props }, ref) => edit ? <TextareaAutosize ref={ref} {...props} value={value} /> : <h2 {...props}>{value}</h2>))`
+export const ImagitationTitle = styled.h2`
   font-family: Amatic SC;
   font-weight: bold;
   font-size: ${({ theme: { fontSize: { fontSizeUL }}}) => fontSizeUL };
@@ -29,7 +29,7 @@ export const ImaginationWrapper = styled.div`
   grid-column-gap: 30px;
   grid-row-gap: 50px;
   @media screen{
-    @media (min-width: 1024px){
+    @media (min-width: 768px){
       grid-template-columns: 1fr 1fr;
       grid-template-areas: 
         'textOne imgOne'
@@ -38,7 +38,7 @@ export const ImaginationWrapper = styled.div`
   }
 `
 
-export const ImaginationTextOne = styled(forwardRef(({ value, edit, ...props }, ref) => edit ? <TextareaAutosize ref={ref} {...props} value={value} /> : <p {...props}>{value}</p>))`
+export const ImaginationTextOne = styled.p`
   grid-area: 'textOne';
   width: 100%;
   font-family: Montserrat;
@@ -49,15 +49,17 @@ export const ImaginationTextOne = styled(forwardRef(({ value, edit, ...props }, 
   margin-right: 30px;
 `
 
-export const ImaginationImgOne = styled.div`
+export const ImaginationImgOne = styled.img`
   grid-area: 'imgOne';
   width: 100%;
   height: 364px;
   background: #C4C4C4;
-  border-radius: 8px;  
+  border-radius: 8px; 
+  object-fit: cover;
+ 
 `
 
-export const ImaginationTextTwo = styled(forwardRef(({ value, edit, ...props }, ref) => edit ? <TextareaAutosize ref={ref} {...props} value={value} /> : <p {...props}>{value}</p>))`
+export const ImaginationTextTwo = styled.p`
   grid-area: 'textTwo';
   width: 100%;
   font-family: Montserrat;
@@ -67,10 +69,12 @@ export const ImaginationTextTwo = styled(forwardRef(({ value, edit, ...props }, 
   color: #071825;
 `
 
-export const ImaginationImgTwo = styled.div`
+export const ImaginationImgTwo = styled.img`
   grid-area: 'imgTwo';
   width: 100%;
   height: 364px;
   background: #C4C4C4;
   border-radius: 8px;  
+  object-fit: cover;
+
 `

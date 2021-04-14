@@ -41,9 +41,9 @@ export default function InputSelect({
 }) {
 
   const loadOptionsHandler = (inputValue, callback) => {
-    if (loadOptions ) {
+    if (loadOptions) {
       if (isCreatable || !loadEmpty) {
-        if (inputValue.length > 1) { loadOptions(inputValue, callback)}
+        if (inputValue.length > 1) { loadOptions(inputValue, callback) }
       } else { loadOptions(inputValue, callback) }
     } else if (options){
        callback(options)

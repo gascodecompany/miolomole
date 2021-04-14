@@ -10,7 +10,18 @@ export const ContactAddressListItem = styled.li`
     margin-right: 8px;
     width: 12px;
   }
-
+  :hover{
+    svg{
+      path{
+        fill: #00A79D;
+      }
+    }
+    span{
+      font-weight: 600;
+      color: #00A79D;
+      letter-spacing: 0;   
+    }
+  }
   a{
     position: relative;
     display: flex;
@@ -62,6 +73,7 @@ export const Label = styled.span`
   font-size: 14px;
   line-height: 19px;
   display: flex;
+  letter-spacing: 0.195px;
   align-items: flex-end;
   color: ${({ theme: { color: { blackDark }}}) => blackDark };
 

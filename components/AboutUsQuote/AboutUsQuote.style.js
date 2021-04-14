@@ -6,23 +6,43 @@ export const AboutUsQuote = styled.div`
   .container{
     align-items: unset;
   }
+
 `;
 
 export const QuoteWrapper = styled.div`
-  width: 65%;
+  width: 100%;
   text-align: justify;
+  margin: auto;
+
+  @media screen{
+    @media (min-width: 1204px){
+      width: 65%;
+
+    }
+  }
+  >div{
+    >div{
+      right: -5px;
+      @media screen{
+        @media (min-width: 1024px){
+          right: -35px;
+        }
+      }
+    }
+  }
 `
-export const QuoteText = styled(forwardRef(({ value, edit, ...props }, ref) => edit ? <TextareaAutosize ref={ref} {...props} value={value} /> : <p {...props}>{value}</p>))`
+export const QuoteText = styled.p`
   font-family: Montserrat;
   font-style: italic;
   font-weight: 500;
   font-size: ${({ theme: { fontSize: { fontSizeSMM }}}) => fontSizeSMM };
   line-height: 28px;
   color: #00A79D;
+  margin: 0;
   margin-bottom: 10px;
   width: 100%;
 `
-export const Credit = styled(forwardRef(({ value, edit, ...props }, ref) => edit ? <TextareaAutosize ref={ref} {...props} value={value} /> : <p {...props}>{value}</p>))`
+export const Credit = styled.p`
   font-family: Montserrat;
   font-weight: 500;
   font-size: ${({ theme: { fontSize: { fontSizeXS }}}) => fontSizeXS };
