@@ -10,6 +10,6 @@ export const PartnerForm = styled.div`
   > section > form > button { justify-self: flex-end }
 `
 
-export const ErrorMessage = styled.span`
+export const ResponseMessage = styled.span`
   height: 14px;
 `

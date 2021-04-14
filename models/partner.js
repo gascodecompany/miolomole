@@ -6,7 +6,8 @@ var partner = new Schema({
   logo: { type: String, required: true },
   description: { type: String, required: true },
   city: [{ type: Object }],
-  books: [{ type: Schema.Types.ObjectId, ref: 'Book' }],
+  // books: [{ type: Schema.Types.ObjectId, ref: 'Book' }],
+  books: [{ type: String }],
 }, { timestamps: true });
 
 mongoose.models = {};

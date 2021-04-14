@@ -44,7 +44,13 @@ export default function PartnerForm(props){
         .catch((err) => setMessage(err.response.data))
     } else {
       axios.put(`${process.env.API_URL}parceiros`, Object.assign({ _id: partner._id } ,{ ...fieldsValue }))
-        .then((res) => { if(res.status === 200) { setMessage('Cadastro atualizado com sucesso!'); router.goBack('') } })
+        .then((res) => { 
+          if(res.status === 200) {
+            setMessage('Cadastro atualizado com sucesso!');
+            router.goBack('');
+            console.log(message);
+          }
+        })
         .catch((err) => setMessage(err?.response?.data))
     }
   }
@@ -62,7 +68,7 @@ export default function PartnerForm(props){
     <S.PartnerForm>
       <h1>Adicionar parceiro</h1>
       <Form {...formProps} />
-      <S.ErrorMessage>{ message && message }</S.ErrorMessage>
+      <S.ResponseMessage>{ message && message }</S.ResponseMessage>
     </S.PartnerForm>
   )
 }

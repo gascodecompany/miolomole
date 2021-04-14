@@ -9,59 +9,43 @@ const partnerHandler = async (req, res) => {
   const { _id } = body;
   const args = body ? { ...body } : {};
 
-  const putHandler = async () => {
-    if(!_id) { return res.status(400).send('Parâmetros inválidos') }
-    const updatedModel = await updateModel(args, Partner)
-    await updatedModel.save()
-    return await res.status(200).json(updatedModel)
-  }
-
-  const getHandler = async () => {
-    try{
-      if(!_id) {
-        try { const partners = await Partner.find(); return res.status(200).json(partners); } 
-        catch (error) { return res.status(500).end(error.message) }
-      } 
-      else {
-        try { const partner = await Partner.findById(_id); return res.status(200).json(partner); } 
-        catch (error) { return res.status(500).end(error.message) }
-      }
-    } catch (err) { return res.status(500).end(error.message) }
-  }
-
-  const postHandler = async () => {
-    // if (!name && !logo && !description && !city && !books) {
-    //   return res.status(422).send('Dados Incompletos')
-    // };
-    const partner = await Partner.find({ name: args?.name });
-    if(!!partner.length) { return res.status(409).end('Parceiro ja cadastrado.') };
-    try {
-      const partnerCreated = await createModel()
-      return res.status(200).send(partnerCreated);
-    } catch (error) { return res.status(500).end(error.message) }
-  }
-
-  const deleteHandler = async () => {
-    try {
-      await removeModel(_id, Partner)
-      return res.status(200).send('Cadastro excluído com sucesso!');
-    } catch (error) { return res.status(500).send(error.message) }
-  }
-
   try{
     switch (method) {
-      case 'GET': getHandler()
-      case 'PUT': putHandler()
-      case 'POST': postHandler()
-      case 'DELETE': deleteHandler()
+      case 'GET':
+        try{
+          if(!_id) {
+            const partners = await Partner.find();
+            console.log(partners);
+            return res.status(200).json(partners);
+          }
+          else { 
+            const partner = await Partner.findById(_id);
+            return res.status(200).json(partner);
+          }
+        } catch (err) { return res.status(500).end() };
+      case 'PUT':
+        try{
+          if(!_id) { return res.status(400).json({ errorMessage: 'Parâmetros inválidos' }) };
+          const updatedModel = await updateModel(args, Partner);
+          await updatedModel.save();
+          return await res.status(200).json(updatedModel);
+        } catch (err) { return res.status(500).end() };
+      case 'POST':
+        try{
+          const partner = await Partner.find({ name: args?.name });
+          if(!!partner.length) { return res.status(409).json({ errorMessage: 'Parceiro ja cadastrado.' }) };
+          const partnerCreated = await createModel(args, Partner);
+          return res.status(200).json({ partnerCreated });
+        } catch (err) { console.log(err); res.status(500).end() };
+      case 'DELETE':
+        try{
+          await removeModel(_id, Partner)
+          return res.status(200).json({ message: 'Cadastro excluído com sucesso!'});
+        } catch (err) { return res.status(500).end() };
       default:
-        res.setHeader('Allow', ['GET', 'PUT', 'POST', 'DELETE'])
-        return res.status(405).end(`Method ${method} Not Allowed`)
+        return res.status(405).json({ errorMessage: `Method ${method} Not Allowed` })
     }
-  } catch (err) {
-    return res.status(500).json()
-  }
-  
+  } catch (err) { return res.status(500).end() }
 };
 
 export default connectDB(partnerHandler);
