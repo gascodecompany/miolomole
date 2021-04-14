@@ -9,44 +9,13 @@ export const AboutUsSectionOne = styled.div`
     /* flex-direction: row;
     justify-content: center; */
     display: grid;
-    grid-template-columns: 100%;
+    grid-template-columns: 40% 60%;
     grid-gap: 20px;
-    @media screen{
-      @media (min-width: 768px){
-
-        grid-template-columns: 40% 60%;
-      }
-    }
   }
 `;
 
 export const SectionOneImages = styled.div`
-  height: 100%;
-  width: 100%;
-  background: #C4C4C4;
-  border-radius: 8px;
-  display: block;
-  margin-right: 30px;
   position: relative;
-
-  div:last-child{
-    >div{
-      left: 95px;
-      top: -515px;
-    }
-  }
-
-`
-
-export const SectionOneText = styled.p`
-  font-family: Montserrat;
-  font-weight: 500;
-  font-size: ${({ theme: { fontSize: { fontSizeSM }}}) => fontSizeSM };
-  line-height: 30px;
-  color: #071825;
-  width: 100%;
-`
-export const SectionOneImageOne = styled.img`
   /* min-width: 503px; */
   min-height: 364px;
   height: 100%;
@@ -55,19 +24,24 @@ export const SectionOneImageOne = styled.img`
   border-radius: 8px;
   display: block;
   margin-right: 30px;
-`
-export const SectionOneImageTwo = styled.img`
-  position: absolute;
-  width: 170px;
-  height: 184px;
-  background: #531E1E;
-  border-radius: 8px;
-  top: -520px;
-  left: -42px;
-  display: none;
-  @media screen{
-    @media (min-width: 1024px){
-      display: block;
-    }
+  
+  ::after{
+    content: '';
+    position: absolute;
+    width: 170px;
+    height: 184px;
+    background: #531E1E;
+    border-radius: 8px;
+    top: -80px;
+    left: -42px;
   }
+`
+
+export const SectionOneText = styled(forwardRef(({ value, edit, ...props }, ref) => edit ? <TextareaAutosize ref={ref} {...props} value={value} /> : <p {...props}>{value}</p>))`
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: ${({ theme: { fontSize: { fontSizeSM }}}) => fontSizeSM };
+  line-height: 30px;
+  color: #071825;
+  width: 100%;
 `

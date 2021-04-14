@@ -5,14 +5,15 @@ export const StoreJumbotronFieldsState = ({
   selectState: { value: '' },
 })
 
-export const StoreJumbotronFieldsFunction = ({fields, setFields, books, states}) => ({
+export const StoreJumbotronFieldsFunction = ({fields, setFields}) => ({
+
   selectBook: {
     ...fields.selectBook,
     name: 'selectBook',
     label: '',
     placeholder: 'Selecione o livro',
     type: 'select',
-    loadOptions: () => { books.map((book) => ({ label: book.label, value: book._id })) }
+    options: ''
   },
   selectState: {
     ...fields.selectState,

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledButtonNavLink } from './Button.styles';
+import { StyledButtonNavLink } from './Button.style';
 
 export default function ButtonNavLinkDropDown({ label, link, ...props }) {
 

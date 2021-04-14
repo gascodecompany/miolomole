@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import * as S from './Header.style'
-import Logo from '../Logo'
+import LogoMiolo from '../../images/js/Logo-miolo'
 import SearchIcon from '../../images/js/search-icon'
 import HeaderNav from '../HeaderNav'
 import Hamburger from '../Hamburger'
@@ -21,11 +21,11 @@ export default function Header(){
     <S.Header>
       <Container>
       <Hamburger isOpen={menuIsOpen} toggle={setMenuIsOpen} />
-      <Logo />
+      <LogoMiolo />
       <S.HeaderMenu isOpen={menuIsOpen} onClick={() => setMenuIsOpen(!menuIsOpen)}>
         <S.HeaderMenuContainer isOpen={menuIsOpen} onClick={(e) => e.stopPropagation()}>
           <Hamburger isOpen={menuIsOpen} toggle={setMenuIsOpen} />
-          <Logo/>
+          <LogoMiolo/>
           <HeaderNav isOpen={menuIsOpen} toggle={setMenuIsOpen} />
           <S.SearchField className="searchField">
             <Input { ...inputSearchObj } />

@@ -7,7 +7,7 @@ export default function HomeBanners(){
  return(
     <S.HomeBanners>
       {t.BANNERS.map((item) => (
-        <S.Banner key={item} img={item} />
+        <S.Banner key={item} img={item}/>
       ))}
     </S.HomeBanners>
   )

@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import Spinner from '../../components/Spinner';
-import { StyledButtonAction } from './Button.styles';
+import { StyledButtonAction } from './Button.style';
 
 export const ButtonAction = forwardRef((props, ref) => {
   const { children, icon, iconRight, loading, disabled, label, ...restProps } = props;
@@ -15,7 +15,7 @@ export const ButtonAction = forwardRef((props, ref) => {
             ? <Spinner color="#fff" />
             : <>
               {props.icon && <props.icon/>}
-              {label && <p className="unselectable">{label}</p>}
+              {label && label}
               {props.iconRight && <props.iconRight/>}
             </>
           }

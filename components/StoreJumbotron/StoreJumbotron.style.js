@@ -4,9 +4,10 @@ import StoreJumbotron from '../../images/jumbotronLoja.jpg'
 export const StoreJumbotronContainer = styled.div`
   background-image: url(${StoreJumbotron});
   width: 100vw;
+  max-height: 714px;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  height: 80vh;
   background-position: right;
   @media screen{
     @media (min-width: 1024px){
@@ -16,6 +17,7 @@ export const StoreJumbotronContainer = styled.div`
   }
   .container{
     align-items: flex-start;
+
   }
 `
 export const JumbotronWraper = styled.div`
@@ -36,8 +38,6 @@ export const JumbotronWraper = styled.div`
   .primary{
     width: 150px;
     border: none;
-    border-radius: 12px;
-    text-transform: inherit;
     font-family: 'Open Sans';
     font-weight: bold;
     font-size: ${({ theme: { fontSize: { fontSizeSM }}}) => fontSizeSM };
@@ -45,7 +45,7 @@ export const JumbotronWraper = styled.div`
     color: #FFFFFF;
   }
 `
-export const StoreJumbotronTitle = styled.h1`
+export const StoreJumbotronTitle = styled.div`
   font-family: Amatic SC;
   font-style: normal;
   font-weight: 500;
@@ -64,7 +64,7 @@ export const StoreJumbotronTitle = styled.h1`
     }
   }
 `
-export const StoreJumbotronSubTitle = styled.h4`
+export const StoreJumbotronSubTitle = styled.div`
   font-family: Montserrat;
   font-style: normal;
   font-weight: 400;

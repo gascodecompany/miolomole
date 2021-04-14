@@ -8,7 +8,7 @@ import BookComponent from "../../components/BookComponent";
 import { Books } from '../../Constants/Books'
 import AboutUsSlider from '../../components/AboutUsSlider';
 
-export default function BooksList(props){
+export default function BooksList(){
   const router = useRouter();
   const {id} = router.query
   const t = pt;
@@ -16,7 +16,7 @@ export default function BooksList(props){
   return(
     <div>
       <BooksJumbotron/>
-      <OurProductsList {...props} items={Books} id={id} />
+      <OurProductsList items={Books} id={id} />
       <LatestArticles items={t.BLOG_ARTICLES}/>
       <AboutUsSlider/>
       <HomeLatestArticles id={id} />

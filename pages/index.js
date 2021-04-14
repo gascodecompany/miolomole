@@ -7,19 +7,14 @@ import HomeBanners from "../components/HomeBanners";
 import pt from "../i18n/pt";
 import mongoose from 'mongoose';
 import Text from '../models/text'
-import Banner from '../components/Banner'
 
-export default function Home(props) {
+export default function Home({ texts }) {
   const t = pt
   return (
     <>
       <HomeJumbotron/>
-      <HomeApresentation {...props}/>
-      {/* <HomeBanners /> */}
-      <Banner {...props} index={1}/>
-      <Banner {...props} index={2}/>
-      <Banner {...props} index={3}/>
-      <Banner {...props} index={4}/>
+      <HomeApresentation texts={texts}/>
+      <HomeBanners/>
       <LatestArticles items={t.BLOG_ARTICLES}/>
       <AboutUsSlider/>
       <HomeLatestArticles/>
@@ -28,9 +23,8 @@ export default function Home(props) {
 }
 
 export async function getStaticProps() {
-  await mongoose.connect(process.env.MONGO_DB_URL, { useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true, useNewUrlParser: true });
-  const page = 'home';
-  const textsArray = await Text.find({ page });
+  await mongoose.connect(process.env.mongodburl, { useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true, useNewUrlParser: true });
+  const textsArray = await Text.find({ page: 'home' });
   const texts = textsArray.reduce((object, text) => Object.assign(object, {[text.textKey]: text.text}), {});
-  return { props: { texts, page }, revalidate: 1 }
+  return { props: { texts }, revalidate: 1 }
 }

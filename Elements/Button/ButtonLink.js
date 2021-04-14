@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledButtonLink } from './Button.styles';
+import { StyledButtonLink } from './Button.style';
 
 export default function ButtonLink(props) {
   const { children, variation, icon, iconRight, label, link='/', ...restProps } = props;

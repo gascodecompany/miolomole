@@ -17,7 +17,6 @@ export const ContactInfoWrapper = styled.div`
   flex-direction: column;
   width: 100%;
   margin: 0 auto;
-
   @media screen{
     @media (min-width: 1024px){
       width: 45%;
@@ -34,13 +33,12 @@ export const TitleContact = styled.div`
   margin-bottom: 20px;
 `
 
-export const TextContact = styled.p`
+export const TextContact = styled.div`
   font-family: 'Open Sans';
   font-size: 14px;
   line-height: 2;
   color: #212121;
   margin-bottom: 20px;
-  width: 100%;
 `
 
 export const TagContact = styled.div`
@@ -60,7 +58,7 @@ export const Logo = styled.div`
   margin-right: 20px;
 `
 export const ContactAdressWrapper = styled.div`
-  width: 100%;
+
 `
 export const ContactTitle = styled.div`
   font-family: Roboto;
@@ -79,12 +77,11 @@ export const ContactTitle = styled.div`
   }
 
 `
-export const ContactAdress = styled.p`
+export const ContactAdress = styled.div`
   font-family: 'Open Sans';
   line-height: 1.6;
   color: #212121;
   font-size: 13px;
-  width: 100%;
 
   @media screen{
     @media (min-width: 1024px){
@@ -137,11 +134,11 @@ export const ContactForm = styled.div`
   }
   
   button{
-    padding: 5px;
+    padding: 17px;
     text-transform: capitalize;
     font-family: Montserrat;
     font-weight: bold;
-    font-size: ${({ theme: { fontSize: { fontSizeS }}}) => fontSizeS };
+    font-size: ${({ theme: { fontSize: { fontSizeXS }}}) => fontSizeXS };
     letter-spacing: 2.4px;
     color: #FFFFFF;
     width: 150px;

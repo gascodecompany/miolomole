@@ -6,7 +6,7 @@ var text = new Schema({
   text: { type: String, required: true },
   page: { type: String, required: true },
   editedBy: { type: String },
-}, { timestamps: true });
+}, {timestamps: true});
 
 mongoose.models = {};
 

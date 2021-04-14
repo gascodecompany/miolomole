@@ -25,11 +25,6 @@ export const FooterNav = styled.ul`
   }
   li{
     cursor: pointer;
-    :hover{
-      font-weight: 600;
-      color: #00A79D;
-      letter-spacing: 0;
-    }
   }
 `
 export const NavItem = styled.li`
@@ -51,10 +46,5 @@ export const NavItem = styled.li`
     /* identical to box height, or 100% */
 
     text-align: center;
-  }
-  :hover{
-    font-weight: 600;
-    color: #00A79D;
-    letter-spacing: 0;
   }
 `

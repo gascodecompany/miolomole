@@ -22,31 +22,6 @@ export const Field = styled.div`
   }
 `;
 
-
-export const FieldPassword = styled.div`
-  grid-area: ${({ name }) => name};
-  position: relative;
-  color: ${({ theme: { color: { blackMedium }}}) => blackMedium } !important;
-  display: flex;
-  align-items: center;
-  
-  ${({ hasValue }) => hasValue && css`
-    label {
-      font-size: 12px;
-      transform: translateY(0);
-      font-weight: bold;
-    }
-  `};
-
-  &:focus-within {
-    label {
-      font-size: 12px;
-      transform: translateY(0);
-      font-weight: bold;
-    }
-  }
-`;
-
 export const FieldOuterLabel = styled.label`
   grid-area: ${({ name }) => name};
   font-family: 'Open Sans';
@@ -249,11 +224,6 @@ export const SeparatorLine = styled.span`
   }
 `
 
-export const PasswordToggle = styled.div`
-  position: absolute;
-  align-self: center;
-  margin: 10px;
-  right: 0;
-  bottom: 40px;
-  cursor: pointer;
-`
+// export const FieldTextArea = styled.div`
+  
+// `

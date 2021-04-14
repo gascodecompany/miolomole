@@ -1,12 +1,12 @@
 import StoreJumbotron from "../../components/StoreJumbotron";
 import StoreSection from "../../components/StoreSection";
 
-export default function Store(props){
+export default function Store(){
 
-  return(
+ return(
     <>
-      <StoreJumbotron {...props} />
-      <StoreSection {...props} />
+      <StoreJumbotron/>
+      <StoreSection/>
     </>
   )
 }

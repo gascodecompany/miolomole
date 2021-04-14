@@ -8,7 +8,7 @@ export const AboutUsImagination = styled.div`
   }
 `;
 
-export const ImagitationTitle = styled.h2`
+export const ImagitationTitle = styled(forwardRef(({ value, edit, ...props }, ref) => edit ? <TextareaAutosize ref={ref} {...props} value={value} /> : <h2 {...props}>{value}</h2>))`
   font-family: Amatic SC;
   font-weight: bold;
   font-size: ${({ theme: { fontSize: { fontSizeUL }}}) => fontSizeUL };
@@ -29,7 +29,7 @@ export const ImaginationWrapper = styled.div`
   grid-column-gap: 30px;
   grid-row-gap: 50px;
   @media screen{
-    @media (min-width: 768px){
+    @media (min-width: 1024px){
       grid-template-columns: 1fr 1fr;
       grid-template-areas: 
         'textOne imgOne'
@@ -38,7 +38,7 @@ export const ImaginationWrapper = styled.div`
   }
 `
 
-export const ImaginationTextOne = styled.p`
+export const ImaginationTextOne = styled(forwardRef(({ value, edit, ...props }, ref) => edit ? <TextareaAutosize ref={ref} {...props} value={value} /> : <p {...props}>{value}</p>))`
   grid-area: 'textOne';
   width: 100%;
   font-family: Montserrat;
@@ -49,17 +49,15 @@ export const ImaginationTextOne = styled.p`
   margin-right: 30px;
 `
 
-export const ImaginationImgOne = styled.img`
+export const ImaginationImgOne = styled.div`
   grid-area: 'imgOne';
   width: 100%;
   height: 364px;
   background: #C4C4C4;
-  border-radius: 8px; 
-  object-fit: cover;
- 
+  border-radius: 8px;  
 `
 
-export const ImaginationTextTwo = styled.p`
+export const ImaginationTextTwo = styled(forwardRef(({ value, edit, ...props }, ref) => edit ? <TextareaAutosize ref={ref} {...props} value={value} /> : <p {...props}>{value}</p>))`
   grid-area: 'textTwo';
   width: 100%;
   font-family: Montserrat;
@@ -69,12 +67,10 @@ export const ImaginationTextTwo = styled.p`
   color: #071825;
 `
 
-export const ImaginationImgTwo = styled.img`
+export const ImaginationImgTwo = styled.div`
   grid-area: 'imgTwo';
   width: 100%;
   height: 364px;
   background: #C4C4C4;
   border-radius: 8px;  
-  object-fit: cover;
-
 `

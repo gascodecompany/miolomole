@@ -190,7 +190,6 @@ export const SliderInfo = styled.div`
   height: 100%;
   width: auto;
   z-index: 2;
-  background-color: #F6F6FA;
   @media screen{
     @media (min-width: 1024px){
       flex-direction: column;
@@ -305,7 +304,7 @@ export const SliderCardContainer = styled.div`
       margin-top: unset;
       width: 380px;
     }
-    @media (min-width: 1250px){
+    @media (min-width: 1025px){
       width: 475px;
     }
   }
@@ -342,7 +341,7 @@ export const CardDescription = styled.div`
   position: relative;
   margin-top: 35px;
   height: 98px;
-  width: 100%;
+  width: 240px;
   color: #071825;
   display: -webkit-box;
   -webkit-line-clamp: 8;
@@ -354,10 +353,10 @@ export const CardDescription = styled.div`
     @media (min-width: 1024px){
       font-size: ${({ theme: { fontSize: { fontSizeXXS }}}) => fontSizeXXS };
       height: 150px;
-      /* width: 350px; */
+      width: 350px;
     }
     @media (min-width: 1205px){
-      /* width: 400px; */
+      width: 400px;
     }
   }
 `
