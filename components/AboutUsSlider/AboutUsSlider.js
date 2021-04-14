@@ -52,12 +52,12 @@ return(
       </S.SliderInfo>
         <S.SliderCards>
           <Slider {...settings}>
-            {t.ABOUT_US.SLIDER.CARDS.map((item) => (
-              <S.SliderCard key={item.NAME}>
-                <S.CardPicture src={item.PICTURE} />
+            {t.ABOUT_US?.SLIDER?.CARDS?.map((item) => (
+              <S.SliderCard key={item?.NAME}>
+                <S.CardPicture src={item?.PICTURE} />
                 <S.SliderCardContainer>
-                  <S.CardTitle>{item.NAME}</S.CardTitle>
-                  <S.CardDescription>{item.DESCRIPTION}</S.CardDescription>
+                  <S.CardTitle>{item?.NAME}</S.CardTitle>
+                  <S.CardDescription>{item?.DESCRIPTION}</S.CardDescription>
                 </S.SliderCardContainer>
               </S.SliderCard>
             ))}
