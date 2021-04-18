@@ -5,18 +5,20 @@ import Button from '../../Elements/Button';
 import EditIcon from '../../images/js/EditIcon';
 import ConfirmIcon from '../../images/js/ConfirmIcon';
 import CancelIcon from '../../images/js/CancelIcon';
+import { useAppProvider } from '../../store/appProvider';
 
-export default function Editable ({ children, page, texts, textKey, isLoggedIn }) {
+export default function Editable ({ children, page, texts, textKey }) {
+  const { isLoggedIn } = useAppProvider()
   const [edit, setEdit] = useState(false);
-  const [text, setText] = useState(texts[textKey] || 'Insira um conteúdo');
-  const [newText, setNewText] = useState(texts[textKey] || 'Insira um conteúdo');
+  const initialText = ( texts && textKey) ? texts[textKey] : 'Insira um conteúdo';
+  const [text, setText] = useState(initialText);
+  const [newText, setNewText] = useState(initialText);
   const ref = useRef();
 
   useEffect(() => edit && ref.current.focus(), [edit])
 
   const onChange = ({ target }) => setNewText(target.value)
   const onBlur = (e) => {
-    console.log(e.relatedTarget)
     if(
       e.relatedTarget?.id !== `${textKey}EditButton` || 
       e.relatedTarget?.id !== `${textKey}ConfirmButton` ||

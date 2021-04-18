@@ -1,6 +1,6 @@
 export default function PasswordEye({ isVisible, ...props }) {
   
-  if(isVisible){
+  if(!!isVisible){
     return (
       <svg
         width={19}

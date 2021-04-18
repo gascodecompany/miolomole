@@ -2,8 +2,10 @@ import Lottie from 'react-lottie';
 import * as S from './LogoutButton.style';
 import animationData from '../../lotties/log-out.json';
 import { useState } from 'react';
+import { useAppProvider } from '../../store/appProvider';
 
-export default function LogoutButton({ isLoggedIn, setCurrentUser, handleLogout }){
+export default function LogoutButton(){
+  const { isLoggedIn, setCurrentUser, handleLogout } = useAppProvider()
   const [paused, setPaused] = useState(true)
 
   const defaultOptions = {

@@ -1,14 +1,14 @@
-import { useState } from 'react';
-import axios from 'axios';
-import { useEffect } from 'react/cjs/react.development';
 import { useRouter } from 'next/router';
+import { useContext, createContext, useState, useEffect } from 'react'
 
-export function appWrapper() {
+const AppContext = createContext();
+
+export const AppProvider = ({ children }) => {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [currentUser, setCurrentUser] = useState();
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [lastRoute, setLastRoute] = useState(0);
-  const router = useRouter()
+  const router = useRouter();
   
   const handleLogout = () => { setIsLoggedIn(false); localStorage.removeItem('token') };
 
@@ -28,5 +28,13 @@ export function appWrapper() {
   const routeProps = { lastRoute };
   const userProps = { isLoggedIn, setIsLoggedIn, handleLogout, ...currentUser, setCurrentUser };
 
-  return { modalProps, userProps, routeProps }
-}
+  const contextProps = { ...modalProps, ...userProps, ...routeProps }
+
+  return (
+    <AppContext.Provider value={contextProps}>
+      {children}
+    </AppContext.Provider>
+  );
+} 
+
+export const useAppProvider = () => useContext(AppContext)

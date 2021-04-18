@@ -7,7 +7,6 @@ import EditableImage from '../EditableImage'
 export default function Banner({index, ...props}){
 
   const isPair = index % 2 === 0;
-  console.log(isPair)
   return(
     <S.Banner isPair={isPair}>
       <EditableImage {...props} textKey={`bannerBgImage${index}`}><S.BannerBgImage/></EditableImage>

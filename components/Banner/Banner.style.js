@@ -10,7 +10,6 @@ export const Banner = styled.div`
   /* padding: 40px; */
   .container{
     flex-direction: ${({isPair}) => {
-      console.log(isPair)
       return isPair ? 'row' : 'row-reverse'}};
     align-items: center;
     justify-content: space-between;

@@ -8,11 +8,14 @@ import AWS from "aws-sdk";
 import EditIcon from '../../images/js/EditIcon';
 import ConfirmIcon from '../../images/js/ConfirmIcon';
 import CancelIcon from '../../images/js/CancelIcon';
+import { useAppProvider } from '../../store/appProvider';
 
-export default function EditableImage ({ children, page, texts, textKey, isLoggedIn }) {
+export default function EditableImage ({ children, page, texts, textKey }) {
+  const { isLoggedIn } = useAppProvider();
   const [edit, setEdit] = useState(false);
-  const [link, setLink] = useState(texts[textKey] || 'https://placekitten.com/400/400');
-  const [newLink, setNewLink] = useState(texts[textKey] || 'https://placekitten.com/400/400');
+  const initialLink = (texts && textKey) ? texts[textKey] : 'https://placekitten.com/400/400'
+  const [link, setLink] = useState(initialLink);
+  const [newLink, setNewLink] = useState(initialLink);
   const [loading, setLoading] = useState(false);
   
   const onDrop = useCallback(acceptedFiles => {
