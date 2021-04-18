@@ -8,14 +8,14 @@ import DeleteIcon from '../../images/js/DeleteIcon';
 import axios from 'axios';
 
 export default function StoreSection(props){
-  const { partners: partnerProp, isLoggedIn } = props;
-  const partnersArray = Object.values(JSON.parse(partnerProp))
-  const [partners, setPartners] = useState(partnersArray)
+  const { partners, isLoggedIn } = props;
+  const partnersArray = partners && Object.values(JSON.parse(partners))
+  const [partnersArrayState, setPartnersArrayState] = useState(partnersArray)
   const router = useRouter();
 
   const handleDeletePartner = async (item) => {
     const { name } = item;
-    setPartners((oldPartner) => [...oldPartner].filter((partner) => partner._id !== item._id))
+    setPartnersArrayState((oldPartner) => [...oldPartner].filter((partner) => partner._id !== item._id))
     const confirm = window.confirm(`Tem certeza que deseja deletar ${name}?`)
     if(!confirm) { return false };
     await axios.delete(`${process.env.API_URL}parceiros`, { data: { ...item } })
@@ -30,7 +30,7 @@ export default function StoreSection(props){
       <Container>
         <S.StorePartners>
           { isLoggedIn && <S.AddPartnerButton onClick={() => router.push('/parceiros')}>Cadastrar<span>+</span></S.AddPartnerButton> }
-          { partners.map((item) => (
+          { partnersArrayState && partnersArrayState.map((item) => (
             <S.PartnerCard key={item._id}>
               <S.PartnerLogo img={item.logo}/>
               <S.PartnerText>
