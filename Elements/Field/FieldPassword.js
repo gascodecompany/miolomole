@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as S from './Field.style';
 import Input from '../Input';
 import PasswordEye from '../../images/icons/PasswordEye'
-import { useState } from 'react/cjs/react.development';
 
-export default function FieldPassword({label, tip, type, error, errorMessage, ...props}) {
-  const { name, value } = props;
+export default function FieldPassword({label, tip, error, errorMessage, ...props}) {
+  const { name, value, type } = props;
+  const typeInput = type ? type : 'text';
   const [isVisible, setIsVisible] = useState(false)
-  const [typeState, setTypeState] = useState(type)
+  const [typeState, setTypeState] = useState(typeInput)
 
-  const setIsVisibleFunction = () => {
+  const handleIsVisibleFunction = () => {
     if(typeState == 'password'){
       setTypeState('text')
       setIsVisible(true)
@@ -20,10 +20,10 @@ export default function FieldPassword({label, tip, type, error, errorMessage, ..
   }
 
   return (
-    <S.FieldPassword name={name} hasValue={ props.type === 'select' || props.type === 'textarea' || !!value }>
+    <S.FieldPassword name={name} hasValue={ typeState === 'select' || typeState === 'textarea' || !!value }>
       { label && <S.Label>{label}</S.Label> }
       <Input type={typeState} {...props} />
-      <S.PasswordToggle onClick={() => setIsVisibleFunction()}>
+      <S.PasswordToggle onClick={() => handleIsVisibleFunction()}>
         <PasswordEye isVisible={isVisible}/>
       </S.PasswordToggle>
     </S.FieldPassword>

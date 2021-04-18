@@ -15,7 +15,6 @@ const partnerHandler = async (req, res) => {
         try{
           if(!_id) {
             const partners = await Partner.find();
-            console.log(partners);
             return res.status(200).json(partners);
           }
           else { 

@@ -1,18 +1,19 @@
-import * as S from './LoginModal.style'
-import Form from '../../Elements/Form'
-import { useState } from 'react';
-import { loginModalFieldsState, loginModalFieldsFunction, gridTemplate } from './LoginModal.constants';
-import axios from 'axios';
-import { useEffect } from 'react';
-import { formDisabled } from '../../helpers/fieldFunctions';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import axios from 'axios';
+import Form from '../../Elements/Form'
+import { formDisabled } from '../../helpers/fieldFunctions';
+import { loginModalFieldsState, loginModalFieldsFunction, gridTemplate } from './LoginModal.constants';
+import * as S from './LoginModal.style'
+import { useAppProvider } from '../../store/appProvider';
 
-export default function LoginModal({ setCurrentUser, setIsLoggedIn, handleLogout }){
+export default function LoginModal(){
+  const { setCurrentUser, setIsLoggedIn, handleLogout } = useAppProvider();
   const [fields, setFields] = useState(loginModalFieldsState);
   const [message, setMessage] = useState();
   const [loading, setLoading] = useState();
   const [formDisabledState, setFormDisabledState] = useState();
-  const router = useRouter()
+  const router = useRouter();
 
   useEffect(() => {
     setFields((oldFields) => {
@@ -21,6 +22,7 @@ export default function LoginModal({ setCurrentUser, setIsLoggedIn, handleLogout
       newFields.password.value = '';
       return newFields;
     })
+    setMessage('')
   }, [])
 
   const onSubmit = async (e) => {
@@ -28,35 +30,27 @@ export default function LoginModal({ setCurrentUser, setIsLoggedIn, handleLogout
     setMessage('');
     setLoading(true);
     const fieldsArray = Object.entries(fields);
-    const { userName, password } = fieldsArray.reduce((obj, item) => ({...obj, [item[0]]: item[1].value }), {});
+    const { userName, password } = fieldsArray.reduce((obj, item) => ({...obj, [item[0]]: item[1]?.value }), {});
     if ( userName && password ){
-      axios.post(`${process.env.API_URL}login`, { userName, password })
-        .then((res) => {
-          if(res?.status == 200){
-            const user = res.data.user
-            const token = user.token;
-            localStorage.setItem("token", token);
-            setMessage('Login realizado com sucesso');
-            setCurrentUser(user);
-            setIsLoggedIn(true);
-            router.push('/');
-          }
-        })
-        .catch((err) => {
-          console.log(err.response)
-          const responseError = err?.response?.data?.message;
-          setMessage(responseError);
-        })
-        .finally(() => setLoading(false));
+      const res = await axios.post(`${process.env.API_URL}login`, { userName, password })
+      if(res.status == 200) {
+        const user = res.data.user;
+        const token = user.token;
+        localStorage.setItem("token", token);
+        setMessage('Login realizado com sucesso');
+        setCurrentUser(user);
+        console.log('arrived here')
+        setIsLoggedIn(true);
+        router.push('/');
+      } else {
+        const responseError = err.response && err.response.data.message;
+        if (responseError) { setMessage(responseError) }
+      }
     }
     setLoading(false);
   }
 
-  const loginModalFields = loginModalFieldsFunction({ fields, setFields, loading, onSubmit, formDisabledState })
-
-  useEffect(() => {
-    setMessage('')
-  }, [])
+  const loginModalFields = loginModalFieldsFunction({ fields, setFields, onSubmit, loading, formDisabledState })
 
   useEffect(() => {
     setFormDisabledState(formDisabled(fields))
@@ -64,9 +58,9 @@ export default function LoginModal({ setCurrentUser, setIsLoggedIn, handleLogout
 
   const formProps = {
     gridTemplate,
-    fields: loginModalFields,
-    setFields,
-    onSubmit
+    fields: loginModalFields ? loginModalFields : {} ,
+    // setFields,
+    // onSubmit
   }
 
   return(
@@ -79,7 +73,7 @@ export default function LoginModal({ setCurrentUser, setIsLoggedIn, handleLogout
             <S.SubTitle>*Somente para administradores</S.SubTitle>
           </S.FormTitleWrapper>
           <Form {...formProps} />
-          <S.Response>{message}</S.Response>
+          <S.Response>{ message ? message : '' }</S.Response>
         </S.FormWrapper>
       </S.LoginModalBody>
     </S.LoginModalContainer>
