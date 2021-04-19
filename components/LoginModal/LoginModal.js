@@ -8,7 +8,7 @@ import * as S from './LoginModal.style'
 import { useAppProvider } from '../../store/appProvider';
 
 export default function LoginModal(){
-  const { setCurrentUser, setIsLoggedIn, handleLogout } = useAppProvider();
+  const { setCurrentUser, setIsLoggedIn } = useAppProvider();
   const [fields, setFields] = useState(loginModalFieldsState);
   const [message, setMessage] = useState();
   const [loading, setLoading] = useState();
@@ -32,35 +32,39 @@ export default function LoginModal(){
     const fieldsArray = Object.entries(fields);
     const { userName, password } = fieldsArray.reduce((obj, item) => ({...obj, [item[0]]: item[1]?.value }), {});
     if ( userName && password ){
-      const res = await axios.post(`${process.env.API_URL}login`, { userName, password })
-      if(res.status == 200) {
-        const user = res.data.user;
-        const token = user.token;
-        localStorage.setItem("token", token);
-        setMessage('Login realizado com sucesso');
-        setCurrentUser(user);
-        console.log('arrived here')
-        setIsLoggedIn(true);
-        router.push('/');
-      } else {
-        const responseError = err.response && err.response.data.message;
+      axios.post(`${process.env.API_URL}login`, { userName, password })
+        .then((res) => {
+          if(res.status == 200) {
+            const user = res.data.user;
+            const token = user.token;
+            localStorage.setItem("token", token);
+            setMessage('Login realizado com sucesso');
+            setCurrentUser(user);
+            console.log('arrived here')
+            setIsLoggedIn(true);
+            router.push('/');
+          }
+        })
+      .catch((err) => { 
+        const responseError = err.response && err.response?.data?.errorMessage;
         if (responseError) { setMessage(responseError) }
-      }
+      })
+      .finally(() => setLoading(false))
     }
     setLoading(false);
   }
-
-  const loginModalFields = loginModalFieldsFunction({ fields, setFields, onSubmit, loading, formDisabledState })
 
   useEffect(() => {
     setFormDisabledState(formDisabled(fields))
   }, [fields])
 
+  const loginModalFields = loginModalFieldsFunction({ fields, setFields, onSubmit, loading, formDisabledState })
   const formProps = {
     gridTemplate,
     fields: loginModalFields ? loginModalFields : {} ,
-    // setFields,
-    // onSubmit
+    setFields,
+    disabled: formDisabledState,
+    onSubmit
   }
 
   return(
