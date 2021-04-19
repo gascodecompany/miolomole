@@ -9,7 +9,7 @@ const singAuth = async (req, res) => {
       const { datetime, to_sign } = req.query;
       if (datetime && to_sign) {
         const timestamp = datetime.substr(0, 8);
-        const date = hmac("AWS4" + process.env.AWS_SECRET, timestamp);
+        const date = hmac("AWS4" + process.env.AWS_SECRET_MIOLO, timestamp);
         const region = hmac(date, process.env.AWS_REGION);
         const service = hmac(region, process.env.AWS_SERVICE);
         const signing = hmac(service, "aws4_request");
