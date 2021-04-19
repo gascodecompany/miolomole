@@ -4,7 +4,7 @@ import Partner from '../../models/partner';
 import Book from '../../models/book';
 
 export async function getStaticProps() {
-  await mongoose.connect(process.env.MONGO_DB_URL, { useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true, useNewUrlParser: true });
+  await mongoose.connect(process.env.NEXT_PUBLIC_MONGO_DB_URL, { useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true, useNewUrlParser: true });
   const page = 'store';
   const textsArray = await Text.find({ page });
   const partnersArray = await Partner.find({});

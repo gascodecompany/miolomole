@@ -28,7 +28,7 @@ export default function Home(props) {
 }
 
 export async function getStaticProps() {
-  await mongoose.connect(process.env.MONGO_DB_URL, { useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true, useNewUrlParser: true });
+  await mongoose.connect(process.env.NEXT_PUBLIC_MONGO_DB_URL, { useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true, useNewUrlParser: true });
   const page = 'home';
   const textsArray = await Text.find({ page });
   const texts = textsArray.reduce((object, text) => Object.assign(object, {[text.textKey]: text.text}), {});
