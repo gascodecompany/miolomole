@@ -87,7 +87,7 @@ export const BannerImage = styled.img`
   @media screen{
     @media (min-width: 800px){
       height: 360px;
-      width: 100%;
+      width: auto;
 
     }
   }
