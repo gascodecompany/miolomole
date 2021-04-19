@@ -13,7 +13,7 @@ import { useAppProvider } from '../../store/appProvider';
 export default function EditableImage ({ children, page, texts, textKey }) {
   const { isLoggedIn } = useAppProvider();
   const [edit, setEdit] = useState(false);
-  const initialLink = !!texts[textKey] ? texts[textKey] : 'https://placekitten.com/400/400'
+  const initialLink = (!!texts && !!textKey) && !!texts[textKey] ? texts[textKey] : 'https://placekitten.com/400/400'
   const [link, setLink] = useState(initialLink);
   const [newLink, setNewLink] = useState(initialLink);
   const [loading, setLoading] = useState(false);
