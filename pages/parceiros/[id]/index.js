@@ -18,7 +18,7 @@ export default function PartnerPageEdit(props){
 }
 
 // export async function getStaticPaths(){
-  // const res = await axios.get(`${process.env.API_URL}parceiros`)
+  // const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}parceiros`)
   // const partners = res.data;
   // const paths = partners.map((partner) => ({
   //   params: { id: partner._id }
@@ -28,7 +28,7 @@ export default function PartnerPageEdit(props){
 
 // export async function getStaticProps({ params }) {
   // const { id } = params;
-  // const res = await axios.get(`${process.env.API_URL}parceiros`, { data: { _id: id } })
+  // const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}parceiros`, { data: { _id: id } })
   // const partner = res.data;
   // return { props: { partner }, revalidate: 1  }
 // }

@@ -26,7 +26,7 @@ export default function PartnerForm(props){
   // const onSubmit = async () => {
   //   setMessage('')
   //   if(!partner){
-  //     axios.post(`${process.env.API_URL}parceiros`, { ...fieldsValue })
+  //     axios.post(`${process.env.NEXT_PUBLIC_API_URL}parceiros`, { ...fieldsValue })
   //       .then((res) => { 
   //         if(res.status === 200) {
   //           setMessage('Cadastrado realizado com sucesso!');
@@ -43,7 +43,7 @@ export default function PartnerForm(props){
   //       })
   //       .catch((err) => setMessage(err.response.data))
   //   } else {
-  //     axios.put(`${process.env.API_URL}parceiros`, Object.assign({ _id: partner._id } ,{ ...fieldsValue }))
+  //     axios.put(`${process.env.NEXT_PUBLIC_API_URL}parceiros`, Object.assign({ _id: partner._id } ,{ ...fieldsValue }))
   //       .then((res) => { 
   //         if(res.status === 200) {
   //           setMessage('Cadastro atualizado com sucesso!');

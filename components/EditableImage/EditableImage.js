@@ -23,12 +23,12 @@ export default function EditableImage ({ children, page, texts, textKey }) {
     const file = acceptedFiles[0];
     const fileName = `${process.env.ENVIROMENT}/mioloMole/${uuidv4() + file.name}`;
     const evaporateConfig = {
-      aws_key: process.env.AWS_KEY,
-      bucket: process.env.AWS_BUCKET,
-      awsRegion: process.env.AWS_REGION,
+      aws_key: process.env.NEXT_PUBLIC_AWS_KEY,
+      bucket: process.env.NEXT_PUBLIC_AWS_BUCKET,
+      awsRegion: process.env.NEXT_PUBLIC_AWS_BUCKET,
       awsSignatureVersion: "4",
       computeContentMd5: true,
-      signerUrl: `${process.env.API_URL}sign-auth`,
+      signerUrl: `${process.env.NEXT_PUBLIC_API_URL}sign-auth`,
       cryptoMd5Method: data => AWS.util.crypto.md5(data, "base64"),
       cryptoHexEncodedHash256: data => AWS.util.crypto.sha256(data, "hex"),
     };
