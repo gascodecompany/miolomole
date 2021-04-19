@@ -1,5 +1,5 @@
-import { useRouter } from 'next/router';
-import { useContext, createContext, useState, useEffect } from 'react'
+import { useContext, createContext, useState, useEffect } from 'react';
+import axios from 'axios';
 
 const AppContext = createContext();
 
@@ -7,28 +7,21 @@ export const AppProvider = ({ children }) => {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [currentUser, setCurrentUser] = useState();
   const [isLoggedIn, setIsLoggedIn] = useState(true);
-  const [lastRoute, setLastRoute] = useState(0);
-  const router = useRouter();
   
-  const handleLogout = () => { setIsLoggedIn(false); localStorage.removeItem('token') };
-
-  useEffect(() => setLastRoute(lastRoute + 1), [router.asPath])
-  
-  // useEffect(() => {
-  //   let token;
-  //   if (typeof window !== "undefined") { token = localStorage.getItem('token') };
-  //   if (token){
-  //     axios.get(`${process.env.API_URL}get-current-user`, { params: { token } })
-  //       .then((res) => { console.log(res) })
-  //       .catch(() => handleLogout());
-  //   } else { handleLogout() };
-  // }, []);
+  useEffect(() => {
+    let token;
+    if (typeof window !== "undefined") { token = localStorage.getItem('token') };
+    if (token){
+      console.log('has token')
+      axios.get(`${process.env.API_URL}get-current-user`, { params: { token } })
+        .then((res) => { console.log(res) })
+        .catch(() => setIsLoggedIn(false));
+    } else { setIsLoggedIn(false) };
+  }, [])
   
   const modalProps = { isLoginModalOpen, setIsLoginModalOpen };
-  const routeProps = { lastRoute };
-  const userProps = { isLoggedIn, setIsLoggedIn, handleLogout, ...currentUser, setCurrentUser };
-
-  const contextProps = { ...modalProps, ...userProps, ...routeProps }
+  const userProps = { isLoggedIn, setIsLoggedIn, ...currentUser, setCurrentUser };
+  const contextProps = { ...modalProps, ...userProps }
 
   return (
     <AppContext.Provider value={contextProps}>

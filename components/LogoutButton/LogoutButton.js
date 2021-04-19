@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { useAppProvider } from '../../store/appProvider';
 
 export default function LogoutButton(){
-  const { isLoggedIn, setCurrentUser, handleLogout } = useAppProvider()
+  const { isLoggedIn, setCurrentUser, setIsLoggedIn } = useAppProvider()
   const [paused, setPaused] = useState(true)
 
   const defaultOptions = {
@@ -20,7 +20,7 @@ export default function LogoutButton(){
     return (
       <S.LogoutContainer>
         <S.LogoutWrapper
-          onClick={ () => { setCurrentUser(''); handleLogout() } } 
+          onClick={ () => { setCurrentUser(''); setIsLoggedIn(false); localStorage.removeItem('token') } } 
           onMouseEnter={() => setPaused(false)}
           onMouseLeave={() => setPaused(true)}
         >

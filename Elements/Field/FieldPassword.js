@@ -3,8 +3,8 @@ import * as S from './Field.style';
 import Input from '../Input';
 import PasswordEye from '../../images/icons/PasswordEye'
 
-export default function FieldPassword({label, tip, error, errorMessage, ...props}) {
-  const { name, value, type } = props;
+export default function FieldPassword({label, type, tip, error, errorMessage, ...props}) {
+  const { name, value } = props;
   const typeInput = type ? type : 'text';
   const [isVisible, setIsVisible] = useState(false)
   const [typeState, setTypeState] = useState(typeInput)
@@ -20,7 +20,7 @@ export default function FieldPassword({label, tip, error, errorMessage, ...props
   }
 
   return (
-    <S.FieldPassword name={name} hasValue={ typeState === 'select' || typeState === 'textarea' || !!value }>
+    <S.FieldPassword name={name} hasValue={ type === 'select' || type === 'textarea' || !!value }>
       { label && <S.Label>{label}</S.Label> }
       <Input type={typeState} {...props} />
       <S.PasswordToggle onClick={() => handleIsVisibleFunction()}>

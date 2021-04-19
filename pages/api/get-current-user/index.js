@@ -6,7 +6,7 @@ const getCurrentUser = async (req, res) => {
     const { method } = req;
     switch (method) {
       case 'GET':
-        const { token: reqToken } = req.query
+        const { token: reqToken } = req.query;
         if(!reqToken) { return res.status(422).json({ errMessage: 'Argumentos inválidos' }) }
         if(jwt.verify(reqToken, process.env.SECRET_KEY)){
           const { _id } = jwt.decode(reqToken, process.env.SECRET_KEY)
