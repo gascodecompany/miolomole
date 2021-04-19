@@ -6,36 +6,71 @@ export const Banner = styled.div`
   /* background-image: url(${bgBanner}); */
   /* background-size: cover; */
   width: 100vw;
-  height: 400px;
+  height: auto;
+
   /* padding: 40px; */
   .container{
-    flex-direction: ${({isPair}) => {
-      return isPair ? 'row' : 'row-reverse'}};
     align-items: center;
+    height: auto;
     justify-content: space-between;
+    flex-direction: ${({isPair}) => {
+      return isPair ? 'column' : 'column-reverse'}};
 
+    @media screen{
+      @media (min-width: 800px){
+        height: 400px;
+        flex-direction: ${({isPair}) => {
+          return isPair ? 'row' : 'row-reverse'}};
+      }
+    }
   }
 `
 export const BannerBgImage = styled.img`
   width: 100%;
-  height: 400px;
   object-fit: cover;
   position: absolute;
+  height: fit-content;
+  max-height: 400px;
+
+  @media screen{
+    @media (min-width: 800px){
+      height: 400px;
+      
+    }
+  }
 `
 export const BannerWrapper = styled.div`
   margin: 0 50px;
   z-index: 1;
-  width: 45%;
+  width: 100%;
+  @media screen{
+    @media(min-width: 800px){
+      width: 55%;
+    }
+  }
+
 `
 export const BannerTitle = styled.h1`
-  font-size: 50px;
   margin: 0px;
+  font-size: 31px;
+
+  @media screen{
+    @media (min-width: 800px){
+      font-size: 50px;
+    }
+  }
 `
 
 export const BannerText = styled.p`
-  font-size: 18px;
   line-height: 1.5;
-  /* width:   60%; */
+  font-size: 14px;
+
+  @media screen{
+    @media (min-width: 800px){
+      font-size: 18px;
+
+    }
+  }
 `
 
 export const BannerImage = styled.img`
@@ -43,8 +78,17 @@ export const BannerImage = styled.img`
   /* background-color: red; */
   width: 100%;
   object-fit: contain;
-  height: 360px;
-  margin: 0 30px;
   background-size: contain;
   z-index: 1;
+  height: 172px;
+  margin: 0;
+
+
+  @media screen{
+    @media (min-width: 800px){
+      height: 360px;
+      width: 100%;
+
+    }
+  }
 `
