@@ -6,6 +6,7 @@ import { useAppProvider } from '../../store/appProvider';
 
 export default function PartnerPage(props){
   const { isLoggedIn } = useAppProvider();
+  
   if(isLoggedIn){
     return (
       <>

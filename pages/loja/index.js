@@ -11,15 +11,14 @@ export async function getStaticProps() {
   const booksArray = await Book.find({});
   const texts = textsArray.reduce((object, text) => Object.assign(object, {[text.textKey]: text.text}), {});
   const books = JSON.stringify(booksArray);
-  const partners = JSON.stringify(partnersArray);
-  // const partners = partnersArray.reduce((object, partner) => Object.assign(object, {
-  //   [partner.name]: {
-  //     _id: partner._id.toString(),
-  //     name: partner.name,
-  //     logo: partner.logo,
-  //     description: partner.description
-  //   }
-  // }), {});
+  const partners = partnersArray.reduce((object, partner) => Object.assign(object, {
+    [partner.name]: {
+      _id: partner._id.toString(),
+      name: partner.name,
+      logo: partner.logo,
+      description: partner.description
+    }
+  }), {});
   return { props: { texts, partners, books, page }, revalidate: 1 }
 }
 

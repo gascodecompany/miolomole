@@ -1,4 +1,6 @@
-export const PartnerFormFieldsState = () => ({
+import axios from 'axios';
+
+export const PartnerFormInitialState = () => ({
   name: { value: '' },
   logo: { value: '' },
   description: { value: '' },
@@ -6,7 +8,7 @@ export const PartnerFormFieldsState = () => ({
   books: { value: '' },
 })
   
-export const PartnerFormFieldsFunction = ({ fields, onSubmit, partner }) => ({
+export const PartnerFormFieldsFunction = ({ fields, setMessage, partner }) => ({
   name: {
     ...fields.name,
     name: 'name',
@@ -78,7 +80,29 @@ export const PartnerFormFieldsFunction = ({ fields, onSubmit, partner }) => ({
     label: partner ? 'Salvar' : 'Cadastrar',
     name: 'submitButton',
     variation: 'primary',
-    onClick: () => onSubmit(),
+    onClick: async () => {
+      setMessage('')
+      const fieldsValue = Object.entries(fields).reduce((obj, [param, field]) => ({ ...obj, [param]: field.value }), {})
+      if(!partner){
+        axios.post(`api/parceiros`, { ...fieldsValue })
+          .then((res) => { 
+            if(res.status === 200) {
+              setMessage('Cadastrado realizado com sucesso!');
+              setFields(PartnerFormInitialState)
+            }
+          })
+          .catch((err) => setMessage(err.response.data))
+      } else {
+        axios.put(`api/parceiros`, { ...fieldsValue, _id: partner._id })
+          .then((res) => { 
+            if(res.status === 200) {
+              setMessage('Cadastro atualizado com sucesso!');
+              router.goBack('');
+            }
+          })
+          .catch((err) => setMessage(err?.response?.data))
+      }
+    },
   }
 })
 

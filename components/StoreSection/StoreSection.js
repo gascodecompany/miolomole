@@ -6,10 +6,12 @@ import * as S from './StoreSection.style'
 import EditIcon from '../../images/js/EditIcon';
 import DeleteIcon from '../../images/js/DeleteIcon';
 import axios from 'axios';
+import { useAppProvider } from '../../store/appProvider';
 
 export default function StoreSection(props){
-  const { partners, isLoggedIn } = props;
-  const partnersArray = partners && Object.values(JSON.parse(partners))
+  const { partners } = props;
+  const { isLoggedIn } = useAppProvider();
+  const partnersArray = partners && Object.values(partners)
   const [partnersArrayState, setPartnersArrayState] = useState(partnersArray)
   const router = useRouter();
 
