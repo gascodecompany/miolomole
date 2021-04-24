@@ -26,7 +26,7 @@ export default function EditableImage ({ children, page, texts, textKey }) {
       awsRegion: process.env.NEXT_PUBLIC_AWS_BUCKET,
       awsSignatureVersion: "4",
       computeContentMd5: true,
-      signerUrl: `${process.env.NEXT_PUBLIC_API_URL}/api/sign-auth`,
+      signerUrl: `api/sign-auth`,
       cryptoMd5Method: data => AWS.util.crypto.md5(data, "base64"),
       cryptoHexEncodedHash256: data => AWS.util.crypto.sha256(data, "hex"),
     };
@@ -41,7 +41,7 @@ export default function EditableImage ({ children, page, texts, textKey }) {
   }, []);
   
   const saveImage = async () => {
-    await axios.put("http://localhost:3000/api/textos", { textKey, page, text: newLink, editedBy: 'browser' }).catch((err) => console.log(err));
+    await axios.put("api/textos", { textKey, page, text: newLink, editedBy: 'browser' }).catch((err) => console.log(err));
     setLink(newLink);
     setEdit(false);
   }
