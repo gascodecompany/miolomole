@@ -1,18 +1,29 @@
 import * as S from './BookInfo.style'
 
-export default function BookInfo({book}){
-
- return(
-  <S.BookInfo>
-    <S.BookInfoTitle>{book?.title}</S.BookInfoTitle>
-    <S.BookInfoItem><b>Autoria: </b><p>{book?.authors}</p></S.BookInfoItem>
-    <S.BookInfoItem><b>Ilustrações: </b><p>{book?.ilustration}</p></S.BookInfoItem>
-    <S.BookInfoItem><b>Tamanho: </b><p>{book?.size}</p></S.BookInfoItem>
-    <S.BookInfoItem><b>Páginas: </b><p>{book?.pages}</p></S.BookInfoItem>
-    <S.BookInfoItem><b>Indicação etária: </b><p>{book?.ageIndication}</p></S.BookInfoItem>
-    <S.BookInfoItem><b>Gênero: </b><p>{book?.gender}</p></S.BookInfoItem>
-    <S.BookInfoItem><b>Temas: </b><p>{book?.themes}</p></S.BookInfoItem>
-    <S.BookInfoItem><b>ISBN: </b><p>{book?.isbn}</p></S.BookInfoItem>
-  </S.BookInfo>
+export default function BookInfo(props){
+  const { 
+    title,
+    authors,
+    ilustration,
+    size,
+    pages,
+    ageIndication,
+    genre,
+    themes,
+    isbn,
+  } = props
+  console.log(title)
+  return(
+    <S.BookInfo>
+      <S.BookInfoTitle>{title}</S.BookInfoTitle>
+      <S.BookInfoItem><b>Autoria: </b><p>{authors}</p></S.BookInfoItem>
+      <S.BookInfoItem><b>Ilustrações: </b><p>{ilustration}</p></S.BookInfoItem>
+      <S.BookInfoItem><b>Tamanho: </b><p>{size}</p></S.BookInfoItem>
+      <S.BookInfoItem><b>Páginas: </b><p>{pages}</p></S.BookInfoItem>
+      <S.BookInfoItem><b>Indicação etária: </b><p>{ageIndication}</p></S.BookInfoItem>
+      <S.BookInfoItem><b>Gênero: </b><p>{genre}</p></S.BookInfoItem>
+      <S.BookInfoItem><b>Temas: </b><p>{themes}</p></S.BookInfoItem>
+      <S.BookInfoItem><b>ISBN: </b><p>{isbn}</p></S.BookInfoItem>
+    </S.BookInfo>
   )
 }
