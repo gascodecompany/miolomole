@@ -14,8 +14,8 @@ export const HeaderNav = styled.ul`
   top: 90px;
   position: relative;
   color: #474747;
-  @media screen{
-    @media (min-width: 1024px){
+  @media screen {
+    @media (min-width: 1024px) {
       position: unset;
       width: 60%;
       display: flex;
@@ -23,47 +23,14 @@ export const HeaderNav = styled.ul`
       margin-block-start: 1em;
       margin-block-end: 1em;
       max-width: 1030px;
-
-    }
-  }
-  >li{
-    letter-spacing: 0.13px;
-    cursor: pointer;
-    margin-bottom: 10px;
-    transition: all 0.3s;
-
-    @media (min-width: 1024px){
-      margin-bottom: 0;
-    }
-
-    :hover{
-      font-weight: 600;
-      color: #00A79D;
-      letter-spacing: 0;
-
     }
   }
 `
 export const NavItem = styled.li`
-  font-family: Montserrat;
-  font-weight: 500;
-  font-size: 15px;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.3s;
-
-  color: #474747;
   letter-spacing: 0.13px;
+  cursor: pointer;
   margin-bottom: 10px;
-
-  @media (min-width: 1024px){
-    margin-bottom: 0;
-
-  }
-    cursor: pointer;
-    :hover{
-      font-weight: 600;
-      color: #00A79D;
-      letter-spacing: 0;
-  }
+  transition: all 0.3s;
+  :hover{ color: #00A79D }
+  @media (min-width: 1024px) { margin-bottom: 0 }
 `

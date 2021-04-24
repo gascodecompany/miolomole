@@ -33,7 +33,7 @@ export default function StoreSection(props){
         <S.StorePartners>
           { isLoggedIn && <S.AddPartnerButton onClick={() => router.push('/parceiros')}>Cadastrar<span>+</span></S.AddPartnerButton> }
           { partnersArrayState && partnersArrayState.map((item) => (
-            <S.PartnerCard key={item._id}>
+            <S.PartnerCard key={item._id} isLoggedIn={isLoggedIn}>
               <S.PartnerLogo img={item.logo}/>
               <S.PartnerText>
                 { parser(item.description) }
