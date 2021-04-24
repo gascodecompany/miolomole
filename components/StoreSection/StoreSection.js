@@ -20,7 +20,7 @@ export default function StoreSection(props){
     setPartnersArrayState((oldPartner) => [...oldPartner].filter((partner) => partner._id !== item._id))
     const confirm = window.confirm(`Tem certeza que deseja deletar ${name}?`)
     if(!confirm) { return false };
-    await axios.delete(`api/parceiros`, { data: { ...item } })
+    await axios.delete(`${process.env.NEXT_PUBLIC_VERCEL_URL}api/parceiros`, { data: { ...item } })
   };
 
   const handleEditPartner = async (_id) => {

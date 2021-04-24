@@ -8,7 +8,7 @@ export default function FieldArray({ fields, field, parentField, setFields, setI
     <StyledFieldSelectMulti
       isClearable
       isMulti
-      value={field.options.filter(option => field.value && field.value.includes(option.value))}
+      value={field.options.filter(option => field.value && field?.value?.includes(option.value))}
       options={field.options}
       placeholder={field.placeholder}
       onChange={(value) => inputChange({ target: { value }, field, fields, parentField, setFields, setInputInFocus })}

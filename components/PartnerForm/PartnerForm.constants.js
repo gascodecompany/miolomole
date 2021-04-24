@@ -84,7 +84,7 @@ export const PartnerFormFieldsFunction = ({ fields, setMessage, partner }) => ({
       setMessage('')
       const fieldsValue = Object.entries(fields).reduce((obj, [param, field]) => ({ ...obj, [param]: field.value }), {})
       if(!partner){
-        axios.post(`api/parceiros`, { ...fieldsValue })
+        axios.post(`${process.env.NEXT_PUBLIC_VERCEL_URL}api/parceiros`, { ...fieldsValue })
           .then((res) => { 
             if(res.status === 200) {
               setMessage('Cadastrado realizado com sucesso!');
@@ -93,7 +93,7 @@ export const PartnerFormFieldsFunction = ({ fields, setMessage, partner }) => ({
           })
           .catch((err) => setMessage(err.response.data))
       } else {
-        axios.put(`api/parceiros`, { ...fieldsValue, _id: partner._id })
+        axios.put(`${process.env.NEXT_PUBLIC_VERCEL_URL}api/parceiros`, { ...fieldsValue, _id: partner._id })
           .then((res) => { 
             if(res.status === 200) {
               setMessage('Cadastro atualizado com sucesso!');

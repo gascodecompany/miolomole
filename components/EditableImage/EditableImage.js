@@ -19,14 +19,14 @@ export default function EditableImage ({ children, page, texts, textKey }) {
   const onDrop = useCallback(acceptedFiles => {
     setLoading(true);
     const file = acceptedFiles[0];
-    const fileName = `${process.env.ENVIROMENT}/mioloMole/${uuidv4() + file.name}`;
+    const fileName = `${process.env.NEXT_PUBLIC_ENVIROMENT}/mioloMole/${uuidv4() + file.name}`;
     const evaporateConfig = {
       aws_key: process.env.NEXT_PUBLIC_AWS_KEY,
       bucket: process.env.NEXT_PUBLIC_AWS_BUCKET,
       awsRegion: process.env.NEXT_PUBLIC_AWS_BUCKET,
       awsSignatureVersion: "4",
       computeContentMd5: true,
-      signerUrl: `api/sign-auth`,
+      signerUrl: `${process.env.NEXT_PUBLIC_VERCEL_URL}api/sign-auth`,
       cryptoMd5Method: data => AWS.util.crypto.md5(data, "base64"),
       cryptoHexEncodedHash256: data => AWS.util.crypto.sha256(data, "hex"),
     };
@@ -41,7 +41,7 @@ export default function EditableImage ({ children, page, texts, textKey }) {
   }, []);
   
   const saveImage = async () => {
-    await axios.put("api/textos", { textKey, page, text: newLink, editedBy: 'browser' }).catch((err) => console.log(err));
+    await axios.put(`${process.env.NEXT_PUBLIC_VERCEL_URL}api/textos`, { textKey, page, text: newLink, editedBy: 'browser' }).catch((err) => console.log(err));
     setLink(newLink);
     setEdit(false);
   }
