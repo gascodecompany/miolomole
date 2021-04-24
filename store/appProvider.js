@@ -12,7 +12,6 @@ export const AppProvider = ({ children }) => {
     let token;
     if (typeof window !== "undefined") { token = localStorage.getItem('token') };
     if (token){
-      console.log('has token')
       axios.get(`/api/get-current-user`, { params: { token } })
         .then((res) => { console.log(res) })
         .catch(() => setIsLoggedIn(false));
