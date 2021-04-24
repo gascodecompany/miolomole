@@ -2,9 +2,6 @@ import { useState, useEffect, cloneElement, useRef } from 'react';
 import * as S from './Editable.styles';
 import axios from 'axios';
 import Button from '../../Elements/Button';
-import EditIcon from '../../images/js/EditIcon';
-import ConfirmIcon from '../../images/js/ConfirmIcon';
-import CancelIcon from '../../images/js/CancelIcon';
 import { useAppProvider } from '../../store/appProvider';
 
 export default function Editable ({ children, page, texts, textKey }) {
@@ -28,7 +25,7 @@ export default function Editable ({ children, page, texts, textKey }) {
     }
   }
   const saveText = async () => {
-    await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/api/textos`, { textKey, page, text: newText, editedBy: 'browser' }).catch((err) => console.log(err))
+    await axios.put(`api/textos`, { textKey, page, text: newText, editedBy: 'browser' }).catch((err) => console.log(err))
     setText(newText)
     setEdit(false)
   }
@@ -39,11 +36,16 @@ export default function Editable ({ children, page, texts, textKey }) {
     <S.Editable isLoggedIn={isLoggedIn}>
       { isLoggedIn && (
         <S.EditableButtons>
-          <S.EditButton onClick={() => edit ? saveText() : setEdit(true)}>{ edit ? <Button id={`${textKey}ConfirmButton`} type="confirm" /> : <Button id={`${textKey}EditButton`} type="edit" /> }</S.EditButton>
+          <S.EditButton onClick={() => edit ? saveText() : setEdit(true)}>
+            { edit ? <Button id={`${textKey}ConfirmButton`} type="confirm" /> : <Button id={`${textKey}EditButton`} type="edit" /> }
+          </S.EditButton>
           { edit && <Button id={`${textKey}CancelButton`} onClick={() => { setNewText(text); setEdit(false)}} type="cancel" /> }
         </S.EditableButtons>
       )}
-      { edit ? <S.EditableInput {...children.props} {...inputProps}/> : cloneElement(children, Object.assign({}, {...children.props, children: newText})) }
+      { edit 
+        ? <S.EditableInput {...children.props} {...inputProps}/> 
+        : cloneElement(children, Object.assign({}, {...children.props, children: newText})) 
+      }
     </S.Editable>
   )
 }

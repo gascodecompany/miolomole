@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledHamburger = styled.div`
+export const Hamburger = styled.div`
   grid-area: hamburger;
   position: relative;
   width: 30px;
@@ -18,7 +18,7 @@ export const StyledHamburger = styled.div`
   }
 `
 
-export const StyledHamburgerBread = styled.div`
+export const HamburgerBread = styled.div`
   display: flex;
   align-items: center;
   position: relative;
@@ -26,7 +26,7 @@ export const StyledHamburgerBread = styled.div`
   height: ${({isOpen}) => isOpen ? '20px' : '30px'};
 `
 
-export const StyledHamburgerMeat = styled.div`
+export const HamburgerMeat = styled.div`
   width: 100%;
   height: 2px;
   background-color: ${({isOpen}) => isOpen ? 'transparent' : 'black'};

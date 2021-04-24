@@ -1,10 +1,9 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 
 export const StoreSectionContainer = styled.div`
   width: 100%;
   height: 100%;
 `
-
 
 export const StorePartners = styled.div`
   position: relative;
@@ -12,15 +11,20 @@ export const StorePartners = styled.div`
   background-color: ${({ theme: { color: { white }}}) => white };
   margin-top: -150px;
   margin-top: -20px;
-  padding: 50px;
-  display: flex;
-  flex-flow: wrap;
+  padding: 15px;
+  display: grid;
+  grid-template-columns: 1fr;
   align-items: center;
   justify-content: center;
-
+  border-radius: 10px;
   @media screen{
+    @media (min-width: 768px){
+      grid-template-columns: 1fr 1fr;
+    }
     @media (min-width: 1024px){
       margin-top: -150px;
+      padding: 50px;
+      grid-template-columns: 1fr 1fr 1fr;
     }
   }
 `
@@ -35,6 +39,12 @@ export const PartnerCard = styled.div`
   margin-bottom: 30px;
   position: relative;
 
+  ${({isLoggedIn}) => isLoggedIn && css`
+    &:hover {
+      background-color: ${({ theme: { color: { brandVeryLighter }}}) => brandVeryLighter };
+    }
+  `}
+
   @media screen{
     @media (min-width: 1300px){
       width: 320px;
@@ -46,7 +56,7 @@ export const AddPartnerButton = styled.div`
   top: 0px;
   right: 0px;
   background-color: white;
-  width: 200px;
+  width: 100%;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -64,8 +74,9 @@ export const AddPartnerButton = styled.div`
     transition: .5s cubic-bezier(.22,.68,0,1.71);
   }
 
-  @media (min-width: 1024px){
+  @media (min-width: 768px){
     position: absolute;
+    width: 200px;
     top: -40px;
   }
 `
@@ -73,7 +84,6 @@ export const AddPartnerButton = styled.div`
 export const PartnerLogo = styled.div`
   width: 100px;
   height: 100px;
-  /* background-color: black; */
   position: relative;
   background-image: url(${({ img }) => img });
   background-size: contain;
@@ -124,10 +134,6 @@ export const Buttons = styled.div`
     width: 30px;  
     height: 30px;
     border-radius: 50%;
-  }
-
-  svg.edit{
-    /* transform: rotate(-45deg); */
   }
 
   svg.delete:hover{

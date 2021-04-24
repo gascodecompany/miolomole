@@ -5,9 +5,7 @@ import {useDropzone} from 'react-dropzone';
 import Evaporate from 'evaporate';
 import { v4 as uuidv4 } from 'uuid';
 import AWS from "aws-sdk";
-import EditIcon from '../../images/js/EditIcon';
-import ConfirmIcon from '../../images/js/ConfirmIcon';
-import CancelIcon from '../../images/js/CancelIcon';
+import Button from '../../Elements/Button';
 import { useAppProvider } from '../../store/appProvider';
 
 export default function EditableImage ({ children, page, texts, textKey }) {
@@ -28,7 +26,7 @@ export default function EditableImage ({ children, page, texts, textKey }) {
       awsRegion: process.env.NEXT_PUBLIC_AWS_BUCKET,
       awsSignatureVersion: "4",
       computeContentMd5: true,
-      signerUrl: `${process.env.NEXT_PUBLIC_API_URL}/api/sign-auth`,
+      signerUrl: `api/sign-auth`,
       cryptoMd5Method: data => AWS.util.crypto.md5(data, "base64"),
       cryptoHexEncodedHash256: data => AWS.util.crypto.sha256(data, "hex"),
     };
@@ -43,7 +41,7 @@ export default function EditableImage ({ children, page, texts, textKey }) {
   }, []);
   
   const saveImage = async () => {
-    await axios.put("http://localhost:3000/api/textos", { textKey, page, text: newLink, editedBy: 'browser' }).catch((err) => console.log(err));
+    await axios.put("api/textos", { textKey, page, text: newLink, editedBy: 'browser' }).catch((err) => console.log(err));
     setLink(newLink);
     setEdit(false);
   }
@@ -52,11 +50,13 @@ export default function EditableImage ({ children, page, texts, textKey }) {
   const inputProps = { src: newLink, edit, isDragActive, styles: children.type.componentStyle.rules }
   
   return (
-    <S.Editable>
+    <S.Editable isLoggedIn={isLoggedIn}>
       { isLoggedIn && (
         <S.EditableButtons>
-          <S.EditButton id={`${textKey}EditButton`} onClick={() => edit ? saveImage() : setEdit(true)}>{ edit ? <ConfirmIcon/> : <EditIcon/> }</S.EditButton>
-          { edit && <S.CancelButton id={`${textKey}CancelButton`} onClick={() => { setNewLink(link); setEdit(false)}}><CancelIcon/></S.CancelButton> }
+          <S.EditButton onClick={() => edit ? saveImage() : setEdit(true)}>
+            { edit ? <Button id={`${textKey}ConfirmButton`} type="confirm" /> : <Button id={`${textKey}EditButton`} type="edit" /> }
+          </S.EditButton>
+          { edit && <Button id={`${textKey}CancelButton`} onClick={() => { setNewText(text); setEdit(false)}} type="cancel" /> }
         </S.EditableButtons>
       )}
       <span {...getRootProps()}>
