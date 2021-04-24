@@ -5,10 +5,12 @@ import BookSinopse from '../../components/BookSinopse';
 import BookRelated from '../BookRelated';
 import BookSection from '../BookSection';
 
-export default function BookComponent({id}){
+export default function BookComponent(){
+  const router = useRouter()
+  const { id } = router.query
   const book = Books.find((book) => book?._id == id);
 
-  return(
+return(
     <S.BookComponent>
       <BookSection book={book}/>
       <BookSinopse book={book}/>
