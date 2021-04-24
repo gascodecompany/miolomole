@@ -41,7 +41,7 @@ export default function EditableImage ({ children, page, texts, textKey }) {
   }, []);
   
   const saveImage = async () => {
-    await axios.put(`${process.env.NEXT_PUBLIC_VERCEL_URL}api/textos`, { textKey, page, text: newLink, editedBy: 'browser' }).catch((err) => console.log(err));
+    await axios.put(`/api/textos`, { textKey, page, text: newLink, editedBy: 'browser' }).catch((err) => console.log(err));
     setLink(newLink);
     setEdit(false);
   }

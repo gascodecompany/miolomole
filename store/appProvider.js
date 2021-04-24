@@ -13,7 +13,7 @@ export const AppProvider = ({ children }) => {
     if (typeof window !== "undefined") { token = localStorage.getItem('token') };
     if (token){
       console.log('has token')
-      axios.get(`${process.env.NEXT_PUBLIC_VERCEL_URL}api/get-current-user`, { params: { token } })
+      axios.get(`/api/get-current-user`, { params: { token } })
         .then((res) => { console.log(res) })
         .catch(() => setIsLoggedIn(false));
     } else { setIsLoggedIn(false) };
