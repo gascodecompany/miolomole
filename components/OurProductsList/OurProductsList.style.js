@@ -1,11 +1,37 @@
 import styled from 'styled-components';
 
 export const OurProductsList = styled.div`
-
-  .container{
-
-  }
+  position: relative;
 `;
+
+export const AddBookButton = styled.div`
+  top: 0px;
+  right: 0px;
+  background-color: white;
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-bottom: 30px;
+  span {
+    font-size: 36px;
+    line-height: 56px;
+    font-weight: 500;
+  }
+  &:hover {
+    color: ${({ theme: { color: { blue }}}) => blue };
+    transition: .5s cubic-bezier(.22,.68,0,1.71);
+  }
+
+  @media (min-width: 768px){
+    position: absolute;
+    width: 200px;
+    top: -40px;
+  }
+`
 export const OurProductsApresentation = styled.div`
   width: 100%;
   text-align: center;

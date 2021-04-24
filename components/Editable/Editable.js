@@ -25,7 +25,7 @@ export default function Editable ({ children, page, texts, textKey }) {
     }
   }
   const saveText = async () => {
-    await axios.put(`api/textos`, { textKey, page, text: newText, editedBy: 'browser' }).catch((err) => console.log(err))
+    await axios.put(`${process.env.NEXT_PUBLIC_VERCEL_URL}api/textos`, { textKey, page, text: newText, editedBy: 'browser' }).catch((err) => console.log(err))
     setText(newText)
     setEdit(false)
   }
