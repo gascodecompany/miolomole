@@ -12,7 +12,7 @@ export default function BookInfo(props){
     themes,
     isbn,
   } = props
-  console.log(title)
+
   return(
     <S.BookInfo>
       <S.BookInfoTitle>{title}</S.BookInfoTitle>

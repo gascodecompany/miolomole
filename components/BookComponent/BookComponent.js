@@ -6,7 +6,6 @@ import BookRelated from '../BookRelated';
 import BookSection from '../BookSection';
 
 export default function BookComponent(props){
-  console.log('bkcompoent', props)
 
   return(
     <S.BookComponent>
