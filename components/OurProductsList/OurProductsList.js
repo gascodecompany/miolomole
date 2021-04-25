@@ -12,7 +12,7 @@ export default function OurProductsList(props){
         <S.OurProductsApresentation>
           <Editable {...props} textKey="ourProductsTitle"><S.OurProductsTitle/></Editable>
           <Editable {...props} textKey="ourProductsText"><S.OurProductsText/></Editable>
-          {/* <S.AddBookButton onClick={() => router.push('/livros/novo')}>Cadastrar<span>+</span></S.AddBookButton> */}
+          <S.AddBookButton onClick={() => router.push('/livros/novo')}>Cadastrar<span>+</span></S.AddBookButton>
         </S.OurProductsApresentation>
         <S.ProductCards>
           {Books.map((book) => (

@@ -10,7 +10,7 @@ import AboutUsSlider from '../../components/AboutUsSlider';
 
 export default function BooksList(props){
   const router = useRouter();
-  const {id} = router.query
+  const {id} = router.query;
   const t = pt;
 
   return(
