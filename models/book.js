@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 var book = new Schema({
   name: { type: String, unique: true, required: true },
   title: { type: String, required: true },
-  illustrator: { type: String },
+  illustrators: [{ type: String }],
   size: { type: Object },
   pages: { type: Number },
   genre: [{ type: Object }],
@@ -14,6 +14,7 @@ var book = new Schema({
   synopsis: { type: String, required: true },
   authors: [{ type: String }],
   price: { type: Number },
+  images: [{ type: String }]
 }, { timestamps: true });
 
 mongoose.models = {};

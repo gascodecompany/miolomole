@@ -1,9 +1,11 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useAppProvider } from '../../store/appProvider';
 import * as S from './HeaderNav.style'
 
 export default function HeaderNav({isOpen, toggle}){
-  const navMenuItems = [
+  const { isLoggedIn } = useAppProvider()
+  let navMenuItems = [
     { name: 'Home', path: '/' },
     { name: 'Livros', path: '/livros'  },
     { name: 'Loja', path: '/loja' },
@@ -11,6 +13,8 @@ export default function HeaderNav({isOpen, toggle}){
     { name: 'Quem somos', path: '/quem-somos' },
     { name: 'Contato', path: '/contato' },
   ]
+
+  if(isLoggedIn) { navMenuItems = navMenuItems.concat({ name: 'Usuarios', path: '/usuarios'}) }
 
   return(
     <S.HeaderNav>

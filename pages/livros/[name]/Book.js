@@ -7,5 +7,7 @@ export default function Book(props){
   const router = useRouter();
   const splittedId = router.query.name?.split('-');
   const hasAudiovisual = splittedId && splittedId[splittedId.length - 1] === 'audiovisual';
-  return hasAudiovisual ? <BookAudiovisual {...book} /> : <BookComponent {...book} />
+  if (hasAudiovisual) { splittedId.pop() };
+  const id = splittedId?.join('-')
+  return hasAudiovisual ? <BookAudioVisual book={book} id={id}/> : <BookComponent book={book} id={id} />
 }

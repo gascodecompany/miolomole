@@ -1,29 +1,36 @@
-import * as S from './BookInfo.style'
+import { useState, useEffect } from 'react';
+import Form from '../../Elements/Form';
+import * as S from './BookInfo.style';
+import { useAppProvider } from '../../store/appProvider';
+import { BookInfoFieldsFunction, BookInfoFieldsState, gridTemplate } from './BookInfo.constants';
+import Button from '../../Elements/Button';
+import mapFieldsToData from '../../utils/mapFieldsToData';
+import mapDataToFields from '../../utils/mapDataToFields';
 
-export default function BookInfo(props){
-  const { 
-    title,
-    authors,
-    ilustration,
-    size,
-    pages,
-    ageIndication,
-    genre,
-    themes,
-    isbn,
-  } = props
+
+export default function BookInfo({ book }){
+  const { isLoggedIn } = useAppProvider();
+  const [fields, setFields] = useState(BookInfoFieldsState);
+  const bookFields = BookInfoFieldsFunction({fields, setFields, isLoggedIn});
+  const formProps = { fields: bookFields, setFields, gridTemplate, isLoggedIn, striped: true }
+
+  useEffect(() => {
+    book && setFields((oldFields) => {
+      const newFields = {...oldFields};
+      mapDataToFields({newFields, constantFields: bookFields, data: book})
+      return newFields
+    })
+  }, [book])
+
+  const saveInfos = () => {
+    const variables = mapFieldsToData(bookFields)
+    // chamar api
+  }
 
   return(
     <S.BookInfo>
-      <S.BookInfoTitle>{title}</S.BookInfoTitle>
-      <S.BookInfoItem><b>Autoria: </b><p>{authors}</p></S.BookInfoItem>
-      <S.BookInfoItem><b>Ilustrações: </b><p>{ilustration}</p></S.BookInfoItem>
-      <S.BookInfoItem><b>Tamanho: </b><p>{size}</p></S.BookInfoItem>
-      <S.BookInfoItem><b>Páginas: </b><p>{pages}</p></S.BookInfoItem>
-      <S.BookInfoItem><b>Indicação etária: </b><p>{ageIndication}</p></S.BookInfoItem>
-      <S.BookInfoItem><b>Gênero: </b><p>{genre}</p></S.BookInfoItem>
-      <S.BookInfoItem><b>Temas: </b><p>{themes}</p></S.BookInfoItem>
-      <S.BookInfoItem><b>ISBN: </b><p>{isbn}</p></S.BookInfoItem>
+      <Form {...formProps} />
+      { isLoggedIn && <Button onClick={() => saveInfos()} label="Salvar Descrições" />}
     </S.BookInfo>
   )
 }

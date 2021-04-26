@@ -27,9 +27,7 @@ export const EditableInput = styled(forwardRef((props, ref) => <TextareaAutosize
   border: 1px solid #ccc;
   border-radius: 8px;
   width: 100%;
-  &:focus {
-    outline: none;
-  }
+  &:focus { outline: none }
 `
 
 export const EditableButtons = styled.div`

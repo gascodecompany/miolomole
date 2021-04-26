@@ -1,11 +1,13 @@
 import EditableImage from '../EditableImage'
 import * as S from './BookGallery.style'
 
-export default function BookGallery(props){
-
- return(
+export default function BookGallery({ book }){
+  const bookArray = book?.images ? book?.images : ['https://placekitten.com/400/400', 'https://placekitten.com/400/400', 'https://placekitten.com/400/400', 'https://placekitten.com/400/400']
+  return(
     <S.BookGallery>
-      <EditableImage {...props}><S.BookCover /></EditableImage>
+      { bookArray.map((img) => (
+        <S.BookCover src={img}/>
+      ))}
     </S.BookGallery>
   )
 }
