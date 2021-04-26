@@ -9,5 +9,5 @@ export default function Book(props){
   const hasAudiovisual = splittedId && splittedId[splittedId.length - 1] === 'audiovisual';
   if (hasAudiovisual) { splittedId.pop() };
   const id = splittedId?.join('-')
-  return hasAudiovisual ? <BookAudioVisual book={book} id={id}/> : <BookComponent book={book} id={id} />
+  return hasAudiovisual ? <BookAudiovisual book={book} id={id}/> : <BookComponent book={book} id={id} />
 }
