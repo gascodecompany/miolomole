@@ -4,7 +4,7 @@ import BookAudiovisual from "../../../components/BookAudiovisual";
 
 export default function Book(props){
   let book = {};
-  if(props.book) { book = JSON.parse(props?.book) } 
+  if(!!props.book) { book = JSON.parse(props?.book) } 
   const router = useRouter();
   const splittedId = router.query.name?.split('-');
   const hasAudiovisual = splittedId && splittedId[splittedId.length - 1] === 'audiovisual';

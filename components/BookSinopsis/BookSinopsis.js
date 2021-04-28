@@ -9,8 +9,9 @@ import { useAppProvider } from '../../store/appProvider';
 import { bookSinopsisFieldsState, bookSinopsisFieldsFunction } from './BookSinopsis.constants';
 import Button from '../../Elements/Button';
 import mapFieldsToData from '../../utils/mapFieldsToData';
+import mapDataToFields from '../../utils/mapDataToFields';
 
-export default function BookSinopsis({book}){
+export default function BookSinopsis({ book }){
   const router = useRouter();
   const { name } = router.query;
   const { isLoggedIn } = useAppProvider();
@@ -21,7 +22,7 @@ export default function BookSinopsis({book}){
   useEffect(() => {
     book && setFields((oldFields) => {
       const newFields = {...oldFields};
-      mapDataToFields({newFields, constantFields: bookFields, data: book})
+      mapDataToFields({newFields, constantFields: sinopsisInput, data: book})
       return newFields
     })
   }, [book])
@@ -55,7 +56,7 @@ export default function BookSinopsis({book}){
           </S.SinopseVideo>
         </S.SinopseInfo>
         {
-          !!book?.images.length 
+          !!book?.images?.length 
             ? <S.SinopseImage img={book?.cover} />
             : <S.SinopseImage img='' />
           }
