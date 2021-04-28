@@ -29,14 +29,12 @@ export default function BookSinopsis({ book }){
 
   const saveInfos = async () => {
     setMessage('')
-    if(!name) {
-      const variables = mapFieldsToData(bookFields)
+    if(!!name) {
+      const variables = mapFieldsToData(sinopsisInput)
+      console.log(variables)
       const res = await axios.post('/api/livros', { ...variables })
-      if(res.status === 200){
-        setMessage('Cadastro realizado com sucesso!')
-      } else {
-        alert(res?.data?.response)
-      }
+      if(res.status === 200){ setMessage('Cadastro realizado com sucesso!')} 
+      else { alert(res?.data?.response) }
     }
   }
 

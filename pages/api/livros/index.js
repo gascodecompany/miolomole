@@ -33,7 +33,7 @@ const bookHandler = async (req, res) => {
         try{
           const books = await Book.find({ name: args?.name });
           if(!!books.length) { return res.status(409).json({ errorMessage: 'Parceiro ja cadastrado.' }) };
-          args.name  = args.title.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f`~!@#$%^&*()_|+\=?;:'",.<>\{\}\[\]\\\/]/gi, '').replace(/(\s)(?=\1)/gi, "").replace(/\s/g, "-")
+          args.name = args.title.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f`~!@#$%^&*()_|+\=?;:'",.<>\{\}\[\]\\\/]/gi, '').replace(/(\s)(?=\1)/gi, "").replace(/\s/g, "-")
           const bookCreated = await createModel(args, Book);
           return res.status(200).json({ bookCreated });
         } catch (err) { console.log(err); res.status(500).end() };
