@@ -76,3 +76,7 @@ export const BookItemValue = styled.p`
   overflow: hidden;
   ${({isLoggedIn}) => isLoggedIn ? css`:focus-visible { background-color: ${({ theme: { color: { brandVeryLighter }}}) => brandVeryLighter } }` : css `:focus-visible { outline: none }`}
 `
+
+export const Message = styled.div`
+  
+`

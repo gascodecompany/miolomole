@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const BookSinopse = styled.div`
   background: #FFE495;
@@ -39,22 +39,37 @@ export const SinopseInfo = styled.div`
 `
 
 export const SinopseText = styled.div`
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 13px;
-  line-height: 1.8;
-  margin-bottom: 30px;
-  color: #4A4A4A;
-  width: 100%;
-  @media screen{
-    @media (min-width: 1024px){
-      width: 80%;
-      margin-bottom: 20px;
-
+  textarea {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    color: #4A4A4A;
+    min-width: 500px;
+    min-height: 200px;
+    max-width: 700px;
+    max-height: 400px;
+    ${({isLoggedIn}) => !isLoggedIn 
+      ? css `
+        resize: none;
+        background-color: transparent;
+      ` : css `
+          background-color: rgba(255, 255, 255, 0.5);
+      `
+    }
+    border: none;
+    :focus { border: none }
+    @media screen{
+      @media (min-width: 1024px){
+        width: 80%;
+        margin-bottom: 20px;
+      }
     }
   }
 `
+
 export const SinopseImage = styled.div`
   background-image: url(${({ img }) => img });
   width: 210px;
@@ -78,4 +93,8 @@ export const SinopseVideo = styled.div`
       height: 230px;
     }
   }
+`
+
+export const Message = styled.div`
+  
 `

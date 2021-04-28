@@ -11,7 +11,7 @@ var book = new Schema({
   themes: [{ type: Object }],
   ISBN: { type: Object },
   ageIndication: { type: Object },
-  synopsis: { type: String, required: true },
+  synopsis: { type: String },
   authors: [{ type: String }],
   price: { type: Number },
   images: [{ type: String }]

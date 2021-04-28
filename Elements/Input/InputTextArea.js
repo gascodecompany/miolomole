@@ -6,6 +6,7 @@ export default function InputTextArea({ fields, field, setFields, setInputInFocu
 
   return (
     <S.TextArea
+      {...props}
       name={name}
       id={name}
       placeholder={placeholder}

@@ -6,7 +6,7 @@ export default function BookGallery({ book }){
   return(
     <S.BookGallery>
       { bookArray.map((img) => (
-        <S.BookCover src={img}/>
+        <S.BookCover key={img} src={img}/>
       ))}
     </S.BookGallery>
   )

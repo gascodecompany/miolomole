@@ -1,5 +1,5 @@
 import * as S from './BookComponent.style'
-import BookSinopse from '../../components/BookSinopse';
+import BookSinopse from '../BookSinopsis';
 import BookRelated from '../BookRelated';
 import BookSection from '../BookSection';
 
