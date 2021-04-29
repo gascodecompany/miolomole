@@ -13,7 +13,7 @@ var book = new Schema({
   ageIndication: { type: Object },
   synopsis: { type: String },
   authors: [{ type: String }],
-  price: { type: Number },
+  price: { type: String },
   images: [{ type: String }],
   spotlight: {
     isActive: { type: Boolean },

@@ -7,10 +7,8 @@ import { useState, useEffect } from 'react';
 import { useAppProvider } from '../../store/appProvider';
 import mapFieldsToData from '../../utils/mapFieldsToData';
 import mapDataToFields from '../../utils/mapDataToFields';
-import { BookInfoFieldsFunction, BookInfoFieldsState, priceFieldState, priceFieldFunction, gridTemplate } from './BookInfo.constants';
 import FieldEditable from '../../Elements/Field/FieldEditable';
-
-
+import { BookInfoFieldsFunction, BookInfoFieldsState, priceFieldState, priceFieldFunction, gridTemplate } from './BookInfo.constants';
 
 export default function BookInfo({ book }){
   const router = useRouter();
@@ -20,20 +18,26 @@ export default function BookInfo({ book }){
   const [fields, setFields] = useState(BookInfoFieldsState);
   const [price, setPrice] = useState(priceFieldState);
   const priceField = priceFieldFunction({ price, isLoggedIn }).price
-  const bookFields = BookInfoFieldsFunction({fields, setFields});
+  const bookFields = BookInfoFieldsFunction({ fields, setFields });
   const formProps = { fields: bookFields, setFields, gridTemplate, isLoggedIn, striped: true }
-
   useEffect(() => {
-    book && setFields((oldFields) => {
-      const newFields = {...oldFields};
-      mapDataToFields({newFields, constantFields: bookFields, data: book})
-      return newFields
-    })
+    if(book) {
+      setFields((oldFields) => {
+        const newFields = {...oldFields};
+        mapDataToFields({newFields, constantFields: bookFields, data: book})
+        return newFields
+      })
+      setPrice((oldFields) => {
+        const newFields = {...oldFields};
+        newFields.price.value = book.price;
+        return newFields;
+      })
+    }
   }, [book])
   
   const saveInfos = async () => {
     setMessage('');
-    const variables = mapFieldsToData({ ...bookFields, ...priceField});
+    const variables = mapFieldsToData({ ...bookFields, priceField});
     if(!name) {
       const res = await axios.post('/api/livros', { ...variables });
       if(res.status === 200){
