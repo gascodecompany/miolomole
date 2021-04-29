@@ -3,22 +3,26 @@ import styled, { css } from 'styled-components';
 export const BookSynopsis = styled.div`
   background: #FFE495;
   width: 100%;
-  padding: 0 40px;
-  /* height: 80vh; */
+  padding: 40px 20px;
 
   .container{
     width: 100%;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-areas:
-      "sinopsys cover"
-      "video cover"
-      "message message"
-      "button button"
-    ;
-    gap: 20px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     @media screen{
       @media (min-width: 1024px){
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-areas:
+          "sinopsys cover"
+          "video cover"
+          "message message"
+          "button button"
+        ;
+        gap: 20px;
       }
     }
   }
@@ -80,10 +84,6 @@ export const SynopsisText = styled.div`
     line-height: 1.8;
     margin-bottom: 30px;
     color: #4A4A4A;
-    min-width: 500px;
-    min-height: 150px;
-    max-width: 700px;
-    max-height: 400px;
     padding: 0;
     ${({isLoggedIn}) => !isLoggedIn 
       ? css `resize: none; background-color: transparent;` 
@@ -95,6 +95,10 @@ export const SynopsisText = styled.div`
       @media (min-width: 1024px){
         width: 80%;
         margin-bottom: 20px;
+        min-width: 500px;
+        min-height: 150px;
+        max-width: 700px;
+        max-height: 400px;
       }
     }
   }
@@ -130,11 +134,12 @@ export const InputVideo = styled.div`
   border: 4px solid ${({ theme: { color: { blackLighter }}}) => blackLighter };;  
   border-radius: 10px;
   position: relative;
-  cursor: pointer;
+  cursor: not-allowed;
   :hover { background-color: ${({ theme: { color: { blackLighter }}}) => blackLighter } }
-  :active { background-color: #858585 };
+  /* :active { background-color: #858585 }; */
   :after {
-    content: 'Inserir Video';
+    content: 'Video (em manutenção)';
+    overflow: auto;
     position: absolute;
     transform: translate(-50%, -50%);
     top: 50%;

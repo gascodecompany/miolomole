@@ -19,6 +19,7 @@ export default function BookSynopsis({ book, ...props }){
   const [message, setMessage] = useState();
   const [fields, setFields] = useState(bookSinopsisFieldsState);
   const synopsisInput = bookSinopsisFieldsFunction({ fields, isLoggedIn })
+  
   useEffect(() => {
     book && setFields((oldFields) => {
       const newFields = {...oldFields};
