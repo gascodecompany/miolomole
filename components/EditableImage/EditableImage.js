@@ -19,11 +19,11 @@ export default function EditableImage ({ children, page, texts, textKey }) {
   const onDrop = useCallback(acceptedFiles => {
     setLoading(true);
     const file = acceptedFiles[0];
-    const fileName = `dev/mioloMole/${uuidv4() + file.name}`;
+    const fileName = `dev/mioloMole/${uuidv4()}${file.name}`;
     const evaporateConfig = {
       aws_key: process.env.NEXT_PUBLIC_AWS_KEY,
       bucket: process.env.NEXT_PUBLIC_AWS_BUCKET,
-      awsRegion: process.env.NEXT_PUBLIC_AWS_BUCKET,
+      awsRegion: process.env.NEXT_PUBLIC_AWS_REGION,
       awsSignatureVersion: "4",
       computeContentMd5: true,
       signerUrl: `/api/sign-auth`,
@@ -35,12 +35,12 @@ export default function EditableImage ({ children, page, texts, textKey }) {
       name: fileName, 
       contentType: file.type,
       complete: (xhr) => { const location = xhr.responseURL.split('?')[0]; setLoading(false);  setNewLink(location); },
-      // error: (err) => console.log(err)
+      error: (err) => console.error('ERROR', err)
     };
     
     Evaporate.create(evaporateConfig)
-      .then((evaporate) => evaporate.add(evaporateAddConfig))
-      // .catch((err) => console.log(err));
+      .then((evaporate) => evaporate.add(evaporateAddConfig).catch(err => console.error('ERROR', err)))
+      
   }, []);
   
   const saveImage = async () => {
