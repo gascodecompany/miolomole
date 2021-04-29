@@ -33,7 +33,7 @@ export default function BookInfo({ book }){
   
   const saveInfos = async () => {
     setMessage('');
-    const variables = mapFieldsToData(bookFields);
+    const variables = mapFieldsToData({ ...bookFields, ...priceField});
     if(!name) {
       const res = await axios.post('/api/livros', { ...variables });
       if(res.status === 200){
