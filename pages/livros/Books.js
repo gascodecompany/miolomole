@@ -20,7 +20,6 @@ export default function BooksList(props){
       <LatestArticles items={t.BLOG_ARTICLES}/>
       <AboutUsSlider/>
       <HomeLatestArticles id={id} />
-      {/* <BookComponent/> */}
     </div>
   )
 }

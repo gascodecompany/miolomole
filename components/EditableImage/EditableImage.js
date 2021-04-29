@@ -34,7 +34,7 @@ export default function EditableImage ({ children, page, texts, textKey }) {
       file,
       name: fileName, 
       contentType: file.type,
-      complete: (xhr) => { const location = xhr.responseURL.split('?')[0]; setLoading(false);  setNewLink(location); },
+      complete: (xhr) => { const location = xhr.responseURL.split('?')[0]; setLoading(false); setNewLink(location); },
       error: (err) => console.error('ERROR', err)
     };
     
@@ -59,7 +59,7 @@ export default function EditableImage ({ children, page, texts, textKey }) {
           <S.EditButton onClick={() => edit ? saveImage() : setEdit(true)}>
             { edit ? <Button id={`${textKey}ConfirmButton`} type="confirm" /> : <Button id={`${textKey}EditButton`} type="edit" /> }
           </S.EditButton>
-          { edit && <Button id={`${textKey}CancelButton`} onClick={() => { setNewText(text); setEdit(false)}} type="cancel" /> }
+          { edit && <Button id={`${textKey}CancelButton`} onClick={() => { setNewLink(link); setEdit(false)}} type="cancel" /> }
         </S.EditableButtons>
       )}
       <span {...getRootProps()}>

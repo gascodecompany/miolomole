@@ -14,7 +14,12 @@ var book = new Schema({
   synopsis: { type: String },
   authors: [{ type: String }],
   price: { type: Number },
-  images: [{ type: String }]
+  images: [{ type: String }],
+  spotlight: {
+    isActive: { type: Boolean },
+    spotlightImage: { type: String },
+    spotlightTitile: { type: String },
+  }
 }, { timestamps: true });
 
 mongoose.models = {};
