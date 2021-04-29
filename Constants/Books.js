@@ -7,7 +7,7 @@ import cover3d from '../images/cover3d.png'
 
 export const Books = [
   {
-    _id: '1',
+    _id: 'garoto-avatar',
     title: 'Garoto Avatar',
     authors: 'Caeto e Luana Vignon',
     ilustration: 'Caeto',
