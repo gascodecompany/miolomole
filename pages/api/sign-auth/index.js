@@ -16,9 +16,7 @@ const singAuth = async (req, res) => {
         res.send(hexhmac(signing, to_sign));
         } else { return res.status(422).send('data_incomplete'); }
     } else { return res.status(422).send('req_method_not_supported');}
-  } catch (err) { 
-    res.status(500).json({ statusCode: 500, message: err.message })
-  }
+  } catch (err) { return res.end() }
 };
 
 export default singAuth;

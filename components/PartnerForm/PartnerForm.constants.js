@@ -25,7 +25,8 @@ export const PartnerFormFieldsFunction = ({ fields, setMessage, partner }) => ({
   logo: {
     ...fields.logo,
     name: 'logo',
-    label: 'Logo da empresa',
+    
+    type: 'image',
   },
   description: {
     ...fields.description,
