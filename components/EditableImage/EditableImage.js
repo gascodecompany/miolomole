@@ -7,11 +7,13 @@ import { v4 as uuidv4 } from 'uuid';
 import AWS from "aws-sdk";
 import Button from '../../Elements/Button';
 import { useAppProvider } from '../../store/appProvider';
+import BookComponent from '../BookComponent';
 
-export default function EditableImage ({ children, page, texts, textKey }) {
+export default function EditableImage ({ children, page, texts, textKey, book }) {
   const { isLoggedIn } = useAppProvider();
   const [edit, setEdit] = useState(false);
-  const initialLink = (!!texts && !!textKey) && !!texts[textKey] ? texts[textKey] : 'https://placekitten.com/400/400'
+  let initialLink = (!!texts && !!textKey) && !!texts[textKey] ? texts[textKey] : 'https://placekitten.com/400/400'
+  if(book.images) { initialLink = book.images[0] }
   const [link, setLink] = useState(initialLink);
   const [newLink, setNewLink] = useState(initialLink);
   const [loading, setLoading] = useState(false);
@@ -44,9 +46,15 @@ export default function EditableImage ({ children, page, texts, textKey }) {
   }, []);
   
   const saveImage = async () => {
-    await axios.put(`/api/textos`, { textKey, page, text: newLink, editedBy: 'browser' }).catch((err) => console.log(err));
-    setLink(newLink);
-    setEdit(false);
+    if(book.images){
+      await axios.put(`/api/livros`, { _id: book._id, images: [newLink] }).catch((err) => console.log(err));
+      setLink(newLink);
+      setEdit(false);
+    } else {
+      await axios.put(`/api/textos`, { textKey, page, text: newLink, editedBy: 'browser' }).catch((err) => console.log(err));
+      setLink(newLink);
+      setEdit(false);
+    }
   }
   
   const { getRootProps, getInputProps, isDragActive, inputRef } = useDropzone({ onDrop, disabled: !edit });

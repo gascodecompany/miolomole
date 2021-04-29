@@ -1,6 +1,6 @@
 import * as S from './BookInfo.style';
 
-export const BookInfoFieldsState = (props) => ({
+export const BookInfoFieldsState = () => ({
   title: { value: '' },
   authors: { value: '' },
   illustrators: { value: '' },
@@ -13,12 +13,12 @@ export const BookInfoFieldsState = (props) => ({
 })
 
 export const priceFieldState = () => ({
-   price: { value: '' }
+  price: { value: '' }
 });
 
 export const priceFieldFunction = ({ price }) => ({
   price: {
-    ...price,
+    ...price.price,
     name: 'price',
     type: 'editable',
     placeholder: '00,00',
