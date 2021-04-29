@@ -1,9 +1,8 @@
 import styled, { css } from 'styled-components';
-import { Link } from 'next/link';
 import { lighten, darken } from 'polished';
 
 const primary = css`
-  background: ${({ theme: { color: { brandDark }}}) => brandDark };
+  background: ${({ theme: { color: { brand }}}) => brand };
   padding: 17px;
   width: 200px;
   height: 50px;
@@ -24,11 +23,11 @@ const primary = css`
   }
 
   &:hover {
-    background: ${({theme: {color: { brandDark }}}) => darken('.05', brandDark) };
+    background: ${({theme: {color: { brand }}}) => darken('.05', brand) };
   }
 
   &:active, &:focus {
-    background: ${({theme: {color: { brandDark }}}) => darken('.1', brandDark) };
+    background: ${({theme: {color: { brand }}}) => darken('.1', brand) };
   }
 `
 

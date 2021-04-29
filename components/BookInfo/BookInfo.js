@@ -1,29 +1,49 @@
-import * as S from './BookInfo.style'
+import axios from 'axios';
+import * as S from './BookInfo.style';
+import Form from '../../Elements/Form';
+import { useRouter } from 'next/router';
+import Button from '../../Elements/Button';
+import { useState, useEffect } from 'react';
+import { useAppProvider } from '../../store/appProvider';
+import mapFieldsToData from '../../utils/mapFieldsToData';
+import mapDataToFields from '../../utils/mapDataToFields';
+import { BookInfoFieldsFunction, BookInfoFieldsState, gridTemplate } from './BookInfo.constants';
 
-export default function BookInfo(props){
-  const { 
-    title,
-    authors,
-    ilustration,
-    size,
-    pages,
-    ageIndication,
-    genre,
-    themes,
-    isbn,
-  } = props
-  console.log(title)
+export default function BookInfo({ book }){
+  const router = useRouter();
+  const { name } = router.query;
+  const [message, setMessage] = useState();
+  const { isLoggedIn } = useAppProvider();
+  const [fields, setFields] = useState(BookInfoFieldsState);
+  const bookFields = BookInfoFieldsFunction({fields, setFields, isLoggedIn});
+  const formProps = { fields: bookFields, setFields, gridTemplate, isLoggedIn, striped: true }
+
+  useEffect(() => {
+    book && setFields((oldFields) => {
+      const newFields = {...oldFields};
+      mapDataToFields({newFields, constantFields: bookFields, data: book})
+      return newFields
+    })
+  }, [book])
+
+  const saveInfos = async () => {
+    setMessage('')
+    if(!name) {
+      const variables = mapFieldsToData(bookFields)
+      const res = await axios.post('/api/livros', { ...variables })
+      if(res.status === 200){
+        setMessage('Cadastro realizado com sucesso!')
+      } else {
+        alert(res?.data?.response)
+      }
+    }
+  }
+
   return(
     <S.BookInfo>
-      <S.BookInfoTitle>{title}</S.BookInfoTitle>
-      <S.BookInfoItem><b>Autoria: </b><p>{authors}</p></S.BookInfoItem>
-      <S.BookInfoItem><b>Ilustrações: </b><p>{ilustration}</p></S.BookInfoItem>
-      <S.BookInfoItem><b>Tamanho: </b><p>{size}</p></S.BookInfoItem>
-      <S.BookInfoItem><b>Páginas: </b><p>{pages}</p></S.BookInfoItem>
-      <S.BookInfoItem><b>Indicação etária: </b><p>{ageIndication}</p></S.BookInfoItem>
-      <S.BookInfoItem><b>Gênero: </b><p>{genre}</p></S.BookInfoItem>
-      <S.BookInfoItem><b>Temas: </b><p>{themes}</p></S.BookInfoItem>
-      <S.BookInfoItem><b>ISBN: </b><p>{isbn}</p></S.BookInfoItem>
+      <Form {...formProps} />
+      { isLoggedIn && <Button onClick={() => saveInfos()} label="Salvar Descrições" />}
+      <S.Message>{ message && message }</S.Message>
     </S.BookInfo>
   )
 }

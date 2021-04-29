@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 export const PartnerFormInitialState = () => ({
   name: { value: '' },
   logo: { value: '' },
@@ -8,7 +6,7 @@ export const PartnerFormInitialState = () => ({
   books: { value: '' },
 })
   
-export const PartnerFormFieldsFunction = ({ fields, setMessage, partner }) => ({
+export const PartnerFormFieldsFunction = ({ fields, partner, books }) => ({
   name: {
     ...fields.name,
     name: 'name',
@@ -25,7 +23,7 @@ export const PartnerFormFieldsFunction = ({ fields, setMessage, partner }) => ({
   logo: {
     ...fields.logo,
     name: 'logo',
-    label: 'Logo da empresa',
+    type: 'image',
   },
   description: {
     ...fields.description,
@@ -39,6 +37,7 @@ export const PartnerFormFieldsFunction = ({ fields, setMessage, partner }) => ({
     type: 'selectMulti',
     loadEmpty: true,
     isMulti: true,
+    isSearchable: true,
     options: [
       { label: "Acre", value: "AC" },
       { label: "Alagoas", value: "AL" },
@@ -71,38 +70,11 @@ export const PartnerFormFieldsFunction = ({ fields, setMessage, partner }) => ({
   },
   books: {
     ...fields.books,
-    books: 'books',
     name: 'books',
     label: 'Livros',
-  },
-  submitButton: {
-    type: 'button',
-    label: partner ? 'Salvar' : 'Cadastrar',
-    name: 'submitButton',
-    variation: 'primary',
-    onClick: async () => {
-      setMessage('')
-      const fieldsValue = Object.entries(fields).reduce((obj, [param, field]) => ({ ...obj, [param]: field.value }), {})
-      if(!partner){
-        axios.post(`/api/parceiros`, { ...fieldsValue })
-          .then((res) => { 
-            if(res.status === 200) {
-              setMessage('Cadastrado realizado com sucesso!');
-              setFields(PartnerFormInitialState)
-            }
-          })
-          .catch((err) => setMessage(err.response.data))
-      } else {
-        axios.put(`/api/parceiros`, { ...fieldsValue, _id: partner._id })
-          .then((res) => { 
-            if(res.status === 200) {
-              setMessage('Cadastro atualizado com sucesso!');
-              router.goBack('');
-            }
-          })
-          .catch((err) => setMessage(err?.response?.data))
-      }
-    },
+    type: 'select',
+    isMulti: true,
+    options: Object.entries(books).reduce((arr, item) => ([...arr, { name: item[1].name, value: item[1]._id, label: item[1].title }]), [])
   }
 })
 
@@ -114,7 +86,6 @@ export const gridTemplate = (theme) => {
      "description" 
      "city" 
      "books" 
-     "submitButton" 
     `};
     grid-template-columns: 1fr;
 
@@ -122,8 +93,8 @@ export const gridTemplate = (theme) => {
       grid-template: ${`
         "name name logo"
         "description description logo"
-        "city books books"
-        ". . submitButton"
+        "city city city"
+        "books books books"
     `};
       grid-template-columns: Repeat(3, 1fr);
     }

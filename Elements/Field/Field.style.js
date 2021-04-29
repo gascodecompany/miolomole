@@ -1,4 +1,6 @@
-import styled, { css } from "styled-components";
+import { forwardRef } from 'react';
+import styled, { css } from 'styled-components';
+import TextareaAutosize from 'react-textarea-autosize';
 
 export const Field = styled.div`
   grid-area: ${({ name }) => name};
@@ -22,6 +24,17 @@ export const Field = styled.div`
   }
 `;
 
+export const FieldEditable = styled.div`
+  ${({styles}) => styles}
+`
+
+export const LabelEditable = styled(forwardRef((props, ref) => <TextareaAutosize {...props} ref={ref} />))`
+  background-color: transparent;
+  resize: none;
+  border: none;
+  ${({styles}) => styles };
+  ${({isLoggedIn}) => isLoggedIn && css`:focus { outline: none; box-shadow: none }` }
+`
 
 export const FieldPassword = styled.div`
   grid-area: ${({ name }) => name};
@@ -177,7 +190,6 @@ export const InputRadioMark = styled.div`
   border: 1px solid ${({ theme: { color: { blue }}}) => blue };
 `
 
-
 export const Label = styled.label`
   position: absolute;
   top: 0;
@@ -197,6 +209,10 @@ export const StyledFieldTip = styled.p`
 export const StyledFieldError = styled.p`
 
 `;
+
+export const NormalLabel = styled(forwardRef((props, ref) => <label {...props} ref={ref} />))`
+  ${({styles}) => styles}
+`
 
 export const FieldTextArea = styled.div`
   font-size: ${({ theme: { fontSize: { fontSizeXXS }}}) => fontSizeXXS};

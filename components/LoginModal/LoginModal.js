@@ -40,7 +40,6 @@ export default function LoginModal(){
             localStorage.setItem("token", token);
             setMessage('Login realizado com sucesso');
             setCurrentUser(user);
-            console.log('arrived here')
             setIsLoggedIn(true);
             router.push('/');
           }

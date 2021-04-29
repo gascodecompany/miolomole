@@ -12,4 +12,5 @@ export const PartnerForm = styled.div`
 
 export const ResponseMessage = styled.span`
   height: 14px;
+  margin: 30px 0px 45px;
 `

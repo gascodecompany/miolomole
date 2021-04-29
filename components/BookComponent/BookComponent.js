@@ -1,13 +1,9 @@
-import { useRouter } from 'next/router'
 import * as S from './BookComponent.style'
-import { Books } from '../../Constants/Books'
-import BookSinopse from '../../components/BookSinopse';
+import BookSinopse from '../BookSinopsis';
 import BookRelated from '../BookRelated';
 import BookSection from '../BookSection';
 
 export default function BookComponent(props){
-  console.log('bkcompoent', props)
-
   return(
     <S.BookComponent>
       <BookSection {...props}/>

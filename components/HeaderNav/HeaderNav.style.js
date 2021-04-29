@@ -9,6 +9,7 @@ export const HeaderNav = styled.ul`
   font-size: 15px;
   text-align: center;
   margin: 0 auto;
+  height: 170px;
   width: 100%;
   padding: 0;
   top: 90px;
@@ -16,6 +17,7 @@ export const HeaderNav = styled.ul`
   color: #474747;
   @media screen {
     @media (min-width: 1024px) {
+      height: unset;
       position: unset;
       width: 60%;
       display: flex;

@@ -102,7 +102,6 @@ export const HeaderMenuContainer = styled.section`
     height: fit-content;
     display: block;
     top: -130px;
-    /* display: none; */
     >input{
       max-width: 100%;
       background: ${({ theme: { color: { grayLight }}}) => grayLight};

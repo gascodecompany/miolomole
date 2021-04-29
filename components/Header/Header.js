@@ -30,7 +30,7 @@ export default function Header(){
           <S.SearchField className="searchField">
             <Input { ...inputSearchObj } />
             <SearchIcon />
-          </S.SearchField> 
+          </S.SearchField>
         </S.HeaderMenuContainer>
       </S.HeaderMenu>
       <S.SearchField>
