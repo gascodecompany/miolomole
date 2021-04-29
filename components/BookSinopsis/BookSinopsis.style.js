@@ -6,16 +6,24 @@ export const BookSinopse = styled.div`
   padding: 0 40px;
 
   .container{
-    justify-content: center;
-    flex-direction: column;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "sinopsys cover"
+      "video cover"
+      "message message"
+      "button button"
+    ;
+    gap: 20px;
     @media screen{
       @media (min-width: 1024px){
-        flex-direction: row;
       }
     }
   }
 
   button{
+    grid-area: button;
     padding: 5px;
     font-family: Montserrat;
     font-weight: bold;
@@ -34,6 +42,10 @@ export const BookSinopse = styled.div`
       background: ${({ theme: { color: { brandDarkGreen }}}) => brandDarkGreen };
     }
   }
+`
+
+export const SynopsisWrapper = styled.div`
+  grid-area: sinopsys;
 `
 
 export const SinopseTitle = styled.div`
@@ -92,6 +104,7 @@ export const SinopseText = styled.div`
 
 export const SinopseImage = styled.div`
   background-image: url(${({ img }) => img });
+  grid-area: cover;
   width: 210px;
   height: 289px;
   background-size: contain;
@@ -104,6 +117,7 @@ export const SinopseImage = styled.div`
   }
 `
 export const SinopseVideo = styled.div`
+  grid-area: video;
   width: 100%;
   height: 50vw;
   margin-bottom: 30px;
@@ -116,5 +130,5 @@ export const SinopseVideo = styled.div`
 `
 
 export const Message = styled.div`
-  
+  grid-area: message;
 `

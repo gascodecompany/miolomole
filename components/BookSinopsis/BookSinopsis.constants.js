@@ -1,11 +1,11 @@
 export const bookSinopsisFieldsState = () => ({
-  sinopsys: { value: '' },
+  synopsis: { value: '' },
 })
   
 export const bookSinopsisFieldsFunction = ({ fields, isLoggedIn }) => ({
-  sinopsys: {
-    ...fields.sinopsys,
-    name: 'sinopsys',
+  synopsis: {
+    ...fields.synopsis,
+    name: 'synopsis',
     type: 'textarea',
     readOnly: !isLoggedIn,
   },

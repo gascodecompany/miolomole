@@ -17,23 +17,25 @@ export default function BookSinopsis({ book }){
   const { isLoggedIn } = useAppProvider();
   const [message, setMessage] = useState();
   const [fields, setFields] = useState(bookSinopsisFieldsState);
-  const sinopsisInput = bookSinopsisFieldsFunction({ fields, isLoggedIn })
-
+  const synopsisInput = bookSinopsisFieldsFunction({ fields, isLoggedIn })
   useEffect(() => {
     book && setFields((oldFields) => {
       const newFields = {...oldFields};
-      mapDataToFields({newFields, constantFields: sinopsisInput, data: book})
+      mapDataToFields({newFields, constantFields: synopsisInput, data: book})
       return newFields
     })
   }, [book])
 
   const saveInfos = async () => {
     setMessage('')
-    if(!!name) {
-      const variables = mapFieldsToData(sinopsisInput)
-      console.log(variables)
-      const res = await axios.post('/api/livros', { ...variables })
+    const variables = mapFieldsToData(synopsisInput)
+    if(!name) {
+      const res = await axios.post('/api/livros', { ...variables, name })
       if(res.status === 200){ setMessage('Cadastro realizado com sucesso!')} 
+      else { alert(res?.data?.response) }
+    } else {
+      const res = await axios.put('/api/livros', { ...variables, name })
+      if(res.status === 200){ setMessage('Cadastro atualizado com sucesso!')} 
       else { alert(res?.data?.response) }
     }
   }
@@ -42,8 +44,10 @@ export default function BookSinopsis({ book }){
     <S.BookSinopse>
       <Container>
         <S.SinopseInfo>
-          <S.SinopseTitle>Sinopse</S.SinopseTitle>
-          <S.SinopseText isLoggedIn={isLoggedIn}><Input {...sinopsisInput.sinopsys} setFields={setFields} /></S.SinopseText>
+          <S.SynopsisWrapper>
+            <S.SinopseTitle>Sinopse</S.SinopseTitle>
+            <S.SinopseText isLoggedIn={isLoggedIn}><Input {...synopsisInput.synopsis} setFields={setFields} /></S.SinopseText>
+          </S.SynopsisWrapper>
           <S.SinopseVideo>
             {isLoggedIn && <span>Video</span>}
             {
