@@ -1,6 +1,6 @@
 import * as S from './BookInfo.style';
 
-export const BookInfoFieldsState = (props) => ({
+export const BookInfoFieldsState = () => ({
   title: { value: '' },
   authors: { value: '' },
   illustrators: { value: '' },
@@ -11,11 +11,26 @@ export const BookInfoFieldsState = (props) => ({
   themes: { value: '' },
   ISBN: { value: '' },
 })
+
+export const priceFieldState = () => ({
+  price: { value: '' }
+});
+
+export const priceFieldFunction = ({ price }) => ({
+  price: {
+    ...price.price,
+    name: 'price',
+    type: 'editable',
+    placeholder: '00,00',
+    styledComponent: <S.PriceValue />,
+  }
+})
   
 export const BookInfoFieldsFunction = ({ fields, isLoggedIn }) => ({
   title: {
     ...fields.title,
     name: 'title',
+    placeholder: 'Titulo..',
     type: 'editable',
     className: 'title',
     styledComponent: <S.BookInfoTitle isLoggedIn={isLoggedIn} />,
@@ -25,6 +40,7 @@ export const BookInfoFieldsFunction = ({ fields, isLoggedIn }) => ({
     name: 'authors',
     type: 'editable',
     label: 'Autoria: ',
+    placeholder: 'Autoria...',
     isArray: true,
     styldItem: <S.BookInfoItem isLoggedIn={isLoggedIn} />,
     styledLabel: <S.BookItemLabel isLoggedIn={isLoggedIn} />,
@@ -35,6 +51,7 @@ export const BookInfoFieldsFunction = ({ fields, isLoggedIn }) => ({
     name: 'illustrators',
     type: 'editable',
     label: 'Ilustrações: ',
+    placeholder: 'Ilustrações...',
     isArray: true,
     styldItem: <S.BookInfoItem isLoggedIn={isLoggedIn} />,
     styledLabel: <S.BookItemLabel isLoggedIn={isLoggedIn} />,
@@ -45,6 +62,7 @@ export const BookInfoFieldsFunction = ({ fields, isLoggedIn }) => ({
     name: 'size',
     type: 'editable',
     label: 'Tamanho: ',
+    placeholder: 'Tamanho...',
     styldItem: <S.BookInfoItem isLoggedIn={isLoggedIn} />,
     styledLabel: <S.BookItemLabel isLoggedIn={isLoggedIn} />,
     styledComponent: <S.BookItemValue isLoggedIn={isLoggedIn} />,
@@ -54,6 +72,7 @@ export const BookInfoFieldsFunction = ({ fields, isLoggedIn }) => ({
     name: 'pages',
     type: 'editable',
     label: 'Páginas: ',
+    placeholder: 'Páginas...',
     styldItem: <S.BookInfoItem isLoggedIn={isLoggedIn} />,
     styledLabel: <S.BookItemLabel isLoggedIn={isLoggedIn} />,
     styledComponent: <S.BookItemValue isLoggedIn={isLoggedIn} />,
@@ -63,6 +82,7 @@ export const BookInfoFieldsFunction = ({ fields, isLoggedIn }) => ({
     name: 'ageIndication',
     type: 'editable',
     label: 'Indicação etária: ',
+    placeholder: 'Indicação etária...',
     styldItem: <S.BookInfoItem isLoggedIn={isLoggedIn} />,
     styledLabel: <S.BookItemLabel isLoggedIn={isLoggedIn} />,
     styledComponent: <S.BookItemValue isLoggedIn={isLoggedIn} />,
@@ -72,6 +92,7 @@ export const BookInfoFieldsFunction = ({ fields, isLoggedIn }) => ({
     name: 'genre',
     type: 'editable',
     label: 'Gênero: ',
+    placeholder: 'Gênero...',
     isArray: true,
     styldItem: <S.BookInfoItem isLoggedIn={isLoggedIn} />,
     styledLabel: <S.BookItemLabel isLoggedIn={isLoggedIn} />,
@@ -82,6 +103,7 @@ export const BookInfoFieldsFunction = ({ fields, isLoggedIn }) => ({
     name: 'themes',
     type: 'editable',
     label: 'Temas: ',
+    placeholder: 'Temas...',
     styldItem: <S.BookInfoItem isLoggedIn={isLoggedIn} />,
     styledLabel: <S.BookItemLabel isLoggedIn={isLoggedIn} />,
     isArray: true,
@@ -92,6 +114,7 @@ export const BookInfoFieldsFunction = ({ fields, isLoggedIn }) => ({
     name: 'ISBN',
     type: 'editable',
     label: 'ISBN: ',
+    placeholder: 'ISBN...',
     styldItem: <S.BookInfoItem isLoggedIn={isLoggedIn} />,
     styledLabel: <S.BookItemLabel isLoggedIn={isLoggedIn} />,
     styledComponent: <S.BookItemValue isLoggedIn={isLoggedIn} />,

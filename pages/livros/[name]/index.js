@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import Book from '../../../models/book';
-import urlNameFormatter from '../../../utils/urlNameFormatter';
+import Text from '../../../models/text';
 
 export async function getStaticPaths(){
   await mongoose.connect(process.env.NEXT_PUBLIC_MONGO_DB_URL, { useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true, useNewUrlParser: true });
@@ -18,9 +18,12 @@ export async function getStaticProps({ params: { name } }) {
     const joinedName = splittedId?.join('-');
     const booksObj = await Book.findOne({ name: joinedName });
     const book = booksObj ? JSON.stringify(booksObj) : {}
-    return { props: { book }, revalidate: 1  }
+    const page = 'books';
+    const textsArray = await Text.find({ page });
+    const texts = textsArray.reduce((object, text) => Object.assign(object, {[text.textKey]: text.text}), {});
+    return { props: { book, texts }, revalidate: 1  }
   } else {
-    return { props: { book: {} }, revalidate: 1  }
+    return { props: { book: {}, texts: [] }, revalidate: 1  }
   }
 }
 

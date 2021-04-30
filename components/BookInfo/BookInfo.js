@@ -7,7 +7,8 @@ import { useState, useEffect } from 'react';
 import { useAppProvider } from '../../store/appProvider';
 import mapFieldsToData from '../../utils/mapFieldsToData';
 import mapDataToFields from '../../utils/mapDataToFields';
-import { BookInfoFieldsFunction, BookInfoFieldsState, gridTemplate } from './BookInfo.constants';
+import FieldEditable from '../../Elements/Field/FieldEditable';
+import { BookInfoFieldsFunction, BookInfoFieldsState, priceFieldState, priceFieldFunction, gridTemplate } from './BookInfo.constants';
 
 export default function BookInfo({ book }){
   const router = useRouter();
@@ -15,34 +16,55 @@ export default function BookInfo({ book }){
   const [message, setMessage] = useState();
   const { isLoggedIn } = useAppProvider();
   const [fields, setFields] = useState(BookInfoFieldsState);
-  const bookFields = BookInfoFieldsFunction({fields, setFields, isLoggedIn});
+  const [price, setPrice] = useState(priceFieldState);
+  const priceField = priceFieldFunction({ price, isLoggedIn }).price
+  const bookFields = BookInfoFieldsFunction({ fields, setFields });
   const formProps = { fields: bookFields, setFields, gridTemplate, isLoggedIn, striped: true }
-
   useEffect(() => {
-    book && setFields((oldFields) => {
-      const newFields = {...oldFields};
-      mapDataToFields({newFields, constantFields: bookFields, data: book})
-      return newFields
-    })
+    if(book) {
+      setFields((oldFields) => {
+        const newFields = {...oldFields};
+        mapDataToFields({newFields, constantFields: bookFields, data: book})
+        return newFields
+      })
+      setPrice((oldFields) => {
+        const newFields = {...oldFields};
+        newFields.price.value = book.price;
+        return newFields;
+      })
+    }
   }, [book])
-
+  
   const saveInfos = async () => {
-    setMessage('')
+    setMessage('');
+    const variables = mapFieldsToData({ ...bookFields, priceField});
     if(!name) {
-      const variables = mapFieldsToData(bookFields)
-      const res = await axios.post('/api/livros', { ...variables })
+      const res = await axios.post('/api/livros', { ...variables });
       if(res.status === 200){
-        setMessage('Cadastro realizado com sucesso!')
+        setMessage('Cadastro realizado com sucesso!');
       } else {
-        alert(res?.data?.response)
+        alert(res?.data?.response);
       }
+    } else {
+      const res = await axios.put('/api/livros', { ...variables, name })
+      if(res.status === 200){ setMessage('Cadastro atualizado com sucesso!')} 
+      else { alert(res?.data?.response) }
     }
   }
 
   return(
     <S.BookInfo>
-      <Form {...formProps} />
-      { isLoggedIn && <Button onClick={() => saveInfos()} label="Salvar Descrições" />}
+      <Form { ...formProps } />
+      <S.BottomWrapper>
+        <S.Price>
+          <S.Label>Preço</S.Label>
+          <S.PriceText><span>R$</span><FieldEditable {...priceField} isLoggedIn={isLoggedIn} setFields={setPrice} /></S.PriceText>
+        </S.Price>
+        { isLoggedIn 
+          ? <Button onClick={() => saveInfos()} label="Salvar Sinopse" />
+          : <Button onClick={() => router.push('parceiros')} label="Comprar em loja parceira" />
+        }
+      </S.BottomWrapper>
       <S.Message>{ message && message }</S.Message>
     </S.BookInfo>
   )
