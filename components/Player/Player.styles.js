@@ -4,20 +4,27 @@ import styled from 'styled-components';
 export const RPlayer = styled.div`
   width: 100%;
   max-width: 800px;
-
+  
   .video-react {
     color: #fbb040;
     font-family: Arial, Helvetica, sans-serif;
     line-height: 2.5;
     font-size: 14px;
-    
+    transition: all 0.5s ease-in-out;
+
+    >button{
+      color: #00A79D;
+    }
     .video-react-control{
       color: #ffffff;
       width: 3em;
-      transition: color 0.4s ease;
+      transition: all 0.4s ease;
 
       &:hover{
         color: #fbb040;
+      }
+      &:focus{
+        text-shadow: 0em 0em 0.5em #fff, 0em 0em 0.5em #fff;
       }
     }
 
@@ -31,6 +38,26 @@ export const RPlayer = styled.div`
     }
     .video-react-play-progress{
       background-color: #fbb040;
+    }
+    .video-react-slider{
+      transition: all 0.5s ease-in-out;
+
+      &:focus, &:hover{
+        box-shadow: 0 0 0.5em #ffffff90;
+      }
+    }
+    .video-react-big-play-button{
+      border-color: #fbb040;
+      background-color: #00000020;
+      transition: all 0.5s ease-in-out;
+    }
+    &:hover{
+      background-color: #ffffff20;
+
+      >button{
+        border-color: #00A79D;
+        color: #fbb040;
+      }
     }
   }
 
