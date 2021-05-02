@@ -59,6 +59,16 @@ export const RPlayer = styled.div`
         color: #fbb040;
       }
     }
+    .video-react-progress-holder{
+      border-radius: 10px;
+    }
+    .video-react-load-progress{
+      border-radius: 10px;
+      >div{
+        border-radius: 10px;
+
+      }
+    }
   }
 
 
