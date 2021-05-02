@@ -12,6 +12,7 @@ export const RPlayer = styled.div`
     font-size: 14px;
     transition: all 0.5s ease-in-out;
 
+    border-radius: 10px;
     >button{
       color: #00A79D;
     }
@@ -27,7 +28,20 @@ export const RPlayer = styled.div`
         text-shadow: 0em 0em 0.5em #fff, 0em 0em 0.5em #fff;
       }
     }
+    .video-react-control-bar{
+      border-radius: 0 0px 10px 10px;
+    }
+    .video-react-video{
+      border-radius: 10px;
+    }
+    .video-react-poster{
+      border-radius: 10px;
+    }
 
+      .video-react-fluid{
+        border-radius: 10px;
+      }
+    
     .video-react-time-control{
       padding-left: 0.5em;
       padding-right: 0.5em;
