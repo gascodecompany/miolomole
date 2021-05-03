@@ -96,7 +96,7 @@ export const gridTemplate = (theme) => {
         "city city city"
         "books books books"
     `};
-      grid-template-columns: Repeat(3, 1fr);
+      grid-template-columns: 1fr 1fr 280px;
     }
   `
 };
