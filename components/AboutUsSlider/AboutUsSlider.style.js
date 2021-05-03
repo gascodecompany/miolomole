@@ -4,7 +4,6 @@ const t = pt;
 
 export const AboutUsSlider = styled.div`
   background: #F6F6FA;
-  width: 100vw;
   display: flex;
   flex-direction: column;
   height: auto;

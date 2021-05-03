@@ -8,7 +8,6 @@ export const RelatedBooks = styled.div`
   width: 100%;
   justify-content: space-between;
   flex-flow: wrap;
-  flex-direction: column;
   @media screen{
     @media (min-width: 1024px){
       flex-direction: row;
@@ -32,15 +31,17 @@ export const BookRelatedCard = styled.div`
   flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
-
 `
 export const BookRelatedCover = styled.div`
   background-image: url(${({ img }) => img });
-  width: 150px;
-  height: 200px;
+  width: 90px;
+  height: 120px;
   background-size: contain;
   background-repeat: no-repeat;
-
+  @media (min-width: 1024px){
+    width: 150px;
+    height: 200px;
+  }
 `
 export const BookRelatedItemTitle = styled.div`
   font-family: Montserrat;

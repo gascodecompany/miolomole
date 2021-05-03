@@ -7,6 +7,7 @@ import EditIcon from '../../images/js/EditIcon';
 import DeleteIcon from '../../images/js/DeleteIcon';
 import axios from 'axios';
 import { useAppProvider } from '../../store/appProvider';
+import Button from '../../Elements/Button';
 
 export default function StoreSection(props){
   const { partners } = props;
@@ -40,8 +41,8 @@ export default function StoreSection(props){
               </S.PartnerText>
               { isLoggedIn && (
                 <S.Buttons>
-                  <S.DeleteButton onClick={() => handleDeletePartner(item)}><DeleteIcon/></S.DeleteButton>
-                  <S.EditButton onClick={() => handleEditPartner(item._id)}><EditIcon className="edit"/></S.EditButton>
+                  <Button type="delete" onClick={() => handleDeletePartner(item)} />
+                  <Button type="edit" onClick={() => handleEditPartner(item._id)} />
                 </S.Buttons>
               )}
             </S.PartnerCard>

@@ -14,7 +14,7 @@ export default function BookRelated(){
             <S.BookRelatedCard>
               <S.BookRelatedCover img={book?.cover3d}/>
               <S.BookRelatedItemTitle>{book.title}</S.BookRelatedItemTitle>
-              <Button label='Enviar'/>
+              <Button label='Ver mais'/>
             </S.BookRelatedCard>
           ))}
         </S.RelatedBooks>

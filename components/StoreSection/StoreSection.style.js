@@ -125,9 +125,7 @@ export const Buttons = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  &:focus, svg:focus {
-    outline: none;
-  }
+  &:focus, svg:focus { outline: none }
 
   svg{
     cursor: pointer;
