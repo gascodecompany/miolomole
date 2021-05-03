@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-
 export const RPlayer = styled.div`
   width: 100%;
   max-width: 800px;
@@ -12,7 +11,7 @@ export const RPlayer = styled.div`
     font-size: 14px;
     transition: all 0.5s ease-in-out;
 
-    border-radius: 10px;
+    border-radius: 4px;
     >button{
       color: #00A79D;
     }
@@ -29,17 +28,17 @@ export const RPlayer = styled.div`
       }
     }
     .video-react-control-bar{
-      border-radius: 0 0px 10px 10px;
+      border-radius: 0 0px 4px 4px;
     }
     .video-react-video{
-      border-radius: 10px;
+      border-radius: 4px;
     }
     .video-react-poster{
-      border-radius: 10px;
+      border-radius: 4px;
     }
 
       .video-react-fluid{
-        border-radius: 10px;
+        border-radius: 4px;
       }
     
     .video-react-time-control{
@@ -74,12 +73,12 @@ export const RPlayer = styled.div`
       }
     }
     .video-react-progress-holder{
-      border-radius: 10px;
+      border-radius: 4px;
     }
     .video-react-load-progress{
-      border-radius: 10px;
+      border-radius: 4px;
       >div{
-        border-radius: 10px;
+        border-radius: 4px;
 
       }
     }
