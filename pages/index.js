@@ -1,20 +1,18 @@
-import HomeApresentation from "../components/HomeApresentation";
-import HomeJumbotron from "../components/HomeJumbotron";
-import HomeLatestArticles from "../components/HomeLatestArticles";
-import LatestArticles from "../components/LatestArticles";
-import AboutUsSlider from "../components/AboutUsSlider";
 import pt from "../i18n/pt";
 import mongoose from 'mongoose';
-import Text from '../models/text'
-import Banner from '../components/Banner'
-import Player from "../components/Player";
+import Text from '../models/text';
+import Banner from '../components/Banner';
+import AboutUsSlider from "../components/AboutUsSlider";
+import HomeJumbotron from "../components/HomeJumbotron";
+import LatestArticles from "../components/LatestArticles";
+import HomeApresentation from "../components/HomeApresentation";
+import HomeLatestArticles from "../components/HomeLatestArticles";
 
 export default function Home(props) {
   const t = pt
   return (
     <>
       <HomeJumbotron/>
-      <Player/>
       <HomeApresentation {...props}/>
       <Banner {...props} index={1}/>
       <Banner {...props} index={2}/>

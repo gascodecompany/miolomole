@@ -230,7 +230,6 @@ const button = css`
 `
 
 const customButton = css`
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -244,7 +243,7 @@ const customButton = css`
   }
 `
 
-export const deleteButton = styled.div`
+export const DeleteButton = styled.div`
   ${customButton}
   svg.delete:hover{
     transform: scale(1.2) rotate(15deg);
@@ -276,7 +275,6 @@ export const EditButton = styled.div`
 
 export const ConfirmButton = styled.div`${customButton}`
 export const CancelButton = styled.div`${customButton}`
-export const DeleteButton = styled.div`${customButton}`
 
 export const StyledButtonAction = styled.button`
   ${button}

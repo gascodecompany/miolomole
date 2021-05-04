@@ -61,7 +61,7 @@ export default function BookInfo({ book }){
           <S.PriceText><span>R$</span><FieldEditable {...priceField} isLoggedIn={isLoggedIn} setFields={setPrice} /></S.PriceText>
         </S.Price>
         { isLoggedIn 
-          ? <Button onClick={() => saveInfos()} label="Salvar Sinopse" />
+          ? <Button onClick={() => saveInfos()} label="Salvar Descrição" />
           : <Button onClick={() => router.push('parceiros')} label="Comprar em loja parceira" />
         }
       </S.BottomWrapper>

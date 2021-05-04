@@ -5,9 +5,9 @@ import Evaporate from 'evaporate';
 import { v4 as uuidv4 } from 'uuid';
 import AWS from "aws-sdk";
 
-export default function InputImage({ placeholder, name, onChange, value, setFields }) {
+export default function InputImage({ placeholder, name, onChange, value, setFields, ...props }) {
   const [loading, setLoading] = useState(false);
-  const onDrop = useCallback(acceptedFiles => {
+  const onDrop = useCallback((acceptedFiles) => {
     setLoading(true);
     const file = acceptedFiles[0];
     const fileName = `dev/mioloMole/${uuidv4() + file.name}`;
@@ -21,7 +21,6 @@ export default function InputImage({ placeholder, name, onChange, value, setFiel
       cryptoMd5Method: data => AWS.util.crypto.md5(data, "base64"),
       cryptoHexEncodedHash256: data => AWS.util.crypto.sha256(data, "hex"),
     };
-    console.log(process.env.NEXT_PUBLIC_AWS_KEY, process.env.NEXT_PUBLIC_AWS_BUCKET, process.env.NEXT_PUBLIC_AWS_REGION)
     const evaporateAddConfig = {
       file,
       name: fileName, 
@@ -42,7 +41,7 @@ export default function InputImage({ placeholder, name, onChange, value, setFiel
   return (
     <span {...getRootProps()}>
       <input {...getInputProps()} />
-      <img src={value || 'https://placekitten.com/400/400'} />
+      <img src={value || 'https://placekitten.com/400/400'} {...props} />
     </span>
   )
 };

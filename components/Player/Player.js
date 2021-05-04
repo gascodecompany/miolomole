@@ -2,7 +2,7 @@ import * as S from './Player.styles';
 import * as P from 'video-react';
 import Container from '../Container';
 
-export default function Player(){
+export default function Player(src){
 
   return(
     <Container>
@@ -11,7 +11,7 @@ export default function Player(){
           fluid={true}
           width='auto'
           height={485}
-          src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+          src={src || "https://media.w3.org/2010/05/sintel/trailer_hd.mp4"}
           poster="../images/favicon.png"
         >
           <P.BigPlayButton position='center' />
