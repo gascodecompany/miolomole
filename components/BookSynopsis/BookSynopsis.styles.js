@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 export const BookSynopsis = styled.div`
   background: #FFE495;
   width: 100%;
-  padding: 40px 20px;
+  padding: 50px;
 
   .container{
     width: 100%;
@@ -12,6 +12,11 @@ export const BookSynopsis = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    img {
+      width: 300px;
+      height: auto;
+      margin-bottom: 30px;
+    }
     @media screen{
       @media (min-width: 1024px){
         display: grid;
@@ -22,7 +27,8 @@ export const BookSynopsis = styled.div`
           "message message"
           "button button"
         ;
-        gap: 20px;
+        grid-gap: 20px;
+        .container > img { margin-bottom: 0;}
       }
     }
   }
@@ -57,13 +63,9 @@ export const SynopsisTitle = styled.div`
   font-family: Amatic SC;
   font-weight: bold;
   font-size: 40px;
-  line-height: 1.5;
-  display: flex;
-  align-items: flex-end;
   letter-spacing: 2.4px;
-  margin-bottom: 20px;
-  color: #000000;
-
+  text-align: center;
+  @media (min-width: 1024px){ text-align: left }
 `
 export const SynopsisInfo = styled.div`
   width: 80vw;
@@ -93,12 +95,7 @@ export const SynopsisText = styled.div`
     :focus { border: none }
     @media screen{
       @media (min-width: 1024px){
-        width: 80%;
         margin-bottom: 20px;
-        min-width: 500px;
-        min-height: 150px;
-        max-width: 700px;
-        max-height: 400px;
       }
     }
   }
@@ -115,7 +112,7 @@ export const SynopsisImage = styled.img`
 `
 export const SynopsisVideo = styled.div`
   grid-area: video;
-  width: 200px;
+  width: 100%;
   height: auto;
   margin-bottom: 30px;
   @media screen{
@@ -129,7 +126,6 @@ export const SynopsisVideo = styled.div`
 export const InputVideo = styled.div`
   background-color: ${({ theme: { color: { blackLigthly }}}) => blackLigthly };
   opacity: 70%;
-  width: 400px;
   height: 200px;
   border: 4px solid ${({ theme: { color: { blackLighter }}}) => blackLighter };;  
   border-radius: 10px;
@@ -137,8 +133,10 @@ export const InputVideo = styled.div`
   cursor: not-allowed;
   :hover { background-color: ${({ theme: { color: { blackLighter }}}) => blackLighter } }
   /* :active { background-color: #858585 }; */
-  :after {
-    content: 'Video (em manutenção)';
+  ::before {
+    content: "Vídeo \\a (em manutenção)";
+    white-space: pre;
+    text-align: center;
     overflow: auto;
     position: absolute;
     transform: translate(-50%, -50%);

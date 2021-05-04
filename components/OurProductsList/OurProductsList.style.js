@@ -42,7 +42,6 @@ export const OurProductsTitle = styled.h1`
   font-size: 40px;
   text-align: center;
   line-height: 50px;
-  color: #000000;
   margin: 0;
   margin-bottom: 30px;
   width: 100%;
@@ -55,7 +54,6 @@ export const OurProductsText = styled.p`
   font-size: ${({ theme: { fontSize: { fontSizeSMM }}}) => fontSizeSMM };
   line-height: 30px;
   text-align: center;
-  color: #000000;
   width: 100%;
   white-space: break-spaces;
   border: none;
@@ -66,15 +64,16 @@ export const OurProductsText = styled.p`
 `
 export const ProductCards = styled.div`
   display: flex;
-  flex-flow: wrap;
-  justify-content: space-between;
+  flex-flow: column wrap;
+  max-height: 800px;
+  align-content: space-between;
+  width: 100%;
 `
+
 export const ProductCard = styled.div`
   text-align: center;
-  margin-bottom: 50px;
-  width: 250px;
-
   cursor: pointer;
+  margin-bottom: 30px;
   @media screen{
     @media (min-width: 1024px){
       width: 250px;
@@ -82,10 +81,9 @@ export const ProductCard = styled.div`
   }
 `
 
-export const ProductCardImage = styled.div`
+export const ProductCardImage = styled.img`
   width: 250px;
-  height: 320px;
-  background-image: url(${({ img }) => img });
+  height: auto;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -96,7 +94,6 @@ export const ProductCardTitle = styled.div`
   font-weight: 600;
   font-size: ${({ theme: { fontSize: { fontSizeXS }}}) => fontSizeXS };
   line-height: 26px;
-  color: #000000;
   margin-bottom: 5px;
 `
 export const ProductCardPrice = styled.div`
@@ -105,6 +102,4 @@ export const ProductCardPrice = styled.div`
   font-size: 24px;
   line-height: 29px;
   text-align: center;
-
-  color: #000000;
 `

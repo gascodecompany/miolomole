@@ -13,7 +13,7 @@ export default function EditableImage ({ children, page, texts, textKey, book })
   const { isLoggedIn } = useAppProvider();
   const [edit, setEdit] = useState(false);
   let initialLink = (!!texts && !!textKey) && !!texts[textKey] ? texts[textKey] : 'https://placekitten.com/400/400'
-  if(book?.images) { initialLink = book.images[0] }
+  if(book?.images) { initialLink = book.images[0] || 'https://placekitten.com/400/400' }
   const [link, setLink] = useState(initialLink);
   const [newLink, setNewLink] = useState(initialLink);
   const [loading, setLoading] = useState(false);

@@ -14,7 +14,9 @@ export const BookGallery = styled.div`
     }
   }
 `
+
 export const BookCover = styled.img`
+  width: 300px;
   height: auto;
   background-repeat: no-repeat;
   background-position: center;

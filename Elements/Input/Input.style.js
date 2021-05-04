@@ -1,11 +1,12 @@
-import styled, { css } from "styled-components";
-import Select from "react-select/async-creatable";
-import Switch from "react-switch";
 import Button from "../Button";
-import Input from 'react-input-mask';
-import { SortableContainer } from 'react-sortable-hoc';
 import { Range } from 'rc-slider';
-import { execOnce } from "next/dist/next-server/lib/utils";
+import Switch from "react-switch";
+import { forwardRef } from 'react';
+import Input from 'react-input-mask';
+import styled, { css } from 'styled-components';
+import Select from "react-select/async-creatable";
+import { SortableContainer } from 'react-sortable-hoc';
+import TextareaAutosize from 'react-textarea-autosize';
 
 const SortableSelect = SortableContainer(Select);
 
@@ -308,7 +309,7 @@ export const StyledFieldLink = styled(Button)`
 
 `;
 
-export const TextArea = styled.textarea`
+export const TextArea = styled(forwardRef((props, ref) => <TextareaAutosize {...props} ref={ref} />))`
   border: 1px solid #151B64;
   box-sizing: border-box;
   border-radius: 8px;

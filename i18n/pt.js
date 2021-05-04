@@ -16,9 +16,9 @@ export default {
     banner4,
   ],
   SOCIAL_ITEMS: [
-    { name: "YouTube", icon: 'YouTube', link: 'https://www.youtube.com/' },
-    { name: "Facebook", icon: 'Facebook', link: 'https://www.facebook.com/' },
-    { name: "Instagram", icon: 'Instagram', link: 'https://www.instagram.com/' },
+    { name: "YouTube", icon: 'YouTube', link: 'https://www.youtube.com/channel/UCcrIMy76NtYb8f0H3Vmwp5Q/' },
+    { name: "Facebook", icon: 'Facebook', link: 'https://www.facebook.com/editoramiolomole' },
+    { name: "Instagram", icon: 'Instagram', link: 'https://www.instagram.com/editoramiolomole/' },
   ],
   ADDRESS: {
     ICON: 'Address',

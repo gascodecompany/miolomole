@@ -1,6 +1,7 @@
 import Container from '../Container'
 import Editable from '../Editable'
 import EditableImage from '../EditableImage'
+import Player from '../Player'
 import * as S from './HomeApresentation.style'
 
 export default function HomeApresentation(props) {

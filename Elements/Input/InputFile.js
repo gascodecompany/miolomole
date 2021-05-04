@@ -8,7 +8,7 @@ import * as S from './Input.style';
 
 export default function InputFile({ placeholder, name, onChange, value, setFields, type }) {
   const [loading, setLoading] = useState(false);
-  const onDrop = useCallback(acceptedFiles => {
+  const onDrop = useCallback((acceptedFiles) => {
     setLoading(true);
     const file = acceptedFiles[0];
     const fileName = `dev/mioloMole/${uuidv4() + file.name}`;
