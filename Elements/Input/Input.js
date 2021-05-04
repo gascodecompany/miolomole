@@ -7,21 +7,22 @@ import InputRadio from './InputRadio';
 import InputDate from './InputDate';
 import InputRange from './InputRange';
 import InputSearch from './InputSearch';
-import InputImage from './InputImage';
+import InputFile from './InputFile';
 
 export default function Input(props) {
   const { type } = props
 
-  const fieldTypes = {
-    "select": <InputSelect {...props} />,
-    "selectMulti": <InputSelect {...props} />,
-    "switch": <InputSwitch {...props} />,
-    "radio":  <InputRadio {...props} />,
-    "date":  <InputDate {...props} />,
-    "textarea":  <InputTextArea {...props} />,
-    "range":  <InputRange {...props} />,
-    "search":  <InputSearch {...props} />,
-    "image":  <InputImage {...props} />,
+  switch (type) {
+    case 'select': return <InputSelect {...props} />;
+    case 'switch': return <InputSwitch {...props} />;
+    case 'radio': return <InputRadio {...props} />;
+    case 'date': return <InputDate {...props} />;
+    case 'textarea': return <InputTextArea {...props} />;
+    case 'range': return <InputRange {...props} />;
+    case 'search': return <InputSearch {...props} />;
+    case 'image': 
+    case 'video': 
+    case 'audio': return <InputFile {...props} />;
+    default: return <InputText {...props} />
   }
-  return fieldTypes[type] || <InputText {...props} />
 };

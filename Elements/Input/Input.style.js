@@ -16,6 +16,28 @@ export const StyledInputSwitchs = styled.div`
 export const StyledInputDate = styled.div`
 `;
 
+export const InputFile = styled.div`
+  width: 100%;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+
+  button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  p {
+    text-align: center;
+    padding: 15px;
+  }
+` 
+
 export const InputRadio = styled.input`
   position: absolute;
   opacity: 0;
