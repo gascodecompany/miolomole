@@ -1,8 +1,8 @@
 export const UsuariosFieldsState = (props) => ({
-  avatar: { value: props?.avatar || '' },
-  userName: { value: props?.userName || '' },
-  occupation: { value: props?.occupation || '' },
-  description: { value: props?.description || '' },
+  avatar: { value: '' },
+  userName: { value: '' },
+  occupation: { value: [] },
+  description: { value: '' },
 })
 
 export const UsuariosFieldsFunction = ({ fields }) => ({
@@ -10,6 +10,7 @@ export const UsuariosFieldsFunction = ({ fields }) => ({
     ...fields.avatar,
     name: 'avatar',
     label: 'Foto',
+    type: 'image'
   },
   userName: {
     ...fields.userName,

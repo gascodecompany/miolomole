@@ -1,5 +1,6 @@
 import * as S from './UsersList.styles';
 import Container from '../Container';
+import { useState } from 'react';
 
 const UserExamples = [
   {
@@ -19,7 +20,9 @@ const UserExamples = [
   }
 ]
 
-export default function UsersList(){
+export default function UsersList(props) {
+  const users = props ? JSON.parse(props.users) : []
+  const [usersList, setUsersList] = useState(users);
 
   return(
     <Container>
@@ -30,7 +33,7 @@ export default function UsersList(){
           <b>Nome</b>
           <b>Função</b>
         </S.UserHeader>
-        {UserExamples.map((user) => (
+        {usersList.map((user) => (
         <S.UsersListItem>
           <S.UserAvatar img={user.avatar}/>
           <S.UserName>{user.userName}</S.UserName> 
