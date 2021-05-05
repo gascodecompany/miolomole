@@ -1,9 +1,10 @@
 import pt from "../i18n/pt";
 import mongoose from 'mongoose';
 import Text from '../models/text';
+import Book from '../models/book';
 import Banner from '../components/Banner';
 import AboutUsSlider from "../components/AboutUsSlider";
-import HomeJumbotron from "../components/HomeJumbotron";
+import SpotlightBooksJumbotron from "../components/SpotlightBooksJumbotron";
 import LatestArticles from "../components/LatestArticles";
 import HomeApresentation from "../components/HomeApresentation";
 import HomeLatestArticles from "../components/HomeLatestArticles";
@@ -12,7 +13,7 @@ export default function Home(props) {
   const t = pt
   return (
     <>
-      <HomeJumbotron/>
+      <SpotlightBooksJumbotron {...props} />
       <HomeApresentation {...props}/>
       <Banner {...props} index={1}/>
       <Banner {...props} index={2}/>
@@ -30,5 +31,7 @@ export async function getStaticProps() {
   const page = 'home';
   const textsArray = await Text.find({ page });
   const texts = textsArray.reduce((object, text) => Object.assign(object, {[text.textKey]: text.text}), {});
-  return { props: { texts, page }, revalidate: 1 }
+  const booksArray = await Book.find({ "spotlight.isActive": "true" });
+  const spotlightBooks = !!booksArray.length ? JSON.stringify(booksArray) : '[]';
+  return { props: { texts, page, spotlightBooks }, revalidate: 1 }
 }

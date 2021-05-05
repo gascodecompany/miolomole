@@ -2,19 +2,21 @@ import styled, { css } from 'styled-components';
 import { lighten, darken } from 'polished';
 
 const primary = css`
-  background: ${({ theme: { color: { brand }}}) => brand };
-  padding: 17px;
+  justify-self: center;
+  padding: 5px;
+  font-family: Montserrat;
+  font-weight: bold;
+  font-size: ${({ theme: { fontSize: { fontSizeS }}}) => fontSizeS };
+  letter-spacing: 2.4px;
+  color: #FFFFFF;
   width: 200px;
   height: 50px;
+  background: ${({ theme: { color: { brand }}}) => brand };
+  border-radius: 12px;
   border: none;
-  border-radius: 100px;
-  
-  p {
-    color: ${({ theme: { color: { white }}}) => white };
-    font-size: ${({ theme: { fontSize: { fontSizeXXS }}}) => fontSizeXXS };
-    font-family: Montserrat;
-    letter-spacing: 2.4px;
-  }
+  color: white;
+  box-shadow: 3px 3px 2px rgb(115 137 169 / 20%);
+  transition: all 0.3s; 
 
   svg {
     path {

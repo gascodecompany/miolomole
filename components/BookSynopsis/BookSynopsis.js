@@ -57,7 +57,7 @@ export default function BookSynopsis({ book, ...props }){
         </S.SynopsisInfo>
         <EditableImage {...props} book={book} isLoggedIn={isLoggedIn}><S.SynopsisImage /></EditableImage>
         <S.Message>{ message && message }</S.Message>
-        { isLoggedIn && <Button id="save" onClick={() => saveInfos()} label="Salvar Sinopse" />}
+        { isLoggedIn && <Button id="save" variation="primary" onClick={() => saveInfos()} label="Salvar Sinopse" />}
       </Container>
     </S.BookSynopsis>
   )

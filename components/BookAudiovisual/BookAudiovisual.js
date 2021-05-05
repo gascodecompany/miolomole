@@ -8,13 +8,13 @@ export default function BookAudiovisual({ audioVisual, audioDescricao }){
       <S.Book>
         <S.BookWrapper>
           <S.Title>Audio visual</S.Title>
-          <Player/>
+          <Player src={audioVisual} />
         </S.BookWrapper>
       </S.Book>
       <S.Book className="describle">
         <S.BookWrapper>
           <S.Title>Audio descritivo</S.Title>
-          <Player />
+          <Player src={audioDescricao} />
         </S.BookWrapper>
       </S.Book>
     </S.BookAcessivel>

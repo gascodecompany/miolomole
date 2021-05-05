@@ -33,26 +33,7 @@ export const BookSynopsis = styled.div`
     }
   }
 
-  #save{
-    grid-area: button;
-    padding: 5px;
-    font-family: Montserrat;
-    font-weight: bold;
-    font-size: ${({ theme: { fontSize: { fontSizeS }}}) => fontSizeS };
-    letter-spacing: 2.4px;
-    color: #FFFFFF;
-    width: 100%;
-    background: ${({ theme: { color: { brand }}}) => brand };
-    border-radius: 100px;
-    border: none;
-    color: white;
-    box-shadow: 3px 3px 2px rgb(115 137 169 / 20%);
-    transition: background 0.3s; 
-
-    :hover{
-      background: ${({ theme: { color: { brandDarkGreen }}}) => brandDarkGreen };
-    }
-  }
+  #save{ grid-area: button }
 `
 
 export const SynopsisWrapper = styled.div`

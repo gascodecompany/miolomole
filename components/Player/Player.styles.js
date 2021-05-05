@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const RPlayer = styled.div`
   width: 100%;
   max-width: 800px;
-  
   .video-react {
     color: #fbb040;
     font-family: Arial, Helvetica, sans-serif;
@@ -51,5 +50,6 @@ export const RPlayer = styled.div`
     }
   }
 
+  @media (min-width: 1024px){ padding: 30px }
 
 `

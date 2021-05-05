@@ -80,7 +80,7 @@ export const PartnerFormFieldsFunction = ({ fields, partner, books }) => ({
   }
 })
 
-export const gridTemplate = (theme) => {
+export const gridTemplate = () => {
   return `
     grid-template: ${`
      "logo" 

@@ -52,6 +52,12 @@ export default function BookInfo({ book }){
     }
   }
 
+  const saveButton = {
+    variation: "primary",
+    onClick: () => isLoggedIn ? saveInfos() : router.push('parceiros'),
+    label: isLoggedIn ? "Salvar Descrição" : "Comprar em loja parceira"
+  }
+
   return(
     <S.BookInfo>
       <Form { ...formProps } />
@@ -60,10 +66,7 @@ export default function BookInfo({ book }){
           <S.Label>Preço</S.Label>
           <S.PriceText><span>R$</span><FieldEditable {...priceField} isLoggedIn={isLoggedIn} setFields={setPrice} /></S.PriceText>
         </S.Price>
-        { isLoggedIn 
-          ? <Button onClick={() => saveInfos()} label="Salvar Descrição" />
-          : <Button onClick={() => router.push('parceiros')} label="Comprar em loja parceira" />
-        }
+          <Button {...saveButton} />
       </S.BottomWrapper>
       <S.Message>{ message && message }</S.Message>
     </S.BookInfo>

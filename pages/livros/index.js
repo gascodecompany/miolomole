@@ -7,9 +7,11 @@ export async function getStaticProps() {
   const page = 'books';
   const textsArray = await Text.find({ page });
   const booksArray = await Book.find();
+  const spotlightBooksArray = await Book.find({ "spotlight.isActive": "true" });
+  const spotlightBooks = !!spotlightBooksArray.length ? JSON.stringify(spotlightBooksArray) : '[]';
   const books = JSON.stringify(booksArray);
   const texts = textsArray.reduce((object, text) => Object.assign(object, {[text.textKey]: text.text}), {});
-  return { props: { texts, books, page }, revalidate: 1 }
+  return { props: { texts, books, spotlightBooks, page }, revalidate: 1 }
 }
 
 export { default } from './Books';

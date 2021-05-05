@@ -273,3 +273,9 @@ export const PasswordToggle = styled.div`
   bottom: 40px;
   cursor: pointer;
 `
+
+export const SwitchField = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`

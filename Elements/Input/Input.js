@@ -20,8 +20,8 @@ export default function Input(props) {
     case 'textarea': return <InputTextArea {...props} />;
     case 'range': return <InputRange {...props} />;
     case 'search': return <InputSearch {...props} />;
-    case 'image': 
-    case 'video': 
+    case 'image':
+    case 'video':
     case 'audio': return <InputFile {...props} />;
     default: return <InputText {...props} />
   }

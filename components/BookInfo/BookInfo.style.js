@@ -6,28 +6,7 @@ export const BookInfo = styled.div`
     @media (min-width: 1024px){ width: 60% }
   }
 
-  button{
-    grid-area: button;
-    justify-self: center;
-    padding: 5px;
-    font-family: Montserrat;
-    font-weight: bold;
-    font-size: ${({ theme: { fontSize: { fontSizeS }}}) => fontSizeS };
-    letter-spacing: 2.4px;
-    color: #FFFFFF;
-    width: 80%;
-    height: 50px;
-    background: ${({ theme: { color: { brand }}}) => brand };
-    border-radius: 12px;
-    border: none;
-    color: white;
-    box-shadow: 3px 3px 2px rgb(115 137 169 / 20%);
-    transition: background 0.3s; 
-
-    :hover{
-      background: ${({ theme: { color: { brandDarkGreen }}}) => brandDarkGreen };
-    }
-  }
+  button{ grid-area: button; }
 `
 export const BookInfoTitle = styled.h1`
   font-family: Montserrat;

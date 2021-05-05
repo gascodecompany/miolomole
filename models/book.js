@@ -15,10 +15,12 @@ var book = new Schema({
   authors: [{ type: String }],
   price: { type: String },
   images: [{ type: String }],
+  video: { type: String },
   spotlight: {
     isActive: { type: Boolean },
-    spotlightImage: { type: String },
-    spotlightTitile: { type: String },
+    image: { type: String },
+    title: { type: String },
+    description: { type: String },
   }
 }, { timestamps: true });
 

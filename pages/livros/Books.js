@@ -1,11 +1,9 @@
 import { useRouter } from 'next/router'
-import BooksJumbotron from "../../components/BooksJumbotron";
+import SpotlightBooksJumbotron from "../../components/SpotlightBooksJumbotron";
 import OurProductsList from "../../components/OurProductsList";
 import LatestArticles from "../../components/LatestArticles";
 import HomeLatestArticles from "../../components/HomeLatestArticles";
 import pt from "../../i18n/pt";
-import BookComponent from "../../components/BookComponent";
-import { Books } from '../../Constants/Books'
 import AboutUsSlider from '../../components/AboutUsSlider';
 
 export default function BooksList(props){
@@ -15,7 +13,7 @@ export default function BooksList(props){
 
   return(
     <div>
-      <BooksJumbotron/>
+      <SpotlightBooksJumbotron {...props} />
       <OurProductsList {...props} id={id} />
       <LatestArticles items={t.BLOG_ARTICLES}/>
       <AboutUsSlider/>

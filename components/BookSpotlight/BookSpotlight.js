@@ -1,9 +1,46 @@
+import axios from 'axios';
+import Form from '../../Elements/Form';
+import Button from '../../Elements/Button';
+import { useState, useEffect } from 'react';
 import * as S from './BookSpotlight.styles';
+import { useAppProvider } from '../../store/appProvider';
+import mapFieldsToData from '../../utils/mapFieldsToData';
+import mapDataToFields from '../../utils/mapDataToFields';
+import { bookSpotlightFieldsState, bookSpotlightFieldsFunction, gridTemplate } from './BookSpotlight.constants';
 
-export default function BookSpotlight(){
-  return(
+export default function BookSpotlight({ book }){
+  const { isLoggedIn } = useAppProvider();
+  const [fields, setFields] = useState(bookSpotlightFieldsState);
+  const [message, setMessage] = useState();
+  const bookSpotlightFields = bookSpotlightFieldsFunction({ fields });
+  
+  useEffect(() => {
+    setFields((oldFields) => {
+      const newFields = {...oldFields};
+      mapDataToFields({ newFields, constantFields: bookSpotlightFields, data: book.spotlight });
+      return newFields;
+    })
+  }, [])
+
+  const formProps = {
+    fields: bookSpotlightFields,
+    setFields,
+    gridTemplate
+  };
+
+  const saveInfos = async() => {
+    const variables = mapFieldsToData({...bookSpotlightFields});
+    variables._id = book._id;
+    const res = await axios.put('/api/livros', { _id: book._id, spotlight: { ...variables } });
+    if(res.status === 200){ setMessage('Destaques salvos com sucesso!') }
+  }
+
+  return (
     <S.BookSpotlight>
-       
+      <h1>Destaque</h1>
+      <Form { ...formProps } />
+      <S.Message>{ message && message }</S.Message>
+      { isLoggedIn && <Button variation="primary" onClick={() => saveInfos()} label="Salvar Destaque" /> }
     </S.BookSpotlight>
   )
 }
