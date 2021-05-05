@@ -19,12 +19,12 @@ export default function Player(src){
           <P.ControlBar autoHide={true} >
             <P.PlayToggle order={1}/>
             <P.ForwardControl seconds={10} order={2} disabled/>
-            <P.VolumeMenuButton disabled/>
-            <P.ProgressControl order={2}/>
-            <P.CurrentTimeDisplay order={3.1}/>
-            <P.TimeDivider order={3.2}/>
-            <P.DurationDisplay order={3.3}/>
-            <P.FullscreenToggle order={4}/>
+            <P.VolumeMenuButton onder={3}/>
+            <P.ProgressControl order={4}/>
+            <P.CurrentTimeDisplay order={5.1}/>
+            <P.TimeDivider order={5.2}/>
+            <P.DurationDisplay order={5.3}/>
+            <P.FullscreenToggle order={6}/>
           </P.ControlBar>
         </P.Player>  
       </S.RPlayer>
