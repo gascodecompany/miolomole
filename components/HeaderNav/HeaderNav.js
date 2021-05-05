@@ -14,7 +14,7 @@ export default function HeaderNav({isOpen, toggle}){
     { name: 'Contato', path: '/contato' },
   ]
 
-  // if(isLoggedIn) { navMenuItems = navMenuItems.concat({ name: 'Usuarios', path: '/usuarios'}) }
+  if(isLoggedIn) { navMenuItems = navMenuItems.concat({ name: 'Usuarios', path: '/usuarios'}) }
 
   return(
     <S.HeaderNav>
