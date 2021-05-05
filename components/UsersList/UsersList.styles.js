@@ -44,7 +44,7 @@ export const UsersListItem = styled.div`
     }
   }
 `
-export const UserAvatar = styled.div`
+export const UserAvatar = styled.image`
   background-image: url(${({ img }) => img });
   width: 30px;
   height: 30px;
