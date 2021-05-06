@@ -50,12 +50,8 @@ export default function BookSynopsis({ book, ...props }){
             <S.SynopsisTitle>Sinopse</S.SynopsisTitle>
             <S.SynopsisText isLoggedIn={isLoggedIn}><Input {...synopsisInput.synopsis} setFields={setFields} /></S.SynopsisText>
           </S.SynopsisWrapper>
-          <S.SynopsisVideo>
-            {book?.video && <ReactPlayer url={book?.video} width='100%' height='100%'/>}
-            {isLoggedIn && <S.InputVideo />}
-          </S.SynopsisVideo>
         </S.SynopsisInfo>
-        <EditableImage {...props} book={book} isLoggedIn={isLoggedIn}><S.SynopsisImage /></EditableImage>
+        <S.SynopsisVideo><Input {...synopsisInput.video} isLoggedIn={isLoggedIn} setFiels={synopsisInput} /></S.SynopsisVideo>
         <S.Message>{ message && message }</S.Message>
         { isLoggedIn && <Button id="save" variation="primary" onClick={() => saveInfos()} label="Salvar Sinopse" />}
       </Container>

@@ -82,26 +82,11 @@ export const SynopsisText = styled.div`
   }
 `
 
-export const SynopsisImage = styled.img`
+export const SynopsisVideo = styled.div`
   grid-area: cover;
   width: 100%;
   height: auto;
-  background-repeat: no-repeat;
-  background-size: cover;
-  overflow: hidden;
   align-self: center;
-`
-export const SynopsisVideo = styled.div`
-  grid-area: video;
-  width: 100%;
-  height: auto;
-  margin-bottom: 30px;
-  @media screen{
-    @media (min-width: 1024px){
-      width: 200px;
-      height: auto;
-    }
-  }
 `
 
 export const InputVideo = styled.div`
