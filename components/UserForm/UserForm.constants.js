@@ -1,15 +1,17 @@
-export const UsuariosFieldsState = (props) => ({
-  avatar: { value: props?.avatar || '' },
-  userName: { value: props?.userName || '' },
-  occupation: { value: props?.occupation || '' },
-  description: { value: props?.description || '' },
+export const usuariosFieldsState = (props) => ({
+  avatar: { value: '' },
+  userName: { value: '' },
+  occupation: { value: [] },
+  description: { value: '' },
+  password: { value: '' },
 })
 
-export const UsuariosFieldsFunction = ({ fields }) => ({
+export const usuariosFieldsFunction = ({ fields }) => ({
   avatar: {
     ...fields.avatar,
     name: 'avatar',
     label: 'Foto',
+    type: 'image'
   },
   userName: {
     ...fields.userName,
@@ -28,6 +30,12 @@ export const UsuariosFieldsFunction = ({ fields }) => ({
       { label: 'Administrador', value: 'admin' }
     ]
   },
+  password: {
+    ...fields.password,
+    name: 'password',
+    label: 'Senha',
+    type: 'password'
+  },
   description: {
     ...fields.description,
     label: 'Descrição',
@@ -41,6 +49,7 @@ export const gridTemplate = () => {
   return `
     grid-template:
       "avatar userName occupation"
+      "avatar password password"
       "avatar description description"
     ;
     grid-template-columns: 320px 1fr 1fr;

@@ -1,10 +1,10 @@
-import { useRouter } from 'next/router'
-import SpotlightBooksJumbotron from "../../components/SpotlightBooksJumbotron";
-import OurProductsList from "../../components/OurProductsList";
-import LatestArticles from "../../components/LatestArticles";
-import HomeLatestArticles from "../../components/HomeLatestArticles";
 import pt from "../../i18n/pt";
+import { useRouter } from 'next/router';
 import AboutUsSlider from '../../components/AboutUsSlider';
+import LatestArticles from "../../components/LatestArticles";
+import OurProductsList from "../../components/OurProductsList";
+import HomeLatestArticles from "../../components/HomeLatestArticles";
+import SpotlightBooksJumbotron from "../../components/SpotlightBooksJumbotron";
 
 export default function BooksList(props){
   const router = useRouter();

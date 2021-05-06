@@ -16,6 +16,7 @@ export const UserHeader = styled.div`
   display: grid;
   grid-template-columns: 35px 2fr 1fr 30px 30px;
   align-items: center;
+  justify-content: center;
   margin-bottom: 10px;
   @media screen{
     @media (min-width: 1024px){
@@ -78,4 +79,20 @@ export const ButtonDelete = styled(Button)`
 export const ButtonEdit = styled(Button)`
   height: 20px;
   width: 20px;
+`
+
+export const AddUserButton = styled.div`
+  background-color: white;
+  width: 100%;
+  cursor: pointer;
+  span {
+    font-size: 36px;
+    line-height: 56px;
+    font-weight: 500;
+  }
+  &:hover {
+    color: ${({ theme: { color: { blue }}}) => blue };
+    transition: .5s cubic-bezier(.22,.68,0,1.71);
+  }
+
 `

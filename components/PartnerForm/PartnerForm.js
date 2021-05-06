@@ -22,10 +22,10 @@ export default function PartnerForm(props){
     : PartnerFormInitialState
   const [fields, setFields] = useState(initialState);
   const [message, setMessage] = useState();
-  const PartnerFormfields = PartnerFormFieldsFunction({ fields, setFields, setMessage, router, partner, books: booksArray });
+  const partnerFormfields = PartnerFormFieldsFunction({ fields, setFields, setMessage, router, partner, books: booksArray });
   const onSubmit = async () => {
     setMessage('')
-    const fieldsValue = mapFieldsToData(PartnerFormfields);
+    const fieldsValue = mapFieldsToData(partnerFormfields);
     if(!partner){ 
       const res = await axios.post(`/api/parceiros`, { ...fieldsValue })
       if(res.status === 200) { setMessage('Cadastrado realizado com sucesso!'); setFields(PartnerFormInitialState) }
@@ -36,7 +36,7 @@ export default function PartnerForm(props){
       else { setMessage(res?.response?.data) }
     }
   }
-  const formProps = { gridTemplate, fields: PartnerFormfields, setFields };
+  const formProps = { gridTemplate, fields: partnerFormfields, setFields };
   return(
     <S.PartnerForm>
       <h1>{!!partner ? 'Editar' : 'Adicionar'} parceiro</h1>

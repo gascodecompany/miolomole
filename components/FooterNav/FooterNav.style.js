@@ -23,7 +23,7 @@ export const FooterNav = styled.ul`
 
     }
   }
-  li{
+  span{
     cursor: pointer;
     :hover{
       font-weight: 600;
