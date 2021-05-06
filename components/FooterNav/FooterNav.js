@@ -19,7 +19,7 @@ export default function FooterNav(){
       {navMenuItems.map((item) => 
         <S.NavItem key={item.name}>
           <Link href={item.path}>
-            <li >{item.name}</li>
+            <span>{item.name}</span>
           </Link>
         </S.NavItem>
       )}
