@@ -12,7 +12,7 @@ export default function BookComponent(props){
       <BookSection {...props} />
       <BookSynopsis {...props} />
       { isLoggedIn && <BookSpotlight {...props} /> }
-      <BookRelated/>
+      <BookRelated {...props} />
     </S.BookComponent>
   )
 }
