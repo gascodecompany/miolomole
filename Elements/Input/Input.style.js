@@ -49,7 +49,7 @@ export const ActionButtonWrapper = styled.div`
   margin: 30px 0;
   @media (min-width: 1024px){ 
     padding: 30px;  
-    width: 100%;
+    width: 50%;
   }
   p{
     font-size: 12px;

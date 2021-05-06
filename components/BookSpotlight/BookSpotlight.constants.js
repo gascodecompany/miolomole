@@ -33,9 +33,9 @@ export const gridTemplate = () => {
   return `
     grid-template: ${`
       "image"
-      "isActive"
-      "title"
       "description"
+      "title"
+      "isActive"
     `};
     grid-gap: 15px;
     grid-template-rows: auto;
@@ -45,8 +45,8 @@ export const gridTemplate = () => {
     @media (min-width: 1024px){
       grid-template: ${`
         "image image"
-        "title isActive"
         "description description"
+        "title isActive"
       `};
       grid-template-columns: 1fr 250px;
     }
