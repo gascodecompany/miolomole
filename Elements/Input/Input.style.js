@@ -51,6 +51,18 @@ export const ActionButtonWrapper = styled.div`
     padding: 30px;  
     width: 100%;
   }
+  p{
+    font-size: 12px;
+    @media screen{
+      @media (min-width:1024px){
+        font-size: 16px;
+
+      }
+    }
+  }
+  span{
+    padding: 20px;
+  }
 `
 
 export const DeleteButton = styled.div`
@@ -67,11 +79,22 @@ export const DeleteButton = styled.div`
 `
 
 export const InputPreview = styled.div`
-  width: 300px;
+  grid-area: preview;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  img { width: 100%; height: auto; }
+  img { 
+    width: 100%;
+    object-fit: cover;
+    height: 28vw;
+
+    @media screen{
+      @media (min-width: 1024px){
+        height: 260px;
+      }
+    }
+  }
 `
 
 export const InputRadio = styled.input`
