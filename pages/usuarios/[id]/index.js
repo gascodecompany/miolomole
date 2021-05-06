@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import bcrypt from 'bcryptjs';
 import User from '../../../models/user';
 import UserForm from '../../../components/UserForm';
 import { useAppProvider } from '../../../store/appProvider';
