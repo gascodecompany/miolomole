@@ -27,7 +27,11 @@ export default function UserForm(props){
     }
   }, [props.user])
 
-  if(!!userFormfields?.occupation?.value.length && !userFormfields?.occupation?.value?.some((occupation) => occupation.value == "admin")){
+  if(
+    userFormfields?.occupation?.value.length === 0 ||
+    userFormfields?.occupation?.value.length && !userFormfields?.occupation?.value.some((occupation) => occupation.value === 'admin') ||
+    !!userFormfields?.occupation?.value?.value && !userFormfields?.occupation?.value?.value.some((occupation) => occupation === 'admin')
+  ) {
     delete formProps.fields.password
   }
 
@@ -39,6 +43,7 @@ export default function UserForm(props){
     else {res = await axios.put('/api/users', { ...variables, _id: user._id })}
     if(res.status === 200) { setMessage(`Cadastrado ${user ? 'atualizado' : 'realizado'} com sucesso!`) }
     else { setMessage(res?.response?.data) }
+    router.goBack()
   }
 
   return(

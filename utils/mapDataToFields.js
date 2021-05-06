@@ -1,7 +1,7 @@
 import arrayToStringFormatter from './arrayToStringFormatter'
 
 function getDataValue({ newFields, field, data, constant }) {
-  if(constant.type != 'password'){
+  if(constant?.type != 'password'){
     if(Array.isArray(data[field])) { 
       if( data[field].length > 1) { newFields[field].value = arrayToStringFormatter(data[field]) }
       else { newFields[field].value = [data[field][0]] }
@@ -10,7 +10,17 @@ function getDataValue({ newFields, field, data, constant }) {
 }
 
 function getDataSelectValue({ newFields, field, data, constant }) {
-  newFields[field].value = !!data[field].length ? { label: data[field]?.label || data[field]?.name || data[field]?.legalName || data[field]?._id || data[field].title || constant?.options?.find(({value}) => value == data[field])?.label || data[field], value: data[field]._id || data[field] } : ''
+  newFields[field].value = !!data[field].length
+  ? { 
+    label: data[field]?.label || 
+    data[field]?.name ||
+    data[field]?.legalName ||
+    data[field]?._id ||
+    data[field].title ||
+    constant?.options?.find(({value}) => value == data[field])?.label ||
+    data[field],
+    value: data[field]._id || data[field] 
+  } : ''
 }
 
 function getDataMultiValue({ newFields, field, data }) {
