@@ -32,19 +32,23 @@ export const bookSpotlightFieldsFunction = ({ fields }) => ({
 export const gridTemplate = () => {
   return `
     grid-template: ${`
+      "image"
       "isActive"
       "title"
       "description"
-      "image"
     `};
     grid-gap: 15px;
-    grid-template-rows: 20px 20px 20px;
+    grid-template-rows: auto;
+    grid-template-columns: 100%;
+    margin-bottom: 30px;
+
     @media (min-width: 1024px){
       grid-template: ${`
-        "isActive image"
-        "title ."
-        "description ."
+        "image image"
+        "title isActive"
+        "description description"
       `};
+      grid-template-columns: 1fr 250px;
     }
   `
 }
