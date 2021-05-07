@@ -9,17 +9,18 @@ import mapFieldsToData from '../../utils/mapFieldsToData';
 import mapDataToFields from '../../utils/mapDataToFields';
 import FieldEditable from '../../Elements/Field/FieldEditable';
 import { BookInfoFieldsFunction, BookInfoFieldsState, priceFieldState, priceFieldFunction, gridTemplate } from './BookInfo.constants';
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function BookInfo({ book }){
   const router = useRouter();
   const { name } = router.query;
-  const [message, setMessage] = useState();
   const { isLoggedIn } = useAppProvider();
   const [fields, setFields] = useState(BookInfoFieldsState);
   const [price, setPrice] = useState(priceFieldState);
   const priceField = priceFieldFunction({ price, isLoggedIn }).price
   const bookFields = BookInfoFieldsFunction({ fields, setFields });
   const formProps = { fields: bookFields, setFields, gridTemplate, isLoggedIn, striped: true }
+
   useEffect(() => {
     if(book) {
       setFields((oldFields) => {
@@ -36,18 +37,17 @@ export default function BookInfo({ book }){
   }, [book])
   
   const saveInfos = async () => {
-    setMessage('');
     const variables = mapFieldsToData({ ...bookFields, priceField});
     if(!name) {
       const res = await axios.post('/api/livros', { ...variables });
       if(res.status === 200){
-        setMessage('Cadastro realizado com sucesso!');
+        toast.success('Cadastro realizado com sucesso!');
       } else {
         alert(res?.data?.response);
       }
     } else {
       const res = await axios.put('/api/livros', { ...variables, name })
-      if(res.status === 200){ setMessage('Cadastro atualizado com sucesso!')} 
+      if(res.status === 200){ toast.success('Cadastro atualizado com sucesso!')} 
       else { alert(res?.data?.response) }
     }
   }
@@ -68,7 +68,7 @@ export default function BookInfo({ book }){
         </S.Price>
           <Button {...saveButton} />
       </S.BottomWrapper>
-      <S.Message>{ message && message }</S.Message>
+      <Toaster position="bottom-right" reverseOrder={false}/>      
     </S.BookInfo>
   )
 }

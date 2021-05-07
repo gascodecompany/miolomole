@@ -24,7 +24,6 @@ export const BookSynopsis = styled.div`
         grid-template-areas:
           "sinopsys cover"
           "video cover"
-          "message message"
           "button button"
         ;
         grid-gap: 20px;
@@ -110,8 +109,4 @@ export const InputVideo = styled.div`
     left: 50%;
   }
   transition: .1s all cubic-bezier(0.215, 0.610, 0.355, 1);
-`
-
-export const Message = styled.div`
-  grid-area: message;
 `

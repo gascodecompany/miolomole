@@ -20,6 +20,3 @@ export const UsuariosWrapper = styled.div`
   }
 `
 
-export const ResponseMessage = styled.div`
-  
-`
