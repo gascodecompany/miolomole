@@ -1,28 +1,25 @@
-import Container from '../Container';
-import * as S from './BookRelated.style';
-import Button from '../../Elements/Button';
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import * as S from './BookRelated.style'
+import Container from '../Container'
+import Button from '../../Elements/Button'
+import { Books } from '../../Constants/Books'
 
-export default function BookRelated(props){
-  const [books, setBooks] = useState();
-  const router = useRouter();
-  useEffect(() => props.books && setBooks(props.books), [props])
+export default function BookRelated(){
 
-  return(
+ return(
     <S.BookRelated>
       <Container>
         <S.RelatedTitle>Livros relacionados</S.RelatedTitle>
         <S.RelatedBooks>
-          { books?.slice(0, 4).map((book) => (
-            <S.BookRelatedCard key={book._id}>
-              <S.BookRelatedCover img={book?.images[0]}/>
+          { Books?.slice(0, 4).map((book) => (
+            <S.BookRelatedCard>
+              <S.BookRelatedCover img={book?.cover3d}/>
               <S.BookRelatedItemTitle>{book.title}</S.BookRelatedItemTitle>
-              <Button label='Ver mais' variation="secondary" onClick={() => router.push(`/livros/${book.name}`)}/>
+              <Button label='Ver mais'/>
             </S.BookRelatedCard>
           ))}
         </S.RelatedBooks>
       </Container>
+
     </S.BookRelated>
   )
 }
