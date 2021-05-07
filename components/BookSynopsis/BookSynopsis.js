@@ -1,6 +1,5 @@
 import axios from 'axios';
 import Container from '../Container';
-import ReactPlayer from 'react-player';
 import { useRouter } from 'next/router';
 import Input from '../../Elements/Input';
 import * as S from './BookSynopsis.styles';
@@ -10,13 +9,12 @@ import { bookSinopsisFieldsState, bookSinopsisFieldsFunction } from './BookSynop
 import Button from '../../Elements/Button';
 import mapFieldsToData from '../../utils/mapFieldsToData';
 import mapDataToFields from '../../utils/mapDataToFields';
-import EditableImage from '../EditableImage';
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function BookSynopsis({ book, ...props }){
   const router = useRouter();
   const { name } = router.query;
   const { isLoggedIn } = useAppProvider();
-  const [message, setMessage] = useState();
   const [fields, setFields] = useState(bookSinopsisFieldsState);
   const synopsisInput = bookSinopsisFieldsFunction({ fields, isLoggedIn })
   
@@ -29,15 +27,14 @@ export default function BookSynopsis({ book, ...props }){
   }, [book])
 
   const saveInfos = async () => {
-    setMessage('')
     const variables = mapFieldsToData(synopsisInput)
     if(!name) {
       const res = await axios.post('/api/livros', { ...variables, name })
-      if(res.status === 200){ setMessage('Cadastro realizado com sucesso!')} 
+      if(res.status === 200){ toast.success('Cadastro realizado com sucesso!')} 
       else { alert(res?.data?.response) }
     } else {
       const res = await axios.put('/api/livros', { ...variables, name })
-      if(res.status === 200){ setMessage('Cadastro atualizado com sucesso!')} 
+      if(res.status === 200){ toast.success('Cadastro atualizado com sucesso!')} 
       else { alert(res?.data?.response) }
     }
   }
@@ -52,7 +49,7 @@ export default function BookSynopsis({ book, ...props }){
           </S.SynopsisWrapper>
         </S.SynopsisInfo>
         <S.SynopsisVideo><Input {...synopsisInput.video} isLoggedIn={isLoggedIn} setFiels={synopsisInput} /></S.SynopsisVideo>
-        <S.Message>{ message && message }</S.Message>
+        <Toaster position="bottom-right" reverseOrder={false}/>      
         { isLoggedIn && <Button id="save" variation="primary" onClick={() => saveInfos()} label="Salvar Sinopse" />}
       </Container>
     </S.BookSynopsis>

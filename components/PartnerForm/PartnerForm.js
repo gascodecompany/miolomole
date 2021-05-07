@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import * as S from './PartnerForm.styles';
 import { PartnerFormInitialState, PartnerFormFieldsFunction, gridTemplate } from './PartnerForm.constants.js';
 import mapFieldsToData from '../../utils/mapFieldsToData';
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function PartnerForm(props){
   const { partner, books } = props;
@@ -21,19 +22,17 @@ export default function PartnerForm(props){
     }, {})
     : PartnerFormInitialState
   const [fields, setFields] = useState(initialState);
-  const [message, setMessage] = useState();
-  const partnerFormfields = PartnerFormFieldsFunction({ fields, setFields, setMessage, router, partner, books: booksArray });
+  const partnerFormfields = PartnerFormFieldsFunction({ fields, setFields, router, partner, books: booksArray });
   const onSubmit = async () => {
-    setMessage('')
     const fieldsValue = mapFieldsToData(partnerFormfields);
     if(!partner){ 
       const res = await axios.post(`/api/parceiros`, { ...fieldsValue })
-      if(res.status === 200) { setMessage('Cadastrado realizado com sucesso!'); setFields(PartnerFormInitialState) }
-      else { setMessage(res.response.data) }
+      if(res.status === 200) { toast.success('Cadastrado realizado com sucesso!'); setFields(PartnerFormInitialState) }
+      else { toast.error(res.response.data) }
     } else { 
       const res = await axios.put(`/api/parceiros`, { ...fieldsValue, _id: partner._id })
-      if(res.status === 200) { setMessage('Cadastro atualizado com sucesso!'); router.back() } 
-      else { setMessage(res?.response?.data) }
+      if(res.status === 200) { toast.success('Cadastro atualizado com sucesso!'); router.back() } 
+      else { toast.error(res?.response?.data) }
     }
   }
   const formProps = { gridTemplate, fields: partnerFormfields, setFields };
@@ -41,7 +40,7 @@ export default function PartnerForm(props){
     <S.PartnerForm>
       <h1>{!!partner ? 'Editar' : 'Adicionar'} parceiro</h1>
       <Form {...formProps} />
-      <S.ResponseMessage>{ message && message }</S.ResponseMessage>
+      <Toaster position="bottom-right" reverseOrder={false}/>      
       <Button label={partner ? 'Salvar' : 'Cadastrar'} variation='primary' onClick={() => onSubmit()} />
     </S.PartnerForm>
   )

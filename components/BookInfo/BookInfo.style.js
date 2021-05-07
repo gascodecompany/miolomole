@@ -71,10 +71,6 @@ export const BookItemValue = styled.p`
   }
 `
 
-export const Message = styled.div`
-  
-`
-
 export const BottomWrapper = styled.div`
   margin-top: 32px;
   display: flex;

@@ -23,8 +23,3 @@ export const PartnerForm = styled.div`
   > section > form > div, > section > form > button { margin: 15px }
   > section > form > button { justify-self: flex-end }
 `
-
-export const ResponseMessage = styled.span`
-  height: 14px;
-  margin: 30px 0px 45px;
-`

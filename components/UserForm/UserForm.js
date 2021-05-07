@@ -7,12 +7,12 @@ import Button from '../../Elements/Button'
 import mapFieldsToData from '../../utils/mapFieldsToData';
 import mapDataToFields from '../../utils/mapDataToFields';
 import { usuariosFieldsState, usuariosFieldsFunction, gridTemplate } from './UserForm.constants.js';
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function UserForm(props){
   const router = useRouter();
   const [user, setUser] = useState();
   const [fields, setFields] = useState(usuariosFieldsState(user));
-  const [message, setMessage] = useState();
   const userFormfields = usuariosFieldsFunction({ fields });
   const formProps = { gridTemplate, fields: userFormfields, setFields };
 
@@ -36,13 +36,12 @@ export default function UserForm(props){
   }
 
   const onSubmit = async () => {
-    setMessage('')
     const variables = mapFieldsToData(userFormfields);
     let res;
     if(!user) {res = await axios.post('/api/users', { ...variables })}
     else {res = await axios.put('/api/users', { ...variables, _id: user._id })}
-    if(res.status === 200) { setMessage(`Cadastrado ${user ? 'atualizado' : 'realizado'} com sucesso!`) }
-    else { setMessage(res?.response?.data) }
+    if(res.status === 200) { toast.success(`Cadastrado ${user ? 'atualizado' : 'realizado'} com sucesso!`) }
+    else { toast.error(res?.response?.data) }
     router.goBack()
   }
 
@@ -50,7 +49,7 @@ export default function UserForm(props){
     <S.UsuariosWrapper>
       <h1>Adicionar usuário</h1>
       <Form {...formProps} />
-      <S.ResponseMessage>{ message && message }</S.ResponseMessage>
+      <Toaster position="bottom-right" reverseOrder={false}/>      
       <Button variation="primary" label={user ? "Atualizar" : "Cadastrar"} onClick={() => onSubmit()}/>
     </S.UsuariosWrapper>
   )

@@ -11,7 +11,3 @@ export const BookSpotlight = styled.div`
 
   h2 { margin: 30px 0 }
 `
-
-export const Message = styled.span`
-  
-`

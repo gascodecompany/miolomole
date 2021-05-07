@@ -7,11 +7,11 @@ import { useAppProvider } from '../../store/appProvider';
 import mapFieldsToData from '../../utils/mapFieldsToData';
 import mapDataToFields from '../../utils/mapDataToFields';
 import { bookSpotlightFieldsState, bookSpotlightFieldsFunction, gridTemplate } from './BookSpotlight.constants';
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function BookSpotlight({ book }){
   const { isLoggedIn } = useAppProvider();
   const [fields, setFields] = useState(bookSpotlightFieldsState);
-  const [message, setMessage] = useState();
   const bookSpotlightFields = bookSpotlightFieldsFunction({ fields });
   
   useEffect(() => {
@@ -32,14 +32,14 @@ export default function BookSpotlight({ book }){
     const variables = mapFieldsToData({...bookSpotlightFields});
     variables._id = book._id;
     const res = await axios.put('/api/livros', { _id: book._id, spotlight: { ...variables } });
-    if(res.status === 200){ setMessage('Destaques salvos com sucesso!') }
+    if(res.status === 200){ toast.success('Destaques salvos com sucesso!') }
   }
 
   return (
     <S.BookSpotlight>
       <h1>Destaque</h1>
       <Form { ...formProps } />
-      <S.Message>{ message && message }</S.Message>
+      <Toaster position="bottom-right" reverseOrder={false}/>      
       { isLoggedIn && <Button variation="primary" onClick={() => saveInfos()} label="Salvar Destaque" /> }
     </S.BookSpotlight>
   )
