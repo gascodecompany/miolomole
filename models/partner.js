@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import Book from './book';
 var Schema = mongoose.Schema;
 
 var partner = new Schema({
