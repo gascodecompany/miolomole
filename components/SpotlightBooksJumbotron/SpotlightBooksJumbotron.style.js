@@ -74,4 +74,9 @@ export const HomeJumbotronNav = styled.div`
 export const JumbotronSliderTitle = styled.div`
   width: 100%;
   filter: drop-shadow(2px 4px 6px black);
+  text-overflow: ellipsis;
+  overflow: hidden; 
+  width: 160px; 
+  height: 1.2em; 
+  white-space: nowrap;
 `

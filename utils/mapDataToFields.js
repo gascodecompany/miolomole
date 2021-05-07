@@ -10,7 +10,7 @@ function getDataValue({ newFields, field, data, constant }) {
 }
 
 function getDataSelectValue({ newFields, field, data, constant }) {
-  if(data[field].length > 1){
+  if(constant.isMulti){
     newFields[field].value = data[field].map((field) => constant?.options?.find(({value}) => value == field) )
   } else {
     newFields[field].value = !!data[field].length
@@ -20,7 +20,7 @@ function getDataSelectValue({ newFields, field, data, constant }) {
       data[field]?.legalName ||
       data[field]?._id ||
       data[field].title ||
-      constant?.options?.find(({value}) => value == data[field])?.label ||
+      constant?.options?.find(({value}) => value == data[field]) ||
       data[field],
       value: data[field]._id || data[field].value || data[field] 
     } : ''

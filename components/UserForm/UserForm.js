@@ -29,7 +29,7 @@ export default function UserForm(props){
 
   if(
     userFormfields?.occupation?.value.length === 0 ||
-    userFormfields?.occupation?.value.length && !userFormfields?.occupation?.value.some((occupation) => occupation.value === 'admin') ||
+    userFormfields?.occupation?.value.length && !userFormfields?.occupation?.value.some((occupation) => occupation?.value === 'admin') ||
     !!userFormfields?.occupation?.value?.value && !userFormfields?.occupation?.value?.value.some((occupation) => occupation === 'admin')
   ) {
     delete formProps.fields.password
