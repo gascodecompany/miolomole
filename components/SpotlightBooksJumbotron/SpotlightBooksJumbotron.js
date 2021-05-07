@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import Container from '../Container';
 import "slick-carousel/slick/slick.css"; 
@@ -30,13 +30,14 @@ const settings = (items) => ({
 });
 
 export default function HomeJumbotron(props){
-  const books = JSON.parse(props.spotlightBooks)
-  const [items, setItems] = useState(books);
+  const [books, setBooks] = useState([]);
+
+  useEffect(() => props.books && setBooks(JSON.parse(props.books)), [props])
 
   return(
     <S.HomeJumbotronContainer>
-      <Slider {...settings(items)}>
-        {items.map(({spotlight}) => {
+      <Slider {...settings(books)}>
+        {books.map(({spotlight}) => {
           return (
             <S.HomeJumbotron img={spotlight.image} key={spotlight.image + "Jumbotron"}>
               <Container>

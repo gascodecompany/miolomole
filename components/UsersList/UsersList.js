@@ -1,13 +1,14 @@
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Container from '../Container';
 import * as S from './UsersList.styles';
 import { useRouter } from 'next/router';
 
 export default function UsersList(props) {
-  const users = props ? JSON.parse(props.users) : []
-  const [usersList, setUsersList] = useState(users);
+  const [usersList, setUsersList] = useState([]);
   const router = useRouter();
+
+  useEffect((() => props.users && setUsersList(JSON.parse(props.users)), [props] ))
 
   const handleDeleteUser = async (user) => {
     const { _id, userName } = user;
@@ -25,7 +26,7 @@ export default function UsersList(props) {
       <S.UsersList>
         <S.UsersTitle>Usuários</S.UsersTitle>
         <S.UserHeader>
-          <b></b>
+          <b>Foto</b>
           <b>Nome</b>
           <b>Função</b>
           <S.AddUserButton onClick={() => router.push('/usuarios/novo')}><span>+</span></S.AddUserButton>
