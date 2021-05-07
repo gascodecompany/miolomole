@@ -9,7 +9,7 @@ import Player from '../../components/Player';
 import { useAppProvider } from '../../store/appProvider';
 import Button from '../Button';
 
-export default function InputFile({ placeholder, name, onChange, value, setFields, type }) {
+export default function InputFile({ placeholder, name, onChange, value, setFields, type, className }) {
   const [loading, setLoading] = useState(false);
   const { isLoggedIn } = useAppProvider();
   const onDrop = useCallback((acceptedFiles) => {
@@ -59,7 +59,7 @@ export default function InputFile({ placeholder, name, onChange, value, setField
 
   return (
     <S.InputFile>
-      <S.InputPreview>{value && contentRender()}</S.InputPreview>
+      <S.InputPreview className={className} type={type} >{value && contentRender()}</S.InputPreview>
       { isLoggedIn && (
         <S.ActionButtonWrapper>
           <S.DropArea {...getRootProps()}>

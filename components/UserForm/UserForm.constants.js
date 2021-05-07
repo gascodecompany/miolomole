@@ -46,12 +46,27 @@ export const usuariosFieldsFunction = ({ fields }) => ({
 
 export const gridTemplate = () => {
   return `
-    grid-template:
-      "avatar userName occupation"
-      "avatar password password"
-      "avatar description description"
-    ;
-    grid-template-columns: 320px 1fr 1fr;
+    grid-template-areas:
+      "avatar"
+      "userName"
+      "occupation"
+      "password"
+      "description"
+      "description";
+    grid-template-rows: auto 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
 
+    @media screen{
+      @media (min-width: 1024px){
+        grid-template:
+          "avatar userName occupation"
+          "avatar password password"
+          "avatar description description"
+          "avatar . ."
+        ;
+        grid-template-columns: 320px 1fr 1fr;
+        grid-template-rows: 80px 80px 80px auto;
+      }
+    }
   `
 };

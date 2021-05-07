@@ -25,7 +25,7 @@ export const InputFile = styled.div`
 `
 
 export const DropArea = styled.span`
-  width: 100%; 
+  width: 130px; 
   height: 100px;
   border: 3px solid ${({ theme: { color: { blackMedium }}}) => blackMedium };;
   border-right: none;
@@ -47,9 +47,11 @@ export const ActionButtonWrapper = styled.div`
   grid-template-columns: 4fr 1fr;
   cursor: copy;
   margin: 30px 0;
+  width: 182px;
+
   @media (min-width: 1024px){ 
     padding: 30px;  
-    width: 50%;
+    width: 252px;
   }
   p{
     font-size: 12px;
@@ -84,6 +86,17 @@ export const InputPreview = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 60vw;
+  height: 60vw;
+  background-color: #99999950;
+  position: relative;
+  @media screen{
+    @media (min-width: 1024px){
+      min-height: 260px;
+      height: 260px;
+    }
+  }
+
   img { 
     width: 100%;
     object-fit: cover;
@@ -95,6 +108,7 @@ export const InputPreview = styled.div`
       }
     }
   }
+
 `
 
 export const InputRadio = styled.input`
