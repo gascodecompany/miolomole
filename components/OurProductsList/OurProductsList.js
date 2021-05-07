@@ -45,7 +45,7 @@ export default function OurProductsList(props){
             columnClassName="my-masonry-grid_column">
             {books && books.map((book) => (
               <S.ProductCard key={book._id} onClick={() => router.push(`/livros/${urlNameFormatter(book.name)}`)}>
-                <S.ProductCardImage src={book?.images[0] || 'https://placekitten.com/400/400'}/>
+                <S.ProductCardImage src={book?.images || 'https://placekitten.com/400/400'}/>
                 <S.ProductCardTitle>{book.title}</S.ProductCardTitle>
                 {isLoggedIn && <Button onClick={() => handleDeleteBook(book)} type="delete"/>}
               </S.ProductCard>

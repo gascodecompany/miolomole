@@ -1,20 +1,23 @@
 import * as S from './BookRelated.style'
 import Container from '../Container'
 import Button from '../../Elements/Button'
-import { Books } from '../../Constants/Books'
+import { useEffect, useState } from 'react';
 
-export default function BookRelated(){
+export default function BookRelated(props){
+  const [books, setBooks] = useState();
 
- return(
+  useEffect(() => props.books && setBooks(props.books), [props])
+  console.log(books, props)
+  return(
     <S.BookRelated>
       <Container>
         <S.RelatedTitle>Livros relacionados</S.RelatedTitle>
         <S.RelatedBooks>
-          { Books?.slice(0, 4).map((book) => (
-            <S.BookRelatedCard>
-              <S.BookRelatedCover img={book?.cover3d}/>
+          { books?.slice(0, 4).map((book) => (
+            <S.BookRelatedCard key={book._id}>
+              <S.BookRelatedCover img={book?.image || 'https://placekitten.com/400/400'}/>
               <S.BookRelatedItemTitle>{book.title}</S.BookRelatedItemTitle>
-              <Button label='Ver mais'/>
+              <Button label='Ver mais' variant="secondary"/>
             </S.BookRelatedCard>
           ))}
         </S.RelatedBooks>

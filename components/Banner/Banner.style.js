@@ -3,12 +3,9 @@ import bgBanner from '../../images/banners/bg_banner.png'
 import templateCover from '../../images/banners/template_cover.png'
 
 export const Banner = styled.div`
-  /* background-image: url(${bgBanner}); */
-  /* background-size: cover; */
   width: 100vw;
   height: auto;
 
-  /* padding: 40px; */
   .container{
     align-items: center;
     height: auto;
@@ -17,7 +14,7 @@ export const Banner = styled.div`
       return isPair ? 'column' : 'column-reverse'}};
 
     @media screen{
-      @media (min-width: 800px){
+      @media (min-width: 1024px){
         height: 400px;
         flex-direction: ${({isPair}) => {
           return isPair ? 'row' : 'row-reverse'}};
@@ -27,15 +24,14 @@ export const Banner = styled.div`
 `
 export const BannerBgImage = styled.img`
   width: 100%;
+  height: auto;
   object-fit: cover;
   position: absolute;
   height: fit-content;
-  max-height: 400px;
 
   @media screen{
     @media (min-width: 800px){
-      height: 400px;
-      
+      max-height: 400px;
     }
   }
 `

@@ -15,11 +15,13 @@ export default function BookSpotlight({ book }){
   const bookSpotlightFields = bookSpotlightFieldsFunction({ fields });
   
   useEffect(() => {
-    setFields((oldFields) => {
-      const newFields = {...oldFields};
-      mapDataToFields({ newFields, constantFields: bookSpotlightFields, data: book.spotlight });
-      return newFields;
-    })
+    if(book?.spotlight){
+      setFields((oldFields) => {
+        const newFields = {...oldFields};
+        mapDataToFields({ newFields, constantFields: bookSpotlightFields, data: book?.spotlight });
+        return newFields;
+      })
+    }
   }, [])
 
   const formProps = {

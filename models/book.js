@@ -14,7 +14,7 @@ var book = new Schema({
   synopsis: { type: String },
   authors: [{ type: String }],
   price: { type: String },
-  images: [{ type: String }],
+  image: { type: String },
   video: { type: String },
   spotlight: {
     isActive: { type: Boolean },

@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
-import Text from '../../models/text'
-import Book from '../../models/book'
+import Text from '../../models/text';
+import Book from '../../models/book';
+import User from '../../models/user';
 
 export async function getStaticProps() {
   await mongoose.connect(process.env.NEXT_PUBLIC_MONGO_DB_URL, { useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true, useNewUrlParser: true });
@@ -9,9 +10,12 @@ export async function getStaticProps() {
   const booksArray = await Book.find();
   const spotlightBooksArray = await Book.find({ "spotlight.isActive": "true" });
   const spotlightBooks = !!spotlightBooksArray.length ? JSON.stringify(spotlightBooksArray) : '[]';
+  let itemsArray = await User.find();
+  itemsArray = itemsArray.filter((item) => !!item?.occupation?.length && item.occupation?.some((occupation) => ['illustrator', 'writer'].includes(occupation)))
+  const items = itemsArray ? JSON.stringify(itemsArray) : {}
   const books = JSON.stringify(booksArray);
   const texts = textsArray.reduce((object, text) => Object.assign(object, {[text.textKey]: text.text}), {});
-  return { props: { texts, books, spotlightBooks, page }, revalidate: 1 }
+  return { props: { texts, books, items, spotlightBooks, page }, revalidate: 1 }
 }
 
 export { default } from './Books';

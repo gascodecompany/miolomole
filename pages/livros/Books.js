@@ -16,7 +16,7 @@ export default function BooksList(props){
       <SpotlightBooksJumbotron {...props} />
       <OurProductsList {...props} id={id} />
       <LatestArticles items={t.BLOG_ARTICLES}/>
-      <AboutUsSlider/>
+      <AboutUsSlider {...props} />
       <HomeLatestArticles id={id} />
     </div>
   )
