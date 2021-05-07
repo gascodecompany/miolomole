@@ -36,7 +36,6 @@ export const AboutUsSlider = styled.div`
     @media screen{
       @media (min-width: 1024px){
         height: 300px;
-
       }
     }
   }
@@ -51,13 +50,12 @@ export const AboutUsSlider = styled.div`
 
     @media screen{
       @media (min-width: 1024px){
-        left: -200px;
-
+        left: 100px;
       }
     }
   }
   .slick-list{
-    padding:0 20% 0 0;
+    padding:0 10% 0 0;
     @media screen{
       @media (min-width: 1024px){
         overflow: visible;

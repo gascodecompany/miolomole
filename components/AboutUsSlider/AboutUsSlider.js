@@ -10,7 +10,6 @@ import { useEffect, useState } from 'react';
 export default function AboutUsSlider(props){
   const settings = {
     dots: true,
-    infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -46,6 +45,7 @@ export default function AboutUsSlider(props){
   const [items, setItems] = useState([]);
 
   useEffect(() => props.items && setItems(JSON.parse(props.items)), [])
+  
   return(
     <S.AboutUsSlider id='AboutUsSlider'>
       <S.AboutUsSliderContainer>
