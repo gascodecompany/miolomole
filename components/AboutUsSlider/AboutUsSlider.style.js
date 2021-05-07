@@ -207,7 +207,7 @@ export const SliderInfo = styled.div`
 
 `
 
-export const SliderTitle = styled.div`
+export const SliderTitle = styled.h1`
   font-family: Amatic SC;
   font-style: normal;
   font-weight: 400;
@@ -226,11 +226,12 @@ export const SliderTitle = styled.div`
 
 `
 
-export const SliderDescription = styled.div`
+export const SliderDescription = styled.h3`
   font-family: Montserrat;
   font-size: 14px;
   width: 270px;
   line-height: 1.4;
+  font-weight: normal;
   display: flex;
   color: #000000;
   text-align: center;
