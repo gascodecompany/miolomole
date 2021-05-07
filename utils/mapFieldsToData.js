@@ -10,7 +10,9 @@ export default function mapFieldsToData(fields) {
       return { ...obj, [item.name]: value };
     } else {
       if(item.type === 'select'){
-        return { ...obj, [item.name]: item?.value.map((subItem) => subItem.value) }
+        if(Array.isArray(item?.value?.value)){
+          return { ...obj, [item.name]: item?.value.value.map((subItem) => subItem.value) }
+        } else { return { ...obj, [item.name]: item?.value.map((subItem) => subItem.value) }}
       }
       else { return { ...obj, [item.name]: item.value } }
     }

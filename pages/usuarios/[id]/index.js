@@ -22,7 +22,8 @@ export async function getStaticPaths(){
 export async function getStaticProps({ params: { id } }) {
   await mongoose.connect(process.env.NEXT_PUBLIC_MONGO_DB_URL, { useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true, useNewUrlParser: true });
   if(id) {
-    const userObj = await User.findById(id);
+    let userObj = await User.findById(id);
+    userObj.password = ''
     const user = userObj ? JSON.stringify(userObj) : {}
     return { props: { user }, revalidate: 1  }
   } else {

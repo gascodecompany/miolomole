@@ -1,7 +1,7 @@
 import arrayToStringFormatter from './arrayToStringFormatter'
 
 function getDataValue({ newFields, field, data, constant }) {
-  if(constant?.type != 'password'){
+  if(constant?.type !==    'password'){
     if(Array.isArray(data[field])) { 
       if( data[field].length > 1) { newFields[field].value = arrayToStringFormatter(data[field]) }
       else { newFields[field].value = [data[field][0]] }
@@ -10,6 +10,7 @@ function getDataValue({ newFields, field, data, constant }) {
 }
 
 function getDataSelectValue({ newFields, field, data, constant }) {
+  console.log(constant)
   newFields[field].value = !!data[field].length
   ? { 
     label: data[field]?.label || 

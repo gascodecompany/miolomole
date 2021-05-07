@@ -36,13 +36,14 @@ export default function UserForm(props){
   }
 
   const onSubmit = async () => {
-    const variables = mapFieldsToData(userFormfields);
+    let variables = mapFieldsToData(userFormfields);
+    if(variables.password === ''){ delete variables.password }
     let res;
     if(!user) {res = await axios.post('/api/users', { ...variables })}
     else {res = await axios.put('/api/users', { ...variables, _id: user._id })}
     if(res.status === 200) { toast.success(`Cadastrado ${user ? 'atualizado' : 'realizado'} com sucesso!`) }
     else { toast.error(res?.response?.data) }
-    router.goBack()
+    // router.back()
   }
 
   return(

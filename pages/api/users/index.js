@@ -25,10 +25,10 @@ const userHandle = async (req, res) => {
       case 'PUT':
         try{
           if(!userName && !_id) { return res.status(400).json({ errorMessage: 'Parâmetros inválidos' }) };
-          if(args.password) { args.password = await bcrypt.hash(args.password, 12) } 
+          if(args.password) { args.password = await bcrypt.hash(args.password, 12) }
           const updatedModel = await updateModel(args, User);
           await updatedModel.save();
-          return await res.status(200).json(updatedModel);
+          return res.status(200).json(updatedModel);
         } catch (err) { return res.status(500).end() };
       case 'POST':
         try{

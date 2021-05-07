@@ -10,7 +10,6 @@ export const usuariosFieldsFunction = ({ fields }) => ({
   avatar: {
     ...fields.avatar,
     name: 'avatar',
-    label: 'Foto',
     type: 'image'
   },
   userName: {
@@ -34,7 +33,7 @@ export const usuariosFieldsFunction = ({ fields }) => ({
     ...fields.password,
     name: 'password',
     label: 'Senha',
-    type: 'password'
+    type: 'password',
   },
   description: {
     ...fields.description,

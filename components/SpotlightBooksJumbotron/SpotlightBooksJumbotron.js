@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import Container from '../Container';
 import "slick-carousel/slick/slick.css"; 
-import * as S from './SpotlightBooksJumbotron.style';
+import { useEffect, useState } from 'react';
 import "slick-carousel/slick/slick-theme.css";
+import * as S from './SpotlightBooksJumbotron.style';
 
 const settings = (items) => ({
   dots: true,
