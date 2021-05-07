@@ -270,7 +270,7 @@ export const PasswordToggle = styled.div`
   align-self: center;
   margin: 10px;
   right: 0;
-  bottom: 40px;
+  bottom: 0px;
   cursor: pointer;
 `
 
