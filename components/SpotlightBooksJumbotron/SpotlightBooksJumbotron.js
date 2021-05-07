@@ -31,7 +31,9 @@ const settings = (items) => ({
 
 export default function HomeJumbotron(props){
   const [books, setBooks] = useState([]);
+
   useEffect(() => props.books && setBooks(JSON.parse(props.spotlightBooks)), [props]);
+
   return(
     <S.HomeJumbotronContainer>
       <Slider {...settings(books)}>
