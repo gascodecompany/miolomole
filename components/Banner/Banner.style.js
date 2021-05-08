@@ -5,6 +5,7 @@ import templateCover from '../../images/banners/template_cover.png'
 export const Banner = styled.div`
   width: 100vw;
   height: auto;
+  overflow: hidden;
 
   .container{
     align-items: center;
@@ -27,11 +28,13 @@ export const BannerBgImage = styled.img`
   height: auto;
   object-fit: cover;
   position: absolute;
-  height: fit-content;
+  height: 186vw;
+
 
   @media screen{
-    @media (min-width: 800px){
+    @media (min-width: 1024px){
       max-height: 400px;
+      height: fit-content;
     }
   }
 `
@@ -40,7 +43,7 @@ export const BannerWrapper = styled.div`
   z-index: 1;
   width: 100%;
   @media screen{
-    @media(min-width: 800px){
+    @media(min-width: 1024px){
       width: 55%;
     }
   }
@@ -51,7 +54,10 @@ export const BannerTitle = styled.h1`
   font-size: 31px;
 
   @media screen{
-    @media (min-width: 800px){
+    @media (min-width: 1024px){
+      font-size: 33px;
+    }
+    @media (min-width: 1260px){
       font-size: 50px;
     }
   }
@@ -62,7 +68,7 @@ export const BannerText = styled.p`
   font-size: 14px;
 
   @media screen{
-    @media (min-width: 800px){
+    @media (min-width: 1024px){
       font-size: 18px;
 
     }
@@ -76,12 +82,12 @@ export const BannerImage = styled.img`
   object-fit: contain;
   background-size: contain;
   z-index: 1;
-  height: 172px;
+  height: 60vw;
   margin: 0;
 
 
   @media screen{
-    @media (min-width: 800px){
+    @media (min-width: 1024px){
       height: 360px;
       width: auto;
 
