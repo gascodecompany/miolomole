@@ -23,6 +23,7 @@ export const BookInfoTitle = styled.h1`
   @media (min-width: 1024px){ font-size: 40px; text-align: left; }
   ${({isLoggedIn}) => !isLoggedIn && css`:focus-visible { outline: none }`}
 `
+
 export const BookInfoItem = styled.div`
   display: flex;
   flex-direction: column;
@@ -38,6 +39,66 @@ export const BookInfoItem = styled.div`
     }
   }
 `
+
+export const BookInfoItemSelect = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  ${({isLoggedIn}) => !isLoggedIn && css`:focus-visible { outline: none }`}
+  @media screen {
+    @media (min-width: 1024px) {
+      flex-direction: row;
+      align-items: baseline;
+    }
+  }
+  > div { 
+    width: 100%; 
+    padding-top: 0;
+    .inputSelect__control {
+      padding: 0;
+      border: none;
+      min-height: 40px;
+      box-shadow: 0 0 0 0 #000000 !important;
+      border: 1px solid ${({ theme: { color: { blackDark }}}) => blackDark};
+      border-radius: 8px;
+    }
+  
+    .inputSelect__option--is-selected  {
+      background: ${({ theme: { color: { brandLight }}}) => brandLight};
+    }
+  
+    .inputSelect__option--is-focused {
+      background: ${({ theme: { color: { brand }}}) => brand};
+      color: ${({ theme: { color: { white }}}) => white};
+    }
+    .inputSelect__control {
+      background: unset;
+    }
+    .inputSelect__multi-value {
+      background-color: hsl(0, 0%, 90%);
+      
+      .inputSelect__multi-value__label { background-color: hsl(0, 0%, 90%) }
+
+      .inputSelect__multi-value__remove {
+        background-color: unset;
+        cursor: pointer;
+      }
+    }
+  }
+`
+
+{/* <div class="inputSelect__menu css-26l3qy-menu">
+  <div class="inputSelect__menu-list inputSelect__menu-list--is-multi css-4ljt47-MenuList">
+    <div class="inputSelect__option inputSelect__option--is-focused css-1n7v3ny-option" id="react-select-2-option-0" tabindex="-1">editor</div>
+    <div class="inputSelect__option css-yt9ioa-option" id="react-select-2-option-1" tabindex="-1">suino</div>
+    <div class="inputSelect__option css-yt9ioa-option" id="react-select-2-option-2" tabindex="-1">tiago</div>
+    <div class="inputSelect__option css-yt9ioa-option" id="react-select-2-option-3" tabindex="-1">luana</div>
+    <div class="inputSelect__option css-yt9ioa-option" id="react-select-2-option-4" tabindex="-1">Pedro</div>
+  </div>
+</div> */}
 
 export const BookItemLabel = styled.label`
   width: 100%;
@@ -79,6 +140,10 @@ export const BottomWrapper = styled.div`
   align-items: center;
   justify-content: center;
 
+  #save {
+    width: 100%
+  }
+
   @media (min-width: 1024px){
     display: grid;
     text-align: left;
@@ -90,7 +155,8 @@ export const BottomWrapper = styled.div`
 export const Price = styled.div`
   grid-area: price;
   margin: 0;
-  width: 150px;
+  width: 100%;
+  height: 100%;
 
   @media (min-width: 1024px){
     margin: 0 20px;

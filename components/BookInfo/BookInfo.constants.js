@@ -16,7 +16,7 @@ export const priceFieldState = () => ({
   price: { value: '' }
 });
 
-export const priceFieldFunction = ({ price }) => ({
+export const priceFieldFunction = ({ price, users }) => ({
   price: {
     ...price.price,
     name: 'price',
@@ -26,7 +26,7 @@ export const priceFieldFunction = ({ price }) => ({
   }
 })
   
-export const BookInfoFieldsFunction = ({ fields, isLoggedIn }) => ({
+export const BookInfoFieldsFunction = ({ fields, isLoggedIn, users }) => ({
   title: {
     ...fields.title,
     name: 'title',
@@ -38,13 +38,15 @@ export const BookInfoFieldsFunction = ({ fields, isLoggedIn }) => ({
   authors: {
     ...fields.authors,
     name: 'authors',
-    type: 'editable',
+    type: 'simpleSelect',
     label: 'Autoria: ',
     placeholder: 'Autoria...',
-    isArray: true,
-    styldItem: <S.BookInfoItem isLoggedIn={isLoggedIn} />,
+    variation: 'simple',
+    loadEmpty: true,
+    isMulti: true,
     styledLabel: <S.BookItemLabel isLoggedIn={isLoggedIn} />,
-    styledComponent: <S.BookItemValue isLoggedIn={isLoggedIn} />,
+    styledItem: <S.BookInfoItemSelect isLoggedIn={isLoggedIn} />,
+    options: users.map((option) => ({ _id: option._id, label: option.userName, occupation: option.occupation, value: option._id }))
   },
   illustrators: {
     ...fields.illustrators,
@@ -52,8 +54,7 @@ export const BookInfoFieldsFunction = ({ fields, isLoggedIn }) => ({
     type: 'editable',
     label: 'Ilustrações: ',
     placeholder: 'Ilustrações...',
-    isArray: true,
-    styldItem: <S.BookInfoItem isLoggedIn={isLoggedIn} />,
+    styledItem: <S.BookInfoItem isLoggedIn={isLoggedIn} />,
     styledLabel: <S.BookItemLabel isLoggedIn={isLoggedIn} />,
     styledComponent: <S.BookItemValue isLoggedIn={isLoggedIn} />,
   },
@@ -63,7 +64,7 @@ export const BookInfoFieldsFunction = ({ fields, isLoggedIn }) => ({
     type: 'editable',
     label: 'Tamanho: ',
     placeholder: 'Tamanho...',
-    styldItem: <S.BookInfoItem isLoggedIn={isLoggedIn} />,
+    styledItem: <S.BookInfoItem isLoggedIn={isLoggedIn} />,
     styledLabel: <S.BookItemLabel isLoggedIn={isLoggedIn} />,
     styledComponent: <S.BookItemValue isLoggedIn={isLoggedIn} />,
   },
@@ -73,7 +74,7 @@ export const BookInfoFieldsFunction = ({ fields, isLoggedIn }) => ({
     type: 'editable',
     label: 'Páginas: ',
     placeholder: 'Páginas...',
-    styldItem: <S.BookInfoItem isLoggedIn={isLoggedIn} />,
+    styledItem: <S.BookInfoItem isLoggedIn={isLoggedIn} />,
     styledLabel: <S.BookItemLabel isLoggedIn={isLoggedIn} />,
     styledComponent: <S.BookItemValue isLoggedIn={isLoggedIn} />,
   },
@@ -83,7 +84,7 @@ export const BookInfoFieldsFunction = ({ fields, isLoggedIn }) => ({
     type: 'editable',
     label: 'Indicação etária: ',
     placeholder: 'Indicação etária...',
-    styldItem: <S.BookInfoItem isLoggedIn={isLoggedIn} />,
+    styledItem: <S.BookInfoItem isLoggedIn={isLoggedIn} />,
     styledLabel: <S.BookItemLabel isLoggedIn={isLoggedIn} />,
     styledComponent: <S.BookItemValue isLoggedIn={isLoggedIn} />,
   },
@@ -93,8 +94,7 @@ export const BookInfoFieldsFunction = ({ fields, isLoggedIn }) => ({
     type: 'editable',
     label: 'Gênero: ',
     placeholder: 'Gênero...',
-    isArray: true,
-    styldItem: <S.BookInfoItem isLoggedIn={isLoggedIn} />,
+    styledItem: <S.BookInfoItem isLoggedIn={isLoggedIn} />,
     styledLabel: <S.BookItemLabel isLoggedIn={isLoggedIn} />,
     styledComponent: <S.BookItemValue isLoggedIn={isLoggedIn} />,
   },
@@ -104,9 +104,8 @@ export const BookInfoFieldsFunction = ({ fields, isLoggedIn }) => ({
     type: 'editable',
     label: 'Temas: ',
     placeholder: 'Temas...',
-    styldItem: <S.BookInfoItem isLoggedIn={isLoggedIn} />,
+    styledItem: <S.BookInfoItem isLoggedIn={isLoggedIn} />,
     styledLabel: <S.BookItemLabel isLoggedIn={isLoggedIn} />,
-    isArray: true,
     styledComponent: <S.BookItemValue isLoggedIn={isLoggedIn} />,
   },
   ISBN: {
@@ -115,7 +114,7 @@ export const BookInfoFieldsFunction = ({ fields, isLoggedIn }) => ({
     type: 'editable',
     label: 'ISBN: ',
     placeholder: 'ISBN...',
-    styldItem: <S.BookInfoItem isLoggedIn={isLoggedIn} />,
+    styledItem: <S.BookInfoItem isLoggedIn={isLoggedIn} />,
     styledLabel: <S.BookItemLabel isLoggedIn={isLoggedIn} />,
     styledComponent: <S.BookItemValue isLoggedIn={isLoggedIn} />,
   },

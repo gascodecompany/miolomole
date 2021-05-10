@@ -7,21 +7,28 @@ import removeModel from '../../../utils/removeModel';
 
 const userHandle = async (req, res) => {
   const { body, method } = req;
-  let { _id, userName } = body;
+  let { _id, userName, filterOccupation } = body;
   let args = body ? { ...body } : {};
   try{
     switch (method) {
       case 'GET':
         try {
-          if(!_id) {
+          if(!_id || !filterOccupation) {
             const users = await User.find();
             return res.status(200).json(users);
           }
-          else { 
-            const user = await User.findById(_id);
-            return res.status(200).json(user);
+          else {
+            if(_id) {
+              const user = await User.findById(_id); 
+              return res.status(200).json(user); 
+            }
+            else {
+              if(filterOccupation) { 
+              const users = await User.find({ occupation: { $in: ['illustrator', 'writer'] }});
+              return res.status(200).json(users);
+            }
           }
-        } catch (err) { return res.status(500).end() };
+        }} catch (err) { return res.status(500).end() };
       case 'PUT':
         try{
           if(!userName && !_id) { return res.status(400).json({ errorMessage: 'Parâmetros inválidos' }) };

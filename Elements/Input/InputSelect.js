@@ -39,7 +39,6 @@ export default function InputSelect({
   noOptionsMessage,
   ...props
 }) {
-
   const loadOptionsHandler = (inputValue, callback) => {
     if (loadOptions) {
       if (isCreatable || !loadEmpty) {

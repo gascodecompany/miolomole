@@ -9,6 +9,7 @@ import FieldRange from './FieldRange';
 import FieldPassword from './FieldPassword';
 import FieldEditable from './FieldEditable';
 import FieldSwitch from './FieldSwitch';
+import FieldSelect from './FieldSelect';
 
 export default function Field(props) {
   switch (props.type) {
@@ -21,6 +22,7 @@ export default function Field(props) {
     case 'password': return <FieldPassword {...props} />
     case 'editable': return <FieldEditable {...props} />
     case 'switch': return <FieldSwitch {...props} />
+    case 'simpleSelect': return <FieldSelect {...props} />
     default: return <FieldInput {...props} />;
   }
 }

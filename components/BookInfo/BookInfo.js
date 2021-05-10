@@ -4,12 +4,12 @@ import Form from '../../Elements/Form';
 import { useRouter } from 'next/router';
 import Button from '../../Elements/Button';
 import { useState, useEffect } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 import { useAppProvider } from '../../store/appProvider';
 import mapFieldsToData from '../../utils/mapFieldsToData';
 import mapDataToFields from '../../utils/mapDataToFields';
 import FieldEditable from '../../Elements/Field/FieldEditable';
 import { BookInfoFieldsFunction, BookInfoFieldsState, priceFieldState, priceFieldFunction, gridTemplate } from './BookInfo.constants';
-import toast, { Toaster } from 'react-hot-toast';
 
 export default function BookInfo({ book }){
   const router = useRouter();
@@ -17,9 +17,16 @@ export default function BookInfo({ book }){
   const { isLoggedIn } = useAppProvider();
   const [fields, setFields] = useState(BookInfoFieldsState);
   const [price, setPrice] = useState(priceFieldState);
+  const [users, setUsers] = useState([]);
   const priceField = priceFieldFunction({ price, isLoggedIn }).price
-  const bookFields = BookInfoFieldsFunction({ fields, setFields });
+  const bookFields = BookInfoFieldsFunction({ fields, setFields, users });
   const formProps = { fields: bookFields, setFields, gridTemplate, isLoggedIn, striped: true }
+
+  useEffect(() => {
+    axios.get('/api/users', { filterOccupation: true })
+      .then((res) => setUsers(res.data))
+      .catch((err) => console.log(err))
+  }, [])
 
   useEffect(() => {
     if(book) {
@@ -66,7 +73,7 @@ export default function BookInfo({ book }){
           <S.Label>Preço</S.Label>
           <S.PriceText><span>R$</span><FieldEditable {...priceField} isLoggedIn={isLoggedIn} setFields={setPrice} /></S.PriceText>
         </S.Price>
-          <Button {...saveButton} />
+          <Button id="save" {...saveButton} />
       </S.BottomWrapper>
       <Toaster position="bottom-right" reverseOrder={false}/>      
     </S.BookInfo>

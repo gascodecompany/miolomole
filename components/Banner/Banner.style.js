@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import bgBanner from '../../images/banners/bg_banner.png'
 import templateCover from '../../images/banners/template_cover.png'
 
 export const Banner = styled.div`

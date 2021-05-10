@@ -4,8 +4,8 @@ import BookAudiovisual from "../../../components/BookAudiovisual";
 import { useEffect, useState } from 'react';
 
 export default function Book(props){
-  const [book, setBook] = useState();
-  const [books, setBooks] = useState();
+  const [book, setBook] = useState(props.book || []);
+  const [books, setBooks] = useState(props.books || []);
 
   useEffect(() => {
     if(!!props.book) { setBook(JSON.parse(props.book)) } 

@@ -29,6 +29,7 @@ export const mioloMoleAppTheme = {
     success: '#0A9E5A',
     blue: '#006DD1',
     error: '#CC3333',
+    errorLight: '#DB5C60',
     danger: '#CC3333',
     errorDark: '#990000',
     errorMedium: '#CC0000',
