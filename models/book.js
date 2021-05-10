@@ -1,10 +1,11 @@
 import mongoose, { Schema } from 'mongoose';
+import User from './user';
 
 var book = new Schema({
   name: { type: String, unique: true, required: true },
   title: { type: String, required: true },
-  illustrators: [{ type: Schema.Types.ObjectId, ref: 'User' }],
-  authors: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+  illustrators: [{ type: Schema.Types.ObjectId, ref: User }],
+  authors: [{ type: Schema.Types.ObjectId, ref: User }],
   size: { type: Object },
   pages: { type: Number },
   genre: [{ type: Object }],

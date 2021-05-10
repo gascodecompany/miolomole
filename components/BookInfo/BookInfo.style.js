@@ -47,11 +47,13 @@ export const BookInfoItemSelect = styled.div`
   width: 100%;
   height: 100%;
   align-items: center;
+  text-align: center;
   ${({isLoggedIn}) => !isLoggedIn && css`:focus-visible { outline: none }`}
   @media screen {
     @media (min-width: 1024px) {
       flex-direction: row;
       align-items: baseline;
+      text-align: left;
     }
   }
   > div { 
@@ -186,8 +188,25 @@ export const PriceValue = styled.p`
   @media (min-width: 1024px){ text-align: left }
 `
 
+export const PriceLabel = styled.span`
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 29px;
+  align-self: center;
+  height: auto;
+  @media (min-width: 1024px){ text-align: left; width: unset }
+`
+
 export const PriceText = styled.p`
   display: flex;
   align-items: center;
+  justify-content: center;
+  /* flex-direction: column; */
   margin: 2px;
+
+  @media (min-width: 1024px){
+    flex-direction: row;
+  }
 `

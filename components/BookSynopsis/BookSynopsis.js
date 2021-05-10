@@ -48,7 +48,7 @@ export default function BookSynopsis({ book, ...props }){
             <S.SynopsisText isLoggedIn={isLoggedIn}><Input {...synopsisInput.synopsis} setFields={setFields} /></S.SynopsisText>
           </S.SynopsisWrapper>
         </S.SynopsisInfo>
-        <S.SynopsisVideo><Input {...synopsisInput.video} isLoggedIn={isLoggedIn} setFiels={synopsisInput} /></S.SynopsisVideo>
+        <S.SynopsisVideo><Input {...synopsisInput.video} isLoggedIn={isLoggedIn} setFields={setFields} /></S.SynopsisVideo>
         <Toaster position="bottom-right" reverseOrder={false}/>      
         { isLoggedIn && <Button id="save" variation="primary" onClick={() => saveInfos()} label="Salvar Sinopse" />}
       </Container>

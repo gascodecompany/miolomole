@@ -23,10 +23,11 @@ export default function BookInfo({ book }){
   const formProps = { fields: bookFields, setFields, gridTemplate, isLoggedIn, striped: true }
 
   useEffect(() => {
-    axios.get('/api/users', { filterOccupation: true })
+    axios.get('/api/users', { params: { filterOccupation: true } })
       .then((res) => setUsers(res.data))
       .catch((err) => console.log(err))
   }, [])
+
 
   useEffect(() => {
     if(book) {
@@ -64,6 +65,9 @@ export default function BookInfo({ book }){
     onClick: () => isLoggedIn ? saveInfos() : router.push('parceiros'),
     label: isLoggedIn ? "Salvar Descrição" : "Comprar em loja parceira"
   }
+  // /[0-9][0-9,\.]/g
+  
+  const dynamicText = price.price && !(/\D/gim).test(price.price?.value) && 'R$'
 
   return(
     <S.BookInfo>
@@ -71,7 +75,7 @@ export default function BookInfo({ book }){
       <S.BottomWrapper>
         <S.Price>
           <S.Label>Preço</S.Label>
-          <S.PriceText><span>R$</span><FieldEditable {...priceField} isLoggedIn={isLoggedIn} setFields={setPrice} /></S.PriceText>
+          <S.PriceText><S.PriceLabel>{dynamicText}</S.PriceLabel><FieldEditable {...priceField} isLoggedIn={isLoggedIn} setFields={setPrice} /></S.PriceText>
         </S.Price>
           <Button id="save" {...saveButton} />
       </S.BottomWrapper>

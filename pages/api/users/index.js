@@ -7,13 +7,13 @@ import removeModel from '../../../utils/removeModel';
 
 const userHandle = async (req, res) => {
   const { body, method } = req;
-  let { _id, userName, filterOccupation } = body;
+  let { _id, userName } = body;
   let args = body ? { ...body } : {};
   try{
     switch (method) {
       case 'GET':
         try {
-          if(!_id || !filterOccupation) {
+          if(!_id && !req.query.filterOccupation) {
             const users = await User.find();
             return res.status(200).json(users);
           }
@@ -21,9 +21,8 @@ const userHandle = async (req, res) => {
             if(_id) {
               const user = await User.findById(_id); 
               return res.status(200).json(user); 
-            }
-            else {
-              if(filterOccupation) { 
+            } else {
+              if(req.query.filterOccupation) {
               const users = await User.find({ occupation: { $in: ['illustrator', 'writer'] }});
               return res.status(200).json(users);
             }

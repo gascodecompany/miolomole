@@ -28,6 +28,11 @@ export const FieldEditable = styled.div`
   ${({styles}) => styles}
 `
 
+export const FieldReadOnly = styled.div`
+  width: 100%;
+  background-color: unset;
+`
+
 export const LabelEditable = styled(forwardRef((props, ref) => <TextareaAutosize {...props} ref={ref} />))`
   background-color: transparent;
   resize: none;

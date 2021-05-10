@@ -43,20 +43,23 @@ export const BookInfoFieldsFunction = ({ fields, isLoggedIn, users }) => ({
     placeholder: 'Autoria...',
     variation: 'simple',
     loadEmpty: true,
+    isLoggedIn: isLoggedIn,
     isMulti: true,
     styledLabel: <S.BookItemLabel isLoggedIn={isLoggedIn} />,
     styledItem: <S.BookInfoItemSelect isLoggedIn={isLoggedIn} />,
-    options: users.map((option) => ({ _id: option._id, label: option.userName, occupation: option.occupation, value: option._id }))
+    options: users.map((option) => ({ _id: option._id, label: option.userFullName || option.userName, value: option._id }))
   },
   illustrators: {
     ...fields.illustrators,
     name: 'illustrators',
-    type: 'editable',
+    type: 'simpleSelect',
+    isMulti: true,
     label: 'Ilustrações: ',
     placeholder: 'Ilustrações...',
-    styledItem: <S.BookInfoItem isLoggedIn={isLoggedIn} />,
+    styledItem: <S.BookInfoItemSelect isLoggedIn={isLoggedIn} />,
     styledLabel: <S.BookItemLabel isLoggedIn={isLoggedIn} />,
     styledComponent: <S.BookItemValue isLoggedIn={isLoggedIn} />,
+    options: users.map((option) => ({ _id: option._id, label: option.userFullName || option.userName, value: option._id }))
   },
   size: {
     ...fields.size,

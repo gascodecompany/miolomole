@@ -46,8 +46,8 @@ export default function EditableImage ({ children, page, texts, textKey, book })
   }, []);
   
   const saveImage = async () => {
-    if(book?.image) {
-      await axios.put(`/api/livros`, { _id: book._id, image: [newLink] }).catch((err) => console.log(err));
+    if(!!book) {
+      await axios.put(`/api/livros`, { _id: book._id, image: newLink }).catch((err) => console.log(err));
       setLink(newLink);
       setEdit(false);
     } else {

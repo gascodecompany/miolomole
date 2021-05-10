@@ -6,7 +6,7 @@ export const StyledForm = styled.section`
     ${({gridTemplate, joinUsWay}) => gridTemplate({joinUsWay})};
   }
   ${({striped}) => striped && css`
-    div:nth-child(even){
+    div.field:nth-child(even){
       background-color: ${({ theme: { color: { gray }}}) => gray };
     }
   `}
