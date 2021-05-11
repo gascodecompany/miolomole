@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import Container from '../Container';
 import * as S from './UsersList.styles';
 import { useRouter } from 'next/router';
+import Profile from "../../images/avatar_profile.png";
+
 
 export default function UsersList(props) {
   const [users, setUsers] = useState([]);
@@ -34,7 +36,7 @@ export default function UsersList(props) {
         </S.UserHeader>
         {users.map((user) => (
           <S.UsersListItem key={user._id} onClick={() => router.push(`/usuarios/${user._id}`)}>
-            <S.UserAvatar img={user.avatar}/>
+            <S.UserAvatar img={user ? user.avatar ? `${user?.avatar}` : Profile : Profile}/>
             <S.UserName>{user.userName}</S.UserName>
             <S.UserFullName>{user.userFullName}</S.UserFullName>
             <S.UserOccupation>{user.occupation.join(', ')}</S.UserOccupation>
