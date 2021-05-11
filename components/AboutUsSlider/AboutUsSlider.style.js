@@ -22,10 +22,16 @@ export const AboutUsSlider = styled.div`
         top: 0px;
         left: 0px;
         height: 100%;
-        width: 40%;
+        /* width: 40%; */
         background: #F6F6FA;
         z-index: 1;
         min-width: 394px;
+
+      }
+    }
+    @media(min-width: 2000px){
+      &::before{
+        width: 32%;
 
       }
     }
@@ -50,7 +56,7 @@ export const AboutUsSlider = styled.div`
 
     @media screen{
       @media (min-width: 1024px){
-        left: 100px;
+        /* left: 100px; */
       }
     }
   }
@@ -195,6 +201,7 @@ export const SliderInfo = styled.div`
       background: #F6F6FA;
       align-items: baseline;
       padding-left: 20px;
+      height: 130%;
 
     }
     @media (min-width: 1290px){
@@ -263,7 +270,7 @@ export const SliderCard = styled.div`
     @media (min-width: 1024px){
       height: 100%;
 
-      padding: 50px 30px 20px 20px;
+      padding: 0px;
     }
   }
 
@@ -300,11 +307,11 @@ export const SliderCardContainer = styled.div`
   @media screen{
     @media (min-width: 1024px){
       height: 261px;
-      margin-top: unset;
-      width: 380px;
+      margin-top: 15px;
+      width: 100%;
     }
     @media (min-width: 1250px){
-      width: 475px;
+      /* width: 475px; */
     }
   }
 `
@@ -443,13 +450,14 @@ export const CardPicture = styled.div`
   height: 56px;
   border-radius: 8px;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   top: 20px;
   left: 6px;
   margin-left: 8px;
 
-  @media (min-width: 1025px){
-    top: 30px;
+  @media (min-width: 1024px){
+    top: -10px;
+    left: -15px;
     width: 75px;
     height: 75px;
     margin-left: 35px;

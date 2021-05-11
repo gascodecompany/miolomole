@@ -11,12 +11,21 @@ export default function AboutUsSlider(props){
   const settings = {
     dots: true,
     speed: 500,
-    slidesToShow: 1,
+    slidesToShow: 2,
     slidesToScroll: 1,
     ltr: true,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1250,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 1023,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
