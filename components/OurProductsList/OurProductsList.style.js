@@ -95,9 +95,8 @@ export const ProductCard = styled.div`
   [type="delete"]{
     svg{
       position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-
+      top: 10px;
+      right: 10px;
     }
   }
 `
