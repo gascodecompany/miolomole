@@ -27,6 +27,7 @@ export default function UsersList(props) {
         <S.UsersTitle>Usuários</S.UsersTitle>
         <S.UserHeader>
           <b>Foto</b>
+          <b>Login</b>
           <b>Nome</b>
           <b>Função</b>
           <S.AddUserButton onClick={() => router.push('/usuarios/novo')}><span>+</span></S.AddUserButton>
@@ -35,6 +36,7 @@ export default function UsersList(props) {
           <S.UsersListItem key={user._id}>
             <S.UserAvatar img={user.avatar}/>
             <S.UserName>{user.userName}</S.UserName>
+            <S.UserFullName>{user.userFullName}</S.UserFullName>
             <S.UserOccupation>{user.occupation.join(', ')}</S.UserOccupation>
             <S.ButtonDelete type="delete" onClick={() => handleDeleteUser(user)}/>
             <S.ButtonDelete type="edit" onClick={() => router.push(`/usuarios/${user._id}`)} />

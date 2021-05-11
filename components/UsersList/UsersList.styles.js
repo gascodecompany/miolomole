@@ -6,6 +6,7 @@ export const UsersList = styled.div`
   min-height: 70vh;
   width: 100%;
   max-width: 800px;
+
 `
 export const UsersTitle = styled.h1`
   text-align: center;
@@ -14,13 +15,19 @@ export const UsersTitle = styled.h1`
 
 export const UserHeader = styled.div`
   display: grid;
-  grid-template-columns: 35px 2fr 1fr 30px 30px;
+  grid-template-columns: 35px 1fr 2fr 2fr 30px 30px;
   align-items: center;
+  grid-gap: 10px;
   justify-content: center;
   margin-bottom: 10px;
   @media screen{
+    @media(max-width: 500px){
+      grid-template-columns: 35px 1fr 2fr 20px 20px;
+
+
+    }
     @media (min-width: 1024px){
-      grid-template-columns: 55px 2fr 1fr 30px 30px;
+      grid-template-columns: 55px 1fr 2fr 2fr 30px 30px;
     }
   }
 
@@ -30,18 +37,38 @@ export const UserHeader = styled.div`
     display: -webkit-box;
     -webkit-line-clamp: 1; 
     -webkit-box-orient: vertical; 
+    font-size: 12px;
+
+    :last-of-type {
+      display: none;
+    }
+    @media(min-width: 1024px){
+      font-size: unset;
+
+      :last-of-type {
+        display: unset;
+      }
+    }
   }
 `
 
 export const UsersListItem = styled.div`
   display: grid;
-  grid-template-columns: 35px 2fr 1fr 30px 30px;
+  grid-template-columns: 35px 1fr 2fr 2fr 30px 30px;
   align-items: center;
+  grid-gap: 10px;
   margin-bottom: 10px;
+  font-size: 12px;
 
   @media screen{
+    @media(max-width: 500px){
+      grid-template-columns: 35px 1fr 2fr 20px 20px;
+
+    }
     @media (min-width: 1024px){
-      grid-template-columns: 55px 2fr 1fr 30px 30px;
+      grid-template-columns: 55px 1fr 2fr 2fr 30px 30px;
+      font-size: unset;
+
     }
   }
 `
@@ -68,6 +95,7 @@ export const UserName = styled.div`
   display: -webkit-box;
   -webkit-line-clamp: 1; 
   -webkit-box-orient: vertical; 
+
 `
 export const UserOccupation = styled.div`
   
@@ -95,4 +123,10 @@ export const AddUserButton = styled.div`
     transition: .5s cubic-bezier(.22,.68,0,1.71);
   }
 
+`
+
+export const UserFullName = styled.div`
+  @media(max-width: 500px){
+    display: none;
+  }
 `
