@@ -44,7 +44,6 @@ export default function UserForm(props){
       else {res = await axios.put('/api/users', { ...variables, _id: user._id })}
       if(res.status === 200) { toast.success(`Cadastrado ${user ? 'atualizado' : 'realizado'} com sucesso!`) }
       else { toast.error(res?.response?.data) }
-      router.back()
     } catch (err) { toast.error(err.response.data.errorMessage) }
     }
 

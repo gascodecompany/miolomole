@@ -1,10 +1,10 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import Container from '../Container';
 import * as S from './UsersList.styles';
 import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 import Profile from "../../images/avatar_profile.png";
-
 
 export default function UsersList(props) {
   const [users, setUsers] = useState([]);
@@ -20,7 +20,7 @@ export default function UsersList(props) {
       const newUsers = [...oldUsers];
       return newUsers.filter((user) => user._id !== _id);
     })
-    await axios.delete(`/api/users`, { data: { _id } })
+    await axios.delete(`/api/users`, { data: { _id } });
   }
 
   return (
@@ -41,7 +41,7 @@ export default function UsersList(props) {
             <S.UserFullName>{user.userFullName}</S.UserFullName>
             <S.UserOccupation>{user.occupation.join(', ')}</S.UserOccupation>
             <S.ButtonDelete type="delete" onClick={(e) => { e.stopPropagation() ;handleDeleteUser(user)} }/>
-            <S.ButtonDelete type="edit" onClick={(e) => { e.stopPropagation(); router.push(`/usuarios/${user._id}`)} } />
+            <S.ButtonDelete type="edit" onClick={(e) => {e.stopPropagation(); router.push(`/usuarios/${user._id}`)}} />
           </S.UsersListItem>
         ))}
       </S.UsersList>
