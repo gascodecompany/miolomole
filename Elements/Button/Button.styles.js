@@ -6,8 +6,8 @@ const primary = css`
   padding: 5px;
   font-family: Montserrat;
   font-weight: bold;
-  font-size: ${({ theme: { fontSize: { fontSizeS }}}) => fontSizeS };
-  letter-spacing: 2.4px;
+  font-size: 16px;
+  letter-spacing: 2px;
   color: #FFFFFF;
   width: auto;
   min-width: 200px;
@@ -79,7 +79,8 @@ const primaryDark = css`
 const secondary = css`
   background: ${({ theme: { color: { white }}}) => white };
   color: ${({ theme: { color: { brandDark }}}) => brandDark };
-
+  height: 50px;
+  border-radius: 29.5px;
   &:hover {
     background: ${({theme: {color: { brandDark }}}) => brandDark };
     color: ${({ theme: { color: { white }}}) => white };

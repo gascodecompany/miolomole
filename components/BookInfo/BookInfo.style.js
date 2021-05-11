@@ -2,36 +2,36 @@ import styled, { css } from 'styled-components';
 
 export const BookInfo = styled.div`
   width: 90%;
-  @media screen{ 
-    @media (min-width: 1024px){ width: 60% }
-  }
-
   button{ grid-area: button; }
+  @media screen{ @media (min-width: 1024px){ width: 60% } }
 `
+
 export const BookInfoTitle = styled.h1`
   font-family: Montserrat;
   font-style: normal;
   font-weight: bold;
   line-height: 1.5;
-  display: flex;
-  align-items: center;
   color: #333333;
-  font-size: 32px;
-  text-align: center;
+  display: flex;
   width: 100%;
   margin: 15px 0;
+  font-size: 32px;
+  text-align: center;
+  align-items: center;
   @media (min-width: 1024px){ font-size: 40px; text-align: left; }
   ${({isLoggedIn}) => !isLoggedIn && css`:focus-visible { outline: none }`}
 `
 
 export const BookInfoItem = styled.div`
-  display: flex;
   flex-direction: column;
-  padding: 10px;
-  width: 100%;
-  height: 100%;
   align-items: center;
-  ${({isLoggedIn}) => !isLoggedIn && css`:focus-visible { outline: none }`}
+  display: flex;
+  padding: 10px;
+  height: 100%;
+  width: 100%;
+
+  ${({isLoggedIn}) => !isLoggedIn && css`:focus-visible { outline: none }`};
+
   @media screen {
     @media (min-width: 1024px) {
       flex-direction: row;
@@ -41,14 +41,16 @@ export const BookInfoItem = styled.div`
 `
 
 export const BookInfoItemSelect = styled.div`
-  display: flex;
   flex-direction: column;
+  display: flex;
   padding: 10px;
   width: 100%;
   height: 100%;
-  align-items: center;
   text-align: center;
-  ${({isLoggedIn}) => !isLoggedIn && css`:focus-visible { outline: none }`}
+  align-items: center;
+
+  ${({isLoggedIn}) => !isLoggedIn && css`:focus-visible { outline: none }`};
+  
   @media screen {
     @media (min-width: 1024px) {
       flex-direction: row;
@@ -113,8 +115,8 @@ export const BookItemLabel = styled.label`
   text-align: center;
   ${({isLoggedIn}) => !isLoggedIn && css`:focus-visible { outline: none }`}
   @media (min-width: 1024px){
-    width: 200px;
     text-align: left;
+    width: 200px;
   }
 `
 
@@ -142,9 +144,7 @@ export const BottomWrapper = styled.div`
   align-items: center;
   justify-content: center;
 
-  #save {
-    width: 100%
-  }
+  #save { width: 80%; }
 
   @media (min-width: 1024px){
     display: grid;
@@ -159,10 +159,7 @@ export const Price = styled.div`
   margin: 0;
   width: 100%;
   height: 100%;
-
-  @media (min-width: 1024px){
-    margin: 0 20px;
-  }
+  @media (min-width: 1024px){ margin: 0 20px }
 `
 
 export const Label = styled.label`
@@ -172,8 +169,8 @@ export const Label = styled.label`
   font-size: 18px;
   line-height: 22px;
   text-align: left;
-  color: ${({ theme: { color: { blackMedium }}}) => blackMedium };
   margin-bottom: 15px;
+  color: ${({ theme: { color: { blackMedium }}}) => blackMedium };
 `
 
 export const PriceValue = styled.p`
@@ -192,10 +189,10 @@ export const PriceLabel = styled.span`
   font-family: Montserrat;
   font-style: normal;
   font-weight: bold;
+  height: auto;
   font-size: 24px;
   line-height: 29px;
   align-self: center;
-  height: auto;
   @media (min-width: 1024px){ text-align: left; width: unset }
 `
 
@@ -203,10 +200,7 @@ export const PriceText = styled.p`
   display: flex;
   align-items: center;
   justify-content: center;
-  /* flex-direction: column; */
   margin: 2px;
 
-  @media (min-width: 1024px){
-    flex-direction: row;
-  }
+  @media (min-width: 1024px){ flex-direction: row }
 `

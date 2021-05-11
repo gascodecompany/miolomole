@@ -27,8 +27,7 @@ export default function BookInfo({ book }){
       .then((res) => setUsers(res.data))
       .catch((err) => console.log(err))
   }, [])
-
-
+  
   useEffect(() => {
     if(book) {
       setFields((oldFields) => {
@@ -47,29 +46,30 @@ export default function BookInfo({ book }){
   const saveInfos = async () => {
     const variables = mapFieldsToData({ ...bookFields, priceField});
     if(!name) {
-      const res = await axios.post('/api/livros', { ...variables });
-      if(res.status === 200){
-        toast.success('Cadastro realizado com sucesso!');
-      } else {
-        alert(res?.data?.response);
-      }
+      try{
+        const res = await axios.post('/api/livros', { ...variables })
+        if(res.status === 200){ toast.success('Cadastro realizado com sucesso!'); } 
+        else { console.log(res); }
+      } catch (err) { console.log(err.response) }
     } else {
-      const res = await axios.put('/api/livros', { ...variables, name })
-      if(res.status === 200){ toast.success('Cadastro atualizado com sucesso!')} 
-      else { alert(res?.data?.response) }
+      try{
+        const res = await axios.put('/api/livros', { ...variables, name })
+        if(res.status === 200){ toast.success('Cadastro atualizado com sucesso!')} 
+        else { console.log(res) }
+      } catch (err) { console.log(err.response) }
     }
   }
 
   const saveButton = {
     variation: "primary",
-    onClick: () => isLoggedIn ? saveInfos() : router.push('parceiros'),
+    onClick: async () => isLoggedIn ? await saveInfos() : router.push('parceiros'),
     label: isLoggedIn ? "Salvar Descrição" : "Comprar em loja parceira"
   }
+
   // /[0-9][0-9,\.]/g
   
-  const dynamicText = price.price && !(/\D/gim).test(price.price?.value) && 'R$'
-
-  return(
+  const dynamicText = price.price && !(/\D/gim).test(price.price?.value.replace(',', '')) && 'R$'
+  return (
     <S.BookInfo>
       <Form { ...formProps } />
       <S.BottomWrapper>

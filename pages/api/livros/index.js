@@ -29,7 +29,7 @@ const bookHandler = async (req, res) => {
           return await res.status(200).json(updatedModel);
         } catch (err) { return res.status(500).end() };
       case 'POST':
-        try{
+        try {
           const books = await Book.find({ name });
           if(!!books.length) { return res.status(409).json({ errorMessage: 'Livro ja cadastrado.' }) };
           args.name = args.title.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f`~!@#$%^&*()_|+\=?;:'",.<>\{\}\[\]\\\/]/gi, '').replace(/(\s)(?=\1)/gi, "").replace(/\s/g, "-")

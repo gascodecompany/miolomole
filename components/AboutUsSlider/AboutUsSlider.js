@@ -68,7 +68,7 @@ export default function AboutUsSlider(props){
                 <S.SliderCard key={item._id + i}>
                   <S.CardPicture src={item.avatar} />
                   <S.SliderCardContainer>
-                    <S.CardTitle>{item.userName}</S.CardTitle>
+                    <S.CardTitle>{item.userFullName}</S.CardTitle>
                     <S.CardDescription>{item.description}</S.CardDescription>
                   </S.SliderCardContainer>
                 </S.SliderCard>

@@ -1,6 +1,7 @@
 export const usuariosFieldsState = (props) => ({
   avatar: { value: '' },
   userName: { value: '' },
+  userFullName: { value: '' },
   occupation: { value: [] },
   description: { value: '' },
   password: { value: '' },
@@ -15,7 +16,7 @@ export const usuariosFieldsFunction = ({ fields }) => ({
   userName: {
     ...fields.userName,
     name: 'userName',
-    label: 'Nome',
+    label: 'Login',
   },
   occupation: {
     ...fields.occupation,
@@ -29,6 +30,11 @@ export const usuariosFieldsFunction = ({ fields }) => ({
       { label: 'Administrador', value: 'admin' }
     ]
   },
+  userFullName: {
+    ...fields.userFullName,
+    name: 'userFullName',
+    label: 'Nome',
+  },
   password: {
     ...fields.password,
     name: 'password',
@@ -40,7 +46,6 @@ export const usuariosFieldsFunction = ({ fields }) => ({
     label: 'Descrição',
     name: 'description',
     type: 'textarea',
-    maxWidth: '200px'
   },
 })
 
@@ -49,6 +54,7 @@ export const gridTemplate = () => {
     grid-template-areas:
       "avatar"
       "userName"
+      "userFullName"
       "occupation"
       "password"
       "description"
@@ -60,6 +66,7 @@ export const gridTemplate = () => {
       @media (min-width: 1024px){
         grid-template:
           "avatar userName occupation"
+          "avatar userFullName occupation"
           "avatar password password"
           "avatar description description"
           "avatar . ."

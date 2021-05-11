@@ -3,7 +3,6 @@ import arrayToStringFormatter from './arrayToStringFormatter'
 function getDataValue({ newFields, field, data, constant }) {
   if(constant?.type !== 'password'){
     if(Array.isArray(data[field])) {
-      console.log(data[field])
       if( data[field].length > 1) { newFields[field].value = arrayToStringFormatter(data[field]) }
       else { newFields[field].value = [data[field][0]] }
     } else { newFields[field].value = data[field] || newFields[field]?.value }
@@ -12,13 +11,16 @@ function getDataValue({ newFields, field, data, constant }) {
 
 function getDataSelectValue({ newFields, field, data, constant }) {
   if(constant.isMulti){
-    if(data[field].length === 1 )
-      return {...data[field][0], label: data[field][0].userFullName}
+    if(data[field].length === 1 ){
+      const fieldObj = constant?.options?.find(({value}) => value === data[field][0]);
+      newFields[field].value = fieldObj ? [{...fieldObj}] : [{...data[field][0], label: data[field][0].userFullName }]
+    }
     else {
       newFields[field].value = data[field].map((subField) => {
-        // const fieldValue = constant?.options?.find(({value}) => value == field || value == field._id)
-        return {...subField, label: subField.userFullName}
-    })}
+        const constantObj = constant?.options?.find(({value}) =>  value === subField )
+        return constantObj ? {...constantObj} : {...subField, label: subField?.userFullName}
+      })
+    }
   } else {
     newFields[field].value = !!data[field]?.length
       ? {

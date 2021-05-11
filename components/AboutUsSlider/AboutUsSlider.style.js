@@ -444,6 +444,7 @@ export const CardLogo = styled.div`
   background-position: center;
 `
 export const CardPicture = styled.div`
+  background-color: ${({ theme: { color: { whiteDark }}}) => whiteDark };;
   background-image: url(${({ src }) => src });
   position: absolute;
   width: 56px;
