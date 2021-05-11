@@ -4,13 +4,8 @@ import BookAudiovisual from "../../../components/BookAudiovisual";
 import { useEffect, useState } from 'react';
 
 export default function Book(props){
-  const [book, setBook] = useState();
-  const [books, setBooks] = useState();
-
-  useEffect(() => {
-    if(!!props.book) { setBook(JSON.parse(props.book)) } 
-    if(!!props.books?.length) { setBooks(JSON.parse(props.books)) } 
-  }, [props])
+  const [book, setBook] = useState(JSON.parse(props.book) || []);
+  const [books, setBooks] = useState(JSON.parse(props.books) || []);
   
   const router = useRouter();
   const splittedId = router.query.name?.split('-');

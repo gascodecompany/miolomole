@@ -86,7 +86,8 @@ const secondary = css`
   }
 
   &:active, &:focus {
-    background: ${({theme: {color: { brand }}}) => lighten('.2', brand) };
+    background: ${({ theme: { color: { brandSmoth }}}) => brandSmoth };
+    color: white;
   }
 `
 

@@ -2,7 +2,8 @@ import arrayToStringFormatter from './arrayToStringFormatter'
 
 function getDataValue({ newFields, field, data, constant }) {
   if(constant?.type !== 'password'){
-    if(Array.isArray(data[field])) { 
+    if(Array.isArray(data[field])) {
+      console.log(data[field])
       if( data[field].length > 1) { newFields[field].value = arrayToStringFormatter(data[field]) }
       else { newFields[field].value = [data[field][0]] }
     } else { newFields[field].value = data[field] || newFields[field]?.value }
@@ -11,19 +12,25 @@ function getDataValue({ newFields, field, data, constant }) {
 
 function getDataSelectValue({ newFields, field, data, constant }) {
   if(constant.isMulti){
-    newFields[field].value = data[field].map((field) => constant?.options?.find(({value}) => value == field) )
+    if(data[field].length === 1 )
+      return {...data[field][0], label: data[field][0].userFullName}
+    else {
+      newFields[field].value = data[field].map((subField) => {
+        // const fieldValue = constant?.options?.find(({value}) => value == field || value == field._id)
+        return {...subField, label: subField.userFullName}
+    })}
   } else {
-    newFields[field].value = !!data[field].length
-    ? { 
-      label: data[field]?.label || 
-      data[field]?.name ||
-      data[field]?.legalName ||
-      data[field]?._id ||
-      data[field].title ||
-      constant?.options?.find(({value}) => value == data[field]) ||
-      data[field],
-      value: data[field]._id || data[field].value || data[field] 
-    } : ''
+    newFields[field].value = !!data[field]?.length
+      ? {
+        label: data[field]?.label ||
+        data[field]?.name ||
+        data[field]?.legalName ||
+        data[field]?._id ||
+        data[field].title ||
+        constant?.options?.find(({value}) => value == data[field]) ||
+        data[field],
+        value: data[field]._id || data[field].value || data[field]
+      } : ''
   }
 }
 
@@ -50,6 +57,7 @@ export default function mapDataToFields({ newFields, constantFields, data }) {
     for (const field in newFields) {
       switch (constantFields[field]?.type) {
         case "select":
+        case "simpleSelect":
           getDataSelectValue({ newFields, field, data, constant: constantFields[field] })
           break;
         case "selectMulti":

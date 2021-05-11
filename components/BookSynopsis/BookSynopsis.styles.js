@@ -12,22 +12,16 @@ export const BookSynopsis = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    img {
-      width: 300px;
-      height: auto;
-      margin-bottom: 30px;
-    }
     @media screen{
       @media (min-width: 1024px){
         display: grid;
         grid-template-columns: 2fr 1fr;
         grid-template-areas:
-          "sinopsys cover"
-          "video cover"
-          "button button"
+          "sinopsys video"
+          "sinopsys video"
+          "button video"
         ;
         grid-gap: 20px;
-        .container > img { margin-bottom: 0;}
       }
     }
   }
@@ -62,6 +56,7 @@ export const SynopsisText = styled.div`
     font-family: Montserrat;
     font-style: normal;
     font-weight: 500;
+    height: auto;
     font-size: 13px;
     line-height: 1.8;
     margin-bottom: 30px;
@@ -82,10 +77,14 @@ export const SynopsisText = styled.div`
 `
 
 export const SynopsisVideo = styled.div`
-  grid-area: cover;
+  grid-area: video;
   width: 100%;
   height: auto;
   align-self: center;
+
+  .Playerstyles__RPlayer-llteo8-0{ padding: 0 }
+
+  [type="video"] { height: 100% }
 `
 
 export const InputVideo = styled.div`

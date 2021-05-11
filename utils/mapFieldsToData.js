@@ -11,7 +11,6 @@ export default function mapFieldsToData(fields) {
     } else {
       if(item.type === 'select'){
         if(Array.isArray(item?.value?.value)){
-          console.log('aqui carai', item)
           return { ...obj, [item.name]: item?.value.value.map((subItem) => subItem.value) }
         } else { 
           return { ...obj, [item.name]: item?.value.map((subItem) => {
