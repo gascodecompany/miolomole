@@ -33,9 +33,14 @@ export const LoginModalBody = styled.div`
       align-self: center;
       justify-self: center;
     }
+    form{
+      div{
+        margin: 15px;
+      }
+    }
     input {
       width: 100%;
-      margin-bottom: 40px;
+      /* margin-bottom: 40px; */
       border-bottom: 1px solid ${({ theme: { color: { brand }}}) => brand };
     }
   }

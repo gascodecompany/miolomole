@@ -9,7 +9,8 @@ const primary = css`
   font-size: ${({ theme: { fontSize: { fontSizeS }}}) => fontSizeS };
   letter-spacing: 2.4px;
   color: #FFFFFF;
-  width: 200px;
+  width: auto;
+  min-width: 200px;
   height: 50px;
   background: ${({ theme: { color: { brand }}}) => brand };
   border-radius: 12px;

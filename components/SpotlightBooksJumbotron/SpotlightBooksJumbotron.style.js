@@ -13,7 +13,7 @@ export const HomeJumbotronContainer = styled.div`
 
 
       li{
-        width: 170px;
+        width: 123px;
         bottom: 15px;
         padding-bottom: 30px;
         font-family: Montserrat;
@@ -23,7 +23,11 @@ export const HomeJumbotronContainer = styled.div`
         letter-spacing: 2.4px;
         color: #FFFFFF;
         display: flex;
-
+        @media screen{
+          @media (min-width: 500px){
+            width: 170px;
+          }
+        }
         &.slick-active{
           border-bottom: 3px solid #FECA30;
           font-weight: 500;
