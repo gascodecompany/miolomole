@@ -84,9 +84,20 @@ export const ProductCard = styled.div`
   text-align: center;
   cursor: pointer;
   margin-bottom: 30px;
+  position: relative;
+
   @media screen{
     @media (min-width: 1024px){
       width: 250px;
+    }
+  }
+
+  [type="delete"]{
+    svg{
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+
     }
   }
 `
