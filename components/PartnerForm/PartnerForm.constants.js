@@ -36,7 +36,7 @@ export const PartnerFormFieldsFunction = ({ fields, partner, books }) => ({
     ...fields.city,
     name: 'city',
     label: 'Cidade',
-    type: 'selectMulti',
+    type: 'select',
     loadEmpty: true,
     isMulti: true,
     isSearchable: true,
