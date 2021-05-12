@@ -310,7 +310,7 @@ export const TextArea = styled(forwardRef((props, ref) => <TextareaAutosize {...
   box-sizing: border-box;
   border-radius: 8px;
   width: 100%;
-  height: 140px;
+  min-height: 140px;
   margin-top: 24px;
   padding: 10px;
   font-family: 'Open Sans';
