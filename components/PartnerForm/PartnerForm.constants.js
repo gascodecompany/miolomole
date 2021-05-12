@@ -95,8 +95,9 @@ export const gridTemplate = () => {
       grid-template: ${`
         "name name logo"
         "description description logo"
-        "city city city"
-        "books books books"
+        "city city logo"
+        "books books logo"
+        ". . logo"
     `};
       grid-template-columns: 1fr 1fr 280px;
     }
