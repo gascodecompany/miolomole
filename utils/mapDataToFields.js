@@ -13,10 +13,10 @@ function getDataSelectValue({ newFields, field, data, constant }) {
   if(constant.isMulti){
     if(data[field].length === 1 ){
       const fieldObj = constant?.options?.find(({value}) => value === data[field][0]);
-      newFields[field].value = fieldObj ? [{...fieldObj}] : [{...data[field][0], label: data[field][0].userFullName }]
-    }
-    else {
+      newFields[field].value = fieldObj ? [{...fieldObj}] : [{ label: data[field][0]?.userFullName || data[field][0]?.label || data[field][0]?.title || data[field][0], value: data[field][0]?.value || data[field][0]._id || data[field][0] }]
+    } else {
       newFields[field].value = data[field].map((subField) => {
+        console.log(subField)
         const constantObj = constant?.options?.find(({value}) =>  value === subField )
         return constantObj ? {...constantObj} : {...subField, label: subField?.userFullName}
       })

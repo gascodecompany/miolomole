@@ -69,14 +69,6 @@ export const PartnerFormFieldsFunction = ({ fields, partner, books }) => ({
       { label: "São Paulo", value: "SP" },
       { label: "Tocantins", value: "TO" },
     ]
-  },
-  books: {
-    ...fields.books,
-    name: 'books',
-    label: 'Livros',
-    type: 'select',
-    isMulti: true,
-    options: Object.entries(books).reduce((arr, item) => ([...arr, { name: item[1].name, value: item[1]._id, label: item[1].title }]), [])
   }
 })
 

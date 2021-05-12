@@ -1,4 +1,5 @@
-import { css } from 'styled-components'
+import { css } from 'styled-components';
+import axios from 'axios';
 
 export const StoreJumbotronFieldsState = ({
   selectBook: { value: '' },
@@ -6,21 +7,17 @@ export const StoreJumbotronFieldsState = ({
 })
 
 export const StoreJumbotronFieldsFunction = ({fields, setFields, books, states}) => ({
-  selectBook: {
-    ...fields.selectBook,
-    name: 'selectBook',
-    label: '',
-    placeholder: 'Selecione o livro',
-    type: 'select',
-    loadOptions: () => { books.map((book) => ({ label: book.label, value: book._id })) }
-  },
   selectState: {
     ...fields.selectState,
     name: 'selectState',
-    label: '',
-    placeholder: 'Selecione o Estado',
+    placeholder: 'Estado...',
     type: 'select',
-    options: ''
+    isSearchable: true,
+    // loadOptions: (query, callback) => {
+    //   axios.get('/api/parceiros')
+    //     .then(({data}) => callback(data.map((item) => ({...item.city, }))))
+    //     .catch((err) => callback([]))
+    // },
   },
   submitButton: {
     name: 'submitButton',
@@ -34,7 +31,6 @@ export const StoreJumbotronFieldsFunction = ({fields, setFields, books, states})
 export const gridTemplate = () => css`
   width: 80%;
   grid-template-areas: 
-    "selectBook"
     "selectState"
     "submitButton"
   ;
@@ -42,7 +38,7 @@ export const gridTemplate = () => css`
   @media screen{
     @media (min-width: 1024px){
       grid-template-areas: 
-        "selectBook selectState submitButton"
+        "selectState submitButton"
       ;
     }
   }
