@@ -22,10 +22,16 @@ export const AboutUsSlider = styled.div`
         top: 0px;
         left: 0px;
         height: 100%;
-        width: 40%;
+        /* width: 40%; */
         background: #F6F6FA;
         z-index: 1;
         min-width: 394px;
+
+      }
+    }
+    @media(min-width: 2000px){
+      &::before{
+        width: 32%;
 
       }
     }
@@ -36,7 +42,6 @@ export const AboutUsSlider = styled.div`
     @media screen{
       @media (min-width: 1024px){
         height: 300px;
-
       }
     }
   }
@@ -51,13 +56,12 @@ export const AboutUsSlider = styled.div`
 
     @media screen{
       @media (min-width: 1024px){
-        left: -200px;
-
+        /* left: 100px; */
       }
     }
   }
   .slick-list{
-    padding:0 20% 0 0;
+    padding:0 10% 0 0;
     @media screen{
       @media (min-width: 1024px){
         overflow: visible;
@@ -197,6 +201,7 @@ export const SliderInfo = styled.div`
       background: #F6F6FA;
       align-items: baseline;
       padding-left: 20px;
+      height: 130%;
 
     }
     @media (min-width: 1290px){
@@ -207,7 +212,7 @@ export const SliderInfo = styled.div`
 
 `
 
-export const SliderTitle = styled.div`
+export const SliderTitle = styled.h1`
   font-family: Amatic SC;
   font-style: normal;
   font-weight: 400;
@@ -226,11 +231,12 @@ export const SliderTitle = styled.div`
 
 `
 
-export const SliderDescription = styled.div`
+export const SliderDescription = styled.h3`
   font-family: Montserrat;
   font-size: 14px;
   width: 270px;
   line-height: 1.4;
+  font-weight: normal;
   display: flex;
   color: #000000;
   text-align: center;
@@ -264,7 +270,7 @@ export const SliderCard = styled.div`
     @media (min-width: 1024px){
       height: 100%;
 
-      padding: 50px 30px 20px 20px;
+      padding: 0px;
     }
   }
 
@@ -301,11 +307,11 @@ export const SliderCardContainer = styled.div`
   @media screen{
     @media (min-width: 1024px){
       height: 261px;
-      margin-top: unset;
-      width: 380px;
+      margin-top: 15px;
+      width: 100%;
     }
     @media (min-width: 1250px){
-      width: 475px;
+      /* width: 475px; */
     }
   }
 `
@@ -438,19 +444,21 @@ export const CardLogo = styled.div`
   background-position: center;
 `
 export const CardPicture = styled.div`
+  background-color: ${({ theme: { color: { whiteDark }}}) => whiteDark };;
   background-image: url(${({ src }) => src });
   position: absolute;
   width: 56px;
   height: 56px;
   border-radius: 8px;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   top: 20px;
   left: 6px;
   margin-left: 8px;
 
-  @media (min-width: 1025px){
-    top: 30px;
+  @media (min-width: 1024px){
+    top: -10px;
+    left: -15px;
     width: 75px;
     height: 75px;
     margin-left: 35px;

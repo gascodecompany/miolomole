@@ -4,14 +4,13 @@ export const BookRelated = styled.div`
 
 `
 export const RelatedBooks = styled.div`
-  display: flex;
+  display: grid;
   width: 100%;
-  justify-content: space-between;
-  flex-flow: wrap;
+  grid-template-columns: 1fr;
+  grid-template-rows: 300px;
   @media screen{
-    @media (min-width: 1024px){
-      flex-direction: row;
-    }
+    @media (min-width: 768px){ grid-template-columns: 1fr 1fr; }
+    @media (min-width: 1024px){ grid-template-columns: 1fr 1fr 1fr 1fr; }
   }
 `
 export const RelatedTitle = styled.div`
@@ -23,7 +22,7 @@ export const RelatedTitle = styled.div`
   align-items: flex-end;
   letter-spacing: 2.4px;
   color: #000000;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 
 `
 export const BookRelatedCard = styled.div`
@@ -50,4 +49,6 @@ export const BookRelatedItemTitle = styled.div`
   line-height: 1.5;
   color: #071825;
   margin: 20px;
+  width: 200px;
+  text-align: center;
 `

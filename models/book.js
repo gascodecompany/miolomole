@@ -1,10 +1,11 @@
-import mongoose from 'mongoose';
-var Schema = mongoose.Schema;
+import mongoose, { Schema } from 'mongoose';
+import User from './user';
 
 var book = new Schema({
   name: { type: String, unique: true, required: true },
   title: { type: String, required: true },
-  illustrators: [{ type: String }],
+  illustrators: [{ type: Schema.Types.ObjectId, ref: User }],
+  authors: [{ type: Schema.Types.ObjectId, ref: User }],
   size: { type: Object },
   pages: { type: Number },
   genre: [{ type: Object }],
@@ -12,13 +13,14 @@ var book = new Schema({
   ISBN: { type: Object },
   ageIndication: { type: Object },
   synopsis: { type: String },
-  authors: [{ type: String }],
   price: { type: String },
-  images: [{ type: String }],
+  image: { type: String },
+  video: { type: String },
   spotlight: {
     isActive: { type: Boolean },
-    spotlightImage: { type: String },
-    spotlightTitile: { type: String },
+    image: { type: String },
+    title: { type: String },
+    description: { type: String },
   }
 }, { timestamps: true });
 

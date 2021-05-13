@@ -13,7 +13,7 @@ export default function EditableImage ({ children, page, texts, textKey, book })
   const { isLoggedIn } = useAppProvider();
   const [edit, setEdit] = useState(false);
   let initialLink = (!!texts && !!textKey) && !!texts[textKey] ? texts[textKey] : 'https://placekitten.com/400/400'
-  if(book?.images) { initialLink = book.images[0] || 'https://placekitten.com/400/400' }
+  if(!!book?.image) { initialLink = book.image || 'https://placekitten.com/400/400' }
   const [link, setLink] = useState(initialLink);
   const [newLink, setNewLink] = useState(initialLink);
   const [loading, setLoading] = useState(false);
@@ -46,8 +46,8 @@ export default function EditableImage ({ children, page, texts, textKey, book })
   }, []);
   
   const saveImage = async () => {
-    if(book?.images){
-      await axios.put(`/api/livros`, { _id: book._id, images: [newLink] }).catch((err) => console.log(err));
+    if(!!book) {
+      await axios.put(`/api/livros`, { _id: book._id, image: newLink }).catch((err) => console.log(err));
       setLink(newLink);
       setEdit(false);
     } else {

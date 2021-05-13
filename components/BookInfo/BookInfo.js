@@ -4,6 +4,7 @@ import Form from '../../Elements/Form';
 import { useRouter } from 'next/router';
 import Button from '../../Elements/Button';
 import { useState, useEffect } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 import { useAppProvider } from '../../store/appProvider';
 import mapFieldsToData from '../../utils/mapFieldsToData';
 import mapDataToFields from '../../utils/mapDataToFields';
@@ -13,13 +14,20 @@ import { BookInfoFieldsFunction, BookInfoFieldsState, priceFieldState, priceFiel
 export default function BookInfo({ book }){
   const router = useRouter();
   const { name } = router.query;
-  const [message, setMessage] = useState();
   const { isLoggedIn } = useAppProvider();
   const [fields, setFields] = useState(BookInfoFieldsState);
   const [price, setPrice] = useState(priceFieldState);
+  const [users, setUsers] = useState([]);
   const priceField = priceFieldFunction({ price, isLoggedIn }).price
-  const bookFields = BookInfoFieldsFunction({ fields, setFields });
+  const bookFields = BookInfoFieldsFunction({ fields, setFields, users });
   const formProps = { fields: bookFields, setFields, gridTemplate, isLoggedIn, striped: true }
+
+  useEffect(() => {
+    axios.get('/api/users', { params: { filterOccupation: true } })
+      .then((res) => setUsers(res.data))
+      .catch((err) => console.log(err))
+  }, [])
+  
   useEffect(() => {
     if(book) {
       setFields((oldFields) => {
@@ -36,36 +44,42 @@ export default function BookInfo({ book }){
   }, [book])
   
   const saveInfos = async () => {
-    setMessage('');
     const variables = mapFieldsToData({ ...bookFields, priceField});
     if(!name) {
-      const res = await axios.post('/api/livros', { ...variables });
-      if(res.status === 200){
-        setMessage('Cadastro realizado com sucesso!');
-      } else {
-        alert(res?.data?.response);
-      }
+      try{
+        const res = await axios.post('/api/livros', { ...variables })
+        if(res.status === 200){ toast.success('Cadastro realizado com sucesso!'); } 
+        else { console.log(res); }
+      } catch (err) { console.log(err.response) }
     } else {
-      const res = await axios.put('/api/livros', { ...variables, name })
-      if(res.status === 200){ setMessage('Cadastro atualizado com sucesso!')} 
-      else { alert(res?.data?.response) }
+      try{
+        const res = await axios.put('/api/livros', { ...variables, name })
+        if(res.status === 200){ toast.success('Cadastro atualizado com sucesso!')} 
+        else { console.log(res) }
+      } catch (err) { console.log(err.response) }
     }
   }
 
-  return(
+  const saveButton = {
+    variation: "primary",
+    onClick: async () => isLoggedIn ? await saveInfos() : router.push('parceiros'),
+    label: isLoggedIn ? "Salvar Descrição" : "Comprar em loja parceira"
+  }
+
+  // /[0-9][0-9,\.]/g
+  
+  const dynamicText = price.price && !(/\D/gim).test(price.price?.value.replace(',', '')) && 'R$'
+  return (
     <S.BookInfo>
       <Form { ...formProps } />
       <S.BottomWrapper>
         <S.Price>
           <S.Label>Preço</S.Label>
-          <S.PriceText><span>R$</span><FieldEditable {...priceField} isLoggedIn={isLoggedIn} setFields={setPrice} /></S.PriceText>
+          <S.PriceText><S.PriceLabel>{dynamicText}</S.PriceLabel><FieldEditable {...priceField} isLoggedIn={isLoggedIn} setFields={setPrice} /></S.PriceText>
         </S.Price>
-        { isLoggedIn 
-          ? <Button onClick={() => saveInfos()} label="Salvar Descrição" />
-          : <Button onClick={() => router.push('parceiros')} label="Comprar em loja parceira" />
-        }
+          <Button id="save" {...saveButton} />
       </S.BottomWrapper>
-      <S.Message>{ message && message }</S.Message>
+      <Toaster position="bottom-right" reverseOrder={false}/>      
     </S.BookInfo>
   )
 }

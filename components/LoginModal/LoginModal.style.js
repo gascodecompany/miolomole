@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 export const LoginModalContainer = styled.div`
   position: fixed;
@@ -9,6 +9,10 @@ export const LoginModalContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  button {
+    margin-top: 40px;
+  }
 `
 
 export const LoginModalBody = styled.div`
@@ -33,27 +37,20 @@ export const LoginModalBody = styled.div`
       align-self: center;
       justify-self: center;
     }
+    form{ div{ margin: 15px; } }
     input {
       width: 100%;
-      margin-bottom: 40px;
       border-bottom: 1px solid ${({ theme: { color: { brand }}}) => brand };
     }
   }
 
   transition: .6s ease;
 
-  @media (min-width: 768px){
-    section{
-      input{
-        width: 500px;
-      }
-    }
-  }
+  @media (min-width: 768px){ section{ input{ width: 500px; } } }
 
 `
 
 export const FormWrapper = styled.div`
-  height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -91,10 +88,6 @@ export const SubTitle = styled.h2`
   grid-area: subTitle;
   font-size: 14px;
   font-weight: normal;
-`
-
-export const LoginButton = styled.div`
-
 `
 
 export const Response = styled.div`

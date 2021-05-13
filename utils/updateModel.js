@@ -5,6 +5,8 @@ export default async function updateModel (args, model) {
   if(name){ data = await model.findOne({ name }) }
   if (!data) throw new Error('Documento não encontrado!');
   let hasChange = Object.keys(args).some(arg => data[arg] !== arg[args] );
-  if (hasChange) { for (let arg in args) { data[arg] = args[arg] } };
+  if (hasChange) { for (let arg in args) { 
+    data[arg] = args[arg]
+  } };
   return data; 
 }

@@ -28,6 +28,11 @@ export const FieldEditable = styled.div`
   ${({styles}) => styles}
 `
 
+export const FieldReadOnly = styled.div`
+  width: 100%;
+  background-color: unset;
+`
+
 export const LabelEditable = styled(forwardRef((props, ref) => <TextareaAutosize {...props} ref={ref} />))`
   background-color: transparent;
   resize: none;
@@ -270,6 +275,12 @@ export const PasswordToggle = styled.div`
   align-self: center;
   margin: 10px;
   right: 0;
-  bottom: 40px;
+  bottom: 0px;
   cursor: pointer;
+`
+
+export const SwitchField = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `

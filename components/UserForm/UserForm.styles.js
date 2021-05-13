@@ -1,11 +1,7 @@
 import styled from 'styled-components';
 
-export const Usuarios = styled.div`
-  
-`
-
 export const UsuariosWrapper = styled.div`
-  margin: 10% auto;
+  margin: 30% auto;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -13,13 +9,20 @@ export const UsuariosWrapper = styled.div`
   > section { width: 80%; margin: 0 auto;}
   > section > form > div, > section > form > button { margin: 15px }
   > section > form > button { justify-self: flex-end }
+
+  img{
+    height: 100%;
+    overflow: hidden;
+  }
+
   textarea {
     width: 100%;
     height: 170px;
     resize: none;
   }
-`
 
-export const ResponseMessage = styled.div`
-  
+  @media (min-width: 1024px){
+    margin: 10% auto;
+  }
+
 `

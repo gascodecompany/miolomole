@@ -6,11 +6,11 @@ import { formDisabled } from '../../helpers/fieldFunctions';
 import { loginModalFieldsState, loginModalFieldsFunction, gridTemplate } from './LoginModal.constants';
 import * as S from './LoginModal.style'
 import { useAppProvider } from '../../store/appProvider';
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function LoginModal(){
   const { setCurrentUser, setIsLoggedIn } = useAppProvider();
   const [fields, setFields] = useState(loginModalFieldsState);
-  const [message, setMessage] = useState();
   const [loading, setLoading] = useState();
   const [formDisabledState, setFormDisabledState] = useState();
   const router = useRouter();
@@ -22,12 +22,10 @@ export default function LoginModal(){
       newFields.password.value = '';
       return newFields;
     })
-    setMessage('')
   }, [])
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    setMessage('');
     setLoading(true);
     const fieldsArray = Object.entries(fields);
     const { userName, password } = fieldsArray.reduce((obj, item) => ({...obj, [item[0]]: item[1]?.value }), {});
@@ -38,7 +36,7 @@ export default function LoginModal(){
             const user = res.data.user;
             const token = user.token;
             localStorage.setItem("token", token);
-            setMessage('Login realizado com sucesso');
+            toast.success('Login realizado com sucesso');
             setCurrentUser(user);
             setIsLoggedIn(true);
             router.push('/');
@@ -46,7 +44,7 @@ export default function LoginModal(){
         })
       .catch((err) => { 
         const responseError = err.response && err.response?.data?.errorMessage;
-        if (responseError) { setMessage(responseError) }
+        if (responseError) { toast.error(responseError) }
       })
       .finally(() => setLoading(false))
     }
@@ -68,15 +66,15 @@ export default function LoginModal(){
 
   return(
     <S.LoginModalContainer>
-      <S.LoginModalBody>
+      <Toaster position="bottom-right" reverseOrder={false}/>      
+        <S.LoginModalBody>
         <S.Close className="unselectable" onClick={() => router.push('/')}>+</S.Close>
         <S.FormWrapper>
           <S.FormTitleWrapper>
             <S.Title>Login</S.Title>
             <S.SubTitle>*Somente para administradores</S.SubTitle>
           </S.FormTitleWrapper>
-          <Form {...formProps} />
-          <S.Response>{ message ? message : '' }</S.Response>
+          <Form {...formProps}/>
         </S.FormWrapper>
       </S.LoginModalBody>
     </S.LoginModalContainer>

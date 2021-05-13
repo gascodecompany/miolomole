@@ -12,47 +12,21 @@ export const BookSynopsis = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    img {
-      width: 300px;
-      height: auto;
-      margin-bottom: 30px;
-    }
     @media screen{
       @media (min-width: 1024px){
         display: grid;
         grid-template-columns: 2fr 1fr;
         grid-template-areas:
-          "sinopsys cover"
-          "video cover"
-          "message message"
-          "button button"
+          "sinopsys video"
+          "sinopsys video"
+          "button video"
         ;
         grid-gap: 20px;
-        .container > img { margin-bottom: 0;}
       }
     }
   }
 
-  #save{
-    grid-area: button;
-    padding: 5px;
-    font-family: Montserrat;
-    font-weight: bold;
-    font-size: ${({ theme: { fontSize: { fontSizeS }}}) => fontSizeS };
-    letter-spacing: 2.4px;
-    color: #FFFFFF;
-    width: 100%;
-    background: ${({ theme: { color: { brand }}}) => brand };
-    border-radius: 100px;
-    border: none;
-    color: white;
-    box-shadow: 3px 3px 2px rgb(115 137 169 / 20%);
-    transition: background 0.3s; 
-
-    :hover{
-      background: ${({ theme: { color: { brandDarkGreen }}}) => brandDarkGreen };
-    }
-  }
+  #save{ grid-area: button }
 `
 
 export const SynopsisWrapper = styled.div`
@@ -82,6 +56,7 @@ export const SynopsisText = styled.div`
     font-family: Montserrat;
     font-style: normal;
     font-weight: 500;
+    height: auto;
     font-size: 13px;
     line-height: 1.8;
     margin-bottom: 30px;
@@ -101,26 +76,15 @@ export const SynopsisText = styled.div`
   }
 `
 
-export const SynopsisImage = styled.img`
-  grid-area: cover;
-  width: 100%;
-  height: auto;
-  background-repeat: no-repeat;
-  background-size: cover;
-  overflow: hidden;
-  align-self: center;
-`
 export const SynopsisVideo = styled.div`
   grid-area: video;
   width: 100%;
   height: auto;
-  margin-bottom: 30px;
-  @media screen{
-    @media (min-width: 1024px){
-      width: 200px;
-      height: auto;
-    }
-  }
+  align-self: center;
+
+  .Playerstyles__RPlayer-llteo8-0{ padding: 0 }
+
+  [type="video"] { height: 100% }
 `
 
 export const InputVideo = styled.div`
@@ -144,8 +108,4 @@ export const InputVideo = styled.div`
     left: 50%;
   }
   transition: .1s all cubic-bezier(0.215, 0.610, 0.355, 1);
-`
-
-export const Message = styled.div`
-  grid-area: message;
 `

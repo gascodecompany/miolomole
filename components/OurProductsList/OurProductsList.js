@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import Editable from '../Editable';
 import Container from '../Container';
+import Masonry from 'react-masonry-css'
 import { useRouter } from 'next/router';
 import Button from '../../Elements/Button';
 import * as S from './OurProductsList.style';
@@ -21,6 +22,13 @@ export default function OurProductsList(props){
     if(!confirm) { return false };
     await axios.delete(`/api/livros`, { data: { _id: book._id } })
   }
+
+  const breakpointColumnsObj = {
+    default: 4,
+    1100: 3,
+    700: 2,
+    500: 1
+  };
   
   return(
     <S.OurProductsList>
@@ -31,13 +39,18 @@ export default function OurProductsList(props){
           {isLoggedIn && <S.AddBookButton onClick={() => router.push('/livros/novo')}>Cadastrar<span>+</span></S.AddBookButton>}
         </S.OurProductsApresentation>
         <S.ProductCards>
-          {books && books.map((book) => (
-            <S.ProductCard key={book._id} onClick={() => router.push(`/livros/${urlNameFormatter(book.name)}`)}>
-              <S.ProductCardImage src={book.images[0] || 'https://placekitten.com/400/400'}/>
-              <S.ProductCardTitle>{book.title}</S.ProductCardTitle>
-              {isLoggedIn && <Button onClick={() => handleDeleteBook(book)} type="delete"/>}
-            </S.ProductCard>
+          <Masonry
+            breakpointCols={breakpointColumnsObj}
+            className="my-masonry-grid"
+            columnClassName="my-masonry-grid_column">
+            {books && books.map((book) => (
+              <S.ProductCard key={book._id} onClick={() => router.push(`/livros/${urlNameFormatter(book.name)}`)}>
+                <S.ProductCardImage src={book?.image ? book?.image : 'https://placekitten.com/400/400'}/>
+                <S.ProductCardTitle>{book.title}</S.ProductCardTitle>
+                {isLoggedIn && <Button onClick={() => handleDeleteBook(book)} type="delete"/>}
+              </S.ProductCard>
             ))}
+          </Masonry>
         </S.ProductCards>
       </Container>
     </S.OurProductsList>

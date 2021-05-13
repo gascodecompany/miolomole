@@ -16,14 +16,16 @@ export async function getStaticProps({ params: { name } }) {
     const hasAudiovisual = splittedId && splittedId[splittedId.length - 1] === 'audiovisual';
     if (hasAudiovisual) { splittedId.pop() };
     const joinedName = splittedId?.join('-');
-    const booksObj = await Book.findOne({ name: joinedName });
+    const booksObj = await Book.findOne({ name: joinedName }).populate('authors').populate('illustrators');
+    const booksArr = await Book.find();
     const book = booksObj ? JSON.stringify(booksObj) : {}
+    const books = booksArr ? JSON.stringify(booksArr) : []
     const page = 'books';
     const textsArray = await Text.find({ page });
     const texts = textsArray.reduce((object, text) => Object.assign(object, {[text.textKey]: text.text}), {});
-    return { props: { book, texts }, revalidate: 1  }
+    return { props: { book, books, texts }, revalidate: 1  }
   } else {
-    return { props: { book: {}, texts: [] }, revalidate: 1  }
+    return { props: { book: {}, books: [], texts: [] }, revalidate: 1  }
   }
 }
 

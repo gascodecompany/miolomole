@@ -13,7 +13,7 @@ export const HomeJumbotronContainer = styled.div`
 
 
       li{
-        width: 170px;
+        width: 123px;
         bottom: 15px;
         padding-bottom: 30px;
         font-family: Montserrat;
@@ -23,7 +23,11 @@ export const HomeJumbotronContainer = styled.div`
         letter-spacing: 2.4px;
         color: #FFFFFF;
         display: flex;
-
+        @media screen{
+          @media (min-width: 500px){
+            width: 170px;
+          }
+        }
         &.slick-active{
           border-bottom: 3px solid #FECA30;
           font-weight: 500;
@@ -56,6 +60,7 @@ export const Description = styled.div`
   line-height: 2;
   margin-bottom: 30px;
   color: #FFFFFF;
+  filter: drop-shadow(2px 4px 2px black);
 `
 export const HomeJumboTitle = styled.div`
   font-family: Arvo;
@@ -64,8 +69,18 @@ export const HomeJumboTitle = styled.div`
   font-size: 30px;
   color: #FFFFFF;
   margin-left: 30px;
-
+  filter: drop-shadow(2px 4px 6px black);
 `
 export const HomeJumbotronNav = styled.div`
+  filter: drop-shadow(2px 4px 6px black);
+`
 
+export const JumbotronSliderTitle = styled.div`
+  width: 100%;
+  filter: drop-shadow(2px 4px 6px black);
+  text-overflow: ellipsis;
+  overflow: hidden; 
+  width: 160px; 
+  height: 1.2em; 
+  white-space: nowrap;
 `

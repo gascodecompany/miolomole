@@ -1,4 +1,4 @@
-import Button from "../Button";
+import Button from '../Button';
 import { Range } from 'rc-slider';
 import Switch from "react-switch";
 import { forwardRef } from 'react';
@@ -21,22 +21,95 @@ export const InputFile = styled.div`
   min-height: 200px;
   display: flex;
   align-items: center;
+  flex-direction: column;
+`
 
-  button {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-  }
-
-  img {
-    width: 100%;
-  }
+export const DropArea = styled.span`
+  width: 130px; 
+  height: 100px;
+  border: 3px solid ${({ theme: { color: { blackMedium }}}) => blackMedium };;
+  border-right: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   p {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: 15px;
   }
-` 
+`
+
+export const ActionButtonWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  cursor: copy;
+  margin: 30px 0;
+  width: 182px;
+
+  @media (min-width: 1024px){ 
+    padding: 30px;  
+    width: 252px;
+  }
+  p{
+    font-size: 12px;
+    @media screen{
+      @media (min-width:1024px){
+        font-size: 16px;
+
+      }
+    }
+  }
+  span{
+    padding: 20px;
+  }
+`
+
+export const DeleteButton = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid ${({ theme: { color: { error }}}) => error };;
+  border-left: none;
+  cursor: auto;
+  p { margin: 5px; }
+`
+
+export const InputPreview = styled.div`
+  grid-area: preview;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vw;
+  height: 60vw;
+  background-color: #99999950;
+  position: relative;
+  @media screen{
+    @media (min-width: 1024px){
+      min-height: 260px;
+      height: 260px;
+    }
+  }
+
+  img { 
+    width: 100%;
+    object-fit: cover;
+    height: 28vw;
+
+    @media screen{
+      @media (min-width: 1024px){
+        height: 260px;
+      }
+    }
+  }
+
+`
 
 export const InputRadio = styled.input`
   position: absolute;
@@ -44,17 +117,6 @@ export const InputRadio = styled.input`
   cursor: pointer;
   height: 0;
   width: 0;
-
-  /* ::before{
-    position: absolute;
-    content: '';
-    width: 107px;
-    height: 34px;
-    top: 0;
-    left: 0;
-    border: 2px solid ${({ theme: { color: { whiteGray }}}) => whiteGray };
-    border-radius: 20px;
-  } */
 `
 
 export const InputRadioCheckMark = styled.div`
@@ -87,14 +149,9 @@ export const InputRadioContainer = styled.div`
 `
 
 export const StyledInputSwitchLabel = styled.p`
-  /* margin-left: ${({ theme: { spacing: { spacingXS }}}) => spacingXS};
-  font-size: ${({ theme: { fontSize: { fontSizeXS }}}) => fontSizeXS};
-  font-weight: ${({ theme: { fontWeight: { fontWeightBold }}}) => fontWeightBold}; */
 `;
 
 export const StyledInputSwitchOption = styled.div`
-  /* display: flex;
-  margin-bottom: ${({ theme: { spacing: { spacingXS }}}) => spacingXS}; */
 `;
 
 export const InputText = styled(Input)`
@@ -111,13 +168,6 @@ export const InputText = styled(Input)`
   &:focus {
     outline: none;
   }
-  /* 
-  resize: none;
-  
-  
-  &:disabled {
-    background: ${({ theme: { color: { whiteLight }}}) => whiteLight};
-  } */
 `;
 
 export const InputSearchContainer = styled.div`
@@ -164,30 +214,11 @@ export const InputSearch = styled.div`
 
 `
 export const switchStyles = {
-  // option: (provided, {isSelected, isFocused}) => ({
-  //   ...provided,
-  //   backgroundColor: isSelected ? '#f05c22' : isFocused ? "#ffe7c2" : '#fafafa',
-  // }),
-  // menu: base => ({
-  //   ...base,
-  //   width: "102%",
-  //   left: "-3px",
-  //   border: "none",
-  //   borderRadius: 0,
-  //   margin: 0,
-  //   padding: 0,
-  //   backgroundColor: "transparent",
-  // }),
 }
 
 export const StyledInputSwitch = styled(Switch)``;
 
 export const StyledLabel = styled.label`
-  /* font-size: 24px;
-  font-weight: 600;
-  color: $black;
-  display: block;
-  margin-bottom: 5px; */
 `;
 
 export const StyledInputSelect = styled(SortableSelect)`
@@ -265,44 +296,9 @@ export const StyledInputSelect = styled(SortableSelect)`
 `
 
 export const StyledDropzone = styled.div`
-  /* display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: ${({ type }) => (type === "image" ? "100%" : "43px")};
-  width: 100%;
-  min-width: 210px;
-  min-height: 365px;
-  border: 2px dashed ${({ theme: { color: { brand }}}) => brand};
-  background-color: #fafafa;
-  color: #bdbdbd;
-  outline: none;
-  cursor: pointer;
-
-  a,
-  p {
-    color: $black;
-    font-weight: 700;
-    text-align: center;
-    padding: 0 10px;
-
-    &:visited {
-      color: ${({theme: {color: {brandDark}}}) => brandDark};
-    }
-  }
-  >img{
-    max-width: 100%;
-    width: 100%;
-  } */
 `;
 
 export const StyledFieldError = styled.p`
-  /* position: absolute;
-  display: block;
-  background-color: #b60000;
-  color: #fff;
-  top: -20px;
-  right: 20px;
-  padding: 2px 10px; */
 `;
 
 export const StyledFieldLink = styled(Button)`
@@ -314,7 +310,7 @@ export const TextArea = styled(forwardRef((props, ref) => <TextareaAutosize {...
   box-sizing: border-box;
   border-radius: 8px;
   width: 100%;
-  height: 140px;
+  min-height: 140px;
   margin-top: 24px;
   padding: 10px;
   font-family: 'Open Sans';

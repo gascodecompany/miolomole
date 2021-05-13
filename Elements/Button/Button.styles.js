@@ -2,19 +2,22 @@ import styled, { css } from 'styled-components';
 import { lighten, darken } from 'polished';
 
 const primary = css`
-  background: ${({ theme: { color: { brand }}}) => brand };
-  padding: 17px;
-  width: 200px;
+  justify-self: center;
+  padding: 5px;
+  font-family: Montserrat;
+  font-weight: bold;
+  font-size: 16px;
+  letter-spacing: 2px;
+  color: #FFFFFF;
+  width: auto;
+  min-width: 200px;
   height: 50px;
+  background: ${({ theme: { color: { brand }}}) => brand };
+  border-radius: 12px;
   border: none;
-  border-radius: 100px;
-  
-  p {
-    color: ${({ theme: { color: { white }}}) => white };
-    font-size: ${({ theme: { fontSize: { fontSizeXXS }}}) => fontSizeXXS };
-    font-family: Montserrat;
-    letter-spacing: 2.4px;
-  }
+  color: white;
+  box-shadow: 3px 3px 2px rgb(115 137 169 / 20%);
+  transition: all 0.3s; 
 
   svg {
     path {
@@ -76,14 +79,16 @@ const primaryDark = css`
 const secondary = css`
   background: ${({ theme: { color: { white }}}) => white };
   color: ${({ theme: { color: { brandDark }}}) => brandDark };
-
+  height: 50px;
+  border-radius: 29.5px;
   &:hover {
     background: ${({theme: {color: { brandDark }}}) => brandDark };
     color: ${({ theme: { color: { white }}}) => white };
   }
 
   &:active, &:focus {
-    background: ${({theme: {color: { brand }}}) => lighten('.2', brand) };
+    background: ${({ theme: { color: { brandSmoth }}}) => brandSmoth };
+    color: white;
   }
 `
 

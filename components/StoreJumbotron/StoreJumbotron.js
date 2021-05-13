@@ -5,6 +5,7 @@ import Container from '../Container'
 import { StoreJumbotronFieldsFunction, StoreJumbotronFieldsState, gridTemplate } from './StoreJumbotron.constants';
 import Form from '../../Elements/Form';
 import Editable from '../Editable';
+import axios from 'axios';
 
 export default function StoreJumbotron(props){
   const [ fields, setFields ] = useState(StoreJumbotronFieldsState);
@@ -12,7 +13,8 @@ export default function StoreJumbotron(props){
   const storeJumbotronObj = { fields: storeJumbotronFields, setFields, gridTemplate}
 
  // <Editable {...props} textKey="aboutUsImaginationTitle"><S.ImagitationTitle /></Editable>
- 
+  
+
  return(
     <S.StoreJumbotronContainer>
       <Container>

@@ -5,9 +5,13 @@ import Evaporate from 'evaporate';
 import { v4 as uuidv4 } from 'uuid';
 import AWS from "aws-sdk";
 import * as S from './Input.style';
+import Player from '../../components/Player';
+import { useAppProvider } from '../../store/appProvider';
+import Button from '../Button';
 
-export default function InputFile({ placeholder, name, onChange, value, setFields, type }) {
+export default function InputFile({ placeholder, name, onChange, value, setFields, type, className }) {
   const [loading, setLoading] = useState(false);
+  const { isLoggedIn } = useAppProvider();
   const onDrop = useCallback((acceptedFiles) => {
     setLoading(true);
     const file = acceptedFiles[0];
@@ -37,22 +41,37 @@ export default function InputFile({ placeholder, name, onChange, value, setField
   }, []);
   
   const { getRootProps, getInputProps } = useDropzone({ onDrop });
-
   const contentRender = () => {
-    switch (type) {
-      case 'video': return <p>Sem componente para renderizar</p>
-      case 'audio': return <p>Sem componente para renderizar</p>
-      default: return <img src={value} />
-    }
+    if (type === 'image') { return <img src={value} /> }
+    else { return <Player src={value} /> }
   }
-  
+
+  const placeholderTip = () => {
+    let typeTip;
+    switch (type) {
+      case 'image': typeTip = 'uma imagem'; break;
+      case 'video': typeTip = 'um video'; break;
+      case 'audio': typeTip = 'um audio'; break;
+      default: typeTip = `${type}`
+    }
+    return <p>Clique aqui ou arraste {typeTip}</p>
+  }
+
   return (
     <S.InputFile>
-      { value && <button type="button" onClick={() => onChange ? onChange({ target: { name, value: '' }, setFields }) : inputChange({target: { name, value: '' }, setFields}) }>D</button>}
-      <span {...getRootProps()}>
-        <input {...getInputProps()} />
-        {value ? contentRender() : <p>Clique aqui ou arraste um{type === 'image' ? 'a imagem' : ` ${type}`}</p>}
-      </span>
+      <S.InputPreview className={className} type={type} >{value && contentRender()}</S.InputPreview>
+      { isLoggedIn && (
+        <S.ActionButtonWrapper>
+          <S.DropArea {...getRootProps()}>
+            { placeholderTip() }
+            <input {...getInputProps()} />
+          </S.DropArea>
+          <S.DeleteButton>
+            <p>Limpar</p>
+            <Button type="delete" onClick={() => onChange ? onChange({ target: { name, value: '' }, setFields }) : inputChange({target: { name, value: '' }, setFields}) } />
+          </S.DeleteButton>
+        </S.ActionButtonWrapper>
+      )}
     </S.InputFile>
   )
 };

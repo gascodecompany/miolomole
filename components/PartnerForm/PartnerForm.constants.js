@@ -36,7 +36,7 @@ export const PartnerFormFieldsFunction = ({ fields, partner, books }) => ({
     ...fields.city,
     name: 'city',
     label: 'Cidade',
-    type: 'selectMulti',
+    type: 'select',
     loadEmpty: true,
     isMulti: true,
     isSearchable: true,
@@ -69,18 +69,10 @@ export const PartnerFormFieldsFunction = ({ fields, partner, books }) => ({
       { label: "São Paulo", value: "SP" },
       { label: "Tocantins", value: "TO" },
     ]
-  },
-  books: {
-    ...fields.books,
-    name: 'books',
-    label: 'Livros',
-    type: 'select',
-    isMulti: true,
-    options: Object.entries(books).reduce((arr, item) => ([...arr, { name: item[1].name, value: item[1]._id, label: item[1].title }]), [])
   }
 })
 
-export const gridTemplate = (theme) => {
+export const gridTemplate = () => {
   return `
     grid-template: ${`
      "logo" 
@@ -95,8 +87,9 @@ export const gridTemplate = (theme) => {
       grid-template: ${`
         "name name logo"
         "description description logo"
-        "city city city"
-        "books books books"
+        "city city logo"
+        "books books logo"
+        ". . logo"
     `};
       grid-template-columns: 1fr 1fr 280px;
     }
