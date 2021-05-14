@@ -71,7 +71,7 @@ export const SliderCardContainer = styled.div`
 
   @media screen{
     @media (min-width: 1024px){
-      height: 261px;
+      /* height: 261px; */
       margin-top: 15px;
       width: 100%;
     }

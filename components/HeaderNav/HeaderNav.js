@@ -12,9 +12,10 @@ export default function HeaderNav({isOpen, toggle}){
     { name: 'Blog', path: '/blog' },
     { name: 'Quem somos', path: '/quem-somos' },
     { name: 'Contato', path: '/contato' },
+    { name: 'Elenco', path: '/usuarios'}
   ]
 
-  if(isLoggedIn) { navMenuItems = navMenuItems.concat({ name: 'Usuarios', path: '/usuarios'}) }
+  // if(isLoggedIn) { navMenuItems = navMenuItems.concat({ name: 'Elenco', path: '/usuarios'}) }
 
   return(
     <S.HeaderNav>
