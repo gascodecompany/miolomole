@@ -11,6 +11,8 @@ export const UsersList = styled.div`
 export const UsersTitle = styled.h1`
   text-align: center;
   margin-bottom: 20px;
+  color: #00A79D;
+
 `
 export const UserHeader = styled.div`
   display: grid;

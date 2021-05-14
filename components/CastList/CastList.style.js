@@ -23,7 +23,7 @@ export const CastList = styled.div`
   display: flex;
   flex-flow: wrap;
   gap: 0 20px;
-
+  justify-content: center;
   
 `;
 
@@ -33,6 +33,7 @@ export const SliderCard = styled.div`
   border-radius: 8px;
   position: relative;
   flex: 1 1 400px;
+  max-width: 386.67px;
   /* padding: 0 200px; */
   @media screen{
     @media (min-width: 1024px){
