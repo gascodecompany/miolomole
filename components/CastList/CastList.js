@@ -8,6 +8,7 @@ export default function CastList(props){
   console.log(casts)
   return(
     <S.CastContainer>
+      <S.CastTitle>Elenco</S.CastTitle>
       <S.CastList>
         {casts.map((item, i) => (
           <S.SliderCard key={item._id + i}>

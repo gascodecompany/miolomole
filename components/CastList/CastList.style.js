@@ -4,6 +4,10 @@ import Container from '../Container';
 export const CastContainer = styled(Container)`
 
 `
+export const CastTitle = styled.h1`
+  padding-top: 40px;
+  color: #00A79D;
+`
 export const CardRoles = styled.div`
   display: flex;
   >div{
@@ -15,7 +19,7 @@ export const CardRoles = styled.div`
   }
 `
 export const CastList = styled.div`
-  padding-top: 50px;
+  padding-top: 20px;
   display: flex;
   flex-flow: wrap;
   gap: 0 20px;
@@ -33,8 +37,11 @@ export const SliderCard = styled.div`
   @media screen{
     @media (min-width: 1024px){
       height: 100%;
-
       padding: 0px;
+    }
+    @media (min-width: 1200px){
+      flex: 1 1 360px;
+
     }
   }
 
@@ -75,7 +82,7 @@ export const SliderCardContainer = styled.div`
       margin-top: 15px;
       width: 100%;
     }
-    @media (min-width: 1250px){
+    @media (min-width: 1200px){
       /* width: 475px; */
     }
   }
@@ -123,7 +130,7 @@ export const CardDescription = styled.div`
   @media screen{
     @media (min-width: 1024px){
       font-size: ${({ theme: { fontSize: { fontSizeXXS }}}) => fontSizeXXS };
-      height: 150px;
+      /* height: 150px; */
       /* width: 350px; */
     }
     @media (min-width: 1205px){
