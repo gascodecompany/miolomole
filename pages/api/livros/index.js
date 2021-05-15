@@ -6,18 +6,20 @@ import removeModel from '../../../utils/removeModel';
 
 const bookHandler = async (req, res) => {
   const { body, method } = req;
-  let { _id, name } = body;
+  let { _id, name, title } = body;
   let args = body ? { ...body } : {};
   try{
     switch (method) {
       case 'GET':
         try {
-          if(!_id) {
+          if(!_id || !title) {
             const books = await Book.find();
             return res.status(200).json(books);
           }
           else { 
-            const book = await Book.findById(_id);
+            let book;
+            if(_id) { book = await Book.findById(_id); }
+            if(title) { book = await Book.find({ title }); }
             return res.status(200).json(book);
           }
         } catch (err) { return res.status(500).end() };

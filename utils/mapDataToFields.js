@@ -16,7 +16,6 @@ function getDataSelectValue({ newFields, field, data, constant }) {
       newFields[field].value = fieldObj ? [{...fieldObj}] : [{ label: data[field][0]?.userFullName || data[field][0]?.label || data[field][0]?.title || data[field][0], value: data[field][0]?.value || data[field][0]._id || data[field][0] }]
     } else {
       newFields[field].value = data[field].map((subField) => {
-        console.log(subField)
         const constantObj = constant?.options?.find(({value}) =>  value === subField )
         return constantObj ? {...constantObj} : {...subField, label: subField?.userFullName}
       })

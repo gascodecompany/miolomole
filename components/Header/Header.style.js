@@ -10,7 +10,7 @@ export const Header = styled.div`
   top: 0;
   z-index: 99;
   
-  >a {
+  > a {
     position: absolute;
     z-index: 1;
     top: 10px;
@@ -23,7 +23,6 @@ export const Header = styled.div`
       margin-left: 20px;
       position: unset;
       height: 40px;
-
     }
   }
   >.container{
@@ -31,14 +30,12 @@ export const Header = styled.div`
     flex-direction: row;
     justify-content: space-between;
     padding: 8px 16px;
-
   }
   @media screen{
     @media (min-width: 1024px){
-      >a {
+      > a {
         position: initial;
-
-        >svg {
+        > svg {
           position: relative;
           height: 80px;
           width: 140px;
@@ -174,17 +171,17 @@ export const HeaderMenuContainer = styled.section`
       }
     }
   }
-  
 `
+
 export const SearchField = styled.div`
+  display: flex;
   grid-area: search;
   position: relative;
   height: fit-content;
-  input {
+  align-items: center;
+  > div {
     background-color: transparent;
     border-radius: 50px;
-    /* width: auto; */
-    max-width: 35px;
     transition: .3s ease;
     font-size: 14px;
     border: none;
@@ -196,14 +193,11 @@ export const SearchField = styled.div`
       background-color: ${({ theme: { color: { brandLighter }}}) => brandLighter };
     }
   }
-
   >svg {
     position: absolute;
-    /* top: 7px; */
     pointer-events: none;
     right: 0px;
   }  
-
   @media screen{
     @media (min-width: 1024px){
       right: 10px;

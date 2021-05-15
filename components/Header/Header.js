@@ -1,20 +1,25 @@
+import Logo from '../Logo';
+import Link from 'next/link';
 import { useState } from 'react';
-import * as S from './Header.style'
-import Logo from '../Logo'
-import SearchIcon from '../../images/js/search-icon'
-import HeaderNav from '../HeaderNav'
-import Hamburger from '../Hamburger'
-import Container from '../Container'
-import Input from '../../Elements/Input'
+import * as S from './Header.style';
+import HeaderNav from '../HeaderNav';
+import Hamburger from '../Hamburger';
+import Container from '../Container';
+import Input from '../../Elements/Input';
+import SearchIcon from '../../images/js/search-icon';
+import { headerFieldsFunction, headerFieldsState } from './Header.constants';
+import { useRouter } from 'next/router';
 
 export default function Header(){
-  const [search, setSearch] = useState('')
-  const [menuIsOpen, setMenuIsOpen] = useState(false)
-  const inputSearchObj = {
-    name: 'search',
-    placeholder: 'Procurar',
-    value: search,
-    onChange: ({ target: { value} }) => setSearch(value),
+  const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const [search, setSearch] = useState(headerFieldsState);
+  const router = useRouter();
+  const fieldsObj = headerFieldsFunction({ fields: search, router })
+  const inputSearchObj = { ...fieldsObj.search, setFields: setSearch }
+
+  const searchButton = () => {
+    if(fieldsObj.search?.value) { return <Link href={`/livros/${fieldsObj.search?.value?.name}`}><a><SearchIcon /></a></Link> }
+    else { return <SearchIcon /> }
   }
 
   return(
@@ -27,16 +32,16 @@ export default function Header(){
           <Hamburger isOpen={menuIsOpen} toggle={setMenuIsOpen} />
           <Logo/>
           <HeaderNav isOpen={menuIsOpen} toggle={setMenuIsOpen} />
-          <S.SearchField className="searchField">
+          <S.SearchField>
             <Input { ...inputSearchObj } />
-            <SearchIcon />
+            {searchButton()}
           </S.SearchField>
         </S.HeaderMenuContainer>
       </S.HeaderMenu>
       <S.SearchField>
-          <Input { ...inputSearchObj } />
-          <SearchIcon />
-        </S.SearchField>
+        <Input { ...inputSearchObj } />
+        {searchButton()}
+      </S.SearchField>
       </Container>
     </S.Header>
   )
