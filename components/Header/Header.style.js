@@ -30,6 +30,13 @@ export const Header = styled.div`
     flex-direction: row;
     justify-content: space-between;
     padding: 8px 16px;
+    >a{
+      position: absolute;
+      right: 20px;
+      @media(min-width: 1024px){
+        right: unset;
+      }
+    }
   }
   @media screen{
     @media (min-width: 1024px){
