@@ -71,6 +71,9 @@ export const HeaderMenu = styled.section`
       opacity: initial;
       pointer-events: initial;
       flex: 1;
+      .searchFieldMobile{
+        display: none;
+      }
     }
   }
 `
@@ -100,6 +103,7 @@ export const HeaderMenuContainer = styled.section`
     display: block;
     top: -130px;
     >input{
+      width: 100%;
       max-width: 100%;
       background: ${({ theme: { color: { grayLight }}}) => grayLight};
       
@@ -119,6 +123,7 @@ export const HeaderMenuContainer = styled.section`
   
   @media screen{
     @media (min-width: 1024px){
+      flex-direction: row;
       position: initial;
       background-color: initial;
       width: initial;
@@ -138,11 +143,10 @@ export const HeaderMenuContainer = styled.section`
         top: 20px;
         right: 20px;
         justify-content: flex-end;
-
+        display: none;
         >input {
           background-color: ${({ theme: { color: { whiteLight }}}) => whiteLight };
           transition: .3s ease;
-          width: 100%;
           font-size: 12px;
           border: none;
           outline: none;
@@ -179,6 +183,8 @@ export const SearchField = styled.div`
   position: relative;
   height: fit-content;
   align-items: center;
+  top: -140px;
+
   > div {
     background-color: transparent;
     border-radius: 50px;
@@ -187,6 +193,7 @@ export const SearchField = styled.div`
     border: none;
     outline: none;
     padding: 8px 30px 8px 16px;
+    width: 100%;
 
     &:focus {
       max-width: 30vw;
@@ -200,8 +207,11 @@ export const SearchField = styled.div`
   }  
   @media screen{
     @media (min-width: 1024px){
-      right: 10px;
-      display: none;
+      right: 0;
+      display: flex;
+      top: 0;
+      width: 230px;
+
     }
   }
 `
