@@ -19,9 +19,10 @@ export const HeaderNav = styled.ul`
     @media (min-width: 1024px) {
       height: unset;
       position: unset;
-      width: 60%;
+      width: 80%;
       display: flex;
       margin: auto;
+      margin-right: 20px;
       margin-block-start: 1em;
       margin-block-end: 1em;
       max-width: 1030px;
