@@ -6,7 +6,7 @@ export const Highlight = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-top: 10%;
+  margin-top: 70px;
 `
 
 export const Title = styled.h1`
