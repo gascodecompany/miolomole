@@ -32,13 +32,13 @@ export default function Header(){
           <Hamburger isOpen={menuIsOpen} toggle={setMenuIsOpen} />
           <Logo/>
           <HeaderNav isOpen={menuIsOpen} toggle={setMenuIsOpen} />
-          <S.SearchField>
+          <S.SearchField className="searchFieldMobile" isOpen={menuIsOpen}>
             <Input { ...inputSearchObj } />
             {searchButton()}
           </S.SearchField>
         </S.HeaderMenuContainer>
       </S.HeaderMenu>
-      <S.SearchField>
+      <S.SearchField isOpen={menuIsOpen}>
         <Input { ...inputSearchObj } />
         {searchButton()}
       </S.SearchField>
