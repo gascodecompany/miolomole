@@ -23,7 +23,6 @@ const highlightHandle = async (req, res) => {
             }
           }
         } catch (err) { return res.status(500).end() };
-        break
       case 'PUT':
         try{
           if(!_id) { return res.status(400).json({ errorMessage: 'Parâmetros inválidos' }) };
@@ -31,8 +30,8 @@ const highlightHandle = async (req, res) => {
           await updatedModel.save();
           return res.status(200).json(updatedModel);
         } catch (err) { return res.status(500).end() };
-        break
       case 'POST':
+        console.log('post');
         try{
           const highlight = await Highlight.find({ title, description, image });
           if(!!highlight.length) { return res.status(409).json({ errorMessage: 'Destaque já cadastrado.' }).end() };
@@ -40,14 +39,12 @@ const highlightHandle = async (req, res) => {
           // const highlightCreated = await createModel(args, Highlight);
           // return res.status(200).json({ highlightCreated });
           return res.status(200).end();
-        } catch (err) { console.log(err); res.status(500).end() };
-        break
+        } catch (err) { console.log(err); return res.status(500).end() };
       case 'DELETE':
         try{
           await removeModel(_id, Highlight)
           return res.status(200).json({ message: 'Destaque excluído com sucesso!'});
         } catch (err) { return res.status(500).end() };
-        break
       default:
         return res.status(405).json({ errorMessage: `Method ${method} Not Allowed` })
     }

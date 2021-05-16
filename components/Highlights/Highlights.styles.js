@@ -60,6 +60,7 @@ export const Jumbotron = styled.div`
     position: absolute;
     top: 15px;
     right: 15px;
+    cursor: pointer;
   }
  
 `

@@ -34,8 +34,8 @@ export const gridTemplate = () => {
   return `
     grid-template: ${`
       "image"
-      "description"
       "title"
+      "description"
       "isActive"
     `};
     grid-gap: 15px;

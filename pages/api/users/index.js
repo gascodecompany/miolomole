@@ -43,7 +43,7 @@ const userHandle = async (req, res) => {
           if(args.password) { args.password = await bcrypt.hash(args.password, 12) } 
           const userCreated = await createModel(args, User);
           return res.status(200).json({ userCreated });
-        } catch (err) { console.log(err); res.status(500).end() };
+        } catch (err) { console.log(err); return res.status(500).end() };
       case 'DELETE':
         try{
           await removeModel(_id, User)
