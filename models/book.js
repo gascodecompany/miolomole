@@ -1,5 +1,6 @@
 import mongoose, { Schema } from 'mongoose';
 import User from './user';
+import Highlight from './highlight';
 
 var book = new Schema({
   name: { type: String, unique: true, required: true },
@@ -16,12 +17,7 @@ var book = new Schema({
   price: { type: String },
   image: { type: String },
   video: { type: String },
-  spotlight: {
-    isActive: { type: Boolean },
-    image: { type: String },
-    title: { type: String },
-    description: { type: String },
-  }
+  highlight: { type: Schema.Types.ObjectId, ref: Highlight }
 }, { timestamps: true });
 
 mongoose.models = {};

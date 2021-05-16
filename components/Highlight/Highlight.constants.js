@@ -1,16 +1,15 @@
-export const bookSpotlightFieldsState = () => ({
-  isActive: { value: false },
-  title: { value: '' },
-  description: { value: '' },
+export const highlightFieldsState = () => ({
   image: { value: '' },
+  isActive: { value: ''},
+  title: { value: ''},
+  description: { value: ''},
 })
   
-export const bookSpotlightFieldsFunction = ({ fields }) => ({
-  isActive: {
-    ...fields.isActive,
-    name: 'isActive',
-    label: 'Destacar na home?',
-    type: 'switch',
+export const highlightFieldsFunction = ({ fields }) => ({
+  image: {
+    ...fields.image,
+    name: 'image',
+    type: 'image'
   },
   title: {
     ...fields.title,
@@ -22,12 +21,14 @@ export const bookSpotlightFieldsFunction = ({ fields }) => ({
     name: 'description',
     label: 'Descrição',
   },
-  image: {
-    ...fields.image,
-    name: 'image',
-    type: 'image',
+  isActive: {
+    ...fields.isActive,
+    name: 'isActive',
+    label: 'Destacar na home?',
+    type: 'switch'
   },
 })
+
 
 export const gridTemplate = () => {
   return `
@@ -44,11 +45,13 @@ export const gridTemplate = () => {
 
     @media (min-width: 1024px){
       grid-template: ${`
-        "image image"
-        "description description"
-        "title isActive"
+        "image title"
+        "image description"
+        "image isActive"
       `};
-      grid-template-columns: 1fr 250px;
+      width: 100%;
+      grid-template-rows: auto;
+      grid-template-columns: 320px 1fr;
     }
   `
 }
