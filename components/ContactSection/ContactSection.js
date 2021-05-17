@@ -7,11 +7,36 @@ import Input from '../../Elements/Input'
 import Button from '../../Elements/Button'
 import logoContato from '../../images/logo-contato.png'
 import Editable from '../Editable'
+import mapFieldsToData from "../../utils/mapFieldsToData"
+import axios from 'axios';
 
 export default function ContactSection(props){
   const [ fields, setFields ] = useState(ContactSectionFieldsState);
   const contactSectionFields = ContactSectionFunction({ fields, setFields });
   const { name, email, message } = contactSectionFields;
+
+
+  const submitMessage = () => {
+    const variables = mapFieldsToData({fields})
+    axios.post('/api/contato', { variables })
+      .then((res) => {
+        setFields((oldFields) => {
+          const newFields = {...oldFields}
+          newFields.name.value = '';
+          newFields.email.value = '';
+          newFields.message.value = '';
+          return newFields
+        });
+        // refetch()
+      })
+      console.log(variables)
+  }
+
+  const submitButton = {
+    label: 'Enviar menssagem',
+    onClick: submitMessage,
+    variation: 'primary',
+  }
 
  return(
     <S.ContactSection>
@@ -31,7 +56,7 @@ export default function ContactSection(props){
           <Input {...name} setFields={setFields} gridTemplate/>
           <Input {...email} setFields={setFields} gridTemplate/>
           <Input {...message} setFields={setFields} gridTemplate/>
-          <Button label='Enviar'/>
+          <Button {...submitButton}/>
         </S.ContactForm>
       </Container>
 
