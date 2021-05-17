@@ -11,10 +11,10 @@ import { headerFieldsFunction, headerFieldsState } from './Header.constants';
 import { useRouter } from 'next/router';
 
 export default function Header(){
+  const router = useRouter();
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const [search, setSearch] = useState(headerFieldsState);
-  const router = useRouter();
-  const fieldsObj = headerFieldsFunction({ fields: search, router })
+  const fieldsObj = headerFieldsFunction({ fields: search, router, setMenuIsOpen })
   const inputSearchObj = { ...fieldsObj.search, setFields: setSearch }
 
   const searchButton = () => {
