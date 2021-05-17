@@ -1,15 +1,16 @@
 import React from 'react';
-import FieldInput from './FieldInput';
 import Button from '../Button';
-import FieldOuterLabel from './FieldOuterLabel';
-import FieldRadioButtons from './FieldRadioButtons';
-import FieldInputRadio from './FieldInputRadio';
-import FieldSeparator from './FieldSeparator';
+import FieldFile from './FieldFile';
+import FieldInput from './FieldInput';
 import FieldRange from './FieldRange';
-import FieldPassword from './FieldPassword';
-import FieldEditable from './FieldEditable';
 import FieldSwitch from './FieldSwitch';
 import FieldSelect from './FieldSelect';
+import FieldPassword from './FieldPassword';
+import FieldEditable from './FieldEditable';
+import FieldSeparator from './FieldSeparator';
+import FieldOuterLabel from './FieldOuterLabel';
+import FieldInputRadio from './FieldInputRadio';
+import FieldRadioButtons from './FieldRadioButtons';
 
 export default function Field(props) {
   switch (props.type) {
@@ -23,6 +24,9 @@ export default function Field(props) {
     case 'editable': return <FieldEditable {...props} />
     case 'switch': return <FieldSwitch {...props} />
     case 'simpleSelect': return <FieldSelect {...props} />
+    case 'image':
+    case 'video':
+    case 'audio': return <FieldFile {...props} />
     default: return <FieldInput {...props} />;
   }
 }

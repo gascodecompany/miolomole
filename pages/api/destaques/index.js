@@ -31,14 +31,11 @@ const highlightHandle = async (req, res) => {
           return res.status(200).json(updatedModel);
         } catch (err) { return res.status(500).end() };
       case 'POST':
-        console.log('post');
         try{
           const highlight = await Highlight.find({ title, description, image });
           if(!!highlight.length) { return res.status(409).json({ errorMessage: 'Destaque já cadastrado.' }).end() };
-          console.log(args)
-          // const highlightCreated = await createModel(args, Highlight);
-          // return res.status(200).json({ highlightCreated });
-          return res.status(200).end();
+          const highlightCreated = await createModel(args, Highlight);
+          return res.status(200).json({ highlightCreated });
         } catch (err) { console.log(err); return res.status(500).end() };
       case 'DELETE':
         try{

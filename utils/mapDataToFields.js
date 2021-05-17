@@ -5,13 +5,16 @@ function getDataValue({ newFields, field, data, constant }) {
     if(Array.isArray(data[field])) {
       if( data[field].length > 1) { newFields[field].value = arrayToStringFormatter(data[field]) }
       else { newFields[field].value = [data[field][0]] }
-    } else { newFields[field].value = data[field] || newFields[field]?.value }
+    } else {
+      console.log(data[field], newFields[field]?.value )
+      newFields[field].value = data[field] || newFields[field]?.value
+    }
   }
 }
 
 function getDataSelectValue({ newFields, field, data, constant }) {
   if(constant.isMulti){
-    if(data[field].length === 1 ){
+    if(data[field]?.length === 1 ){
       const fieldObj = constant?.options?.find(({value}) => value === data[field][0]);
       newFields[field].value = fieldObj ? [{...fieldObj}] : [{ label: data[field][0]?.userFullName || data[field][0]?.label || data[field][0]?.title || data[field][0], value: data[field][0]?.value || data[field][0]._id || data[field][0] }]
     } else {
@@ -56,6 +59,7 @@ function getDataSelectMultiValue({ newFields, field, data }) {
 export default function mapDataToFields({ newFields, constantFields, data }) {
   if(data) {
     for (const field in newFields) {
+      console.log(constantFields[field]?.type)
       switch (constantFields[field]?.type) {
         case "select":
         case "simpleSelect":

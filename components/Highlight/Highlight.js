@@ -30,14 +30,8 @@ export default function Highlight(props){
     let variables = mapFieldsToData(highlightfields);
     let res;
     try{
-      if(!highlight) {
-        res = await axios.post('/api/destaques', { ...variables })
-        console.log('post', res)
-      }
-      else {
-        res = await axios.put('/api/destaques', { ...variables, _id: highlight._id })
-        console.log('put', res)
-      }
+      if(!highlight) { res = await axios.post('/api/destaques', { ...variables }) }
+      else { res = await axios.put('/api/destaques', { ...variables, _id: highlight._id }) }
       if(res.status === 200) { toast.success(`Cadastrado ${highlight ? 'atualizado' : 'realizado'} com sucesso!`) }
       else { toast.error(res?.response?.data) }
     } catch (err) { err?.response?.data ? toast.error(err?.response?.data?.errorMessage) : console.log(err?.response?.data || err)}

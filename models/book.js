@@ -17,6 +17,10 @@ var book = new Schema({
   price: { type: String },
   image: { type: String },
   video: { type: String },
+  audio: {
+    visual: { type: String },
+    description: { type: String },
+  },
   highlight: { type: Schema.Types.ObjectId, ref: Highlight }
 }, { timestamps: true });
 

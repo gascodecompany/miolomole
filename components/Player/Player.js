@@ -9,7 +9,7 @@ export default function Player({ src }){
         fluid={true}
         width='auto'
         height={485}
-        src={src || "https://media.w3.org/2010/05/sintel/trailer_hd.mp4"}
+        src={src}
         poster="../images/favicon.png"
       >
         <P.BigPlayButton position='center' />

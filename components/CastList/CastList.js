@@ -5,7 +5,6 @@ export default function CastList(props){
   const [casts, setCasts] = useState([]);
 
   useEffect(() => props.casts && setCasts(JSON.parse(props.casts)), [])
-  console.log(casts)
   return(
     <S.CastContainer>
       <S.CastTitle>Elenco</S.CastTitle>
