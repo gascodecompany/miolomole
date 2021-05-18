@@ -42,7 +42,6 @@ export const BookInfoFieldsFunction = ({ fields, isLoggedIn, users }) => ({
     label: 'Autoria: ',
     placeholder: 'Autoria...',
     variation: 'simple',
-    isSearchable: true,
     loadEmpty: true,
     isLoggedIn: isLoggedIn,
     isMulti: true,
@@ -50,7 +49,7 @@ export const BookInfoFieldsFunction = ({ fields, isLoggedIn, users }) => ({
     styledItem: <S.BookInfoItemSelect isLoggedIn={isLoggedIn} />,
     loadOptions: (query, callback) => {
       callback(users.sort((a, b) => {if(a.userFullName < b.userFullName) { return -1; }if(a.userFullName > b.userFullName) { return 1; }return 0})
-        .filter((option) => option.userFullName.toLoweCase().includes(query.toLoweCase()))
+        // .filter((option) => option?.userFullName?.includes(query.toLoweCase()))
         .map((option) => ({ _id: option._id, label: option.userFullName || option.userName, value: option._id }))
       )
     }
