@@ -2,18 +2,13 @@ import styled from 'styled-components';
 // import BlogJumbotron from '../../images/jumbotronBlog.jpg'
 
 export const BlogJumbotronContainer = styled.div`
-  /* background-image: url(${BlogJumbotron}); */
   width: 100vw;
   height: 400px;
-  /* background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center; */
   .container{
     align-items: flex-end;
     >div{
       right: 0;
       top: 0;
-
     }
   }
   >div{

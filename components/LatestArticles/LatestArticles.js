@@ -36,7 +36,7 @@ export default function LatestArticles({ items }){
           </S.Arrows>
         </S.LeftContainer>
         <S.LatestArticlesList ref={slider} { ...settings }>
-          {items.map((art) => <LatestArticle key={art + 'articles'} item={art}/>)}
+          {items && items.map((art) => <LatestArticle key={art + 'articles'} item={art}/>)}
         </S.LatestArticlesList>
       </Container>
     </S.LatestArticles>

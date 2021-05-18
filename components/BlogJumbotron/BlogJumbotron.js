@@ -1,15 +1,24 @@
 import Container from '../Container'
 import * as S from './BlogJumbotron.style'
-import EditableImage from '../EditableImage'
-import Editable from '../Editable'
+import Input from '../../Elements/Input';
+import InputFile from '../../Elements/Input/InputFile'
+import { blogJumbotronFieldsState, blogJumbotronFieldsFunction, gridTemplate } from './BlogJumbotron.constants.js';
 
 export default function BlogJumbotron(props){
+  const [fields, setFields] = useState(blogJumbotronFieldsState);
+  const blogJumbotronFields = blogJumbotronFieldsFunction({ fields, setFields });
+
+  const formProps = {
+    fields: blogJumbotronFields,
+    setFields,
+    gridTemplate
+  }
 
   return(
     <S.BlogJumbotronContainer>
-      <EditableImage {...props} textKey="blogJumbotronImage"><S.BlogJumbotronImage /></EditableImage>
+      <InputFile {...formProps.fields.jumbotron} />
       <Container>
-        <Editable {...props} textKey="blogJumbotronTitle"><S.BlogJumbotronTitle/></Editable>
+        <Input {...props.fields.title} />
       </Container>
     </S.BlogJumbotronContainer>
   )
