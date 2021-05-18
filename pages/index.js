@@ -1,7 +1,7 @@
 import pt from "../i18n/pt";
 import mongoose from 'mongoose';
 import Text from '../models/text';
-import Book from '../models/book';
+import Highlight from '../models/highlight';
 import User from '../models/user';
 import Banner from '../components/Banner';
 import AboutUsSlider from "../components/AboutUsSlider";
@@ -35,7 +35,7 @@ export async function getStaticProps() {
   let itemsArray = await User.find();
   itemsArray = itemsArray.filter((item) => !!item?.occupation?.length && item.occupation?.some((occupation) => ['illustrator', 'writer'].includes(occupation)))
   const items = itemsArray ? JSON.stringify(itemsArray) : {}
-  const booksArray = await Book.find({ "spotlight.isActive": "true" });
-  const spotlightBooks = !!booksArray.length ? JSON.stringify(booksArray) : '[]';
-  return { props: { texts, page, items, spotlightBooks }, revalidate: 1 }
+  const highlightsArray = await Highlight.find({ isActive: true });
+  const highlights = !!highlightsArray.length ? JSON.stringify(highlightsArray) : '[]';
+  return { props: { texts, page, items, highlights }, revalidate: 1 }
 }

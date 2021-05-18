@@ -5,7 +5,7 @@ import Editable from '../Editable'
 
 export default function BlogJumbotron(props){
 
- return(
+  return(
     <S.BlogJumbotronContainer>
       <EditableImage {...props} textKey="blogJumbotronImage"><S.BlogJumbotronImage /></EditableImage>
       <Container>

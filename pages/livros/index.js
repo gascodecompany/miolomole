@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 import Text from '../../models/text';
 import Book from '../../models/book';
+import Highlight from '../../models/highlight';
 import User from '../../models/user';
 
 export async function getStaticProps() {
@@ -8,14 +9,14 @@ export async function getStaticProps() {
   const page = 'books';
   const textsArray = await Text.find({ page });
   const booksArray = await Book.find();
-  const spotlightBooksArray = await Book.find({ "spotlight.isActive": "true" });
-  const spotlightBooks = !!spotlightBooksArray.length ? JSON.stringify(spotlightBooksArray) : '[]';
+  const highlightsArray = await Highlight.find({ isActive: true });
+  const highlights = !!highlightsArray.length ? JSON.stringify(highlightsArray) : '[]';
   let itemsArray = await User.find();
   itemsArray = itemsArray.filter((item) => !!item?.occupation?.length && item.occupation?.some((occupation) => ['illustrator', 'writer'].includes(occupation)))
   const items = itemsArray ? JSON.stringify(itemsArray) : {}
   const books = JSON.stringify(booksArray);
   const texts = textsArray.reduce((object, text) => Object.assign(object, {[text.textKey]: text.text}), {});
-  return { props: { texts, books, items, spotlightBooks, page }, revalidate: 1 }
+  return { props: { texts, books, items, highlights, page }, revalidate: 1 }
 }
 
 export { default } from './Books';

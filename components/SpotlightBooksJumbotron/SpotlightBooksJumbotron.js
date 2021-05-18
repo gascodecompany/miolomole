@@ -30,18 +30,18 @@ const settings = (items) => ({
 });
 
 export default function HomeJumbotron(props){
-  const [books, setBooks] = useState([]);
-  useEffect(() => props.spotlightBooks && setBooks(JSON.parse(props.spotlightBooks)), [props]);
+  const [highlights, setHighlight] = useState([]);
+  useEffect(() => props.highlights && setHighlight(JSON.parse(props.highlights)), [props]);
   
   return(
     <S.HomeJumbotronContainer>
-      <Slider {...settings(books)}>
-        {books.map(({spotlight}) => {
+      <Slider {...settings(highlights)}>
+        {highlights.map((highlight) => {
           return (
-            <S.HomeJumbotron img={spotlight?.image} key={spotlight?.image + "Jumbotron"}>
+            <S.HomeJumbotron img={highlight?.image} key={highlight?.image + "Jumbotron"}>
               <Container>
-                <S.Description>{spotlight?.description}</S.Description>
-                <S.HomeJumboTitle>{spotlight?.title}</S.HomeJumboTitle>
+                <S.Description>{highlight?.description}</S.Description>
+                <S.HomeJumboTitle>{highlight?.title}</S.HomeJumboTitle>
               </Container>
             </S.HomeJumbotron>
           )}

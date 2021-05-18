@@ -1,13 +1,13 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
 import * as S from './UserForm.styles';
 import Form from '../../Elements/Form';
 import { useRouter } from 'next/router';
-import Button from '../../Elements/Button'
+import Button from '../../Elements/Button';
+import { useEffect, useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 import mapFieldsToData from '../../utils/mapFieldsToData';
 import mapDataToFields from '../../utils/mapDataToFields';
 import { usuariosFieldsState, usuariosFieldsFunction, gridTemplate } from './UserForm.constants.js';
-import toast, { Toaster } from 'react-hot-toast';
 
 export default function UserForm(props){
   const router = useRouter();
@@ -45,7 +45,7 @@ export default function UserForm(props){
       if(res.status === 200) { toast.success(`Cadastrado ${user ? 'atualizado' : 'realizado'} com sucesso!`) }
       else { toast.error(res?.response?.data) }
     } catch (err) { toast.error(err.response.data.errorMessage) }
-    }
+  }
 
   return(
     <S.UsuariosWrapper>
