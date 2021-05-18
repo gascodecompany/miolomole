@@ -16,9 +16,9 @@ export default function ContactSection(props){
   const { name, email, message } = contactSectionFields;
 
 
-  const submitMessage = () => {
-    const variables = mapFieldsToData({fields})
-    axios.post('/api/contato', { variables })
+  const submitMessage = async () => {
+    const variables = mapFieldsToData(contactSectionFields)
+    await axios.post('/api/contato', { ...variables })
       .then((res) => {
         setFields((oldFields) => {
           const newFields = {...oldFields}
