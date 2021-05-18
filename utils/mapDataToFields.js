@@ -6,7 +6,6 @@ function getDataValue({ newFields, field, data, constant }) {
       if( data[field].length > 1) { newFields[field].value = arrayToStringFormatter(data[field]) }
       else { newFields[field].value = [data[field][0]] }
     } else {
-      console.log(data[field], newFields[field]?.value )
       newFields[field].value = data[field] || newFields[field]?.value
     }
   }
@@ -59,7 +58,6 @@ function getDataSelectMultiValue({ newFields, field, data }) {
 export default function mapDataToFields({ newFields, constantFields, data }) {
   if(data) {
     for (const field in newFields) {
-      console.log(constantFields[field]?.type)
       switch (constantFields[field]?.type) {
         case "select":
         case "simpleSelect":

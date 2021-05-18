@@ -44,7 +44,7 @@ export default function BookInfo({ book }){
   }, [book])
   
   const saveInfos = async () => {
-    const variables = mapFieldsToData({ ...bookFields, priceField});
+    const variables = mapFieldsToData({ ...bookFields, ...priceField});
     if(!name) {
       try{
         const res = await axios.post('/api/livros', { ...variables })
@@ -65,10 +65,9 @@ export default function BookInfo({ book }){
     onClick: async () => isLoggedIn ? await saveInfos() : router.push('parceiros'),
     label: isLoggedIn ? "Salvar Descrição" : "Comprar em loja parceira"
   }
-
-  // /[0-9][0-9,\.]/g
   
-  const dynamicText = price.price && !(/\D/gim).test(price.price?.value.replace(',', '')) && 'R$'
+  const dynamicText = price.price && !(/\D/gim).test(price.price?.value.replace(',', '')) && 'R$';
+
   return (
     <S.BookInfo>
       <Form { ...formProps } />

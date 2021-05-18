@@ -29,7 +29,7 @@ const bookHandler = async (req, res) => {
           const updatedModel = await updateModel(args, Book);
           await updatedModel.save();
           return await res.status(200).json(updatedModel);
-        } catch (err) { return res.status(500).end() };
+        } catch (err) { console.log(err); return res.status(500).end() };
       case 'POST':
         try {
           const books = await Book.find({ name });

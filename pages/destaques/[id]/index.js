@@ -5,9 +5,9 @@ import { useAppProvider } from '../../../store/appProvider';
 import PageJustForAdmin from '../../../components/PageJustForAdmin';
 
 export default function HighlightPage(props){
-  const { highlight: userProp } = props;
+  const { highlight: destaque } = props;
   const { isLoggedIn } = useAppProvider();
-  const highlight = userProp ? JSON.parse(userProp) : {}
+  const highlight = destaque ? JSON.parse(destaque) : {}
   return isLoggedIn ? <Highlight { ...props } highlight={highlight} /> : <PageJustForAdmin />
 }
 
