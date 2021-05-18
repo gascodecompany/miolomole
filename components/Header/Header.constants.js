@@ -4,7 +4,7 @@ export const headerFieldsState = () => ({
   search: { value: '' },
 })
   
-export const headerFieldsFunction = ({ fields, router }) => ({
+export const headerFieldsFunction = ({ fields, router, setMenuIsOpen }) => ({
   search: {
     ...fields.search,
     name: 'search',
@@ -24,6 +24,7 @@ export const headerFieldsFunction = ({ fields, router }) => ({
       const { value } = target;
       if(value !== ''){
         router.push(`/livros/${value?.name}`)
+        setMenuIsOpen(false);
       }
     },
   },

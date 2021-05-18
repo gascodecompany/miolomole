@@ -11,7 +11,7 @@ export default function BookComponent(props){
     <S.BookComponent>
       <BookSection {...props} />
       <BookSynopsis {...props} />
-      <BookFiles {...props} />
+      {isLoggedIn && <BookFiles {...props} />}
       <BookRelated {...props} />
     </S.BookComponent>
   )

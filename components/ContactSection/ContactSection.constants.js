@@ -21,8 +21,8 @@ export const ContactSectionFunction = ({fields, setFields}) => ({
     type: 'text',
   },
   message: {
-    ...fields.messsage,
-    name: 'messsage',
+    ...fields.message,
+    name: 'message',
     label: 'Messagem',
     placeholder: 'Deixe uma mensagem',
     type: 'textarea',

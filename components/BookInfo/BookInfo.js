@@ -33,7 +33,7 @@ export default function BookInfo({ book }){
       setFields((oldFields) => {
         const newFields = {...oldFields};
         mapDataToFields({newFields, constantFields: bookFields, data: book})
-        return newFields
+        return newFields;
       })
       setPrice((oldFields) => {
         const newFields = {...oldFields};

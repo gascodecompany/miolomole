@@ -12,7 +12,7 @@ import { usuariosFieldsState, usuariosFieldsFunction, gridTemplate } from './Use
 export default function UserForm(props){
   const router = useRouter();
   const [user, setUser] = useState();
-  const [fields, setFields] = useState(usuariosFieldsState(user));
+  const [fields, setFields] = useState(usuariosFieldsState);
   const userFormfields = usuariosFieldsFunction({ fields });
   const formProps = { gridTemplate, fields: userFormfields, setFields };
 
@@ -52,7 +52,7 @@ export default function UserForm(props){
       <Button variation="primary" onClick={() => router.push('/elenco')}>Voltar</Button>
       <h1>Adicionar usuário</h1>
       <Form {...formProps} />
-      <Toaster position="bottom-right" reverseOrder={false}/>      
+      <Toaster position="bottom-right" reverseOrder={false}/>
       <Button variation="primary" label={user ? "Atualizar" : "Cadastrar"} onClick={() => onSubmit()}/>
     </S.UsuariosWrapper>
   )
