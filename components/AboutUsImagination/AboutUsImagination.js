@@ -14,6 +14,8 @@ export default function AboutUsImagination(props){
           <EditableImage {...props} textKey="imaginationImgOne"><S.ImaginationImgOne /></EditableImage>
           <EditableImage {...props} textKey="imaginationImgTwo"><S.ImaginationImgTwo /></EditableImage>
           <Editable {...props} textKey="aboutUsImaginationTextTwo"><S.ImaginationTextTwo /></Editable>
+          <Editable {...props} textKey="aboutUsImaginationTextThree"><S.ImaginationTextThree /></Editable>
+          <EditableImage {...props} textKey="imaginationImgThree"><S.ImaginationImgThree /></EditableImage>
         </S.ImaginationWrapper>
       </Container>
     </S.AboutUsImagination>
