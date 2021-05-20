@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import pt from "../i18n/pt";
 import mongoose from 'mongoose';
 import Text from '../models/text';
@@ -10,23 +9,9 @@ import SpotlightBooksJumbotron from "../components/SpotlightBooksJumbotron";
 import LatestArticles from "../components/LatestArticles";
 import HomeApresentation from "../components/HomeApresentation";
 import HomeLatestArticles from "../components/HomeLatestArticles";
-import { useAppProvider } from "../store/appProvider";
-import axios from 'axios';
 
 export default function Home(props) {
   const t = pt
-  // const { isLoggedIn } = useAppProvider();
-  // const { page, texts } = props;
-  // const [currentTexts, setCurrentTexts] = useState(texts);
-
-  // useEffect(async () => {
-  //   if(isLoggedIn) {
-  //     const res = await axios.get('/api/textos', { params: { page } });
-  //     const textsObj = res.data.texts.reduce((object, text) => Object.assign(object, {[text.textKey]: text.text}), {});
-  //     textsObj.teste = '123'
-  //     setCurrentTexts(textsObj);
-  //   }
-  // }, [isLoggedIn]);
 
   return (
     <>
