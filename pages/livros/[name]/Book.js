@@ -5,7 +5,7 @@ import BlankPage from "../../../components/BlankPage/BlankPage";
 export default function Book(props){
   const hasAudiovisual = props?.hasAudiovisual ? props?.hasAudiovisual : false;
   const book = props?.book ? JSON.parse(props?.book) : [];
-  const books = !!props?.books.length ? JSON.parse(props?.books) : [];
+  const books = !!props?.books?.length ? JSON.parse(props?.books) : [];
 
   console.log(props?.books)
   if(hasAudiovisual){
