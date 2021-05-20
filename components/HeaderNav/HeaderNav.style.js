@@ -41,7 +41,7 @@ export const NavItem = styled.li`
   padding: 4px 8px;
 
   :hover { 
-    color: darken(1, #00A79D);
+    color: #0f3f66;
   }
 
   @media (min-width: 1024px) { margin-bottom: 0 }
