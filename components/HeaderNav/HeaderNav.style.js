@@ -34,6 +34,10 @@ export const NavItem = styled.li`
   cursor: pointer;
   margin-bottom: 10px;
   transition: all 0.3s;
+
   :hover{ color: #00A79D }
+
+  :active{ color: #0A8B85 }
+  
   @media (min-width: 1024px) { margin-bottom: 0 }
 `
