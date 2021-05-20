@@ -17,7 +17,7 @@ export default function HeaderNav({isOpen, toggle}){
   if(isLoggedIn) { navMenuItems = navMenuItems.concat(
     { name: 'Destaques', path: '/destaques'},
     { name: 'Blog', path: '/blog' },
-    { name: 'Usuários', path: '/Usuários'}
+    { name: 'Usuários', path: '/autores'}
   )};
 
   return (

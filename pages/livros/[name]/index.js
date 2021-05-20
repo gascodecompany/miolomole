@@ -20,7 +20,7 @@ export async function getServerSideProps({ params: { name } }) {
     const texts = textsArray.reduce((object, text) => Object.assign(object, {[text.textKey]: text.text}), {});
     return { props: { book, books, texts, hasAudiovisual } }
   } else {
-    return { props: { book: false, books: false, texts: [], hasAudiovisual } }
+    return { props: { book: false, books: [], texts: [], hasAudiovisual } }
   }
 }
 
