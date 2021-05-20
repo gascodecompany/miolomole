@@ -1,9 +1,7 @@
-import pt from '../../i18n/pt';
+import { useRef } from 'react';
 import Container from '../Container';
 import * as S from './LatestArticles.style';
 import LatestArticle from '../LatestArticle/LatestArticle';
-import { useRef } from 'react';
-
 
 export default function LatestArticles({ items }){
   const slider = useRef()
