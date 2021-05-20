@@ -12,10 +12,13 @@ export default function HeaderNav({isOpen, toggle}){
     { name: 'Loja', path: '/loja' },
     { name: 'Quem somos', path: '/quem-somos' },
     { name: 'Contato', path: '/contato' },
-    { name: 'Autores', path: '/autores'}
   ];
 
-  if(isLoggedIn) { navMenuItems = navMenuItems.concat({ name: 'Destaques', path: '/destaques'}, { name: 'Blog', path: '/blog' }) };
+  if(isLoggedIn) { navMenuItems = navMenuItems.concat(
+    { name: 'Destaques', path: '/destaques'},
+    { name: 'Blog', path: '/blog' },
+    { name: 'Usuários', path: '/Usuários'}
+  )};
 
   return (
     <S.HeaderNav>
