@@ -54,5 +54,5 @@ export async function getServerSideProps() {
   const items = itemsArray ? JSON.stringify(itemsArray) : {}
   const highlightsArray = await Highlight.find({ isActive: true });
   const highlights = !!highlightsArray.length ? JSON.stringify(highlightsArray) : '[]';
-  return { props: { texts, page, items, highlights }, revalidate: 1 }
+  return { props: { texts, page, items, highlights } }
 }
