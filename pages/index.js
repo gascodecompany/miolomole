@@ -24,15 +24,13 @@ export default function Home(props) {
       const res = await axios.get('/api/textos', { params: { page: 'home' } });
       const textsObj = res.data.texts.reduce((object, text) => Object.assign(object, {[text.textKey]: text.text}), {});
       setCurrentTexts(textsObj);
-    } else {
-      setCurrentTexts(texts)
     }
   }, [isLoggedIn]);
 
   return (
     <>
       <SpotlightBooksJumbotron {...props} />
-      <HomeApresentation {...props}/>
+      <HomeApresentation {...props} texts={currentTexts}/>
       <Banner {...props} index={1}/>
       <Banner {...props} index={2}/>
       <Banner {...props} index={3}/>
