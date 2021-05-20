@@ -15,22 +15,24 @@ import axios from 'axios';
 
 export default function Home(props) {
   const t = pt
-  const { isLoggedIn } = useAppProvider();
-  const { page, texts } = props;
-  const [currentTexts, setCurrentTexts] = useState(texts);
+  // const { isLoggedIn } = useAppProvider();
+  // const { page, texts } = props;
+  // const [currentTexts, setCurrentTexts] = useState(texts);
 
-  useEffect(async () => {
-    if(isLoggedIn) {
-      const res = await axios.get('/api/textos', { params: { page: 'home' } });
-      const textsObj = res.data.texts.reduce((object, text) => Object.assign(object, {[text.textKey]: text.text}), {});
-      setCurrentTexts(textsObj);
-    }
-  }, [isLoggedIn]);
+  // useEffect(async () => {
+  //   if(isLoggedIn) {
+  //     const res = await axios.get('/api/textos', { params: { page: 'home' } });
+  //     const textsObj = res.data.texts.reduce((object, text) => Object.assign(object, {[text.textKey]: text.text}), {});
+  //     setCurrentTexts(textsObj);
+  //   } else {
+  //     setCurrentTexts(texts)
+  //   }
+  // }, [isLoggedIn]);
 
   return (
     <>
       <SpotlightBooksJumbotron {...props} />
-      <HomeApresentation {...props} texts={currentTexts}/>
+      <HomeApresentation {...props}/>
       <Banner {...props} index={1}/>
       <Banner {...props} index={2}/>
       <Banner {...props} index={3}/>
@@ -42,7 +44,7 @@ export default function Home(props) {
   )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   await mongoose.connect(process.env.NEXT_PUBLIC_MONGO_DB_URL, { useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true, useNewUrlParser: true });
   const page = 'home';
   const textsArray = await Text.find({ page });
