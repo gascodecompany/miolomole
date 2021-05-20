@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-import TextareaAutosize from 'react-textarea-autosize';
-import { forwardRef } from 'react'
 
 export const AboutUsImagination = styled.div`
   .container{
@@ -25,7 +23,9 @@ export const ImaginationWrapper = styled.div`
     'textOne'
     'imgOne'
     'textTwo'
-    'imgTwo';
+    'imgTwo'
+    'textThree'
+    'imgThree';
   grid-column-gap: 30px;
   grid-row-gap: 50px;
   @media screen{
@@ -33,7 +33,8 @@ export const ImaginationWrapper = styled.div`
       grid-template-columns: 1fr 1fr;
       grid-template-areas: 
         'textOne imgOne'
-        'imgTwo textTwo';
+        'imgTwo textTwo'
+        'textThree imgThree';
       }
   }
 `
@@ -77,4 +78,23 @@ export const ImaginationImgTwo = styled.img`
   border-radius: 8px;  
   object-fit: cover;
 
+`
+export const ImaginationTextThree = styled.div`
+  grid-area: 'textThree';
+  width: 100%;
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: ${({ theme: { fontSize: { fontSizeSM }}}) => fontSizeSM };
+  line-height: 30px;
+  color: #071825;
+  margin-right: 30px;
+`
+
+export const ImaginationImgThree = styled.img`
+  grid-area: 'imgThree';
+  width: 100%;
+  height: 364px;
+  background: #C4C4C4;
+  border-radius: 8px; 
+  object-fit: cover;
 `

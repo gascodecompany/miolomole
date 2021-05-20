@@ -3,7 +3,6 @@ export const HomeLatestArticlesFieldsState = ({
 })
 
 export const HomeLatestArticlesFunction = ({fields, setFields}) => ({
-  
   email: {
     ...fields.email,
     name: 'email',
@@ -11,5 +10,4 @@ export const HomeLatestArticlesFunction = ({fields, setFields}) => ({
     placeholder: 'seu e-mail',
     type: 'text',
   },
-
 })

@@ -6,15 +6,9 @@ export const AboutUsSectionOne = styled.div`
   overflow-y: hidden;
   .container{
     padding-top: 100px;
-    /* flex-direction: row;
-    justify-content: center; */
-    display: grid;
-    grid-template-columns: 100%;
-    grid-gap: 20px;
     @media screen{
       @media (min-width: 768px){
 
-        grid-template-columns: 40% 60%;
       }
     }
   }
@@ -22,17 +16,28 @@ export const AboutUsSectionOne = styled.div`
 
 export const SectionOneImages = styled.div`
   height: 100%;
-  width: 100%;
-  background: #C4C4C4;
+  /* background: #C4C4C4; */
   border-radius: 8px;
-  display: block;
-  margin-right: 30px;
+  display: flex;
+  margin: 0 auto;
+  margin-bottom: 30px;
   position: relative;
+  width: 100%;
+  justify-content: center;
+  flex-direction: row;
+  flex-flow: wrap;
+  align-items: center;
 
-  div:last-child{
-    >div{
-      left: 95px;
-      top: -515px;
+  @media screen{
+    @media (min-width: 640px){
+      width: 100%;
+      justify-content: center;
+      justify-content: space-around;
+      
+    }
+    @media (min-width: 1024px){
+      width: 70%;
+
     }
   }
 
@@ -45,29 +50,41 @@ export const SectionOneText = styled.p`
   line-height: 30px;
   color: #071825;
   width: 100%;
+  text-align: center;
 `
-export const SectionOneImageOne = styled.img`
-  /* min-width: 503px; */
-  min-height: 364px;
-  height: 100%;
-  width: 100%;
-  background: #C4C4C4;
-  border-radius: 8px;
-  display: block;
-  margin-right: 30px;
-`
-export const SectionOneImageTwo = styled.img`
-  position: absolute;
-  width: 170px;
-  height: 184px;
-  background: #531E1E;
-  border-radius: 8px;
-  top: -520px;
-  left: -42px;
-  display: none;
-  @media screen{
-    @media (min-width: 1024px){
-      display: block;
+export const ImageWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  :first-child{
+    margin-right: 30px;
+    @media screen{
+      @media (min-width: 640px){
+        margin-right: unset;
+      }
     }
   }
+
+`
+export const SectionOneImageOne = styled.img`
+  height: 200px;
+  width: 200px;
+  background: #C4C4C4;
+  border-radius: 50%;
+  display: block;
+  
+  @media screen{
+    @media (min-width: 640px){
+      height: 150px;
+      width: 150px;
+    }
+    @media (min-width: 1024px){
+      height: 200px;
+      width: 200px;
+    }
+  }
+`
+
+export const ImageName = styled.p`
+
 `

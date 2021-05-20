@@ -1,18 +1,19 @@
 import pt from "../i18n/pt";
 import mongoose from 'mongoose';
-import Text from '../models/text';
-import Highlight from '../models/highlight';
 import User from '../models/user';
+import Text from '../models/text';
 import Banner from '../components/Banner';
+import Highlight from '../models/highlight';
+import { useAppProvider } from "../store/appProvider";
 import AboutUsSlider from "../components/AboutUsSlider";
-import SpotlightBooksJumbotron from "../components/SpotlightBooksJumbotron";
 import LatestArticles from "../components/LatestArticles";
 import HomeApresentation from "../components/HomeApresentation";
 import HomeLatestArticles from "../components/HomeLatestArticles";
+import SpotlightBooksJumbotron from "../components/SpotlightBooksJumbotron";
 
 export default function Home(props) {
-  const t = pt
-
+  const t = pt;
+  // const { isLoggedIn } = useAppProvider();
   return (
     <>
       <SpotlightBooksJumbotron {...props} />
@@ -21,7 +22,7 @@ export default function Home(props) {
       <Banner {...props} index={2}/>
       <Banner {...props} index={3}/>
       <Banner {...props} index={4}/>
-      <LatestArticles items={t.BLOG_ARTICLES}/>
+      {/* { isLoggedIn && <LatestArticles items={t.BLOG_ARTICLES}/> } */}
       <AboutUsSlider {...props} />
       <HomeLatestArticles/>
     </>
