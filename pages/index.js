@@ -21,11 +21,10 @@ export default function Home(props) {
 
   // useEffect(async () => {
   //   if(isLoggedIn) {
-  //     const res = await axios.get('/api/textos', { params: { page: 'home' } });
+  //     const res = await axios.get('/api/textos', { params: { page } });
   //     const textsObj = res.data.texts.reduce((object, text) => Object.assign(object, {[text.textKey]: text.text}), {});
+  //     textsObj.teste = '123'
   //     setCurrentTexts(textsObj);
-  //   } else {
-  //     setCurrentTexts(texts)
   //   }
   // }, [isLoggedIn]);
 
