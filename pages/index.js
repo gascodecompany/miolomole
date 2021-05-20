@@ -13,15 +13,13 @@ import SpotlightBooksJumbotron from "../components/SpotlightBooksJumbotron";
 
 export default function Home(props) {
   const t = pt;
+  const teste = [1,2,3,4]
   // const { isLoggedIn } = useAppProvider();
   return (
     <>
       <SpotlightBooksJumbotron {...props} />
       <HomeApresentation {...props}/>
-      <Banner {...props} index={1}/>
-      <Banner {...props} index={2}/>
-      <Banner {...props} index={3}/>
-      <Banner {...props} index={4}/>
+      { teste.map((index) => <Banner {...props} index={index} /> )}
       {/* { isLoggedIn && <LatestArticles items={t.BLOG_ARTICLES}/> } */}
       <AboutUsSlider {...props} />
       <HomeLatestArticles/>
