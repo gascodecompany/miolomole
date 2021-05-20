@@ -6,7 +6,6 @@ import "slick-carousel/slick/slick-theme.css";
 import Editable from '../Editable';
 import { useEffect, useState } from 'react';
 
-
 export default function AboutUsSlider(props){
   const settings = {
     dots: true,
@@ -54,7 +53,7 @@ export default function AboutUsSlider(props){
   const [items, setItems] = useState([]);
 
   useEffect(() => props.items && setItems(JSON.parse(props.items)), [])
-  
+
   return(
     <S.AboutUsSlider id='AboutUsSlider'>
       <S.AboutUsSliderContainer>
@@ -62,19 +61,19 @@ export default function AboutUsSlider(props){
           <Editable {...props} textKey="homeAuthorsListTitle"><S.SliderTitle /></Editable>
           <Editable {...props} textKey="homeAuthorsListDesc"><S.SliderDescription/></Editable>
         </S.SliderInfo>
-          <S.SliderCards>
-            <Slider {...settings}>
-              {items.map((item, i) => (
-                <S.SliderCard key={item._id + i}>
-                  <S.CardPicture src={item.avatar} />
-                  <S.SliderCardContainer>
-                    <S.CardTitle>{item.userFullName}</S.CardTitle>
-                    <S.CardDescription>{item.description}</S.CardDescription>
-                  </S.SliderCardContainer>
-                </S.SliderCard>
-              ))}
-            </Slider>
-          </S.SliderCards>
+        <S.SliderCards>
+          <Slider {...settings}>
+            {items.map((item, i) => (
+              <S.SliderCard key={item._id + i}>
+                <S.CardPicture src={item.avatar} />
+                <S.SliderCardContainer>
+                  <S.CardTitle>{item.userFullName}</S.CardTitle>
+                  <S.CardDescription>{item.description}</S.CardDescription>
+                </S.SliderCardContainer>
+              </S.SliderCard>
+            ))}
+          </Slider>
+        </S.SliderCards>  
       </S.AboutUsSliderContainer>
     </S.AboutUsSlider>
   )

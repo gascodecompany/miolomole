@@ -6,7 +6,6 @@ import AboutUsSectionOne from "../../components/AboutUsSectionOne";
 import AboutUsSlider from "../../components/AboutUsSlider";
 
 export default function AboutUs(props){
-  
   return(
     <div>
       <AboutUsJumbotron {...props}/>
@@ -14,7 +13,7 @@ export default function AboutUs(props){
       <AboutUsQuote {...props} />
       <AboutUsSectionOne {...props} />
       <AboutUsImagination {...props} />
-      <AboutUsSlider/>
+      <AboutUsSlider {...props} />
     </div>
   )
 }

@@ -5,10 +5,11 @@ import Text from '../../../models/text';
 export async function getStaticPaths(){
   await mongoose.connect(process.env.NEXT_PUBLIC_MONGO_DB_URL, { useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true, useNewUrlParser: true });
   const books = await Book.find();
-  const paths = [ 
-    ...books.map((book) => ({ params: { name: `${book.name}` } })), 
-    ...books.map((book) => ({ params: { name: `${book.name}-audiovisual` } })), 
-    ...books.map((book) => ({ params: { name: `${book.name}-versao-audiovisual` } })) 
+  const paths = [
+    ...books.map((book) => ({ params: { name: `${book.name}` } })),
+    ...books.map((book) => ({ params: { name: `${book.name}-audiovisual` } })),
+    ...books.map((book) => ({ params: { name: `${book.name}-audioacessivel` } })),
+    ...books.map((book) => ({ params: { name: `${book.name}-versao-audiovisual` } }))
   ]
   return { paths, fallback: true }
 }
@@ -17,10 +18,12 @@ export async function getStaticProps({ params: { name } }) {
   await mongoose.connect(process.env.NEXT_PUBLIC_MONGO_DB_URL, { useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true, useNewUrlParser: true });
   if(!!name) {
     const splittedId = name?.split('-');
+    const hasAudioacessivel = splittedId && splittedId[splittedId.length - 1] === 'audioacessivel';
     const hasAudiovisual = splittedId && splittedId[splittedId.length - 1] === 'audiovisual';
     const hasVersionAudiovisual = splittedId && splittedId.slice( - 2).join() == 'versao,audiovisual';
-    if(hasAudiovisual) { splittedId.pop() };
+    if(hasAudiovisual || hasAudioacessivel) { splittedId.pop() };
     if(hasVersionAudiovisual) { splittedId.pop() }
+    const acessivel = hasAudioacessivel || hasAudiovisual
     const joinedName = splittedId?.join('-');
     const booksObj = await Book.findOne({ name: joinedName }).populate('authors').populate('illustrators');
     const booksArr = await Book.find();
@@ -29,9 +32,9 @@ export async function getStaticProps({ params: { name } }) {
     const page = 'books';
     const textsArray = await Text.find({ page });
     const texts = textsArray.reduce((object, text) => Object.assign(object, {[text.textKey]: text.text}), {});
-    return { props: { book, books, texts, hasAudiovisual }, revalidate: 1  }
+    return { props: { book, books, texts, acessivel }, revalidate: 1  }
   } else {
-    return { props: { book: {}, books: [], texts: [], hasAudiovisual }, revalidate: 1  }
+    return { props: { book: {}, books: [], texts: [], acessivel }, revalidate: 1  }
   }
 }
 
